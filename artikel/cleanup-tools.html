@@ -1,191 +1,191 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPEhtml>
+<htmllang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Petunjuk Penggunaan Cleanup Tools 🪄</title>
-<meta name="description" content="Panduan otomatis membersihkan dependensi Node.js yang tidak digunakan pada repositori GitHub Pages menggunakan skrip cleanup.js.">
-<meta name="keywords" content="cleanup, npm, depcheck, github actions, nodejs, frijal.pages.dev">
-<link rel="canonical" href="https://frijal.pages.dev/artikel/cleanup-tools.html">
-<link rel="icon" type="image/png" href="https://frijal.pages.dev/favicon.png">
+<metacharset="UTF-8">
+<metaname="viewport"content="width=device-width,initial-scale=1">
+<title>PetunjukPenggunaanCleanupTools🪄</title>
+<metaname="description"content="PanduanotomatismembersihkandependensiNode.jsyangtidakdigunakanpadarepositoriGitHubPagesmenggunakanskripcleanup.js.">
+<metaname="keywords"content="cleanup,npm,depcheck,githubactions,nodejs,frijal.pages.dev">
+<linkrel="canonical"href="https://frijal.pages.dev/artikel/cleanup-tools.html">
+<linkrel="icon"type="image/png"href="https://frijal.pages.dev/favicon.png">
 
-<!-- Open Graph -->
-<meta property="og:title" content="🪄 Petunjuk Penggunaan Cleanup Tools">
-<meta property="og:description" content="Panduan membersihkan paket Node.js tak terpakai secara otomatis menggunakan cleanup.js di GitHub Pages.">
-<meta property="og:image" content="https://frijal.pages.dev/img/cleanup-tools.webp">
-<meta property="og:url" content="https://frijal.pages.dev/artikel/cleanup-tools.html">
-<meta property="og:type" content="article">
+<!--OpenGraph-->
+<metaproperty="og:title"content="🪄PetunjukPenggunaanCleanupTools">
+<metaproperty="og:description"content="PanduanmembersihkanpaketNode.jstakterpakaisecaraotomatismenggunakancleanup.jsdiGitHubPages.">
+<metaproperty="og:image"content="https://frijal.pages.dev/img/cleanup-tools.webp">
+<metaproperty="og:url"content="https://frijal.pages.dev/artikel/cleanup-tools.html">
+<metaproperty="og:type"content="article">
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="🪄 Petunjuk Penggunaan Cleanup Tools">
-<meta name="twitter:description" content="Panduan membersihkan paket Node.js tak terpakai secara otomatis menggunakan cleanup.js di GitHub Pages.">
+<!--TwitterCard-->
+<metaname="twitter:card"content="summary_large_image">
+<metaname="twitter:title"content="🪄PetunjukPenggunaanCleanupTools">
+<metaname="twitter:description"content="PanduanmembersihkanpaketNode.jstakterpakaisecaraotomatismenggunakancleanup.jsdiGitHubPages.">
 
-<!-- Prism.js Highlight -->
-<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-jsx.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet">
+<!--Prism.jsHighlight-->
+<linkhref="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css"rel="stylesheet">
+<scriptsrc="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<scriptsrc="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-jsx.min.js"></script>
+<scriptsrc="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<scriptsrc="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<linkhref="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css"rel="stylesheet">
 
 <style>
-  :root { color-scheme: dark; }
-  body {
-    font-family: 'Segoe UI', Roboto, sans-serif;
-    background-color: #0d1117;
-    color: #e6edf3;
-    margin: 0;
-    padding: 0;
-    line-height: 1.7;
-  }
-  main {
-    max-width: 880px;
-    margin: 0 auto;
-    padding: 2rem 1rem 5rem;
-  }
-  h1, h2, h3 {
-    color: #58a6ff;
-  }
-  pre[class*="language-"] {
-    background: #161b22 !important;
-    border-radius: 10px;
-    overflow-x: auto;
-    font-size: 0.95em;
-  }
-  code {
-    font-family: 'Fira Code', monospace;
-  }
-  a {
-    color: #58a6ff;
-    text-decoration: none;
-  }
-  a:hover { text-decoration: underline; }
-  img.lazy {
-    filter: blur(8px);
-    transition: filter 0.4s ease-out;
-  }
-  img.lazy.loaded { filter: blur(0); }
-  .share {
-    display: flex;
-    gap: 12px;
-    margin: 2rem 0;
-  }
-  .share a img {
-    width: 32px;
-    height: 32px;
-    transition: transform 0.2s;
-  }
-  .share a img:hover { transform: scale(1.15); }
-  footer {
-    text-align: center;
-    margin-top: 3rem;
-    font-size: 0.9em;
-    opacity: 0.7;
-  }
-  pre[data-toolbar]::before {
-    content: '';
-    display: block;
-    height: 10px;
-  }
+:root{color-scheme:dark;}
+body{
+font-family:'SegoeUI',Roboto,sans-serif;
+background-color:#0d1117;
+color:#e6edf3;
+margin:0;
+padding:0;
+line-height:1.7;
+}
+main{
+max-width:880px;
+margin:0auto;
+padding:2rem1rem5rem;
+}
+h1,h2,h3{
+color:#58a6ff;
+}
+pre[class*="language-"]{
+background:#161b22!important;
+border-radius:10px;
+overflow-x:auto;
+font-size:0.95em;
+}
+code{
+font-family:'FiraCode',monospace;
+}
+a{
+color:#58a6ff;
+text-decoration:none;
+}
+a:hover{text-decoration:underline;}
+img.lazy{
+filter:blur(8px);
+transition:filter0.4sease-out;
+}
+img.lazy.loaded{filter:blur(0);}
+.share{
+display:flex;
+gap:12px;
+margin:2rem0;
+}
+.shareaimg{
+width:32px;
+height:32px;
+transition:transform0.2s;
+}
+.shareaimg:hover{transform:scale(1.15);}
+footer{
+text-align:center;
+margin-top:3rem;
+font-size:0.9em;
+opacity:0.7;
+}
+pre[data-toolbar]::before{
+content:'';
+display:block;
+height:10px;
+}
 
 </style>
 
-<link rel="stylesheet" href="/ext/marquee-url.css"><link rel="alternate" type="application/rss+xml" title="30 artikel baru bikin." href="https://frijal.pages.dev/rss.xml" />
-    <meta property="article:published_time" content="2025-10-16T23:20:38.178+00:00">
+<linkrel="stylesheet"href="/ext/marquee-url.css"><linkrel="alternate"type="application/rss+xml"title="30artikelbarubikin."href="https://frijal.pages.dev/rss.xml"/>
+<metaproperty="article:published_time"content="2025-10-16T23:20:38.178+00:00">
 </head>
 <body>
 
 <main>
-  <h1>🪄 Petunjuk Penggunaan Cleanup Tools</h1>
-<div id="iposbrowser"></div>
+<h1>🪄PetunjukPenggunaanCleanupTools</h1>
+<divid="iposbrowser"></div>
 
 
-  <p>Halaman ini menjelaskan cara otomatis membersihkan <strong>paket Node.js</strong> yang sudah tidak terpakai di repositori GitHub Pages kamu. Tools ini cocok digunakan baik secara lokal maupun di GitHub Actions (non-interaktif penuh).</p>
+<p>Halamaninimenjelaskancaraotomatismembersihkan<strong>paketNode.js</strong>yangsudahtidakterpakaidirepositoriGitHubPageskamu.ToolsinicocokdigunakanbaiksecaralokalmaupundiGitHubActions(non-interaktifpenuh).</p>
 
-  <h2>📁 File yang Harus Dibuat</h2>
-  <p>Buat file berikut di dalam folder <code>ext/</code>:</p>
-  <pre><code class="language-bash">ext/cleanup.js</code></pre>
+<h2>📁FileyangHarusDibuat</h2>
+<p>Buatfileberikutdidalamfolder<code>ext/</code>:</p>
+<pre><codeclass="language-bash">ext/cleanup.js</code></pre>
 
-  <h2>⚙️ Instalasi Awal</h2>
-  <p>Jalankan perintah berikut sekali saja untuk menginstal dua paket pendukung:</p>
-  <pre><code class="language-bash">npm install --save-dev depcheck inquirer</code></pre>
+<h2>⚙️InstalasiAwal</h2>
+<p>Jalankanperintahberikutsekalisajauntukmenginstalduapaketpendukung:</p>
+<pre><codeclass="language-bash">npminstall--save-devdepcheckinquirer</code></pre>
 
-  <h2>🚀 Menjalankan Cleanup</h2>
-  <p>Ketik perintah berikut di terminal:</p>
-  <pre><code class="language-bash">node ext/cleanup.js</code></pre>
-  <p>Pilih paket yang ingin dihapus dengan menekan <kbd>Spasi</kbd> → lalu <kbd>Enter</kbd>.</p>
-  <p>Saat muncul pertanyaan <em>"hapus node_modules & reinstall?"</em>, pilih <strong>Ya</strong> untuk melakukan reset penuh.</p>
+<h2>🚀MenjalankanCleanup</h2>
+<p>Ketikperintahberikutditerminal:</p>
+<pre><codeclass="language-bash">nodeext/cleanup.js</code></pre>
+<p>Pilihpaketyangingindihapusdenganmenekan<kbd>Spasi</kbd>→lalu<kbd>Enter</kbd>.</p>
+<p>Saatmunculpertanyaan<em>"hapusnode_modules&reinstall?"</em>,pilih<strong>Ya</strong>untukmelakukanresetpenuh.</p>
 
-  <h2>🧩 Opsi Non-Interaktif (Untuk GitHub Actions)</h2>
-  <p>Buat varian otomatis penuh, misalnya <code>ext/cleanup-auto.js</code>:</p>
-  <pre><code class="language-js">import { execSync } from "child_process";
-import depcheck from "depcheck";
+<h2>🧩OpsiNon-Interaktif(UntukGitHubActions)</h2>
+<p>Buatvarianotomatispenuh,misalnya<code>ext/cleanup-auto.js</code>:</p>
+<pre><codeclass="language-js">import{execSync}from"child_process";
+importdepcheckfrom"depcheck";
 
-(async () =&gt; {
-  console.log("🔍 Memeriksa dependensi tak terpakai...");
-  const unused = await depcheck(process.cwd());
-  const all = [...unused.dependencies, ...unused.devDependencies];
-  if (all.length === 0) return console.log("✅ Tidak ada paket tak terpakai.");
-  console.log("🗑️ Menghapus:", all.join(", "));
-  execSync(`npm uninstall ${all.join(" ")} --silent`, { stdio: "inherit" });
-  console.log("♻️ Membersihkan dan reinstall...");
-  execSync("rm -rf node_modules package-lock.json", { stdio: "inherit" });
-  execSync("npm install --silent", { stdio: "inherit" });
-  console.log("✨ Selesai!");
+(async()=&gt;{
+console.log("🔍Memeriksadependensitakterpakai...");
+constunused=awaitdepcheck(process.cwd());
+constall=[...unused.dependencies,...unused.devDependencies];
+if(all.length===0)returnconsole.log("✅Tidakadapakettakterpakai.");
+console.log("🗑️Menghapus:",all.join(","));
+execSync(`npmuninstall${all.join("")}--silent`,{stdio:"inherit"});
+console.log("♻️Membersihkandanreinstall...");
+execSync("rm-rfnode_modulespackage-lock.json",{stdio:"inherit"});
+execSync("npminstall--silent",{stdio:"inherit"});
+console.log("✨Selesai!");
 })();</code></pre>
 
-  <p>Script ini berjalan sepenuhnya otomatis tanpa prompt, ideal untuk dipakai dalam workflow GitHub Actions.</p>
+<p>Scriptiniberjalansepenuhnyaotomatistanpaprompt,idealuntukdipakaidalamworkflowGitHubActions.</p>
 
-  <h2>💡 Tambahkan Shortcut di package.json</h2>
-  <pre><code class="language-json">"scripts": {
-  "clean": "node ext/cleanup.js"
+<h2>💡TambahkanShortcutdipackage.json</h2>
+<pre><codeclass="language-json">"scripts":{
+"clean":"nodeext/cleanup.js"
 }</code></pre>
-  <p>Setelah itu kamu cukup jalankan:</p>
-  <pre><code class="language-bash">npm run clean</code></pre>
+<p>Setelahitukamucukupjalankan:</p>
+<pre><codeclass="language-bash">npmrunclean</code></pre>
 
-  <h2>🔗 Bagikan Artikel Ini</h2>
-  <div class="share">
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https://frijal.pages.dev/artikel/cleanup-tools.html" target="_blank">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" loading="lazy">
-    </a>
-    <a href="https://twitter.com/intent/tweet?url=https://frijal.pages.dev/artikel/cleanup-tools.html&text=🪄 Panduan Cleanup Tools untuk GitHub Pages" target="_blank">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter" loading="lazy">
-    </a>
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://frijal.pages.dev/artikel/cleanup-tools.html" target="_blank">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" loading="lazy">
-    </a>
-    <a href="https://t.me/share/url?url=https://frijal.pages.dev/artikel/cleanup-tools.html" target="_blank">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg" alt="Telegram" loading="lazy">
-    </a>
-  </div>
+<h2>🔗BagikanArtikelIni</h2>
+<divclass="share">
+<ahref="https://www.facebook.com/sharer/sharer.php?u=https://frijal.pages.dev/artikel/cleanup-tools.html"target="_blank">
+<imgsrc="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg"alt="Facebook"loading="lazy">
+</a>
+<ahref="https://twitter.com/intent/tweet?url=https://frijal.pages.dev/artikel/cleanup-tools.html&text=🪄PanduanCleanupToolsuntukGitHubPages"target="_blank">
+<imgsrc="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg"alt="Twitter"loading="lazy">
+</a>
+<ahref="https://www.linkedin.com/shareArticle?mini=true&url=https://frijal.pages.dev/artikel/cleanup-tools.html"target="_blank">
+<imgsrc="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg"alt="LinkedIn"loading="lazy">
+</a>
+<ahref="https://t.me/share/url?url=https://frijal.pages.dev/artikel/cleanup-tools.html"target="_blank">
+<imgsrc="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg"alt="Telegram"loading="lazy">
+</a>
+</div>
 
-  <footer>
-    <p>🄯 2025 frijal.pages.dev — Jaga Data Pribadi Tetap Aman.</p>
-  </footer>
+<footer>
+<p>🄯2025frijal.pages.dev—JagaDataPribadiTetapAman.</p>
+</footer>
 </main>
 
-<!-- Lazy Load -->
+<!--LazyLoad-->
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const imgs = document.querySelectorAll("img[loading='lazy']");
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.src = e.target.dataset.src || e.target.src;
-        e.target.classList.add("loaded");
-        obs.unobserve(e.target);
-      }
-    });
-  });
-  imgs.forEach(i => obs.observe(i));
+document.addEventListener("DOMContentLoaded",()=>{
+constimgs=document.querySelectorAll("img[loading='lazy']");
+constobs=newIntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){
+e.target.src=e.target.dataset.src||e.target.src;
+e.target.classList.add("loaded");
+obs.unobserve(e.target);
+}
+});
+});
+imgs.forEach(i=>obs.observe(i));
 });
 </script>
 
 
-<div class="search-floating-container"><input type="text" id="floatingSearchInput" placeholder="cari artikel..." autocomplete="off"><span id="floatingSearchClear" class="clear-button"></span><div id="floatingSearchResults" class="floating-results-container"></div></div>
-<section id="related-marquee-section"><div id="related-marquee-container"></div></section><script defer src="/ext/marquee-url.js"></script>
-<script defer src="/ext/iposbrowser.js"></script>
+<divclass="search-floating-container"><inputtype="text"id="floatingSearchInput"placeholder="cariartikel..."autocomplete="off"><spanid="floatingSearchClear"class="clear-button"></span><divid="floatingSearchResults"class="floating-results-container"></div></div>
+<sectionid="related-marquee-section"><divid="related-marquee-container"></div></section><scriptdefersrc="/ext/marquee-url.js"></script>
+<scriptdefersrc="/ext/iposbrowser.js"></script>
 
 
 </body>

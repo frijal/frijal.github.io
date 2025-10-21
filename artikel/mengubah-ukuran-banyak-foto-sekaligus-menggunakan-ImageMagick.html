@@ -1,307 +1,307 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPEhtml>
+<htmllang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <!-- prettier-ignore -->
-<title>Batch Resize Foto dengan ImageMagick — Simpan ke Folder Terpisah</title>
+<metacharset="utf-8"/>
+<metaname="viewport"content="width=device-width,initial-scale=1"/>
+<!--prettier-ignore-->
+<title>BatchResizeFotodenganImageMagick—SimpankeFolderTerpisah</title>
 
-  <!-- Prism.js theme -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet"/>
+<!--Prism.jstheme-->
+<linkhref="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"rel="stylesheet"/>
 
-  <style>
+<style>
 :root{
-  --accent:#2d89ef;
-  --bg:#f5f7fa;
-  --card:#ffffff;
-  --text:#222;
-  --muted:#555;
+--accent:#2d89ef;
+--bg:#f5f7fa;
+--card:#ffffff;
+--text:#222;
+--muted:#555;
 }
 *{box-sizing:border-box}
 body{
-  margin:0;
-  font-family:Inter, "Segoe UI", Tahoma, Verdana, sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.6;
-  transition:background .2s, color .2s;
+margin:0;
+font-family:Inter,"SegoeUI",Tahoma,Verdana,sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.6;
+transition:background.2s,color.2s;
 }
 header{
-  background:var(--accent);
-  color:#fff;
-  padding:18px;
-  text-align:center;
+background:var(--accent);
+color:#fff;
+padding:18px;
+text-align:center;
 }
-header h1{margin:0;font-size:1.4rem}
+headerh1{margin:0;font-size:1.4rem}
 main{
-  max-width:980px;
-  margin:20px auto;
-  padding:22px;
-  background:var(--card);
-  border-radius:12px;
-  box-shadow:0 8px 30px rgba(20,20,40,0.06);
+max-width:980px;
+margin:20pxauto;
+padding:22px;
+background:var(--card);
+border-radius:12px;
+box-shadow:08px30pxrgba(20,20,40,0.06);
 }
 h2{color:var(--accent);margin-top:0}
-p{margin:.6rem 0;color:var(--muted)}
+p{margin:.6rem0;color:var(--muted)}
 ul{color:var(--muted)}
 pre{
-  position:relative;
-  border-radius:8px;
-  overflow:auto;
-  margin:14px 0;
-  font-size:.95rem;
+position:relative;
+border-radius:8px;
+overflow:auto;
+margin:14px0;
+font-size:.95rem;
 }
-pre code{display:block;padding:16px}
+precode{display:block;padding:16px}
 .copy-btn{
-  position:absolute;
-  top:10px;
-  right:10px;
-  background:var(--accent);
-  color:#fff;
-  border:none;
-  padding:6px 10px;
-  border-radius:6px;
-  cursor:pointer;
-  font-size:.85rem;
+position:absolute;
+top:10px;
+right:10px;
+background:var(--accent);
+color:#fff;
+border:none;
+padding:6px10px;
+border-radius:6px;
+cursor:pointer;
+font-size:.85rem;
 }
 .copy-btn:active{transform:translateY(1px)}
-.note{background:#eef6ff;border-left:4px solid var(--accent);padding:10px;border-radius:6px;color:var(--muted)}
+.note{background:#eef6ff;border-left:4pxsolidvar(--accent);padding:10px;border-radius:6px;color:var(--muted)}
 .small{font-size:.95rem;color:var(--muted)}
 footer{margin-top:18px;text-align:center;padding:14px;color:#777}
 
-/* Dark mode */
+/*Darkmode*/
 body.dark{
-  background:#0f1115;
-  color:#ddd;
+background:#0f1115;
+color:#ddd;
 }
-body.dark main{background:#14151a}
-body.dark .note{background:#0b2338;color:#cfe8ff}
+body.darkmain{background:#14151a}
+body.dark.note{background:#0b2338;color:#cfe8ff}
 .toggle{
-  position:fixed;
-  bottom:18px;
-  right:18px;
-  background:var(--accent);
-  color:#fff;
-  border:none;
-  padding:10px 14px;
-  border-radius:999px;
-  cursor:pointer;
-  box-shadow:0 6px 18px rgba(0,0,0,0.25);
+position:fixed;
+bottom:18px;
+right:18px;
+background:var(--accent);
+color:#fff;
+border:none;
+padding:10px14px;
+border-radius:999px;
+cursor:pointer;
+box-shadow:06px18pxrgba(0,0,0,0.25);
 }
 
-@media (max-width:600px){
-  header h1{font-size:1.1rem}
-  .toggle{padding:10px}
+@media(max-width:600px){
+headerh1{font-size:1.1rem}
+.toggle{padding:10px}
 }
 
-  </style>
-<meta name="date" content="2025-09-28">
+</style>
+<metaname="date"content="2025-09-28">
 
 
-  <meta property="og:image" content="https://frijal.pages.dev/img/mengubah-ukuran-banyak-foto-sekaligus-menggunakan-ImageMagick.webp">
-  <meta property="og:image:alt" content="Batch Resize Foto dengan ImageMagick — Simpan ke Folder Terpisah">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://frijal.pages.dev/img/mengubah-ukuran-banyak-foto-sekaligus-menggunakan-ImageMagick.webp">
-  <meta itemprop="image" content="https://frijal.pages.dev/img/mengubah-ukuran-banyak-foto-sekaligus-menggunakan-ImageMagick.webp">
+<metaproperty="og:image"content="https://frijal.pages.dev/img/mengubah-ukuran-banyak-foto-sekaligus-menggunakan-ImageMagick.webp">
+<metaproperty="og:image:alt"content="BatchResizeFotodenganImageMagick—SimpankeFolderTerpisah">
+<metaname="twitter:card"content="summary_large_image">
+<metaname="twitter:image"content="https://frijal.pages.dev/img/mengubah-ukuran-banyak-foto-sekaligus-menggunakan-ImageMagick.webp">
+<metaitemprop="image"content="https://frijal.pages.dev/img/mengubah-ukuran-banyak-foto-sekaligus-menggunakan-ImageMagick.webp">
 
-<link rel="stylesheet" href="/ext/marquee-url.css"><link rel="alternate" type="application/rss+xml" title="30 artikel baru bikin." href="https://frijal.pages.dev/rss.xml" />
-<meta property="article:published_time" content="2025-09-16T11:00:00+08:00"></head>
+<linkrel="stylesheet"href="/ext/marquee-url.css"><linkrel="alternate"type="application/rss+xml"title="30artikelbarubikin."href="https://frijal.pages.dev/rss.xml"/>
+<metaproperty="article:published_time"content="2025-09-16T11:00:00+08:00"></head>
 <body>
-  <header>
-<h1>Batch Resize Foto dengan ImageMagick — Simpan Hasil ke Folder Terpisah</h1>
-<div id="iposbrowser"></div>
+<header>
+<h1>BatchResizeFotodenganImageMagick—SimpanHasilkeFolderTerpisah</h1>
+<divid="iposbrowser"></div>
 
-  </header>
+</header>
 
-  <main>
+<main>
 <section>
-  <h2>Pendahuluan (singkat & mudah)</h2>
-  <p>Kalau kamu punya banyak foto di satu folder dan ingin mengubah ukurannya sekaligus — misalnya membuat versi web (lebar 800px) — tapi tetap mau menyimpan foto asli di folder asal, ImageMagick sangat cocok untuk tugas ini. Di bawah ada beberapa metode: perintah cepat (single directory), skrip rekursif (memproses subfolder), dan contoh untuk Windows PowerShell.</p>
-  <p class="note"><strong>Catatan penting:</strong>  
-  Jangan gunakan <code>mogrify</code> tanpa opsi <code>-path</code> jika kamu ingin menyimpan salinan; <code>mogrify</code> defaultnya <em>menimpa</em> file asli. Gunakan <code>-path</code> atau pakai loop dengan <code>magick</code> (alias <code>convert</code> di versi lama).</p>
+<h2>Pendahuluan(singkat&mudah)</h2>
+<p>Kalaukamupunyabanyakfotodisatufolderdaninginmengubahukurannyasekaligus—misalnyamembuatversiweb(lebar800px)—tapitetapmaumenyimpanfotoaslidifolderasal,ImageMagicksangatcocokuntuktugasini.Dibawahadabeberapametode:perintahcepat(singledirectory),skriprekursif(memprosessubfolder),dancontohuntukWindowsPowerShell.</p>
+<pclass="note"><strong>Catatanpenting:</strong>
+Jangangunakan<code>mogrify</code>tanpaopsi<code>-path</code>jikakamuinginmenyimpansalinan;<code>mogrify</code>defaultnya<em>menimpa</em>fileasli.Gunakan<code>-path</code>ataupakailoopdengan<code>magick</code>(alias<code>convert</code>diversilama).</p>
 </section>
 
 <section>
-  <h2>Prasyarat</h2>
-  <ul>
-<li>ImageMagick terpasang — cek dengan <code>magick -version</code> atau <code>convert -version</code>.</li>
-<li>Akses terminal (Linux/macOS) atau PowerShell (Windows).</li>
-<li>Pahami bahwa path berisi spasi harus diberi tanda kutip.</li>
-  </ul>
+<h2>Prasyarat</h2>
+<ul>
+<li>ImageMagickterpasang—cekdengan<code>magick-version</code>atau<code>convert-version</code>.</li>
+<li>Aksesterminal(Linux/macOS)atauPowerShell(Windows).</li>
+<li>Pahamibahwapathberisispasiharusdiberitandakutip.</li>
+</ul>
 </section>
 
 <section>
-  <h2>Metode 1 — Cepat: Semua file di satu folder (Linux/macOS)</h2>
-  <p>Metode paling singkat: pakai <code>mogrify -path</code> — hasil akan ditulis ke folder tujuan, file asli tetap utuh.</p>
+<h2>Metode1—Cepat:Semuafiledisatufolder(Linux/macOS)</h2>
+<p>Metodepalingsingkat:pakai<code>mogrify-path</code>—hasilakandituliskefoldertujuan,fileaslitetaputuh.</p>
 
-  <pre><button class="copy-btn">Copy</button><code class="language-bash"># Buat folder tujuan
-mkdir -p ../resized
+<pre><buttonclass="copy-btn">Copy</button><codeclass="language-bash">#Buatfoldertujuan
+mkdir-p../resized
 
-# Resize semua JPG di folder saat ini menjadi lebar 800px (tinggi menyesuaikan)
-magick mogrify -path ../resized -resize 800x -strip -quality 85 *.jpg</code></pre>
+#ResizesemuaJPGdifoldersaatinimenjadilebar800px(tinggimenyesuaikan)
+magickmogrify-path../resized-resize800x-strip-quality85*.jpg</code></pre>
 
-  <p class="small">Penjelasan singkat:<br>
-  <code>-path ../resized</code> → simpan hasil di folder <code>../resized</code> (relatif).<br>
-  <code>-resize 800x</code> → ubah lebar jadi 800px (tinggi menyesuaikan). Gunakan <code>800x800&gt;</code> untuk hanya mengubah gambar yang lebih besar dari 800x800. <code>-strip</code> menghapus metadata, <code>-quality 85</code> mengatur kualitas JPEG.</p>
+<pclass="small">Penjelasansingkat:<br>
+<code>-path../resized</code>→simpanhasildifolder<code>../resized</code>(relatif).<br>
+<code>-resize800x</code>→ubahlebarjadi800px(tinggimenyesuaikan).Gunakan<code>800x800&gt;</code>untukhanyamengubahgambaryanglebihbesardari800x800.<code>-strip</code>menghapusmetadata,<code>-quality85</code>mengaturkualitasJPEG.</p>
 </section>
 
 <section>
-  <h2>Metode 2 — Loop per-file (lebih fleksibel)</h2>
-  <p>Kalau mau kontrol lebih (mis. ubah format ke PNG, atau tambahkan watermark per-file), gunakan loop:</p>
+<h2>Metode2—Loopper-file(lebihfleksibel)</h2>
+<p>Kalaumaukontrollebih(mis.ubahformatkePNG,atautambahkanwatermarkper-file),gunakanloop:</p>
 
-  <pre><button class="copy-btn">Copy</button><code class="language-bash">mkdir -p ../resized
-for f in *.jpg; do
-  magick "$f" -resize 800x -strip -quality 85 "../resized/${f%.*}.jpg"
+<pre><buttonclass="copy-btn">Copy</button><codeclass="language-bash">mkdir-p../resized
+forfin*.jpg;do
+magick"$f"-resize800x-strip-quality85"../resized/${f%.*}.jpg"
 done</code></pre>
 
-  <p class="small">Kelebihan: bisa mengubah ekstensi, menambahkan opsi per-file, atau memproses hanya tipe tertentu.</p>
+<pclass="small">Kelebihan:bisamengubahekstensi,menambahkanopsiper-file,ataumemproseshanyatipetertentu.</p>
 </section>
 
 <section>
-  <h2>Metode 3 — Rekursif: proses subfolder & simpan struktur (Linux/macOS)</h2>
-  <p>Jika folder berisi subfolder dan kamu ingin mempertahankan struktur (mis. <code>photos/2023/</code> → <code>resized/2023/</code>), gunakan kombinasi <code>find</code> + <code>magick</code>:</p>
+<h2>Metode3—Rekursif:prosessubfolder&simpanstruktur(Linux/macOS)</h2>
+<p>Jikafolderberisisubfolderdankamuinginmempertahankanstruktur(mis.<code>photos/2023/</code>→<code>resized/2023/</code>),gunakankombinasi<code>find</code>+<code>magick</code>:</p>
 
-  <pre><button class="copy-btn">Copy</button><code class="language-bash">#!/bin/bash
-# rekursif-resize.sh
-# Jalankan dari root folder foto (mis: /home/user/photos)
+<pre><buttonclass="copy-btn">Copy</button><codeclass="language-bash">#!/bin/bash
+#rekursif-resize.sh
+#Jalankandarirootfolderfoto(mis:/home/user/photos)
 
 OUTDIR="resized"
-mkdir -p "$OUTDIR"
+mkdir-p"$OUTDIR"
 
-find . -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' \) -print0 |
-while IFS= read -r -d '' file; do
-  rel="${file#./}"# hapus leading ./ 
-  dst="$OUTDIR/$(dirname "$rel")"# buat path destinasi sesuai struktur
-  mkdir -p "$dst"
-  magick "$file" -resize 800x -strip -quality 85 "$dst/$(basename "$rel")"
+find.-typef\(-iname'*.jpg'-o-iname'*.jpeg'-o-iname'*.png'\)-print0|
+whileIFS=read-r-d''file;do
+rel="${file#./}"#hapusleading./
+dst="$OUTDIR/$(dirname"$rel")"#buatpathdestinasisesuaistruktur
+mkdir-p"$dst"
+magick"$file"-resize800x-strip-quality85"$dst/$(basename"$rel")"
 done</code></pre>
 
-  <p class="small">Script di atas membuat folder <code>resized/</code> dan menyalin setiap file terresize ke lokasi yang sesuai, sehingga struktur internal tetap sama.</p>
+<pclass="small">Scriptdiatasmembuatfolder<code>resized/</code>danmenyalinsetiapfileterresizekelokasiyangsesuai,sehinggastrukturinternaltetapsama.</p>
 </section>
 
 <section>
-  <h2>Metode 4 — Contoh: hanya mengubah gambar yang lebih besar dari ukuran target</h2>
-  <p>Gunakan operator <code>&gt;</code> di argumen resize agar gambar yang lebih kecil dari target tidak diperbesar:</p>
+<h2>Metode4—Contoh:hanyamengubahgambaryanglebihbesardariukurantarget</h2>
+<p>Gunakanoperator<code>&gt;</code>diargumenresizeagargambaryanglebihkecildaritargettidakdiperbesar:</p>
 
-  <pre><button class="copy-btn">Copy</button><code class="language-bash"># contoh singkat
-magick mogrify -path ../resized -resize 800x800\> -strip -quality 85 *.jpg</code></pre>
+<pre><buttonclass="copy-btn">Copy</button><codeclass="language-bash">#contohsingkat
+magickmogrify-path../resized-resize800x800\>-strip-quality85*.jpg</code></pre>
 
-  <p class="small">Perhatikan backslash <code>\</code> untuk menghindari interpretasi shell pada tanda <code>&gt;</code>. Di banyak shell, menuliskan argumen sebagai <code>"800x800&gt;"</code> juga aman.</p>
+<pclass="small">Perhatikanbackslash<code>\</code>untukmenghindariinterpretasishellpadatanda<code>&gt;</code>.Dibanyakshell,menuliskanargumensebagai<code>"800x800&gt;"</code>jugaaman.</p>
 </section>
 
 <section>
-  <h2>Contoh Skrip Lengkap (Linux) — simpan & jalankan</h2>
-  <p>Simpan contoh berikut sebagai <code>batch-resize.sh</code>, beri izin eksekusi, lalu jalankan di folder foto:</p>
+<h2>ContohSkripLengkap(Linux)—simpan&jalankan</h2>
+<p>Simpancontohberikutsebagai<code>batch-resize.sh</code>,beriizineksekusi,lalujalankandifolderfoto:</p>
 
-  <pre><button class="copy-btn">Copy</button><code class="language-bash">#!/bin/bash
-# batch-resize.sh
-# Usage: ./batch-resize.sh /path/to/source /path/to/destination 800
+<pre><buttonclass="copy-btn">Copy</button><codeclass="language-bash">#!/bin/bash
+#batch-resize.sh
+#Usage:./batch-resize.sh/path/to/source/path/to/destination800
 
 SRC="${1:-.}"
 DST="${2:-./resized}"
 SIZE="${3:-800}"
 
-mkdir -p "$DST"
-cd "$SRC" || exit 1
+mkdir-p"$DST"
+cd"$SRC"||exit1
 
-find . -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' \) -print0 |
-while IFS= read -r -d '' file; do
-  rel="${file#./}"
-  outdir="$DST/$(dirname "$rel")"
-  mkdir -p "$outdir"
-  magick "$file" -resize "${SIZE}x" -strip -quality 85 "$outdir/$(basename "$rel")"
+find.-typef\(-iname'*.jpg'-o-iname'*.jpeg'-o-iname'*.png'\)-print0|
+whileIFS=read-r-d''file;do
+rel="${file#./}"
+outdir="$DST/$(dirname"$rel")"
+mkdir-p"$outdir"
+magick"$file"-resize"${SIZE}x"-strip-quality85"$outdir/$(basename"$rel")"
 done
 
-echo "Selesai. Hasil ada di: $DST"</code></pre>
+echo"Selesai.Hasiladadi:$DST"</code></pre>
 
-  <p class="small">Contoh pemakaian: <code>./batch-resize.sh . ../resized 800</code></p>
+<pclass="small">Contohpemakaian:<code>./batch-resize.sh.../resized800</code></p>
 </section>
 
 <section>
-  <h2>Contoh untuk Windows (PowerShell)</h2>
-  <p>Jika kamu memakai Windows + ImageMagick (magick di PATH), contoh PowerShell berikut memproses rekursif dan menyimpan hasil ke folder baru:</p>
+<h2>ContohuntukWindows(PowerShell)</h2>
+<p>JikakamumemakaiWindows+ImageMagick(magickdiPATH),contohPowerShellberikutmemprosesrekursifdanmenyimpanhasilkefolderbaru:</p>
 
-  <pre><button class="copy-btn">Copy</button><code class="language-powershell"># PowerShell (jalankan di folder root foto)
-$src = "C:\Users\User\Pictures"
-$dst = "C:\Users\User\Pictures_resized"
-$size = "800x"
+<pre><buttonclass="copy-btn">Copy</button><codeclass="language-powershell">#PowerShell(jalankandifolderrootfoto)
+$src="C:\Users\User\Pictures"
+$dst="C:\Users\User\Pictures_resized"
+$size="800x"
 
-Get-ChildItem -Path $src -Recurse -File -Include *.jpg,*.jpeg,*.png | ForEach-Object {
-  $rel = $_.FullName.Substring($src.Length).TrimStart('\')
-  $outDir = Join-Path $dst (Split-Path $rel -Parent)
-  New-Item -ItemType Directory -Path $outDir -Force | Out-Null
-  $outPath = Join-Path $outDir $_.Name
-  magick $_.FullName -resize $size -strip -quality 85 $outPath
+Get-ChildItem-Path$src-Recurse-File-Include*.jpg,*.jpeg,*.png|ForEach-Object{
+$rel=$_.FullName.Substring($src.Length).TrimStart('\')
+$outDir=Join-Path$dst(Split-Path$rel-Parent)
+New-Item-ItemTypeDirectory-Path$outDir-Force|Out-Null
+$outPath=Join-Path$outDir$_.Name
+magick$_.FullName-resize$size-strip-quality85$outPath
 }</code></pre>
 
-  <p class="small">Sesuaikan variable <code>$src</code> dan <code>$dst</code> sebelum menjalankan.</p>
+<pclass="small">Sesuaikanvariable<code>$src</code>dan<code>$dst</code>sebelummenjalankan.</p>
 </section>
 
 <section>
-  <h2>Tips & Troubleshooting</h2>
-  <ul>
-<li>Periksa versi ImageMagick: <code>magick -version</code> (pastikan binary bernama <code>magick</code> atau gunakan <code>convert</code> untuk versi lama).</li>
-<li>Jika file memiliki spasi, selalu bungkus path dengan tanda kutip: <code>"path/file name.jpg"</code>.</li>
-<li>Gunakan <code>-strip</code> untuk menghapus metadata (EXIF) bila ingin mengurangi ukuran file.</li>
-<li>Sesuaikan <code>-quality</code> (mis. 75–90) untuk trade-off kualitas/ukuran.</li>
-<li>Uji skrip di beberapa file dulu sebelum memproses ribuan foto.</li>
-  </ul>
+<h2>Tips&Troubleshooting</h2>
+<ul>
+<li>PeriksaversiImageMagick:<code>magick-version</code>(pastikanbinarybernama<code>magick</code>ataugunakan<code>convert</code>untukversilama).</li>
+<li>Jikafilememilikispasi,selalubungkuspathdengantandakutip:<code>"path/filename.jpg"</code>.</li>
+<li>Gunakan<code>-strip</code>untukmenghapusmetadata(EXIF)bilainginmengurangiukuranfile.</li>
+<li>Sesuaikan<code>-quality</code>(mis.75–90)untuktrade-offkualitas/ukuran.</li>
+<li>Ujiskripdibeberapafiledulusebelummemprosesribuanfoto.</li>
+</ul>
 </section>
 
 <section>
-  <h2>Ringkasan singkat</h2>
-  <p>Untuk menyimpan hasil resize ke folder lain dan menjaga file asli tetap berada di folder asal, gunakan:</p>
+<h2>Ringkasansingkat</h2>
+<p>Untukmenyimpanhasilresizekefolderlaindanmenjagafileaslitetapberadadifolderasal,gunakan:</p>
 
-  <pre><button class="copy-btn">Copy</button><code class="language-bash"># singkat (satu folder)
-mkdir -p ../resized
-magick mogrify -path ../resized -resize 800x -strip -quality 85 *.jpg</code></pre>
+<pre><buttonclass="copy-btn">Copy</button><codeclass="language-bash">#singkat(satufolder)
+mkdir-p../resized
+magickmogrify-path../resized-resize800x-strip-quality85*.jpg</code></pre>
 
-  <p class="note">Atau pakai skrip rekursif jika ada banyak subfolder — contoh skrip sudah diberikan di atas.</p>
+<pclass="note">Ataupakaiskriprekursifjikaadabanyaksubfolder—contohskripsudahdiberikandiatas.</p>
 </section>
-  </main>
+</main>
 
-  <button class="toggle" id="themeBtn">🌙</button>
+<buttonclass="toggle"id="themeBtn">🌙</button>
 
-  <footer>
-🄯 2025 Tutorial — Batch Resize dengan ImageMagick • Pastikan backup sebelum memproses banyak file
-  </footer>
+<footer>
+🄯2025Tutorial—BatchResizedenganImageMagick•Pastikanbackupsebelummemprosesbanyakfile
+</footer>
 
-  <!-- Prism.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-powershell.min.js"></script>
+<!--Prism.js-->
+<scriptsrc="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<scriptsrc="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+<scriptsrc="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-powershell.min.js"></script>
 
-  <script>
-// Copy buttons
-document.querySelectorAll('.copy-btn').forEach(btn => {
-  btn.addEventListener('click', async () => {
-const codeEl = btn.nextElementSibling;
-if (!codeEl) return;
-const text = codeEl.innerText;
-try {
-  await navigator.clipboard.writeText(text);
-  const old = btn.innerText;
-  btn.innerText = 'Copied!';
-  setTimeout(() => btn.innerText = old, 1500);
-} catch (e) {
-  btn.innerText = 'Failed';
-  setTimeout(() => btn.innerText = 'Copy', 1500);
+<script>
+//Copybuttons
+document.querySelectorAll('.copy-btn').forEach(btn=>{
+btn.addEventListener('click',async()=>{
+constcodeEl=btn.nextElementSibling;
+if(!codeEl)return;
+consttext=codeEl.innerText;
+try{
+awaitnavigator.clipboard.writeText(text);
+constold=btn.innerText;
+btn.innerText='Copied!';
+setTimeout(()=>btn.innerText=old,1500);
+}catch(e){
+btn.innerText='Failed';
+setTimeout(()=>btn.innerText='Copy',1500);
 }
-  });
+});
 });
 
-// Dark mode toggle (session only)
-const themeBtn = document.getElementById('themeBtn');
-themeBtn.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-  const isDark = document.body.classList.contains('dark');
-  themeBtn.textContent = isDark ? '☀️' : '🌙';
+//Darkmodetoggle(sessiononly)
+constthemeBtn=document.getElementById('themeBtn');
+themeBtn.addEventListener('click',()=>{
+document.body.classList.toggle('dark');
+constisDark=document.body.classList.contains('dark');
+themeBtn.textContent=isDark?'☀️':'🌙';
 });
-  </script>
+</script>
 
-<div class="search-floating-container"><input type="text" id="floatingSearchInput" placeholder="cari artikel..." autocomplete="off"><span id="floatingSearchClear" class="clear-button"></span><div id="floatingSearchResults" class="floating-results-container"></div></div>
-<section id="related-marquee-section"><div id="related-marquee-container"></div></section><script defer src="/ext/marquee-url.js"></script>
-<script defer src="/ext/iposbrowser.js"></script>
+<divclass="search-floating-container"><inputtype="text"id="floatingSearchInput"placeholder="cariartikel..."autocomplete="off"><spanid="floatingSearchClear"class="clear-button"></span><divid="floatingSearchResults"class="floating-results-container"></div></div>
+<sectionid="related-marquee-section"><divid="related-marquee-container"></div></section><scriptdefersrc="/ext/marquee-url.js"></script>
+<scriptdefersrc="/ext/iposbrowser.js"></script>
 
 
 </body>

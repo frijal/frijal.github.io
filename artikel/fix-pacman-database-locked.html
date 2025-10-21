@@ -1,188 +1,188 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPEhtml>
+<htmllang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🔒 Memperbaiki Error could not lock database di Arch Linux</title>
-<meta name="description" content="Panduan memperbaiki error pacman could not lock database atau database is locked di Arch Linux dan turunannya.">
-<link rel="canonical" href="https://frijal.pages.dev/artikel/fix-pacman-database-locked.html">
+<metacharset="UTF-8">
+<metaname="viewport"content="width=device-width,initial-scale=1.0">
+<title>🔒MemperbaikiErrorcouldnotlockdatabasediArchLinux</title>
+<metaname="description"content="PanduanmemperbaikierrorpacmancouldnotlockdatabaseataudatabaseislockeddiArchLinuxdanturunannya.">
+<linkrel="canonical"href="https://frijal.pages.dev/artikel/fix-pacman-database-locked.html">
 
-<!-- 🔎 Open Graph -->
-<meta property="og:title" content="🔒 Memperbaiki Error “could not lock database” di Arch Linux">
-<meta property="og:description" content="Solusi lengkap untuk error database lock saat update pacman atau paru di Arch Linux.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://frijal.pages.dev/artikel/fix-pacman-database-locked.html">
-<meta property="og:image" content="https://frijal.pages.dev/img/fix-pacman-database-locked.webp">
+<!--🔎OpenGraph-->
+<metaproperty="og:title"content="🔒MemperbaikiError“couldnotlockdatabase”diArchLinux">
+<metaproperty="og:description"content="SolusilengkapuntukerrordatabaselocksaatupdatepacmanatauparudiArchLinux.">
+<metaproperty="og:type"content="article">
+<metaproperty="og:url"content="https://frijal.pages.dev/artikel/fix-pacman-database-locked.html">
+<metaproperty="og:image"content="https://frijal.pages.dev/img/fix-pacman-database-locked.webp">
 
-<!-- 🐦 Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="🔒 Memperbaiki Error could not lock database di Arch Linux">
-<meta name="twitter:description" content="Langkah-langkah aman memperbaiki database pacman terkunci.">
-<meta name="twitter:image" content="https://frijal.pages.dev/img/fix-pacman-database-locked.webp">
+<!--🐦TwitterCard-->
+<metaname="twitter:card"content="summary_large_image">
+<metaname="twitter:title"content="🔒MemperbaikiErrorcouldnotlockdatabasediArchLinux">
+<metaname="twitter:description"content="Langkah-langkahamanmemperbaikidatabasepacmanterkunci.">
+<metaname="twitter:image"content="https://frijal.pages.dev/img/fix-pacman-database-locked.webp">
 
-<link rel="icon" href="https://frijal.pages.dev/favicon.ico">
+<linkrel="icon"href="https://frijal.pages.dev/favicon.ico">
 
 <style>
-:root {
-  color-scheme: light dark;
-  --bg: #fdfdfd;
-  --text: #111;
-  --accent: #1793d1;
-  --card: #fff;
-  --border: #ddd;
+:root{
+color-scheme:lightdark;
+--bg:#fdfdfd;
+--text:#111;
+--accent:#1793d1;
+--card:#fff;
+--border:#ddd;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0e0e0e;
-    --text: #eee;
-    --card: #181818;
-    --border: #333;
-  }
+@media(prefers-color-scheme:dark){
+:root{
+--bg:#0e0e0e;
+--text:#eee;
+--card:#181818;
+--border:#333;
 }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: "Inter", system-ui, sans-serif;
-  line-height: 1.7;
 }
-header {
-  text-align: center;
-  padding: 2.5rem 1rem 1rem;
+body{
+margin:0;
+background:var(--bg);
+color:var(--text);
+font-family:"Inter",system-ui,sans-serif;
+line-height:1.7;
 }
-header img {
-  width: 90px;
-  height: 90px;
+header{
+text-align:center;
+padding:2.5rem1rem1rem;
 }
-main {
-  max-width: 960px;
-  margin: 2rem auto;
-  background: var(--card);
-  border-radius: 18px;
-  border: 1px solid var(--border);
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+headerimg{
+width:90px;
+height:90px;
 }
-h1, h2, h3 {
-  color: var(--accent);
+main{
+max-width:960px;
+margin:2remauto;
+background:var(--card);
+border-radius:18px;
+border:1pxsolidvar(--border);
+padding:2rem;
+box-shadow:04px20pxrgba(0,0,0,0.08);
 }
-pre {
-  background: #000;
-  color: #0f0;
-  padding: 1rem;
-  border-radius: 8px;
-  overflow-x: auto;
+h1,h2,h3{
+color:var(--accent);
 }
-footer {
-  text-align: center;
-  padding: 2rem;
-  font-size: .9em;
-  opacity: .8;
+pre{
+background:#000;
+color:#0f0;
+padding:1rem;
+border-radius:8px;
+overflow-x:auto;
 }
-.share {
-  text-align: center;
-  margin-top: 2rem;
+footer{
+text-align:center;
+padding:2rem;
+font-size:.9em;
+opacity:.8;
 }
-.fb-comments {
-  margin-top: 2rem;
+.share{
+text-align:center;
+margin-top:2rem;
+}
+.fb-comments{
+margin-top:2rem;
 }
 
 </style>
-<meta property="og:image:alt" content="🔒 Memperbaiki Error could not lock database di Arch Linux">
-  <meta itemprop="image" content="https://frijal.pages.dev/img/fix-pacman-database-locked.webp">
+<metaproperty="og:image:alt"content="🔒MemperbaikiErrorcouldnotlockdatabasediArchLinux">
+<metaitemprop="image"content="https://frijal.pages.dev/img/fix-pacman-database-locked.webp">
 
-    <meta property="article:published_time" content="2025-10-13T21:14:36.035+00:00">
-<link rel="stylesheet" href="/ext/marquee-url.css"><link rel="alternate" type="application/rss+xml" title="30 artikel baru bikin." href="https://frijal.pages.dev/rss.xml" />
+<metaproperty="article:published_time"content="2025-10-13T21:14:36.035+00:00">
+<linkrel="stylesheet"href="/ext/marquee-url.css"><linkrel="alternate"type="application/rss+xml"title="30artikelbarubikin."href="https://frijal.pages.dev/rss.xml"/>
 </head>
 
 <body>
 <header>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Arch_Linux_%22Crystal%22_icon.svg" alt="Arch Linux Logo">
-  <h1>🔒 Memperbaiki Error “could not lock database” di Arch Linux</h1>
-<div id="iposbrowser"></div>
+<imgsrc="https://upload.wikimedia.org/wikipedia/commons/1/13/Arch_Linux_%22Crystal%22_icon.svg"alt="ArchLinuxLogo">
+<h1>🔒MemperbaikiError“couldnotlockdatabase”diArchLinux</h1>
+<divid="iposbrowser"></div>
 
-  <p>Pesan ini muncul saat pacman gagal menulis ke database paket karena file lock masih aktif atau proses lain sedang berjalan.</p>
+<p>Pesaninimunculsaatpacmangagalmenuliskedatabasepaketkarenafilelockmasihaktifatauproseslainsedangberjalan.</p>
 </header>
 
 <main>
 <section>
-  <h2>⚠️ Contoh Pesan Error</h2>
-  <pre><code>error: could not lock database: File exists
-  if you're sure a package manager is not already running, you can remove /var/lib/pacman/db.lck</code></pre>
+<h2>⚠️ContohPesanError</h2>
+<pre><code>error:couldnotlockdatabase:Fileexists
+ifyou'resureapackagemanagerisnotalreadyrunning,youcanremove/var/lib/pacman/db.lck</code></pre>
 </section>
 
 <section>
-  <h2>🔍 Penyebab Umum</h2>
-  <ul>
-    <li>Masih ada proses pacman atau paru yang belum selesai.</li>
-    <li>Sistem crash / dimatikan saat sedang update.</li>
-    <li>File lock tidak dihapus otomatis.</li>
-    <li>Menjalankan dua terminal pacman bersamaan.</li>
-  </ul>
+<h2>🔍PenyebabUmum</h2>
+<ul>
+<li>Masihadaprosespacmanatauparuyangbelumselesai.</li>
+<li>Sistemcrash/dimatikansaatsedangupdate.</li>
+<li>Filelocktidakdihapusotomatis.</li>
+<li>Menjalankanduaterminalpacmanbersamaan.</li>
+</ul>
 </section>
 
 <section>
-  <h2>🧭 Solusi Aman</h2>
+<h2>🧭SolusiAman</h2>
 
-  <h3>1️⃣ Pastikan Tidak Ada Proses pacman Aktif</h3>
-  <pre><code>ps aux | grep pacman</code></pre>
-  <p>Jika ada proses seperti <code>pacman -Syu</code> yang masih berjalan, tunggu hingga selesai atau hentikan dengan:</p>
-  <pre><code>sudo kill -9 PID</code></pre>
+<h3>1️⃣PastikanTidakAdaProsespacmanAktif</h3>
+<pre><code>psaux|greppacman</code></pre>
+<p>Jikaadaprosesseperti<code>pacman-Syu</code>yangmasihberjalan,tungguhinggaselesaiatauhentikandengan:</p>
+<pre><code>sudokill-9PID</code></pre>
 
-  <h3>2️⃣ Hapus File Lock (Jika Sudah Aman)</h3>
-  <pre><code>sudo rm /var/lib/pacman/db.lck</code></pre>
-  <p>Ini akan menghapus file pengunci database. Pastikan tidak ada proses pacman aktif sebelum melakukannya.</p>
+<h3>2️⃣HapusFileLock(JikaSudahAman)</h3>
+<pre><code>sudorm/var/lib/pacman/db.lck</code></pre>
+<p>Iniakanmenghapusfilepenguncidatabase.Pastikantidakadaprosespacmanaktifsebelummelakukannya.</p>
 
-  <h3>3️⃣ Cek dan Sinkronisasi Database</h3>
-  <pre><code>sudo pacman -Syy</code></pre>
-  <p>Sinkronisasi ulang database paket untuk memastikan semuanya konsisten.</p>
+<h3>3️⃣CekdanSinkronisasiDatabase</h3>
+<pre><code>sudopacman-Syy</code></pre>
+<p>Sinkronisasiulangdatabasepaketuntukmemastikansemuanyakonsisten.</p>
 
-  <h3>4️⃣ Lanjutkan Update Normal</h3>
-  <pre><code>sudo pacman -Syu</code></pre>
+<h3>4️⃣LanjutkanUpdateNormal</h3>
+<pre><code>sudopacman-Syu</code></pre>
 
-  <h3>5️⃣ Jika Menggunakan Paru / Yay</h3>
-  <pre><code>paru -Syu --devel</code></pre>
-  <p>AUR helper seperti paru juga mengikuti sistem pacman. Jadi langkahnya tetap sama.</p>
+<h3>5️⃣JikaMenggunakanParu/Yay</h3>
+<pre><code>paru-Syu--devel</code></pre>
+<p>AURhelpersepertiparujugamengikutisistempacman.Jadilangkahnyatetapsama.</p>
 </section>
 
 <section>
-  <h2>🚀 Solusi Darurat (Lock Tidak Bisa Dihapus)</h2>
-  <pre><code>sudo fuser /var/lib/pacman/db.lck</code></pre>
-  <p>Perintah ini akan menampilkan PID yang memegang lock. Hentikan proses itu, lalu hapus file lock-nya.</p>
+<h2>🚀SolusiDarurat(LockTidakBisaDihapus)</h2>
+<pre><code>sudofuser/var/lib/pacman/db.lck</code></pre>
+<p>PerintahiniakanmenampilkanPIDyangmemeganglock.Hentikanprosesitu,laluhapusfilelock-nya.</p>
 </section>
 
 <section>
-  <h2>✅ Tips Pencegahan</h2>
-  <ul>
-    <li>Jangan buka dua terminal pacman sekaligus.</li>
-    <li>Selalu selesaikan update sebelum menutup terminal.</li>
-    <li>Gunakan <code>systemctl poweroff</code> agar sistem menutup proses dengan bersih.</li>
-    <li>Gunakan <code>paccache -r</code> untuk membersihkan cache lama secara berkala.</li>
-  </ul>
+<h2>✅TipsPencegahan</h2>
+<ul>
+<li>Janganbukaduaterminalpacmansekaligus.</li>
+<li>Selaluselesaikanupdatesebelummenutupterminal.</li>
+<li>Gunakan<code>systemctlpoweroff</code>agarsistemmenutupprosesdenganbersih.</li>
+<li>Gunakan<code>paccache-r</code>untukmembersihkancachelamasecaraberkala.</li>
+</ul>
 </section>
 
 <section>
-  <h2>📤 Bagikan Artikel Ini</h2>
-  <div class="share">
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https://frijal.pages.dev/artikel/fix-pacman-database-locked.html" target="_blank">🔵</a>
-    <a href="https://twitter.com/intent/tweet?url=https://frijal.pages.dev/artikel/fix-pacman-database-locked.html&text=Fix+Pacman+Database+Locked+Arch+Linux" target="_blank">🐦</a>
-    <a href="https://t.me/share/url?url=https://frijal.pages.dev/artikel/fix-pacman-database-locked.html&text=Perbaiki+Database+Locked+di+Arch+Linux" target="_blank">💬</a>
-  </div>
+<h2>📤BagikanArtikelIni</h2>
+<divclass="share">
+<ahref="https://www.facebook.com/sharer/sharer.php?u=https://frijal.pages.dev/artikel/fix-pacman-database-locked.html"target="_blank">🔵</a>
+<ahref="https://twitter.com/intent/tweet?url=https://frijal.pages.dev/artikel/fix-pacman-database-locked.html&text=Fix+Pacman+Database+Locked+Arch+Linux"target="_blank">🐦</a>
+<ahref="https://t.me/share/url?url=https://frijal.pages.dev/artikel/fix-pacman-database-locked.html&text=Perbaiki+Database+Locked+di+Arch+Linux"target="_blank">💬</a>
+</div>
 </section>
 
 
 </main>
 
 <footer>
-  🄯 2025 frijal.pages.dev — Seri “Masalah Umum Arch Linux” · dibuat dengan ❤ oleh Rijal
+🄯2025frijal.pages.dev—Seri“MasalahUmumArchLinux”·dibuatdengan❤olehRijal
 </footer>
 
-<!-- Facebook SDK -->
+<!--FacebookSDK-->
 
 
-<div class="search-floating-container"><input type="text" id="floatingSearchInput" placeholder="cari artikel..." autocomplete="off"><span id="floatingSearchClear" class="clear-button"></span><div id="floatingSearchResults" class="floating-results-container"></div></div>
-<section id="related-marquee-section"><div id="related-marquee-container"></div></section><script defer src="/ext/marquee-url.js"></script>
-<script defer src="/ext/iposbrowser.js"></script>
+<divclass="search-floating-container"><inputtype="text"id="floatingSearchInput"placeholder="cariartikel..."autocomplete="off"><spanid="floatingSearchClear"class="clear-button"></span><divid="floatingSearchResults"class="floating-results-container"></div></div>
+<sectionid="related-marquee-section"><divid="related-marquee-container"></div></section><scriptdefersrc="/ext/marquee-url.js"></script>
+<scriptdefersrc="/ext/iposbrowser.js"></script>
 
 
 </body>

@@ -1,164 +1,164 @@
-<!doctype html>
-<html lang="id">
+<!doctypehtml>
+<htmllang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<metacharset="utf-8">
+<metaname="viewport"content="width=device-width,initial-scale=1">
 
-  <title>GUI Package Manager di Linux</title>
-  <link rel="canonical" href="https://frijal.pages.dev/artikel/gui-package-managers.html">
-  <meta name="description" content="Penjelasan santai tentang GUI package manager di Linux: Synaptic, dnfdragora, YaST, Octopi, dan Flatpak.">
-  <meta name="keywords" content="Linux, GUI, package manager, Synaptic, dnfdragora, YaST, Octopi, Flatpak">
-  <meta name="author" content="Fakhrul">
+<title>GUIPackageManagerdiLinux</title>
+<linkrel="canonical"href="https://frijal.pages.dev/artikel/gui-package-managers.html">
+<metaname="description"content="PenjelasansantaitentangGUIpackagemanagerdiLinux:Synaptic,dnfdragora,YaST,Octopi,danFlatpak.">
+<metaname="keywords"content="Linux,GUI,packagemanager,Synaptic,dnfdragora,YaST,Octopi,Flatpak">
+<metaname="author"content="Fakhrul">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="GUI Package Manager di Linux">
-  <meta property="og:description" content="Synaptic, dnfdragora, YaST, Octopi, dan Flatpak. Penjelasan santai untuk pengguna Linux.">
-  <meta property="og:url" content="https://frijal.pages.dev/artikel/gui-package-managers.html">
-  <meta property="og:site_name" content="frijal.pages.dev">
-  <meta property="og:image" content="https://frijal.pages.dev/img/gui-package-managers.webp">
+<!--OpenGraph-->
+<metaproperty="og:type"content="article">
+<metaproperty="og:title"content="GUIPackageManagerdiLinux">
+<metaproperty="og:description"content="Synaptic,dnfdragora,YaST,Octopi,danFlatpak.PenjelasansantaiuntukpenggunaLinux.">
+<metaproperty="og:url"content="https://frijal.pages.dev/artikel/gui-package-managers.html">
+<metaproperty="og:site_name"content="frijal.pages.dev">
+<metaproperty="og:image"content="https://frijal.pages.dev/img/gui-package-managers.webp">
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="GUI Package Manager di Linux">
-  <meta name="twitter:description" content="Synaptic, dnfdragora, YaST, Octopi, dan Flatpak. Penjelasan santai untuk pengguna Linux.">
-  <meta name="twitter:image" content="https://frijal.pages.dev/img/gui-package-managers.webp">
+<!--TwitterCard-->
+<metaname="twitter:card"content="summary_large_image">
+<metaname="twitter:title"content="GUIPackageManagerdiLinux">
+<metaname="twitter:description"content="Synaptic,dnfdragora,YaST,Octopi,danFlatpak.PenjelasansantaiuntukpenggunaLinux.">
+<metaname="twitter:image"content="https://frijal.pages.dev/img/gui-package-managers.webp">
 
-  <!-- Favicon -->
-  <link rel="icon" href="https://frijal.pages.dev/favicon.ico">
+<!--Favicon-->
+<linkrel="icon"href="https://frijal.pages.dev/favicon.ico">
 
-  <style>
-    body {
-      margin:0;
-      font-family: "Segoe UI", Roboto, sans-serif;
-      line-height:1.7;
-      background:#f9fafb;
-      color:#1f2937;
-    }
-    header {
-      background:#2563eb;
-      color:white;
-      padding:1.5rem;
-      text-align:center;
-    }
-    header h1 {
-      margin:0;
-      font-size:2rem;
-    }
-    header p {
-      margin:.25rem 0 0;
-      font-size:1rem;
-      opacity:.9;
-    }
-    main {
-      max-width: 70ch;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      background:white;
-      border-radius:8px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.08);
-    }
-    main h2 {
-      margin-top:2rem;
-      color:#2563eb;
-    }
-    .callout {
-      border-left:4px solid #2563eb;
-      background:#eff6ff;
-      padding:.75rem 1rem;
-      border-radius:4px;
-      margin:1rem 0;
-    }
-    footer {
-      text-align:center;
-      padding:1rem;
-      font-size:.9rem;
-      color:#6b7280;
-    }
-    .share {
-      margin-top:2rem;
-      padding-top:1rem;
-      border-top:1px solid #e5e7eb;
-    }
-    .share a {
-      margin-right:.5rem;
-      text-decoration:none;
-      color:#2563eb;
-      font-weight:500;
-    }
-    .comments {
-      margin-top:2rem;
-      padding-top:1rem;
-      border-top:1px solid #e5e7eb;
-    }
+<style>
+body{
+margin:0;
+font-family:"SegoeUI",Roboto,sans-serif;
+line-height:1.7;
+background:#f9fafb;
+color:#1f2937;
+}
+header{
+background:#2563eb;
+color:white;
+padding:1.5rem;
+text-align:center;
+}
+headerh1{
+margin:0;
+font-size:2rem;
+}
+headerp{
+margin:.25rem00;
+font-size:1rem;
+opacity:.9;
+}
+main{
+max-width:70ch;
+margin:2remauto;
+padding:01rem;
+background:white;
+border-radius:8px;
+box-shadow:04px12pxrgba(0,0,0,0.08);
+}
+mainh2{
+margin-top:2rem;
+color:#2563eb;
+}
+.callout{
+border-left:4pxsolid#2563eb;
+background:#eff6ff;
+padding:.75rem1rem;
+border-radius:4px;
+margin:1rem0;
+}
+footer{
+text-align:center;
+padding:1rem;
+font-size:.9rem;
+color:#6b7280;
+}
+.share{
+margin-top:2rem;
+padding-top:1rem;
+border-top:1pxsolid#e5e7eb;
+}
+.sharea{
+margin-right:.5rem;
+text-decoration:none;
+color:#2563eb;
+font-weight:500;
+}
+.comments{
+margin-top:2rem;
+padding-top:1rem;
+border-top:1pxsolid#e5e7eb;
+}
 
-  </style>
-<meta property="og:image:alt" content="GUI Package Manager di Linux">
-  <meta itemprop="image" content="https://frijal.pages.dev/img/gui-package-managers.webp">
+</style>
+<metaproperty="og:image:alt"content="GUIPackageManagerdiLinux">
+<metaitemprop="image"content="https://frijal.pages.dev/img/gui-package-managers.webp">
 
-    <meta property="article:published_time" content="2025-10-12T21:13:33.159+00:00">
-<link rel="stylesheet" href="/ext/marquee-url.css"><link rel="alternate" type="application/rss+xml" title="30 artikel baru bikin." href="https://frijal.pages.dev/rss.xml" />
+<metaproperty="article:published_time"content="2025-10-12T21:13:33.159+00:00">
+<linkrel="stylesheet"href="/ext/marquee-url.css"><linkrel="alternate"type="application/rss+xml"title="30artikelbarubikin."href="https://frijal.pages.dev/rss.xml"/>
 </head>
 <body>
-  <header>
-    <h1>GUI Package Manager di Linux</h1>
-<div id="iposbrowser"></div>
+<header>
+<h1>GUIPackageManagerdiLinux</h1>
+<divid="iposbrowser"></div>
 
-    <p>Synaptic, dnfdragora, YaST, Octopi, dan Flatpak</p>
-  </header>
+<p>Synaptic,dnfdragora,YaST,Octopi,danFlatpak</p>
+</header>
 
-  <main>
-    <p>
-      Ada banyak <strong>package manager berbasis GUI</strong> untuk berbagai distribusi Linux. 
-      <strong>Synaptic</strong> untuk Debian/Ubuntu, <strong>dnfdragora</strong> untuk RHEL/Fedora, 
-      <strong>YaST Software Manager</strong> untuk OpenSUSE, <strong>Octopi</strong> untuk Arch dan turunannya. 
-      Daftarnya masih panjang. Selain itu, ada juga format paket terisolasi seperti <strong>Flatpak</strong> 
-      yang dapat digunakan dan sudah diadopsi luas oleh banyak distro.
-    </p>
+<main>
+<p>
+Adabanyak<strong>packagemanagerberbasisGUI</strong>untukberbagaidistribusiLinux.
+<strong>Synaptic</strong>untukDebian/Ubuntu,<strong>dnfdragora</strong>untukRHEL/Fedora,
+<strong>YaSTSoftwareManager</strong>untukOpenSUSE,<strong>Octopi</strong>untukArchdanturunannya.
+Daftarnyamasihpanjang.Selainitu,adajugaformatpaketterisolasiseperti<strong>Flatpak</strong>
+yangdapatdigunakandansudahdiadopsiluasolehbanyakdistro.
+</p>
 
-    <div class="callout">
-      Hal terbaik dari Linux adalah: orang-orang saling berbagi, belajar, dan bersenang-senang 🤣
-    </div>
+<divclass="callout">
+HalterbaikdariLinuxadalah:orang-orangsalingberbagi,belajar,danbersenang-senang🤣
+</div>
 
-    <h2>Contoh GUI Package Manager</h2>
-    <ul>
-      <li><strong>Synaptic (Debian/Ubuntu):</strong> GUI klasik berbasis APT.</li>
-      <li><strong>dnfdragora (RHEL/Fedora):</strong> Antarmuka untuk DNF/YUM.</li>
-      <li><strong>YaST Software Manager (OpenSUSE):</strong> Modul manajemen paket yang komprehensif.</li>
-      <li><strong>Octopi (Arch):</strong> Frontend ringan untuk pacman.</li>
-      <li><strong>Flatpak:</strong> Format paket sandboxed lintas distro.</li>
-    </ul>
+<h2>ContohGUIPackageManager</h2>
+<ul>
+<li><strong>Synaptic(Debian/Ubuntu):</strong>GUIklasikberbasisAPT.</li>
+<li><strong>dnfdragora(RHEL/Fedora):</strong>AntarmukauntukDNF/YUM.</li>
+<li><strong>YaSTSoftwareManager(OpenSUSE):</strong>Modulmanajemenpaketyangkomprehensif.</li>
+<li><strong>Octopi(Arch):</strong>Frontendringanuntukpacman.</li>
+<li><strong>Flatpak:</strong>Formatpaketsandboxedlintasdistro.</li>
+</ul>
 
-    <h2>Kenapa GUI Package Manager Berguna?</h2>
-    <ul>
-      <li>Mudah digunakan, visual, dan ramah pemula.</li>
-      <li>Memudahkan pembaruan dan penghapusan paket.</li>
-      <li>Memperlihatkan dependensi dengan jelas.</li>
-    </ul>
+<h2>KenapaGUIPackageManagerBerguna?</h2>
+<ul>
+<li>Mudahdigunakan,visual,danramahpemula.</li>
+<li>Memudahkanpembaruandanpenghapusanpaket.</li>
+<li>Memperlihatkandependensidenganjelas.</li>
+</ul>
 
-    <div class="share">
-      <strong>Bagikan:</strong>
-      <a href="https://twitter.com/intent/tweet?url=https://frijal.pages.dev/artikel/gui-package-managers.html">Twitter</a>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://frijal.pages.dev/artikel/gui-package-managers.html">Facebook</a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://frijal.pages.dev/artikel/gui-package-managers.html">LinkedIn</a>
-    </div>
+<divclass="share">
+<strong>Bagikan:</strong>
+<ahref="https://twitter.com/intent/tweet?url=https://frijal.pages.dev/artikel/gui-package-managers.html">Twitter</a>
+<ahref="https://www.facebook.com/sharer/sharer.php?u=https://frijal.pages.dev/artikel/gui-package-managers.html">Facebook</a>
+<ahref="https://www.linkedin.com/sharing/share-offsite/?url=https://frijal.pages.dev/artikel/gui-package-managers.html">LinkedIn</a>
+</div>
 
-    <div class="comments">
-      <h3>Jaga Data Pribadi Tetap Aman.</h3>
-      
-      
-    </div>
-  </main>
+<divclass="comments">
+<h3>JagaDataPribadiTetapAman.</h3>
 
-  <footer>
-    🄯 2025 frijal.pages.dev
-  </footer>
 
-  <!-- Facebook SDK -->
-  
-<div class="search-floating-container"><input type="text" id="floatingSearchInput" placeholder="cari artikel..." autocomplete="off"><span id="floatingSearchClear" class="clear-button"></span><div id="floatingSearchResults" class="floating-results-container"></div></div>
-<section id="related-marquee-section"><div id="related-marquee-container"></div></section><script defer src="/ext/marquee-url.js"></script>
-<script defer src="/ext/iposbrowser.js"></script>
+</div>
+</main>
+
+<footer>
+🄯2025frijal.pages.dev
+</footer>
+
+<!--FacebookSDK-->
+
+<divclass="search-floating-container"><inputtype="text"id="floatingSearchInput"placeholder="cariartikel..."autocomplete="off"><spanid="floatingSearchClear"class="clear-button"></span><divid="floatingSearchResults"class="floating-results-container"></div></div>
+<sectionid="related-marquee-section"><divid="related-marquee-container"></div></section><scriptdefersrc="/ext/marquee-url.js"></script>
+<scriptdefersrc="/ext/iposbrowser.js"></script>
 
 
 </body>

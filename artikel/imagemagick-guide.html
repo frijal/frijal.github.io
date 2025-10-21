@@ -1,269 +1,269 @@
-<!doctype html>
-<html lang="id">
+<!doctypehtml>
+<htmllang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Panduan ImageMagick Interaktif: Manipulasi Gambar CLI</title>
+<metacharset="UTF-8"/>
+<metaname="viewport"content="width=device-width,initial-scale=1"/>
+<title>PanduanImageMagickInteraktif:ManipulasiGambarCLI</title>
 
-<meta name="description" content="Panduan interaktif ImageMagick lengkap dengan contoh perintah manipulasi gambar: resize, convert, rotate, watermark, batch, dan efek." />
-<meta name="keywords" content="ImageMagick, manipulasi gambar, resize, convert, rotate, watermark, batch, CLI, tutorial, guide" />
-<meta name="author" content="Frijal" />
-<meta name="robots" content="index, follow" />
+<metaname="description"content="PanduaninteraktifImageMagicklengkapdengancontohperintahmanipulasigambar:resize,convert,rotate,watermark,batch,danefek."/>
+<metaname="keywords"content="ImageMagick,manipulasigambar,resize,convert,rotate,watermark,batch,CLI,tutorial,guide"/>
+<metaname="author"content="Frijal"/>
+<metaname="robots"content="index,follow"/>
 
-<link rel="canonical" href="https://frijal.pages.dev/artikel/imagemagick-guide.html" />
+<linkrel="canonical"href="https://frijal.pages.dev/artikel/imagemagick-guide.html"/>
 
-<link rel="icon" href="/favicon.ico" sizes="any" />
-<link rel="icon" href="/icon.svg" type="image/svg+xml" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest" />
+<linkrel="icon"href="/favicon.ico"sizes="any"/>
+<linkrel="icon"href="/icon.svg"type="image/svg+xml"/>
+<linkrel="apple-touch-icon"href="/apple-touch-icon.png"/>
+<linkrel="manifest"href="/site.webmanifest"/>
 
-<meta property="og:locale" content="id_ID" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="Panduan ImageMagick Interaktif: Manipulasi Gambar CLI" />
-<meta property="og:description" content="Panduan interaktif ImageMagick lengkap dengan contoh perintah manipulasi gambar: resize, convert, rotate, watermark, batch, dan efek." />
-<meta property="og:url" content="https://frijal.pages.dev/artikel/imagemagick-guide.html" />
-<meta property="og:site_name" content="Frijal Blog" />
-<meta property="og:image" content="https://frijal.pages.dev/imagemagick-guide.jpg" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Ilustrasi Panduan Interaktif ImageMagick" />
+<metaproperty="og:locale"content="id_ID"/>
+<metaproperty="og:type"content="article"/>
+<metaproperty="og:title"content="PanduanImageMagickInteraktif:ManipulasiGambarCLI"/>
+<metaproperty="og:description"content="PanduaninteraktifImageMagicklengkapdengancontohperintahmanipulasigambar:resize,convert,rotate,watermark,batch,danefek."/>
+<metaproperty="og:url"content="https://frijal.pages.dev/artikel/imagemagick-guide.html"/>
+<metaproperty="og:site_name"content="FrijalBlog"/>
+<metaproperty="og:image"content="https://frijal.pages.dev/imagemagick-guide.jpg"/>
+<metaproperty="og:image:width"content="1200"/>
+<metaproperty="og:image:height"content="630"/>
+<metaproperty="og:image:alt"content="IlustrasiPanduanInteraktifImageMagick"/>
 
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Panduan ImageMagick Interaktif: Manipulasi Gambar CLI" />
-<meta name="twitter:description" content="Panduan interaktif ImageMagick lengkap dengan contoh perintah manipulasi gambar: resize, convert, rotate, watermark, batch, dan efek." />
-<meta name="twitter:image" content="https://frijal.pages.dev/imagemagick-guide.jpg" />
-<meta name="twitter:site" content="@username_twitter" /> <meta property="fb:app_id" content="1471267430691023" />
+<metaname="twitter:card"content="summary_large_image"/>
+<metaname="twitter:title"content="PanduanImageMagickInteraktif:ManipulasiGambarCLI"/>
+<metaname="twitter:description"content="PanduaninteraktifImageMagicklengkapdengancontohperintahmanipulasigambar:resize,convert,rotate,watermark,batch,danefek."/>
+<metaname="twitter:image"content="https://frijal.pages.dev/imagemagick-guide.jpg"/>
+<metaname="twitter:site"content="@username_twitter"/><metaproperty="fb:app_id"content="1471267430691023"/>
 
-<script src="https://cdn.tailwindcss.com"></script>
+<scriptsrc="https://cdn.tailwindcss.com"></script>
 <style>
-body { font-family: Inter, sans-serif; }
-.active-nav { background-color: #e5e7eb; color: #111827; font-weight: 600; }
-.code-block { background-color: #1e293b; color: #e2e8f0; border-radius: 0.5rem; padding: 1rem; position: relative; margin-bottom: 1rem; }
-.copy-btn { position: absolute; top: 0.5rem; right: 0.5rem; background-color: #334155; color: #94a3b8; border: none; padding: 0.25rem 0.75rem; border-radius: 0.375rem; cursor: pointer; font-size: 0.875rem; z-index: 10; transition: all 0.2s; }
-.copy-btn:hover { background-color: #475569; color: #e2e8f0; }
-.diagram-box { border: 2px dashed #9ca3af; background-color: #f3f4f6; padding: 1rem; display: flex; justify-content: center; align-items: center; min-height: 100px; margin-bottom: 1rem; flex-wrap: wrap; }
-.diagram-step { text-align: center; font-family: monospace; font-size: 0.875rem; margin: 0.5rem; }
-.diagram-arrow { font-size: 2rem; color: #3b82f6; margin: 0 1rem; }
+body{font-family:Inter,sans-serif;}
+.active-nav{background-color:#e5e7eb;color:#111827;font-weight:600;}
+.code-block{background-color:#1e293b;color:#e2e8f0;border-radius:0.5rem;padding:1rem;position:relative;margin-bottom:1rem;}
+.copy-btn{position:absolute;top:0.5rem;right:0.5rem;background-color:#334155;color:#94a3b8;border:none;padding:0.25rem0.75rem;border-radius:0.375rem;cursor:pointer;font-size:0.875rem;z-index:10;transition:all0.2s;}
+.copy-btn:hover{background-color:#475569;color:#e2e8f0;}
+.diagram-box{border:2pxdashed#9ca3af;background-color:#f3f4f6;padding:1rem;display:flex;justify-content:center;align-items:center;min-height:100px;margin-bottom:1rem;flex-wrap:wrap;}
+.diagram-step{text-align:center;font-family:monospace;font-size:0.875rem;margin:0.5rem;}
+.diagram-arrow{font-size:2rem;color:#3b82f6;margin:01rem;}
 
 </style>
-<link rel="stylesheet" href="/ext/marquee-url.css"><link rel="alternate" type="application/rss+xml" title="30 artikel baru bikin." href="https://frijal.pages.dev/rss.xml" />
-    <meta property="article:published_time" content="2025-10-16T23:20:38.186+00:00">
+<linkrel="stylesheet"href="/ext/marquee-url.css"><linkrel="alternate"type="application/rss+xml"title="30artikelbarubikin."href="https://frijal.pages.dev/rss.xml"/>
+<metaproperty="article:published_time"content="2025-10-16T23:20:38.186+00:00">
 </head>
 
-<body class="bg-gray-50 text-gray-800">
-<div class="flex flex-col md:flex-row min-h-screen">
-  <aside class="w-full md:w-1/4 lg:w-1/5 bg-white border-r border-gray-200 p-4 md:p-6 md:fixed md:h-full">
-    <h1 class="text-xl font-bold text-gray-900 mb-6">Panduan ImageMagick</h1>
-<div id="iposbrowser"></div>
-    <nav id="navigation" class="space-y-4">
-      <div>
-        <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Dasar</h2>
-        <ul class="space-y-1">
-          <li><a href="#convert" class="nav-link block px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100">Convert Format</a></li>
-          <li><a href="#resize" class="nav-link block px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100">Resize</a></li>
-          <li><a href="#rotate" class="nav-link block px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100">Rotate</a></li>
-          <li><a href="#watermark" class="nav-link block px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100">Watermark</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Lanjutan</h2>
-        <ul class="space-y-1">
-          <li><a href="#batch" class="nav-link block px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100">Batch Process</a></li>
-          <li><a href="#effects" class="nav-link block px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100">Efek & Filter</a></li>
-          <li><a href="#tips" class="nav-link block px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100">Tips & Best Practices</a></li>
-        </ul>
-      </div>
-    </nav>
-  </aside>
+<bodyclass="bg-gray-50text-gray-800">
+<divclass="flexflex-colmd:flex-rowmin-h-screen">
+<asideclass="w-fullmd:w-1/4lg:w-1/5bg-whiteborder-rborder-gray-200p-4md:p-6md:fixedmd:h-full">
+<h1class="text-xlfont-boldtext-gray-900mb-6">PanduanImageMagick</h1>
+<divid="iposbrowser"></div>
+<navid="navigation"class="space-y-4">
+<div>
+<h2class="text-smfont-semiboldtext-gray-500uppercasetracking-widermb-2">Dasar</h2>
+<ulclass="space-y-1">
+<li><ahref="#convert"class="nav-linkblockpx-3py-2rounded-mdtext-gray-600hover:bg-gray-100">ConvertFormat</a></li>
+<li><ahref="#resize"class="nav-linkblockpx-3py-2rounded-mdtext-gray-600hover:bg-gray-100">Resize</a></li>
+<li><ahref="#rotate"class="nav-linkblockpx-3py-2rounded-mdtext-gray-600hover:bg-gray-100">Rotate</a></li>
+<li><ahref="#watermark"class="nav-linkblockpx-3py-2rounded-mdtext-gray-600hover:bg-gray-100">Watermark</a></li>
+</ul>
+</div>
+<div>
+<h2class="text-smfont-semiboldtext-gray-500uppercasetracking-widermb-2">Lanjutan</h2>
+<ulclass="space-y-1">
+<li><ahref="#batch"class="nav-linkblockpx-3py-2rounded-mdtext-gray-600hover:bg-gray-100">BatchProcess</a></li>
+<li><ahref="#effects"class="nav-linkblockpx-3py-2rounded-mdtext-gray-600hover:bg-gray-100">Efek&Filter</a></li>
+<li><ahref="#tips"class="nav-linkblockpx-3py-2rounded-mdtext-gray-600hover:bg-gray-100">Tips&BestPractices</a></li>
+</ul>
+</div>
+</nav>
+</aside>
 
-  <main id="content-display" class="w-full md:ml-[25%] lg:ml-[20%] p-6 md:p-10"></main>
+<mainid="content-display"class="w-fullmd:ml-[25%]lg:ml-[20%]p-6md:p-10"></main>
 </div>
 
-<!-- Templates -->
-<template id="welcome-content">
-<div class="bg-white p-8 rounded-lg shadow-sm">
-<h2 class="text-3xl font-bold text-gray-900 mb-4">Selamat Datang! 👋</h2>
-<p class="text-lg text-gray-600 mb-4">Panduan interaktif ImageMagick. Pilih topik di menu sebelah kiri untuk melihat diagram visual, contoh perintah, dan penjelasan parameter.</p>
-<p class="text-gray-600">Gunakan tombol "Salin" untuk menyalin perintah dengan mudah. Semua perintah bisa dicoba langsung di terminal.</p>
+<!--Templates-->
+<templateid="welcome-content">
+<divclass="bg-whitep-8rounded-lgshadow-sm">
+<h2class="text-3xlfont-boldtext-gray-900mb-4">SelamatDatang!👋</h2>
+<pclass="text-lgtext-gray-600mb-4">PanduaninteraktifImageMagick.Pilihtopikdimenusebelahkiriuntukmelihatdiagramvisual,contohperintah,danpenjelasanparameter.</p>
+<pclass="text-gray-600">Gunakantombol"Salin"untukmenyalinperintahdenganmudah.Semuaperintahbisadicobalangsungditerminal.</p>
 </div>
 </template>
 
-<!-- ==================== IMAGE BLOCKS ==================== -->
-<template id="convert-content">
-<div class="bg-white p-8 rounded-lg shadow-sm">
-<h2 class="text-2xl font-bold text-gray-900 mb-2">Convert Format Gambar</h2>
-<div class="diagram-box">
-<div class="diagram-step">input.png</div>
-<div class="diagram-arrow">→</div>
-<div class="diagram-step">convert input.png output.jpg</div>
-<div class="diagram-arrow">→</div>
-<div class="diagram-step">output.jpg</div>
+<!--====================IMAGEBLOCKS====================-->
+<templateid="convert-content">
+<divclass="bg-whitep-8rounded-lgshadow-sm">
+<h2class="text-2xlfont-boldtext-gray-900mb-2">ConvertFormatGambar</h2>
+<divclass="diagram-box">
+<divclass="diagram-step">input.png</div>
+<divclass="diagram-arrow">→</div>
+<divclass="diagram-step">convertinput.pngoutput.jpg</div>
+<divclass="diagram-arrow">→</div>
+<divclass="diagram-step">output.jpg</div>
 </div>
-<div class="code-block">
-<button class="copy-btn">Salin</button>
-<pre><code>convert input.png output.jpg</code></pre>
+<divclass="code-block">
+<buttonclass="copy-btn">Salin</button>
+<pre><code>convertinput.pngoutput.jpg</code></pre>
 </div>
-<p class="text-gray-600 text-sm">Mengubah format PNG ke JPG.</p>
-</div>
-</template>
-
-<template id="resize-content">
-<div class="bg-white p-8 rounded-lg shadow-sm">
-<h2 class="text-2xl font-bold text-gray-900 mb-2">Resize Gambar</h2>
-<div class="diagram-box">
-<div class="diagram-step">input.jpg</div>
-<div class="diagram-arrow">→</div>
-<div class="diagram-step">convert input.jpg -resize 800x600 output.jpg</div>
-<div class="diagram-arrow">→</div>
-<div class="diagram-step">output.jpg</div>
-</div>
-<div class="code-block">
-<button class="copy-btn">Salin</button>
-<pre><code>convert input.jpg -resize 800x600 output.jpg</code></pre>
-</div>
-<p class="text-gray-600 text-sm">Ubah ukuran gambar menjadi 800x600 piksel.</p>
+<pclass="text-gray-600text-sm">MengubahformatPNGkeJPG.</p>
 </div>
 </template>
 
-<template id="rotate-content">
-<div class="bg-white p-8 rounded-lg shadow-sm">
-<h2 class="text-2xl font-bold text-gray-900 mb-2">Rotate Gambar</h2>
-<div class="diagram-box">
-<div class="diagram-step">input.jpg</div>
-<div class="diagram-arrow">→</div>
-<div class="diagram-step">convert input.jpg -rotate 90 output.jpg</div>
-<div class="diagram-arrow">→</div>
-<div class="diagram-step">output.jpg</div>
+<templateid="resize-content">
+<divclass="bg-whitep-8rounded-lgshadow-sm">
+<h2class="text-2xlfont-boldtext-gray-900mb-2">ResizeGambar</h2>
+<divclass="diagram-box">
+<divclass="diagram-step">input.jpg</div>
+<divclass="diagram-arrow">→</div>
+<divclass="diagram-step">convertinput.jpg-resize800x600output.jpg</div>
+<divclass="diagram-arrow">→</div>
+<divclass="diagram-step">output.jpg</div>
 </div>
-<div class="code-block">
-<button class="copy-btn">Salin</button>
-<pre><code>convert input.jpg -rotate 90 output.jpg</code></pre>
+<divclass="code-block">
+<buttonclass="copy-btn">Salin</button>
+<pre><code>convertinput.jpg-resize800x600output.jpg</code></pre>
 </div>
-<p class="text-gray-600 text-sm">Rotasi gambar 90 derajat searah jarum jam.</p>
-</div>
-</template>
-
-<template id="watermark-content">
-<div class="bg-white p-8 rounded-lg shadow-sm">
-<h2 class="text-2xl font-bold text-gray-900 mb-2">Watermark</h2>
-<div class="diagram-box">
-<div class="diagram-step">input.jpg + watermark.png</div>
-<div class="diagram-arrow">→</div>
-<div class="diagram-step">convert input.jpg watermark.png -gravity southeast -composite output.jpg</div>
-<div class="diagram-arrow">→</div>
-<div class="diagram-step">output.jpg</div>
-</div>
-<div class="code-block">
-<button class="copy-btn">Salin</button>
-<pre><code>convert input.jpg watermark.png -gravity southeast -composite output.jpg</code></pre>
-</div>
-<p class="text-gray-600 text-sm">Tambahkan watermark di pojok kanan bawah gambar.</p>
+<pclass="text-gray-600text-sm">Ubahukurangambarmenjadi800x600piksel.</p>
 </div>
 </template>
 
-<template id="batch-content">
-<div class="bg-white p-8 rounded-lg shadow-sm">
-<h2 class="text-2xl font-bold text-gray-900 mb-2">Batch Process</h2>
-<div class="diagram-box">
-<div class="diagram-step">folder/*.png</div>
-<div class="diagram-arrow">→</div>
-<div class="diagram-step">for f in *.png; do convert "$f" "${f%.png}.jpg"; done</div>
-<div class="diagram-arrow">→</div>
-<div class="diagram-step">folder/*.jpg</div>
+<templateid="rotate-content">
+<divclass="bg-whitep-8rounded-lgshadow-sm">
+<h2class="text-2xlfont-boldtext-gray-900mb-2">RotateGambar</h2>
+<divclass="diagram-box">
+<divclass="diagram-step">input.jpg</div>
+<divclass="diagram-arrow">→</div>
+<divclass="diagram-step">convertinput.jpg-rotate90output.jpg</div>
+<divclass="diagram-arrow">→</div>
+<divclass="diagram-step">output.jpg</div>
 </div>
-<div class="code-block">
-<button class="copy-btn">Salin</button>
-<pre><code>for f in *.png; do convert "$f" "${f%.png}.jpg"; done</code></pre>
+<divclass="code-block">
+<buttonclass="copy-btn">Salin</button>
+<pre><code>convertinput.jpg-rotate90output.jpg</code></pre>
 </div>
-<p class="text-gray-600 text-sm">Batch convert semua PNG menjadi JPG di folder.</p>
-</div>
-</template>
-
-<template id="effects-content">
-<div class="bg-white p-8 rounded-lg shadow-sm">
-<h2 class="text-2xl font-bold text-gray-900 mb-2">Efek & Filter</h2>
-<div class="diagram-box">
-<div class="diagram-step">input.jpg</div>
-<div class="diagram-arrow">→</div>
-<div class="diagram-step">convert input.jpg -sepia-tone 80% output.jpg</div>
-<div class="diagram-arrow">→</div>
-<div class="diagram-step">output.jpg</div>
-</div>
-<div class="code-block">
-<button class="copy-btn">Salin</button>
-<pre><code>convert input.jpg -sepia-tone 80% output.jpg</code></pre>
-</div>
-<p class="text-gray-600 text-sm">Tambahkan efek sepia pada gambar.</p>
+<pclass="text-gray-600text-sm">Rotasigambar90derajatsearahjarumjam.</p>
 </div>
 </template>
 
-<template id="tips-content">
-<div class="bg-white p-8 rounded-lg shadow-sm">
-<h2 class="text-2xl font-bold text-gray-900 mb-2">Tips & Best Practices</h2>
-<ul class="list-disc list-inside text-gray-600 space-y-2">
-<li>Gunakan <code>convert</code> untuk manipulasi dasar, <code>mogrify</code> untuk batch overwrite.</li>
-<li>Gunakan <code>-resize</code> untuk mengubah ukuran, <code>-rotate</code> untuk rotasi, <code>-composite</code> untuk overlay.</li>
-<li>Gunakan <code>-quality</code> untuk mengatur kualitas output JPG.</li>
-<li>Backup file asli sebelum batch process.</li>
-<li>Cek versi ImageMagick dengan <code>magick -version</code>.</li>
+<templateid="watermark-content">
+<divclass="bg-whitep-8rounded-lgshadow-sm">
+<h2class="text-2xlfont-boldtext-gray-900mb-2">Watermark</h2>
+<divclass="diagram-box">
+<divclass="diagram-step">input.jpg+watermark.png</div>
+<divclass="diagram-arrow">→</div>
+<divclass="diagram-step">convertinput.jpgwatermark.png-gravitysoutheast-compositeoutput.jpg</div>
+<divclass="diagram-arrow">→</div>
+<divclass="diagram-step">output.jpg</div>
+</div>
+<divclass="code-block">
+<buttonclass="copy-btn">Salin</button>
+<pre><code>convertinput.jpgwatermark.png-gravitysoutheast-compositeoutput.jpg</code></pre>
+</div>
+<pclass="text-gray-600text-sm">Tambahkanwatermarkdipojokkananbawahgambar.</p>
+</div>
+</template>
+
+<templateid="batch-content">
+<divclass="bg-whitep-8rounded-lgshadow-sm">
+<h2class="text-2xlfont-boldtext-gray-900mb-2">BatchProcess</h2>
+<divclass="diagram-box">
+<divclass="diagram-step">folder/*.png</div>
+<divclass="diagram-arrow">→</div>
+<divclass="diagram-step">forfin*.png;doconvert"$f""${f%.png}.jpg";done</div>
+<divclass="diagram-arrow">→</div>
+<divclass="diagram-step">folder/*.jpg</div>
+</div>
+<divclass="code-block">
+<buttonclass="copy-btn">Salin</button>
+<pre><code>forfin*.png;doconvert"$f""${f%.png}.jpg";done</code></pre>
+</div>
+<pclass="text-gray-600text-sm">BatchconvertsemuaPNGmenjadiJPGdifolder.</p>
+</div>
+</template>
+
+<templateid="effects-content">
+<divclass="bg-whitep-8rounded-lgshadow-sm">
+<h2class="text-2xlfont-boldtext-gray-900mb-2">Efek&Filter</h2>
+<divclass="diagram-box">
+<divclass="diagram-step">input.jpg</div>
+<divclass="diagram-arrow">→</div>
+<divclass="diagram-step">convertinput.jpg-sepia-tone80%output.jpg</div>
+<divclass="diagram-arrow">→</div>
+<divclass="diagram-step">output.jpg</div>
+</div>
+<divclass="code-block">
+<buttonclass="copy-btn">Salin</button>
+<pre><code>convertinput.jpg-sepia-tone80%output.jpg</code></pre>
+</div>
+<pclass="text-gray-600text-sm">Tambahkanefeksepiapadagambar.</p>
+</div>
+</template>
+
+<templateid="tips-content">
+<divclass="bg-whitep-8rounded-lgshadow-sm">
+<h2class="text-2xlfont-boldtext-gray-900mb-2">Tips&BestPractices</h2>
+<ulclass="list-disclist-insidetext-gray-600space-y-2">
+<li>Gunakan<code>convert</code>untukmanipulasidasar,<code>mogrify</code>untukbatchoverwrite.</li>
+<li>Gunakan<code>-resize</code>untukmengubahukuran,<code>-rotate</code>untukrotasi,<code>-composite</code>untukoverlay.</li>
+<li>Gunakan<code>-quality</code>untukmengaturkualitasoutputJPG.</li>
+<li>Backupfileaslisebelumbatchprocess.</li>
+<li>CekversiImageMagickdengan<code>magick-version</code>.</li>
 </ul>
 </div>
 </template>
 
-<!-- Footer -->
-<div style="margin-top:50px;padding:20px;text-align:center;">
-<p class="text-xs text-gray-500">🄯 2025 Command Line Guides | Panduan Interaktif ImageMagick</p>
+<!--Footer-->
+<divstyle="margin-top:50px;padding:20px;text-align:center;">
+<pclass="text-xstext-gray-500">🄯2025CommandLineGuides|PanduanInteraktifImageMagick</p>
 </div>
 
 <script>
 document.addEventListener("DOMContentLoaded",()=>{
-  const navigation=document.getElementById("navigation");
-  const contentDisplay=document.getElementById("content-display");
-  const navLinks=document.querySelectorAll(".nav-link");
+constnavigation=document.getElementById("navigation");
+constcontentDisplay=document.getElementById("content-display");
+constnavLinks=document.querySelectorAll(".nav-link");
 
-  const contentMap={
-    "#convert":"convert-content",
-    "#resize":"resize-content",
-    "#rotate":"rotate-content",
-    "#watermark":"watermark-content",
-    "#batch":"batch-content",
-    "#effects":"effects-content",
-    "#tips":"tips-content"
-  };
+constcontentMap={
+"#convert":"convert-content",
+"#resize":"resize-content",
+"#rotate":"rotate-content",
+"#watermark":"watermark-content",
+"#batch":"batch-content",
+"#effects":"effects-content",
+"#tips":"tips-content"
+};
 
-  const loadContent=(hash)=>{
-    navLinks.forEach(l=>l.classList.remove("active-nav"));
-    contentDisplay.innerHTML="";
-    const templateId=contentMap[hash];
-    if(templateId){
-      const template=document.getElementById(templateId);
-      contentDisplay.appendChild(template.content.cloneNode(true));
-      document.querySelector(`a[href="${hash}"]`)?.classList.add("active-nav");
-    } else {
-      const welcomeTemplate=document.getElementById("welcome-content");
-      contentDisplay.appendChild(welcomeTemplate.content.cloneNode(true));
-    }
-  };
+constloadContent=(hash)=>{
+navLinks.forEach(l=>l.classList.remove("active-nav"));
+contentDisplay.innerHTML="";
+consttemplateId=contentMap[hash];
+if(templateId){
+consttemplate=document.getElementById(templateId);
+contentDisplay.appendChild(template.content.cloneNode(true));
+document.querySelector(`a[href="${hash}"]`)?.classList.add("active-nav");
+}else{
+constwelcomeTemplate=document.getElementById("welcome-content");
+contentDisplay.appendChild(welcomeTemplate.content.cloneNode(true));
+}
+};
 
-  navigation.addEventListener("click",e=>{if(e.target.tagName==="A"){e.preventDefault();window.location.hash=e.target.hash;}});
-  window.addEventListener("hashchange",()=>loadContent(window.location.hash));
+navigation.addEventListener("click",e=>{if(e.target.tagName==="A"){e.preventDefault();window.location.hash=e.target.hash;}});
+window.addEventListener("hashchange",()=>loadContent(window.location.hash));
 
-  contentDisplay.addEventListener("click",t=>{
-    if(t.target.classList.contains("copy-btn")){
-      const codeEl=t.target.nextElementSibling.querySelector("code");
-      if(codeEl) navigator.clipboard.writeText(codeEl.innerText.trim())
-      .then(()=>{const btn=t.target,orig=btn.innerText;btn.innerText="Disalin!";setTimeout(()=>btn.innerText=orig,2000);})
-      .catch(err=>console.error("Gagal menyalin",err));
-    }
-  });
+contentDisplay.addEventListener("click",t=>{
+if(t.target.classList.contains("copy-btn")){
+constcodeEl=t.target.nextElementSibling.querySelector("code");
+if(codeEl)navigator.clipboard.writeText(codeEl.innerText.trim())
+.then(()=>{constbtn=t.target,orig=btn.innerText;btn.innerText="Disalin!";setTimeout(()=>btn.innerText=orig,2000);})
+.catch(err=>console.error("Gagalmenyalin",err));
+}
+});
 
-  if(window.location.hash) loadContent(window.location.hash);
-  else loadContent("");
+if(window.location.hash)loadContent(window.location.hash);
+elseloadContent("");
 });
 </script>
-<div class="search-floating-container"><input type="text" id="floatingSearchInput" placeholder="cari artikel..." autocomplete="off"><span id="floatingSearchClear" class="clear-button"></span><div id="floatingSearchResults" class="floating-results-container"></div></div>
-<section id="related-marquee-section"><div id="related-marquee-container"></div></section><script defer src="/ext/marquee-url.js"></script>
-<script defer src="/ext/iposbrowser.js"></script>
+<divclass="search-floating-container"><inputtype="text"id="floatingSearchInput"placeholder="cariartikel..."autocomplete="off"><spanid="floatingSearchClear"class="clear-button"></span><divid="floatingSearchResults"class="floating-results-container"></div></div>
+<sectionid="related-marquee-section"><divid="related-marquee-container"></div></section><scriptdefersrc="/ext/marquee-url.js"></script>
+<scriptdefersrc="/ext/iposbrowser.js"></script>
 
 
 </body>
