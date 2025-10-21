@@ -1,0 +1,35 @@
+# ┌─────────────────────────────┐
+# │  DEPENDENCIES & BUILD       │
+# └─────────────────────────────┘
+node_modules/
+
+# ┌─────────────────────────────┐
+# │  SYSTEM & IDE ARTIFACTS     │
+# └─────────────────────────────┘
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ┌─────────────────────────────┐
+# │  ENV & CONFIG FILES         │
+# └─────────────────────────────┘
+.env
+*.log
+*.local.json
+*.config.js
+
+# ┌─────────────────────────────┐
+# │  SVG ORNAMENTATION          │
+# └─────────────────────────────┘
+ornament-*.svg
+pattern-*.svg
+grid-*.svg
+
+# ┌─────────────────────────────┐
+# │  INTERACTIVE HTML PAGES     │
+# └─────────────────────────────┘
+*.bak.html
+*.draft.html
+*.preview.html
+*.snapshot.html
