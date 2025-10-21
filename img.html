@@ -1,0 +1,334 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Galeri Gambar - Frijal's Blog</title>
+    <meta name="description" content="Jelajahi koleksi gambar WebP dari artikel-artikel di blog Frijal. Temukan semua gambar dalam format galeri yang mudah dinavigasi.">
+    <meta name="keywords" content="galeri gambar, koleksi foto, gambar webp, frijal, blog, portofolio">
+    <meta name="author" content="Frijal">
+    
+    <link rel="canonical" href="https://frijal.pages.dev/img.html">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/ext/icon/apple-touch-icon.png">
+
+    <meta property="og:title" content="Galeri Gambar">
+    <meta property="og:description" content="Jelajahi koleksi gambar WebP dari artikel-artikel di blog Frijal.">
+    <meta property="og:image" content="https://frijal.pages.dev/thumbnail.webp">
+    <meta property="og:url" content="https://frijal.pages.dev/img.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Frijal's Blog">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Galeri Gambar - Frijal's Blog">
+    <meta name="twitter:description" content="Jelajahi koleksi gambar WebP dari artikel-artikel di blog Frijal.">
+    <meta name="twitter:image" content="https://frijal.pages.dev/thumbnail.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+   
+    <style>
+        :root {
+            --bg-color: #1a1a1a;
+            --card-bg: #2a2a2a;
+            --text-color: #e0e0e0;
+            --primary-color: #00aaff;
+            --border-color: #444;
+            --header-font: 'Poppins', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+        }
+        
+        #status {
+            font-style: italic;
+            color: #aaa;
+        }
+
+        .view-buttons button {
+            background-color: #333;
+            margin-left: 10px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .view-buttons button.active {
+            background-color: var(--primary-color);
+        }
+
+        #gallery-container {
+            padding: 10px;
+            border-radius: 8px;
+            min-height: 200px;
+        }
+        
+        /* Thumbnail View */
+        .thumb-view {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .thumb-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+        }
+
+        .thumb-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        .thumb-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .thumb-item .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 8px;
+            font-size: 0.8rem;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .thumb-item:hover .caption {
+            transform: translateY(0);
+        }
+
+        /* List View */
+        .list-view {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: background-color 0.3s ease;
+        }
+        
+        .list-item:hover {
+            background-color: #3c3c3c;
+            color: white;
+        }
+        
+        .list-item-icon {
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .list-item-name {
+            flex-grow: 1;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Galeri Gambar</h1>
+        </header>
+
+        <div class="controls">
+            <div id="status">Memuat gambar...</div>
+            <div class="view-buttons">
+                <button id="listViewBtn">List</button>
+                <button id="thumbViewBtn" class="active">Thumbnail</button>
+            </div>
+        </div>
+
+        <div id="gallery-container" class="thumb-view">
+            </div>
+    </div>
+
+    <script>
+        // URL sumber data (tidak perlu form lagi)
+        const JSON_URL = 'https://frijal.pages.dev/artikel.json';
+        const IMAGE_BASE_URL = 'https://frijal.pages.dev/img/';
+
+        // Ambil elemen dari halaman
+        const statusDiv = document.getElementById('status');
+        const galleryContainer = document.getElementById('gallery-container');
+        const listViewBtn = document.getElementById('listViewBtn');
+        const thumbViewBtn = document.getElementById('thumbViewBtn');
+
+        let imageData = []; // Simpan nama file gambar
+
+        // Fungsi utama untuk mengambil dan menampilkan gambar
+        async function fetchAndDisplayImages() {
+            statusDiv.textContent = 'Membaca artikel.json... ⏳';
+            
+            try {
+                // Tambahkan parameter acak untuk mencegah caching file JSON
+                const response = await fetch(`${JSON_URL}?t=${new Date().getTime()}`);
+                if (!response.ok) {
+                    throw new Error(`Gagal memuat artikel.json: ${response.status} ${response.statusText}.`);
+                }
+                const data = await response.json();
+                
+                if (!Array.isArray(data)) {
+                    throw new Error('File artikel.json tidak berisi sebuah array.');
+                }
+
+                // Ambil elemen ke-3 (indeks 2) dari setiap array di dalam data
+                const fileNames = data.map(item => {
+                    if (Array.isArray(item) && item.length > 2 && typeof item[2] === 'string' && item[2].trim() !== '') {
+                        return item[2];
+                    }
+                    return null;
+                }).filter(Boolean); // Hapus entri yang null atau tidak valid
+                
+                if (fileNames.length === 0) {
+                    statusDiv.textContent = 'Tidak ada nama gambar yang valid ditemukan di artikel.json.';
+                    return;
+                }
+
+                imageData = fileNames;
+                statusDiv.textContent = `Ditemukan ${imageData.length} gambar.`;
+                displayThumbnails(); // Tampilkan thumbnail sebagai default
+                
+            } catch (error) {
+                statusDiv.textContent = `Error: ${error.message}`;
+                console.error("Fetch error:", error);
+            }
+        }
+
+        // Fungsi untuk menampilkan galeri thumbnail
+        function displayThumbnails() {
+            galleryContainer.className = 'thumb-view';
+            galleryContainer.innerHTML = '';
+            thumbViewBtn.classList.add('active');
+            listViewBtn.classList.remove('active');
+
+            imageData.forEach(fileName => {
+                const fullUrl = `${IMAGE_BASE_URL}${fileName}`;
+                const item = document.createElement('a');
+                item.href = fullUrl;
+                item.target = '_blank';
+                item.className = 'thumb-item';
+                item.title = fileName;
+
+                const img = document.createElement('img');
+                img.src = fullUrl;
+                img.alt = fileName;
+                img.loading = 'lazy';
+                
+                const caption = document.createElement('div');
+                caption.className = 'caption';
+                caption.textContent = fileName;
+                
+                item.appendChild(img);
+                item.appendChild(caption);
+                galleryContainer.appendChild(item);
+            });
+        }
+        
+        // Fungsi untuk menampilkan daftar direktori
+        function displayList() {
+            galleryContainer.className = 'list-view';
+            galleryContainer.innerHTML = '';
+            listViewBtn.classList.add('active');
+            thumbViewBtn.classList.remove('active');
+
+            imageData.forEach(fileName => {
+                const fullUrl = `${IMAGE_BASE_URL}${fileName}`;
+                const item = document.createElement('a');
+                item.href = fullUrl;
+                item.target = '_blank';
+                item.className = 'list-item';
+                item.title = fileName;
+
+                const icon = document.createElement('span');
+                icon.className = 'list-item-icon';
+                icon.textContent = '🖼️';
+
+                const name = document.createElement('span');
+                name.className = 'list-item-name';
+                name.textContent = fileName;
+
+                item.appendChild(icon);
+                item.appendChild(name);
+                galleryContainer.appendChild(item);
+            });
+        }
+
+        // --- Pemicu Otomatis ---
+        // Jalankan fungsi utama saat halaman selesai dimuat
+        document.addEventListener('DOMContentLoaded', fetchAndDisplayImages);
+
+        // Event listener untuk tombol view tetap ada
+        thumbViewBtn.addEventListener('click', () => {
+            if (imageData.length > 0) displayThumbnails();
+        });
+        listViewBtn.addEventListener('click', () => {
+            if (imageData.length > 0) displayList();
+        });
+
+    </script>
+</body>
+</html>
