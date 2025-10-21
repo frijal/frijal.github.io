@@ -1,0 +1,44 @@
+# .github/workflows/indexnow.yml
+
+name: IndexNow Daily Submit
+
+on:
+  schedule:
+    # Berjalan setiap hari pukul 11:00 UTC (19:00 WITA)
+    - cron: '0 11 * * *'
+  workflow_dispatch:
+
+# --- PERUBAHAN 1: Tambahkan izin untuk menulis ke repo ---
+permissions:
+  contents: write
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate IndexNow JSON + Log
+        run: node ext/generate_indexnow.js
+
+      - name: Submit to IndexNow
+        run: |
+          echo "Submitting URLs to IndexNow..."
+          curl -X POST "https://bing.com/indexnow" \
+          -H "Content-Type: application/json; charset=utf-8" \
+          --data-binary @mini/artikel-indexnow.json
+
+      # --- PERUBAHAN 2: Tambahkan langkah untuk commit file ---
+      - name: Commit generated files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update indexnow files"
+          # Simpan semua file yang ada di dalam folder 'mini'
+          file_pattern: mini/*
+          skip_empty_commit: true

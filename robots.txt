@@ -1,2 +1,55 @@
+# robots.txt untuk frijal.pages.dev
+# ======================================
+# IZINKAN hanya bagian publik:
+# - Halaman utama (/)
+# - artikel/  (artikel utama)
+# - ext/      (ekstensi publik)
+# - img/      (gambar publik)
+# =======================================
+
 User-agent: *
-Disallow: /
+Allow: /
+Allow: /artikel/
+Allow: /artikel/-/
+Allow: /ext/
+Allow: /img/
+
+# 🚫 BLOKIR semua folder non-publik, sistem, dan sementara
+Disallow: /artikelx/
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /mini/
+Disallow: /node_modules/
+Disallow: /sementara/
+Disallow: /.vscode/
+
+# 🚫 BLOKIR file sistem dan internal build
+Disallow: /*.json$
+Disallow: /*.lock$
+Disallow: /*.md$
+Disallow: /.nojekyll
+Disallow: /*.sh$
+Disallow: /*.toml$
+Disallow: /*.yaml$
+Disallow: /*.yml$
+
+# ✅ IZINKAN halaman sitemap dan feed
+Allow: /artikel.json
+Allow: /feed-catatan-and-opini-sosial.xml
+Allow: /feed.html
+Allow: /feed-kuliner-gaya-hidup-and-kesehatan.xml
+Allow: /feed-lainnya.xml
+Allow: /feed-linux-and-open-source.xml
+Allow: /feed-multimedia-and-editing.xml
+Allow: /feed-sejarah-and-religi.xml
+Allow: /feed-teknologi-web-ai-and-umum.xml
+Allow: /rss.xml
+Allow: /robots.txt
+Allow: /sitemap.html
+Allow: /sitemap.xml
+
+# ✅ Tautan ke peta situs (SEO utama)
+Sitemap: https://frijal.pages.dev/sitemap.xml
+
+# 🧹 Opsional: hindari parameter URL duplikat (untuk SEO lebih bersih)
+Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content&fbclid

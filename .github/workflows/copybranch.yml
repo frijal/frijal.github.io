@@ -1,0 +1,59 @@
+# Nama workflow yang akan tampil di tab Actions GitHub
+name: ⚠️ Build and Deploy to Clean Branch
+
+# Pemicu: Kapan workflow ini akan berjalan
+on:
+  # Berjalan setiap kali ada push ke branch 'main'
+  push:
+    branches:
+      - main
+  # Memungkinkan Anda menjalankan workflow ini secara manual
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Langkah 1: Checkout kode dari branch 'main'
+      - name: Checkout source branch
+        uses: actions/checkout@v4
+
+      # Langkah 2: Buat direktori sementara yang bersih
+      - name: Create clean directory
+        run: mkdir deploy_dir
+
+      # Langkah 3: Salin hanya file dan folder yang diizinkan
+      - name: Sync allowed files to deploy directory
+        run: |
+          rsync -a --delete \
+            --include='artikel/***' \
+            --include='ext/***' \
+            --include='img/***' \
+            --include='artikel.json' \
+            --include='_redirects' \
+            --include='_headers' \
+            --include='*.html' \
+            --include='*.xml' \
+            --include='*.txt' \
+            --include='favicon.*' \
+            --include='icon.*' \
+            --include='logo.*' \
+            --include='thumbnail.*' \
+            --include='*.webmanifest' \
+            --exclude='*' \
+            ./ deploy_dir/
+      
+      # Langkah 4: Deploy isi direktori bersih ke branch 'site'
+      - name: Deploy to site branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy_dir
+          
+          # [DIUBAH] Nama branch tujuan sekarang adalah 'site'
+          publish_branch: site
+          
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          force_orphan: true
