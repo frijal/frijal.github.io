@@ -6,7 +6,16 @@
     <description><![CDATA[Feed artikel terbaru untuk kategori 📸 Multimedia & Editing]]></description>
     <language>id-ID</language>
     <atom:link href="https://frijal.pages.dev/feed-multimedia-and-editing.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Tue, 21 Oct 2025 13:20:49 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 21 Oct 2025 13:27:53 GMT</lastBuildDate>
+    <item>
+      <title><![CDATA[Solusi LibreOffice Lambat di Jaringan]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/solusi-libreoffice-lambat-jaringan.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/solusi-libreoffice-lambat-jaringan.html]]></guid>
+      <pubDate>Sun, 19 Oct 2025 02:29:13 GMT</pubDate>
+      <description><![CDATA[Mengatasi masalah LibreOffice yang lambat saat membuka dokumen dari jaringan di Ubuntu. Panduan mudah dengan gvfs-fuse dan perintah sed.]]></description>
+      <category><![CDATA[📸 Multimedia & Editing]]></category>
+<enclosure url="https://frijal.pages.dev/img/solusi-libreoffice-lambat-jaringan.webp" length="0" type="image/webp" />
+    </item>
     <item>
       <title><![CDATA[Mengambil Semua Gambar dari File PDF dengan pdfimages]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/mengambil-gambar-dari-pdf.html]]></link>
@@ -62,6 +71,15 @@
 <enclosure url="https://frijal.pages.dev/img/FFmpeg-split-video-durasi-otomatis.webp" length="0" type="image/webp" />
     </item>
     <item>
+      <title><![CDATA[Multi Video YouTube dengan Thumbnail Gallery]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/multi-video-youtube-gallery.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/multi-video-youtube-gallery.html]]></guid>
+      <pubDate>Fri, 17 Oct 2025 12:38:48 GMT</pubDate>
+      <description><![CDATA[Cek dan buat embed banyak video YouTube responsif. Gallery thumbnail, preview, lightbox fullscreen dengan navigasi panah dan swipe mobile.]]></description>
+      <category><![CDATA[📸 Multimedia & Editing]]></category>
+<enclosure url="https://frijal.pages.dev/img/multi-video-youtube-gallery.webp" length="0" type="image/webp" />
+    </item>
+    <item>
       <title><![CDATA[Screencast Desktop Super Gampang di Linux pakai FFmpeg]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/ffmpeg-rekam-desktop-ffmpeg.html]]></link>
       <guid><![CDATA[https://frijal.pages.dev/artikel/ffmpeg-rekam-desktop-ffmpeg.html]]></guid>
@@ -78,6 +96,60 @@
       <description><![CDATA[Panduan lengkap dan santai cara menikmati IPTV di Linux dengan Hypnotix, VLC, dan lainnya. Ada galeri, tips, info sistem, sharing, dan komentar!]]></description>
       <category><![CDATA[📸 Multimedia & Editing]]></category>
 <enclosure url="https://frijal.pages.dev/img/iptv-linux.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Panduan Interaktif ImageMagick - CLI Media Manipulation 🛠️]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/ubah-gabung.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/ubah-gabung.html]]></guid>
+      <pubDate>Fri, 17 Oct 2025 08:24:29 GMT</pubDate>
+      <description><![CDATA[Panduan interaktif menggunakan ImageMagick (gambar) dan FFmpeg (audio/video) di command line. Pelajari cara menggabung, memotong, dan konversi file media.]]></description>
+      <category><![CDATA[📸 Multimedia & Editing]]></category>
+<enclosure url="https://frijal.pages.dev/thumbnail.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Cara Memotong Gambar menggunakan ImageMagick - Panduan Interaktif ✂️]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/ubahpotong.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/ubahpotong.html]]></guid>
+      <pubDate>Fri, 17 Oct 2025 08:24:29 GMT</pubDate>
+      <description><![CDATA[Panduan interaktif cara memotong (crop) gambar secara horizontal dan vertikal menggunakan perintah ImageMagick. Lihat visualisasi dan salin kodenya!]]></description>
+      <category><![CDATA[📸 Multimedia & Editing]]></category>
+<enclosure url="https://frijal.pages.dev/img/ubahpotong.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Memberi Watermark pada Gambar dengan ImageMagick di Linux]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/watermark-imagemagick.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/watermark-imagemagick.html]]></guid>
+      <pubDate>Thu, 16 Oct 2025 23:20:38 GMT</pubDate>
+      <description><![CDATA[Panduan lengkap cara memberi watermark pada gambar menggunakan ImageMagick di Linux. Dilengkapi script bash otomatis, tutorial, dan contoh interaktif.]]></description>
+      <category><![CDATA[📸 Multimedia & Editing]]></category>
+<enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZfd7lBezHxJd1AZq0NAtIDxU1yLmHgZMPDEB6_Z_d9CbQXDilSGRra1cNlZ_RnZSJV6GReo4oIlqaHa-mbQrO9BGSXtSM6aK9Z9QRK-0LenuEmQ9CSQMjER-8CaFJ49gFTFr4Oqe3Kgf_/s1600/Logo_Imagemagick.png" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Menyatukan Pecahan Film dengan Terminal (Perintah cat) | frijal.pages.dev]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/tutorial-menyatukan-film.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/tutorial-menyatukan-film.html]]></guid>
+      <pubDate>Thu, 16 Oct 2025 23:20:38 GMT</pubDate>
+      <description><![CDATA[Panduan lengkap menyatukan pecahan berkas film (.001, .002, .part1) menggunakan perintah cat di Linux. Disertai screenshot dan langkah detail.]]></description>
+      <category><![CDATA[📸 Multimedia & Editing]]></category>
+<enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWVeSADIzXfXQOQ1ZrdKvbiGdwGh3vWweZa1Qu2sSvlsT5us3fjPPD7TlFjgDsV3H0VtDOQlOHCGzV8zK2oawnfe5ZAfLcvDpryFza2wrUu0C9fkgJqin7I-G5R7jOUjoFLpwqsDw-XsDA/s1600/screenshotpleasegive201.png" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Panduan Interaktif FFmpeg Visual: Audio & Video]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/panduan-interaktif-ffmpeg.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/panduan-interaktif-ffmpeg.html]]></guid>
+      <pubDate>Thu, 16 Oct 2025 23:20:38 GMT</pubDate>
+      <description><![CDATA[Panduan FFmpeg visual interaktif: konversi, trim, batch convert, resize, extract audio, normalize menggunakan perintah command line yang mudah disalin.]]></description>
+      <category><![CDATA[📸 Multimedia & Editing]]></category>
+<enclosure url="https://frijal.pages.dev/img/panduan-interaktif-ffmpeg.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Mengubah Dokumen ke Open Document dengan OpenOffice & LibreOffice]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/open-document-converter.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/open-document-converter.html]]></guid>
+      <pubDate>Thu, 16 Oct 2025 23:20:38 GMT</pubDate>
+      <description><![CDATA[Panduan langkah demi langkah mengubah dokumen ke format Open Document (ODF) menggunakan OpenOffice atau LibreOffice dengan cepat dan mudah.]]></description>
+      <category><![CDATA[📸 Multimedia & Editing]]></category>
+<enclosure url="https://upload.wikimedia.org/wikipedia/commons/0/02/Open_document_icon.svg" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[Menggabungkan Berkas PDF dengan PDFtk]]></title>
@@ -143,6 +215,24 @@
 <enclosure url="https://frijal.pages.dev/img/imagemagick-paksa-rasio-16-9.webp" length="0" type="image/webp" />
     </item>
     <item>
+      <title><![CDATA[Mengatasi Masalah Audio & EasyEffects di Ubuntu untuk Laptop HP B&O]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/solusi-audio-easyeffects-ubuntu.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/solusi-audio-easyeffects-ubuntu.html]]></guid>
+      <pubDate>Tue, 14 Oct 2025 18:15:06 GMT</pubDate>
+      <description><![CDATA[Panduan lengkap mengatasi suara speaker yang]]></description>
+      <category><![CDATA[📸 Multimedia & Editing]]></category>
+<enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg169gbWlw-wwW_FZ57pmqzw8iN6XH__YjdoaVRbm8Ovj6NecI0T6ABjPI_xBnYEiV44MxCteqXQIfp3wiCRahP_yw4AKvlnN3eHZpYbP44s_8qt5zSf9Za4zo_AcNCyCNZwOaGrfi4YYNMnLwC2RohEnpHInOJ0-e7DPMtDwoffRUqU6xTyD0EgCuJi9s/s1600/hpbo.png" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Cara Merekam Sebagian Layar Desktop dengan FFmpeg]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/rekam-layar-ffmpeg.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/rekam-layar-ffmpeg.html]]></guid>
+      <pubDate>Tue, 14 Oct 2025 18:15:06 GMT</pubDate>
+      <description><![CDATA[Tutorial lengkap cara merekam sebagian area layar desktop di Linux menggunakan perintah FFmpeg. Pelajari cara menentukan area tangkapan dengan presisi.]]></description>
+      <category><![CDATA[📸 Multimedia & Editing]]></category>
+<enclosure url="https://frijal.pages.dev/img/rekam-layar-ffmpeg.webp" length="0" type="image/webp" />
+    </item>
+    <item>
       <title><![CDATA[Mengubah Format Gambar Massal dengan ImageMagick]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/mengubah-format-gambar.html]]></link>
       <guid><![CDATA[https://frijal.pages.dev/artikel/mengubah-format-gambar.html]]></guid>
@@ -159,6 +249,42 @@
       <description><![CDATA[Panduan FFmpeg lengkap: konversi audio/video, trim, batch convert, resize, extract audio, normalize, dan manipulasi media dengan command line.]]></description>
       <category><![CDATA[📸 Multimedia & Editing]]></category>
 <enclosure url="https://frijal.pages.dev/images/ffmpeg-guide.jpg" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Preset Lightroom (.xmp) – NatGeo, Monokrom, Sepia]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/preset-lightroom-xmp-natgeo-monokrom-sepia.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/preset-lightroom-xmp-natgeo-monokrom-sepia.html]]></guid>
+      <pubDate>Sun, 05 Oct 2025 08:30:00 GMT</pubDate>
+      <description><![CDATA[Cara membuat preset Lightroom (.xmp) paket lengkap: NatGeo Style, Monokrom Dokumenter, dan Sepia Arsip. Panduan santai, teknis, siap pakai, lengkap dengan contoh dan galeri.]]></description>
+      <category><![CDATA[📸 Multimedia & Editing]]></category>
+<enclosure url="https://frijal.pages.dev/img/preset-lightroom-xmp-natgeo-monokrom-sepia.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Workflow Perbaikan Foto ala National Geographic]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/workflow-perbaikan-foto-ala-national-geographic.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/workflow-perbaikan-foto-ala-national-geographic.html]]></guid>
+      <pubDate>Sun, 05 Oct 2025 08:20:00 GMT</pubDate>
+      <description><![CDATA[Panduan teknis step-by-step memperbaiki foto agar jelas, tajam, dan bernuansa dokumenter ala National Geographic: dari basic adjustments, color grading, selective editing, hingga finishing dan export.]]></description>
+      <category><![CDATA[📸 Multimedia & Editing]]></category>
+<enclosure url="https://frijal.pages.dev/img/workflow-perbaikan-foto-ala-national-geographic.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Panduan Perbaikan Foto ala National Geographic]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/perbaikan-foto-ala-national-geographic.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/perbaikan-foto-ala-national-geographic.html]]></guid>
+      <pubDate>Sun, 05 Oct 2025 08:05:00 GMT</pubDate>
+      <description><![CDATA[Panduan praktis memperbaiki foto agar mendekati kualitas majalah National Geographic: langkah teknis, color grading, detail enhancement, dan sentuhan artistik dokumenter.]]></description>
+      <category><![CDATA[📸 Multimedia & Editing]]></category>
+<enclosure url="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Pictory.ai: Ubah Tulisan Jadi Video Marketing Profesional]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/pictory-ai-video-marketing.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/pictory-ai-video-marketing.html]]></guid>
+      <pubDate>Sat, 04 Oct 2025 15:37:18 GMT</pubDate>
+      <description><![CDATA[Konten video lagi ngetren! Pelajari cara Pictory.ai mengubah artikel blog jadi video keren dengan subtitle otomatis, cocok untuk UMKM yang mau hemat biaya.]]></description>
+      <category><![CDATA[📸 Multimedia & Editing]]></category>
+<enclosure url="https://frijal.pages.dev/img/pictory-ai-video-marketing.webp" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[Lumen5: Sulap Tulisan Jadi Video Keren untuk Media Sosial]]></title>
@@ -224,6 +350,15 @@
 <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9eHl5QCTbMawFAtgAiBBVrpiotsZjwUV1BddG3vRbnvA7rKQ4zbsrkXvtg0xwA4PKNnMev6fN449H5qBbRog2oi_JIOUbDbYqmG5DbfqgQeM0L1sWRRyA5PXn9NS2bzmz_-2dDg5zELhY7gScD7t4sexoVsyw_gY1XTmzcEYL0rHxSDbQinMlNxsrt1w/s1600/LibreOffice.jpg" length="0" type="image/webp" />
     </item>
     <item>
+      <title><![CDATA[Stop Piracy : Penjelasan Lengkap & Sumber Gambar]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/stop-piracy-retro.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/stop-piracy-retro.html]]></guid>
+      <pubDate>Thu, 18 Sep 2025 09:19:00 GMT</pubDate>
+      <description><![CDATA[Ulasan singkat dan mudah dipahami tentang poster Stop Piracy yang dilengkapi sumber gambar asli, lightbox, tombol bagikan, komentar Facebook, dan info perangkat Anda.]]></description>
+      <category><![CDATA[📸 Multimedia & Editing]]></category>
+<enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzT2-6XdaBP2URB5G32M4BJmavmNPG4yekDW_U7As0xyixGPUUT80Z-iiLmP79-8YKhdCyXFAe8dS4VhHBwiUoDwY-KYBIyltkEUY_DMoUfZVhj8wV-5E0SyY8vGf6tplO8kXby9c3vshd/s16000/Stop%252BPiracy%252B-%252BRetro%252B1.resized-763779.png" length="0" type="image/webp" />
+    </item>
+    <item>
       <title><![CDATA[Fedora + GNOME: Menutup Semua Aplikasi & Tips Screencast FFMPEG]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/fedora-gnome-tutup-aplikasi.html]]></link>
       <guid><![CDATA[https://frijal.pages.dev/artikel/fedora-gnome-tutup-aplikasi.html]]></guid>
@@ -240,6 +375,15 @@
       <description><![CDATA[Batch Resize Foto dengan ImageMagick — Simpan ke Folder Terpisah]]></description>
       <category><![CDATA[📸 Multimedia & Editing]]></category>
 <enclosure url="https://frijal.pages.dev/img/mengubah-ukuran-banyak-foto-sekaligus-menggunakan-ImageMagick.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Cara Memutar Video Terbalik di VLC Player]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/vlc-rotate.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/vlc-rotate.html]]></guid>
+      <pubDate>Tue, 16 Sep 2025 03:00:00 GMT</pubDate>
+      <description><![CDATA[Panduan lengkap dan mudah untuk memperbaiki rotasi video yang terbalik atau miring menggunakan fitur bawaan di VLC Media Player.]]></description>
+      <category><![CDATA[📸 Multimedia & Editing]]></category>
+<enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg45wGDSlqAT1omWjvPioPZ0iO8hjJzbPfnRnKEquVz4a_xuokHUsKcZzmA-XMUkI33zlSRrazy65YmqZAXjjlc1pa2a29KE_onrmpvCYKi6Yl5mSFZ81qj5cG1iZzY1JGDM0ZHo9EpvSNY/s16000/xnautilusdesktop003.jpg" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[FFmpeg: Memotong Durasi Video]]></title>
@@ -303,6 +447,15 @@
       <description><![CDATA[Baca lirik dan putar video Iwan Fals — Bangunlah Putra Putri Pertiwi. Nuansa semangat kebangsaan dengan desain fullscreen, interaktif, dan mobile-friendly.]]></description>
       <category><![CDATA[📸 Multimedia & Editing]]></category>
 <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhH_w_zA2fJjUFKoQ5NKqR46TSuYZEIyv914i3QH3axfK6vKQ6wVWp2b7j6xhsG35i5T0S5iwwjXEY8mpzJwLmDsTcW10EO5-TPJ2CE0jC9uOs9YgnmZzAlGXVb-PGRq0OvY_EklhDvuoXU/s1600/IMG_20141029_005950.jpg" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Ujian Nasional: catatan singkat, video, dan visual]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/ujian-nasional-catatan-video.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/ujian-nasional-catatan-video.html]]></guid>
+      <pubDate>Tue, 01 Apr 2014 00:00:00 GMT</pubDate>
+      <description><![CDATA[Sedikit catatan tentang dampak Ujian Nasional: video, komentar santai, dan foto suasana pelaksanaan. Desain fullscreen, interaktif, dan mobile-friendly.]]></description>
+      <category><![CDATA[📸 Multimedia & Editing]]></category>
+<enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8nO3GhF2Tj7qCBGEcgdMSgtTvRViXdT3-ISg37fsb6txt5VUDnzHj5sl268cUzWH3AIDmZ-W4OzrC_D0_r2bJGrEmXhSd8ixuAB3RMloloBWHhoFQ8FvOVQyETTTGgyerDy-01CCS91Gd/s1600/pelaksanaan-un.jpg" length="0" type="image/webp" />
     </item>
   </channel>
 </rss>
