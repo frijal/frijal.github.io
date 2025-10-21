@@ -3,27 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mengamankan GitHub Actions: Izin Baca vs. Tulis untuk GITHUB_TOKEN</title>
-    <meta name="description" content="Pelajari cara mengamankan repositori dengan mengatur Workflow Permissions di GitHub Actions. Pahami beda Read vs. Write permission untuk GITHUB_TOKEN dan kenapa Read-Only adalah pilihan terbaik.">
+    <title>Setting PR GitHub yang Bikin Hidup Gampang: Auto Update, Merge & Delete</title>
+    <meta name="description" content="Optimalkan alur kerja GitHub kamu dengan mengaktifkan tiga fitur simpel ini: auto-update, auto-merge, dan auto-delete branches. Bikin development lebih cepat dan rapi!">
     <meta name="author" content="Frijal">
-    <meta name="keywords" content="git, github, github actions, workflow permissions, github_token, security, ci/cd, tutorial git, frijal">
+    <meta name="keywords" content="git, github, pull request, workflow, auto-merge, auto-delete, tutorial git, frijal">
     
-    <link rel="canonical" href="https://frijal.pages.dev/artikel/github-actions-workflow-permissions.html">
+    <link rel="canonical" href="https://frijal.pages.dev/artikel/github-pr-workflow-settings.html">
 
     <link rel="icon" type="image/x-icon" href="https://frijal.pages.dev/favicon.ico">
     <link rel="apple-touch-icon" href="https://frijal.pages.dev/apple-touch-icon.png">
 
-    <meta property="og:title" content="Mengamankan GitHub Actions: Izin Baca vs. Tulis untuk GITHUB_TOKEN">
-    <meta property="og:description" content="Pelajari cara mengamankan repositori dengan mengatur Workflow Permissions di GitHub Actions. Pahami beda Read vs. Write permission untuk GITHUB_TOKEN.">
-    <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQQWCgT4AUgvX8nbcUcqTh1pWgTdtWeqwAhcyPdXAwzzyISi9c1yPGD0d5TW5vJiccUtmPEtmwas8wL75LyrYD5p6WEBs_yjzKAO2gHjdQuVjg4c6sP4V92ddtveKF6cj5QrE-JKK53dwaLrgjp4xxi8qkIKGuL85QWfEVZ4GiQfIznIjBOAaMwkihDZU/s1600/Screenshot%20From%202025-10-21%2022-29-44.png">
-    <meta property="og:url" content="https://frijal.pages.dev/artikel/github-actions-workflow-permissions.html">
+    <meta property="og:title" content="Setting PR GitHub yang Bikin Hidup Gampang: Auto Update, Merge & Delete">
+    <meta property="og:description" content="Optimalkan alur kerja GitHub kamu dengan 3 fitur simpel ini: auto-update, auto-merge, & auto-delete branches. Bikin development lebih cepat dan rapi!">
+    <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPqJtix7wPezXkcZ8cFUsMF9o7kZ-C-Bpw6sTKEohzq7QL9ngeScIyma7uZwfGyWQc1Y8kGiUbWS_o8EZpPjYaTer7VDqEeRZ-35aJqdpTtV-uSkgwwj3JlvqulEGRnslWKLFCIsZHDw6Ki1myAmQThpQouvTw4LJv1m6yzbtIBtBV0it-g2fv7hm79Mc/s1600/Screenshot%20From%202025-10-21%2022-01-03.png">
+    <meta property="og:url" content="https://frijal.pages.dev/artikel/github-pr-workflow-settings.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Frijal's Blog">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Mengamankan GitHub Actions: Izin Baca vs. Tulis untuk GITHUB_TOKEN">
-    <meta name="twitter:description" content="Pelajari cara mengamankan repositori dengan mengatur Workflow Permissions di GitHub Actions. Pahami beda Read vs. Write permission untuk GITHUB_TOKEN.">
-    <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQQWCgT4AUgvX8nbcUcqTh1pWgTdtWeqwAhcyPdXAwzzyISi9c1yPGD0d5TW5vJiccUtmPEtmwas8wL75LyrYD5p6WEBs_yjzKAO2gHjdQuVjg4c6sP4V92ddtveKF6cj5QrE-JKK53dwaLrgjp4xxi8qkIKGuL85QWfEVZ4GiQfIznIjBOAaMwkihDZU/s1600/Screenshot%20From%202025-10-21%2022-29-44.png">
+    <meta name="twitter:title" content="Setting PR GitHub yang Bikin Hidup Gampang: Auto Update, Merge & Delete">
+    <meta name="twitter:description" content="Optimalkan alur kerja GitHub kamu dengan 3 fitur simpel ini: auto-update, auto-merge, & auto-delete branches. Bikin development lebih cepat dan rapi!">
+    <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPqJtix7wPezXkcZ8cFUsMF9o7kZ-C-Bpw6sTKEohzq7QL9ngeScIyma7uZwfGyWQc1Y8kGiUbWS_o8EZpPjYaTer7VDqEeRZ-35aJqdpTtV-uSkgwwj3JlvqulEGRnslWKLFCIsZHDw6Ki1myAmQThpQouvTw4LJv1m6yzbtIBtBV0it-g2fv7hm79Mc/s1600/Screenshot%20From%202025-10-21%2022-01-03.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,7 +40,6 @@
             --primary-color: #00aaff;
             --border-color: #444;
             --header-font: 'Poppins', sans-serif;
-            --code-bg: #3c3c3c;
         }
 
         * {
@@ -119,15 +118,6 @@
             font-weight: 600;
         }
         
-        code {
-            background-color: var(--code-bg);
-            color: #f0f0f0;
-            padding: 3px 6px;
-            border-radius: 5px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.95rem;
-        }
-        
         blockquote {
             background-color: rgba(0, 170, 255, 0.05);
             border-left: 4px solid var(--primary-color);
@@ -157,25 +147,13 @@
         }
         
         .recommendation {
-            padding: 20px;
-            margin: 40px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            padding: 15px;
+            background: #333;
             border-radius: 8px;
-        }
-        
-        .rec-secure {
-            background-color: #2d4d3f;
-            border-left: 5px solid #4dff9d;
-        }
-        
-        .rec-flexible {
-             background-color: #2b4556;
-            border-left: 5px solid #00aaff;
-        }
-        
-        .recommendation strong {
-            font-size: 1.2rem;
-            display: block;
-            margin-bottom: 10px;
+            margin-top: 20px;
         }
 
         /* Responsive Table */
@@ -200,7 +178,7 @@
             font-weight: 600;
             color: white;
         }
-        
+
         tbody tr:hover {
             background-color: #3a3a3a;
         }
@@ -245,61 +223,58 @@
             font-size: 0.9rem;
         }
         
+        /* Media Queries untuk Mobile-Friendly */
         @media (max-width: 768px) {
             header h1 { font-size: 2rem; }
             h2 { font-size: 1.8rem; }
             main article { padding: 20px; }
         }
     </style>
+<meta property="og:image:alt" content="Setting PR GitHub yang Bikin Hidup Gampang: Auto Update, Merge & Delete">
+  <meta itemprop="image" content="https://frijal.pages.dev/img/github-pr-workflow-settings.webp">
+<link rel="stylesheet" href="/ext/marquee-url.css"><link rel="alternate" type="application/rss+xml" title="30 artikel baru bikin." href="https://frijal.pages.dev/rss.xml" />
 </head>
 <body>
 
     <div class="container">
         <header>
-            <h1>Mengamankan GitHub Actions</h1>
-            <p>Pentingnya Mengatur Izin Workflow untuk <code>GITHUB_TOKEN</code></p>
+            <h1>Bikin Hidup Gampang di GitHub</h1>
+<div id="iposbrowser"></div>
+            <p>Tiga Pengaturan Pull Request yang Wajib Kamu Aktifkan!</p>
         </header>
 
         <main>
             <article>
-                <p>Saat kita membuat automasi dengan GitHub Actions, ada satu aspek krusial yang sering terlewat: keamanan. Pengaturan "Workflow permissions" ini mengontrol seberapa besar "kuasa" yang kita berikan pada skrip automasi kita. Yuk, kita pahami artinya biar repositori kita tetap aman!</p>
+                <p>Selain strategi merge, ada tiga lagi nih pengaturan di bagian Pull Request yang bisa bikin alur kerja kamu jadi makin sat-set dan rapi. Ketiga fitur ini dirancang buat mengotomatiskan hal-hal kecil yang sering kita lakukan manual, jadi kita bisa lebih fokus ke ngodingnya. Yuk, kita bedah!</p>
                 
                 <div class="image-container">
                     <figure>
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQQWCgT4AUgvX8nbcUcqTh1pWgTdtWeqwAhcyPdXAwzzyISi9c1yPGD0d5TW5vJiccUtmPEtmwas8wL75LyrYD5p6WEBs_yjzKAO2gHjdQuVjg4c6sP4V92ddtveKF6cj5QrE-JKK53dwaLrgjp4xxi8qkIKGuL85QWfEVZ4GiQfIznIjBOAaMwkihDZU/s1600/Screenshot%20From%202025-10-21%2022-29-44.png" alt="Pengaturan Workflow Permissions di GitHub">
-                        <figcaption>Kunci keamanan automasi Anda ada di sini.</figcaption>
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPqJtix7wPezXkcZ8cFUsMF9o7kZ-C-Bpw6sTKEohzq7QL9ngeScIyma7uZwfGyWQc1Y8kGiUbWS_o8EZpPjYaTer7VDqEeRZ-35aJqdpTtV-uSkgwwj3JlvqulEGRnslWKLFCIsZHDw6Ki1myAmQThpQouvTw4LJv1m6yzbtIBtBV0it-g2fv7hm79Mc/s1600/Screenshot%20From%202025-10-21%2022-01-03.png" alt="Pengaturan workflow Pull Request di GitHub">
+                        <figcaption>Tiga sekawan yang siap jadi asisten pribadi Anda di GitHub.</figcaption>
                     </figure>
                 </div>
                 
                 <section>
-                    <h2>1. Izin untuk <code>GITHUB_TOKEN</code></h2>
-                    <p>Setiap kali GitHub Actions berjalan, ia menggunakan token rahasia sementara bernama <code>GITHUB_TOKEN</code> untuk berinteraksi dengan repositori. Pengaturan ini menentukan level akses standar untuk token tersebut.</p>
-                    
-                    <h3>Read and write permissions (Izin Baca dan Tulis)</h3>
-                    <p>Opsi ini memberikan <code>GITHUB_TOKEN</code> kekuasaan penuh. Workflow tidak hanya bisa membaca, tapi juga <strong>menulis/mengubah</strong> data di repositori, seperti push commit baru, membuat rilis, dan lainnya.</p>
-                    <blockquote><strong>Analogi:</strong> Ini seperti memberikan kunci master sebuah gedung kepada seorang kontraktor. Dia bisa masuk ke semua ruangan (baca) dan juga merenovasi atau mengubah isi ruangan tersebut (tulis).</blockquote>
-                    
-                    <h3>Read repository contents... (Izin Hanya Baca)</h3>
-                    <p>Opsi ini membatasi <code>GITHUB_TOKEN</code> agar <strong>hanya bisa membaca</strong> konten. Workflow tidak bisa mengubah apa pun. Ini adalah penerapan "Prinsip Hak Akses Terbatas", standar keamanan yang sangat baik.</p>
-                     <blockquote><strong>Analogi:</strong> Ini seperti memberikan kartu akses tamu. Kontraktor bisa masuk dan melihat semua ruangan untuk mengukur (baca), tapi tidak bisa memindahkan barang atau mengecat dinding (tidak bisa tulis).</blockquote>
-
-                    <div class="recommendation rec-secure">
-                        <strong>💡 Rekomendasi Keamanan</strong>
-                        <p>Pilih <strong>"Read repository contents and packages permissions"</strong>. Ini adalah praktik terbaik yang direkomendasikan GitHub. Jika ada workflow tertentu yang butuh izin tulis, Anda bisa memberikannya secara spesifik di file <code>.yaml</code> workflow tersebut. Ini jauh lebih aman!</p>
-                    </div>
+                    <h2>1. Always suggest updating pull request branches</h2>
+                    <p>Kalau opsi ini aktif, GitHub akan menampilkan tombol "Update branch" setiap kali ada perubahan baru di branch utama (misal: <code>main</code>) yang belum ada di branch Pull Request (PR) kamu. Simpel tapi super efektif.</p>
+                    <blockquote><strong>Analogi:</strong> Kamu lagi ngerjain "Bab 2" (branch PR). Tiba-tiba, editor bikin revisi di "Bab 1" (branch <code>main</code>). Fitur ini kayak asisten yang langsung colek kamu, "Bos, ada update di Bab 1 nih. Mau sekalian disesuaiin di draf Bab 2 nggak, biar ceritanya tetap nyambung?".</blockquote>
+                    <p class="recommendation">✅ <strong>Rekomendasi:</strong> Sangat disarankan untuk diaktifkan. Ini cara gampang buat menjaga branch kamu tetap up-to-date dan menghindari pusingnya <em>merge conflict</em> di kemudian hari.</p>
                 </section>
 
                 <section>
-                    <h2>2. Izinkan Actions Membuat & Menyetujui PR</h2>
-                    <p>Pengaturan ini memberikan kemampuan spesifik kepada workflow untuk membuat <em>Pull Request</em> (PR) baru atau menyetujui PR yang sudah ada. Sangat berguna untuk automasi tingkat lanjut.</p>
-                    <blockquote><strong>Analogi:</strong> Ini seperti memberikan wewenang tambahan kepada asisten AI Anda. Selain bisa membaca laporan, ia kini juga bisa mengajukan proposal baru (membuat PR) dan memberikan 'jempol persetujuan' (approve PR) atas nama Anda jika syarat terpenuhi.</blockquote>
-
-                    <div class="recommendation rec-flexible">
-                        <strong>✅ Rekomendasi Fleksibilitas</strong>
-                        <p><strong>Biarkan ini tetap tercentang.</strong> Walaupun mungkin belum Anda gunakan sekarang, mengaktifkannya tidak berbahaya dan membuka pintu untuk automasi canggih di masa depan, seperti bot yang meng-update dependensi secara otomatis.</p>
-                    </div>
+                    <h2>2. Allow auto-merge</h2>
+                    <p>Fitur keren ini memungkinkan kamu mengatur PR untuk di-merge secara otomatis. Jadi, kamu tinggal klik "Auto-merge", dan GitHub akan menunggu sampai semua syarat (misal: lolos pengecekan otomatis/CI) terpenuhi, baru PR-nya digabung.</p>
+                     <blockquote><strong>Analogi:</strong> Kamu pesan paket online. Dengan auto-merge, kamu bilang ke kurir, "Nanti kalau paketnya sudah sampai lobi dan sudah diperiksa satpam (syarat terpenuhi), langsung saja taruh di depan pintu apartemen saya, ya." Kamu nggak perlu nungguin kurirnya di lobi lagi.</blockquote>
+                    <p class="recommendation">✅ <strong>Rekomendasi:</strong> Aktifkan saja. Ini fitur penghemat waktu. Kamu bisa setujui PR, aktifkan auto-merge, terus lanjut ngopi atau ngerjain hal lain. Biar GitHub yang jadi asisten buat finalisasi tugasnya.</p>
                 </section>
 
+                <section>
+                    <h2>3. Automatically delete head branches</h2>
+                    <p>Setelah sebuah PR berhasil digabung, branch asalnya (misal: <code>update-artikel-kopi</code>) biasanya udah nggak dipakai lagi. Kalau fitur ini aktif, GitHub akan otomatis menghapus branch tersebut untukmu.</p>
+                    <blockquote><strong>Analogi:</strong> Kamu punya setumpuk kertas draf buat nulis "Bab 2". Setelah Bab 2 selesai dan digabung ke dalam buku, fitur ini bakal otomatis membereskan dan membuang semua kertas draf itu dari meja kerjamu. Meja pun kembali bersih dan rapi.</blockquote>
+                    <p class="recommendation">✅ <strong>Rekomendasi:</strong> SANGAT, SANGAT disarankan untuk diaktifkan. Ini adalah fitur "kebersihan" terbaik. Tanpa ini, repositori kamu bakal cepat penuh sama puluhan branch lama yang sudah jadi sampah. Aktifkan ini biar daftar branch selalu rapi dan relevan.</p>
+                </section>
+                
                 <section>
                     <h2>Ringkasan Rekomendasi</h2>
                     <div class="table-container">
@@ -307,20 +282,25 @@
                             <thead>
                                 <tr>
                                     <th>Pengaturan</th>
-                                    <th>Pilihan yang Direkomendasikan</th>
+                                    <th>Rekomendasi</th>
                                     <th>Alasan Singkat</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><strong>Workflow permissions</strong></td>
-                                    <td><strong>Read ... permissions</strong> (Hanya Baca)</td>
-                                    <td>🔒 Lebih aman (Prinsip Hak Akses Terbatas).</td>
+                                    <td><strong>Suggest updating branches</strong></td>
+                                    <td>✅ Aktifkan</td>
+                                    <td>Mendorong praktik baik & mencegah <em>conflict</em>.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Allow Actions to create/approve PR</strong></td>
-                                    <td>✅ <strong>Aktifkan</strong></td>
-                                    <td>🤖 Membuka potensi automasi di masa depan.</td>
+                                    <td><strong>Allow auto-merge</strong></td>
+                                    <td>✅ Aktifkan</td>
+                                    <td>Menghemat waktu dan mengotomatiskan alur kerja.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Automatically delete branches</strong></td>
+                                    <td>✅ Aktifkan</td>
+                                    <td>Menjaga kebersihan dan kerapian repositori Anda.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -328,7 +308,7 @@
                 </section>
                 
                 <div class="social-share">
-                    <h3>Jaga Repomu, Bagikan Ilmunya!</h3>
+                    <h3>Suka Trik Ini? Bagikan!</h3>
                     <a href="#" class="social-twitter" title="Bagikan ke Twitter"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="social-facebook" title="Bagikan ke Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social-whatsapp" title="Bagikan ke WhatsApp"><i class="fab fa-whatsapp"></i></a>
@@ -356,7 +336,7 @@
             facebookShare.href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
             
             const whatsappShare = document.querySelector('.social-whatsapp');
-            whatsappShare.href = `https.api.whatsapp.com/send?text=${pageTitle}%20${pageUrl}`;
+            whatsappShare.href = `https://api.whatsapp.com/send?text=${pageTitle}%20${pageUrl}`;
 
             const linkedinShare = document.querySelector('.social-linkedin');
             linkedinShare.href = `https://www.linkedin.com/shareArticle?mini=true&url=${pageUrl}&title=${pageTitle}`;
@@ -372,5 +352,8 @@
         });
     </script>
 
+<div class="search-floating-container"><input type="text" id="floatingSearchInput" placeholder="cari artikel..." autocomplete="off"><span id="floatingSearchClear" class="clear-button"></span><div id="floatingSearchResults" class="floating-results-container"></div></div>
+<section id="related-marquee-section"><div id="related-marquee-container"></div></section><script defer src="/ext/marquee-url.js"></script>
+<script defer src="/ext/iposbrowser.js"></script>
 </body>
 </html>
