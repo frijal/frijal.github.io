@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +14,7 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/ext/icon/apple-touch-icon.png">
 
-    <meta property="og:title" content="Galeri Gambar">
+    <meta property="og:title" content="Galeri Gambar - Frijal's Blog">
     <meta property="og:description" content="Jelajahi koleksi gambar WebP dari artikel-artikel di blog Frijal.">
     <meta property="og:image" content="https://frijal.pages.dev/thumbnail.webp">
     <meta property="og:url" content="https://frijal.pages.dev/img.html">
@@ -26,7 +28,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-   
+    
     <style>
         :root {
             --bg-color: #1a1a1a;
@@ -34,7 +36,6 @@
             --text-color: #e0e0e0;
             --primary-color: #00aaff;
             --border-color: #444;
-            --header-font: 'Poppins', sans-serif;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -103,7 +104,6 @@
             min-height: 200px;
         }
         
-        /* Thumbnail View */
         .thumb-view {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -152,7 +152,6 @@
             transform: translateY(0);
         }
 
-        /* List View */
         .list-view {
             display: flex;
             flex-direction: column;
@@ -184,7 +183,6 @@
         .list-item-name {
             flex-grow: 1;
         }
-        
     </style>
 </head>
 <body>
@@ -209,7 +207,6 @@
     <script>
         // URL sumber data (tidak perlu form lagi)
         const JSON_URL = 'https://frijal.pages.dev/artikel.json';
-        const IMAGE_BASE_URL = 'https://frijal.pages.dev/img/';
 
         // Ambil elemen dari halaman
         const statusDiv = document.getElementById('status');
@@ -217,14 +214,13 @@
         const listViewBtn = document.getElementById('listViewBtn');
         const thumbViewBtn = document.getElementById('thumbViewBtn');
 
-        let imageData = []; // Simpan nama file gambar
+        let imageData = []; // Simpan URL lengkap gambar
 
         // Fungsi utama untuk mengambil dan menampilkan gambar
         async function fetchAndDisplayImages() {
             statusDiv.textContent = 'Membaca artikel.json... ⏳';
             
             try {
-                // Tambahkan parameter acak untuk mencegah caching file JSON
                 const response = await fetch(`${JSON_URL}?t=${new Date().getTime()}`);
                 if (!response.ok) {
                     throw new Error(`Gagal memuat artikel.json: ${response.status} ${response.statusText}.`);
@@ -235,20 +231,21 @@
                     throw new Error('File artikel.json tidak berisi sebuah array.');
                 }
 
-                // Ambil elemen ke-3 (indeks 2) dari setiap array di dalam data
-                const fileNames = data.map(item => {
-                    if (Array.isArray(item) && item.length > 2 && typeof item[2] === 'string' && item[2].trim() !== '') {
+                // --- PERUBAHAN UTAMA ---
+                // Ambil URL lengkap dari elemen ke-3 (indeks 2)
+                const imageUrls = data.map(item => {
+                    if (Array.isArray(item) && item.length > 2 && typeof item[2] === 'string' && item[2].startsWith('http')) {
                         return item[2];
                     }
                     return null;
-                }).filter(Boolean); // Hapus entri yang null atau tidak valid
+                }).filter(Boolean); // Hapus entri yang tidak valid
                 
-                if (fileNames.length === 0) {
-                    statusDiv.textContent = 'Tidak ada nama gambar yang valid ditemukan di artikel.json.';
+                if (imageUrls.length === 0) {
+                    statusDiv.textContent = 'Tidak ada URL gambar yang valid ditemukan di artikel.json.';
                     return;
                 }
 
-                imageData = fileNames;
+                imageData = imageUrls; // Simpan array berisi URL lengkap
                 statusDiv.textContent = `Ditemukan ${imageData.length} gambar.`;
                 displayThumbnails(); // Tampilkan thumbnail sebagai default
                 
@@ -265,16 +262,18 @@
             thumbViewBtn.classList.add('active');
             listViewBtn.classList.remove('active');
 
-            imageData.forEach(fileName => {
-                const fullUrl = `${IMAGE_BASE_URL}${fileName}`;
+            imageData.forEach(fullUrl => {
+                // PERUBAHAN: Ambil nama file dari URL lengkap untuk tampilan
+                const fileName = fullUrl.split('/').pop();
+
                 const item = document.createElement('a');
-                item.href = fullUrl;
+                item.href = fullUrl; // Langsung gunakan URL lengkap
                 item.target = '_blank';
                 item.className = 'thumb-item';
                 item.title = fileName;
 
                 const img = document.createElement('img');
-                img.src = fullUrl;
+                img.src = fullUrl; // Langsung gunakan URL lengkap
                 img.alt = fileName;
                 img.loading = 'lazy';
                 
@@ -295,10 +294,12 @@
             listViewBtn.classList.add('active');
             thumbViewBtn.classList.remove('active');
 
-            imageData.forEach(fileName => {
-                const fullUrl = `${IMAGE_BASE_URL}${fileName}`;
+            imageData.forEach(fullUrl => {
+                // PERUBAHAN: Ambil nama file dari URL lengkap untuk tampilan
+                const fileName = fullUrl.split('/').pop();
+
                 const item = document.createElement('a');
-                item.href = fullUrl;
+                item.href = fullUrl; // Langsung gunakan URL lengkap
                 item.target = '_blank';
                 item.className = 'list-item';
                 item.title = fileName;
@@ -318,10 +319,9 @@
         }
 
         // --- Pemicu Otomatis ---
-        // Jalankan fungsi utama saat halaman selesai dimuat
         document.addEventListener('DOMContentLoaded', fetchAndDisplayImages);
 
-        // Event listener untuk tombol view tetap ada
+        // Event listener untuk tombol view
         thumbViewBtn.addEventListener('click', () => {
             if (imageData.length > 0) displayThumbnails();
         });
