@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galeri Gambar - Frijal's Blog</title>
-    <meta name="description" content="Jelajahi koleksi gambar WebP dari artikel-artikel di blog Frijal. Temukan semua gambar dalam format galeri yang mudah dinavigasi.">
+    <meta name="description" content="Jelajahi koleksi gambar WebP dari artikel-artikel di blog Frijal. Temukan semua gambar dalam format galeri yang mudah di navigasi.">
     <meta name="keywords" content="galeri gambar, koleksi foto, gambar webp, frijal, blog, portofolio">
     <meta name="author" content="Frijal">
     <link rel="canonical" href="https://frijal.pages.dev/img.html">
@@ -96,6 +96,7 @@
         }
         .action-buttons .action-btn:hover {
             transform: scale(1.2);
+            color: var(--primary-color);
         }
         .action-buttons .social-twitter:hover { color: #1DA1F2; }
         .action-buttons .social-facebook:hover { color: #1877F2; }
@@ -202,6 +203,7 @@
             <div class="action-buttons">
                 <a href="https://frijal.pages.dev/" class="action-btn" title="Beranda"><i class="fas fa-home"></i></a>
                 <a href="https://frijal.pages.dev/feed/" class="action-btn" title="RSS Feed"><i class="fas fa-rss"></i></a>
+                <a href="https://frijal.pages.dev/sitemap/" class="action-btn" title="Peta Situs"><i class="fas fa-sitemap"></i></a>
                 <span class="separator">|</span>
                 <a href="#" class="action-btn social-twitter" title="Bagikan ke Twitter"><i class="fab fa-twitter"></i></a>
                 <a href="#" class="action-btn social-facebook" title="Bagikan ke Facebook"><i class="fab fa-facebook"></i></a>
@@ -340,7 +342,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             fetchAndDisplayImages();
 
-            // --- Social Share Logic ---
             const pageUrl = encodeURIComponent(window.location.href);
             const pageTitle = encodeURIComponent(document.title);
 
@@ -355,7 +356,6 @@
             const shareLinks = document.querySelectorAll('.social-twitter, .social-facebook, .social-whatsapp');
             shareLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
-                    // Hanya popup, biarkan link Home & RSS berfungsi normal
                     e.preventDefault();
                     window.open(this.href, 'share-window', 'height=450,width=550,toolbar=0,location=0,menubar=0,directories=0,scrollbars=0');
                 });
