@@ -1,285 +1,285 @@
-<!DOCTYPEhtml>
-<htmllang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-<metacharset="UTF-8">
-<metaname="viewport"content="width=device-width,initial-scale=1">
-<title>ImageMagickMemaksaGambarJadiRasio16:9🧠</title>
-<metaname="description"content="PanduanlengkapmenggunakanImageMagickuntukmemaksarasiogambarmenjadi16:9—bisacropataupad.DisertaiscriptBashotomatisdanpenjelasandetailsetiapparameter.">
-<linkrel="canonical"href="https://frijal.pages.dev/artikel/imagemagick-paksa-rasio-16-9.html">
-<linkrel="icon"href="/favicon.ico"type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ImageMagick Memaksa Gambar Jadi Rasio 16:9 🧠</title>
+<meta name="description" content="Panduan lengkap menggunakan ImageMagick untuk memaksa rasio gambar menjadi 16:9 — bisa crop atau pad. Disertai script Bash otomatis dan penjelasan detail setiap parameter.">
+<link rel="canonical" href="https://frijal.pages.dev/artikel/imagemagick-paksa-rasio-16-9.html">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-<!--OpenGraph-->
-<metaproperty="og:title"content="TipsTerminal:MemaksaGambarJadiRasio16:9">
-<metaproperty="og:description"content="Panduanpraktismembuatgambarpas16:9denganImageMagick—lengkapdenganskripBashotomatis.">
-<metaproperty="og:url"content="https://frijal.pages.dev/artikel/imagemagick-paksa-rasio-16-9.html">
-<metaproperty="og:image"content="https://frijal.pages.dev/img/imagemagick-paksa-rasio-16-9.webp">
-<metaproperty="og:type"content="article">
+<!-- Open Graph -->
+<meta property="og:title" content="Tips Terminal: Memaksa Gambar Jadi Rasio 16:9">
+<meta property="og:description" content="Panduan praktis membuat gambar pas 16:9 dengan ImageMagick — lengkap dengan skrip Bash otomatis.">
+<meta property="og:url" content="https://frijal.pages.dev/artikel/imagemagick-paksa-rasio-16-9.html">
+<meta property="og:image" content="https://frijal.pages.dev/img/imagemagick-paksa-rasio-16-9.webp">
+<meta property="og:type" content="article">
 
-<!--TwitterCard-->
-<metaname="twitter:card"content="summary_large_image">
-<metaname="twitter:title"content="TipsTerminal:MemaksaGambarJadiRasio16:9">
-<metaname="twitter:description"content="GunakanImageMagickuntukmengubahrasiogambarjadi16:9otomatis.AdaskripBashsiappakai!">
-<metaname="twitter:image"content="https://frijal.pages.dev/img/imagemagick-paksa-rasio-16-9.webp">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tips Terminal: Memaksa Gambar Jadi Rasio 16:9">
+<meta name="twitter:description" content="Gunakan ImageMagick untuk mengubah rasio gambar jadi 16:9 otomatis. Ada skrip Bash siap pakai!">
+<meta name="twitter:image" content="https://frijal.pages.dev/img/imagemagick-paksa-rasio-16-9.webp">
 
 <style>
-:root{
---bg-light:#fafafa;
---bg-dark:#0d1117;
---text-light:#222;
---text-dark:#ddd;
---accent:#00bcd4;
---code-bg-light:#f5f5f5;
---code-bg-dark:#1e1e1e;
---font-main:'Inter',system-ui,sans-serif;
---font-code:'FiraCode',monospace;
+:root {
+  --bg-light: #fafafa;
+  --bg-dark: #0d1117;
+  --text-light: #222;
+  --text-dark: #ddd;
+  --accent: #00bcd4;
+  --code-bg-light: #f5f5f5;
+  --code-bg-dark: #1e1e1e;
+  --font-main: 'Inter', system-ui, sans-serif;
+  --font-code: 'Fira Code', monospace;
 }
 
-body{
-margin:0;
-font-family:var(--font-main);
-line-height:1.6;
-background:var(--bg-light);
-color:var(--text-light);
-transition:all0.3sease;
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  line-height: 1.6;
+  background: var(--bg-light);
+  color: var(--text-light);
+  transition: all 0.3s ease;
 }
-@media(prefers-color-scheme:dark){
-body{background:var(--bg-dark);color:var(--text-dark);}
-}
-
-header{
-text-align:center;
-padding:2rem1rem;
-border-bottom:1pxsolidrgba(128,128,128,0.2);
-}
-headerh1{
-font-size:2rem;
-margin-bottom:.3rem;
-}
-headerp{
-color:gray;
+@media (prefers-color-scheme: dark) {
+  body { background: var(--bg-dark); color: var(--text-dark); }
 }
 
-article{
-max-width:960px;
-margin:auto;
-padding:2rem1.5rem;
+header {
+  text-align: center;
+  padding: 2rem 1rem;
+  border-bottom: 1px solid rgba(128,128,128,0.2);
+}
+header h1 {
+  font-size: 2rem;
+  margin-bottom: .3rem;
+}
+header p {
+  color: gray;
 }
 
-pre{
-padding:1rem;
-border-radius:10px;
-overflow-x:auto;
-font-family:var(--font-code);
-background:var(--code-bg-light);
-box-shadow:02px8pxrgba(0,0,0,0.1);
-}
-@media(prefers-color-scheme:dark){
-pre{background:var(--code-bg-dark);}
+article {
+  max-width: 960px;
+  margin: auto;
+  padding: 2rem 1.5rem;
 }
 
-figure{
-margin:2remauto;
-text-align:center;
+pre {
+  padding: 1rem;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-family: var(--font-code);
+  background: var(--code-bg-light);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
-figureimg{
-max-width:100%;
-border-radius:10px;
-cursor:zoom-in;
-transition:transform0.3sease;
-}
-figureimg:hover{transform:scale(1.02);}
-figcaption{
-color:gray;
-font-size:0.9rem;
-margin-top:0.4rem;
+@media (prefers-color-scheme: dark) {
+  pre { background: var(--code-bg-dark); }
 }
 
-/*Lightbox*/
-#lightbox{
-display:none;
-position:fixed;
-z-index:999;
-padding-top:60px;
-left:0;top:0;
-width:100%;height:100%;
-background-color:rgba(0,0,0,0.85);
+figure {
+  margin: 2rem auto;
+  text-align: center;
 }
-#lightboximg{
-margin:auto;
-display:block;
-max-width:90%;
-max-height:85vh;
-border-radius:10px;
+figure img {
+  max-width: 100%;
+  border-radius: 10px;
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
 }
-#lightbox:target{display:block;}
-
-/*Navigationarrows*/
-.nav-arrows{
-display:flex;
-justify-content:space-between;
-margin-top:3rem;
-}
-.nav-arrowsa{
-text-decoration:none;
-color:var(--accent);
-font-weight:bold;
-font-size:1rem;
-}
-.nav-arrowsa:hover{text-decoration:underline;}
-
-footer{
-text-align:center;
-padding:2rem;
-font-size:0.9rem;
-color:gray;
+figure img:hover { transform: scale(1.02); }
+figcaption {
+  color: gray;
+  font-size: 0.9rem;
+  margin-top: 0.4rem;
 }
 
-/*===Prism.jsminimaltheme(inline,noCDN)===*/
+/* Lightbox */
+#lightbox {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 60px;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.85);
+}
+#lightbox img {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 85vh;
+  border-radius: 10px;
+}
+#lightbox:target { display: block; }
+
+/* Navigation arrows */
+.nav-arrows {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+}
+.nav-arrows a {
+  text-decoration: none;
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 1rem;
+}
+.nav-arrows a:hover { text-decoration: underline; }
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: gray;
+}
+
+/* === Prism.js minimal theme (inline, no CDN) === */
 code[class*="language-"],
-pre[class*="language-"]{
-color:#f8f8f2;
-background:none;
-font-family:var(--font-code);
-text-align:left;
-white-space:pre;
-word-spacing:normal;
-word-break:normal;
-line-height:1.5;
-tab-size:2;
+pre[class*="language-"] {
+  color: #f8f8f2;
+  background: none;
+  font-family: var(--font-code);
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  tab-size: 2;
 }
-.token.comment,.token.prolog,.token.doctype,.token.cdata{color:#7c7c7c;}
-.token.punctuation{color:#f8f8f2;}
-.token.property,.token.tag,.token.constant,.token.symbol,.token.deleted{color:#ff79c6;}
-.token.boolean,.token.number{color:#bd93f9;}
-.token.selector,.token.attr-name,.token.string,.token.char,.token.builtin,.token.inserted{color:#50fa7b;}
-.token.operator,.token.entity,.token.url,.language-css.token.string,.style.token.string{color:#f1fa8c;}
-.token.atrule,.token.attr-value,.token.keyword{color:#ffb86c;}
-.token.function,.token.class-name{color:#8be9fd;}
-.token.regex,.token.important,.token.variable{color:#f1fa8c;}
-.token.bold{font-weight:bold;}
-.token.italic{font-style:italic;}
+.token.comment, .token.prolog, .token.doctype, .token.cdata { color: #7c7c7c; }
+.token.punctuation { color: #f8f8f2; }
+.token.property, .token.tag, .token.constant, .token.symbol, .token.deleted { color: #ff79c6; }
+.token.boolean, .token.number { color: #bd93f9; }
+.token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted { color: #50fa7b; }
+.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string { color: #f1fa8c; }
+.token.atrule, .token.attr-value, .token.keyword { color: #ffb86c; }
+.token.function, .token.class-name { color: #8be9fd; }
+.token.regex, .token.important, .token.variable { color: #f1fa8c; }
+.token.bold { font-weight: bold; }
+.token.italic { font-style: italic; }
 
 </style>
-<metaproperty="og:image:alt"content="ImageMagickMemaksaGambarJadiRasio16:9🧠">
-<metaitemprop="image"content="https://frijal.pages.dev/img/imagemagick-paksa-rasio-16-9.webp">
-<linkrel="stylesheet"href="/ext/marquee-url.css"><linkrel="alternate"type="application/rss+xml"title="30artikelbarubikin."href="https://frijal.pages.dev/rss.xml"/>
-<metaproperty="article:published_time"content="2025-10-16T08:32:56.392+00:00">
+<meta property="og:image:alt" content="ImageMagick Memaksa Gambar Jadi Rasio 16:9 🧠">
+  <meta itemprop="image" content="https://frijal.pages.dev/img/imagemagick-paksa-rasio-16-9.webp">
+<link rel="stylesheet" href="/ext/marquee-url.css"><link rel="alternate" type="application/rss+xml" title="30 artikel baru bikin." href="https://frijal.pages.dev/rss.xml" />
+    <meta property="article:published_time" content="2025-10-16T08:32:56.392+00:00">
 </head>
 <body>
 
 <header>
-<h1>🧠TipsTerminal:MemaksaGambarJadiRasio16:9</h1>
-<divid="iposbrowser"></div>
-<p>MenggunakanImageMagick+BashScriptOtomatis</p>
+  <h1>🧠 Tips Terminal: Memaksa Gambar Jadi Rasio 16:9</h1>
+<div id="iposbrowser"></div>
+  <p>Menggunakan ImageMagick + Bash Script Otomatis</p>
 </header>
 
 <article>
 
 <p>
-Kadangkitabutuhsemuagambarpunyarasioyangsama—misalnya16:9untukvideothumbnail,background,atauhalamanweb.
-Dengan<strong>ImageMagick</strong>,kitabisamemaksaukurangambaragarpas16:9,baikdengan<em>crop</em>(potong)atau<em>pad</em>(tambahruangkosong).
-Berikutpanduandanskripotomatisnya.
+Kadang kita butuh semua gambar punya rasio yang sama — misalnya 16:9 untuk video thumbnail, background, atau halaman web.  
+Dengan <strong>ImageMagick</strong>, kita bisa memaksa ukuran gambar agar pas 16:9, baik dengan <em>crop</em> (potong) atau <em>pad</em> (tambah ruang kosong).  
+Berikut panduan dan skrip otomatisnya.
 </p>
 
 <figure>
-<ahref="#img16x9"><imgloading="lazy"src="https://frijal.pages.dev/assets/imagemagick/rasio16x9-preview.webp"alt="Perbandinganrasio16:9denganrasioacak"></a>
-<figcaption>Rasio16:9idealuntukkontenmodern.</figcaption>
+  <a href="#img16x9"><img loading="lazy" src="https://frijal.pages.dev/assets/imagemagick/rasio16x9-preview.webp" alt="Perbandingan rasio 16:9 dengan rasio acak"></a>
+  <figcaption>Rasio 16:9 ideal untuk konten modern.</figcaption>
 </figure>
 
-<h2>🧩VersiSkripOtomatis</h2>
+<h2>🧩 Versi Skrip Otomatis</h2>
 
-<pre><codeclass="language-bash">#!/usr/bin/envbash
-#paksa-16-9.sh—Konversigambarjadirasio16:9(crop/pad)
+<pre><code class="language-bash">#!/usr/bin/env bash
+# paksa-16-9.sh — Konversi gambar jadi rasio 16:9 (crop/pad)
 
-set-euopipefail
+set -euo pipefail
 
-MODE="${1:-pad}"#default:'pad'(bisadiganti'crop')
+MODE="${1:-pad}"  # default: 'pad' (bisa diganti 'crop')
 WIDTH=1920
 HEIGHT=1080
 OUTDIR="output-16-9"
 
-mkdir-p"$OUTDIR"
+mkdir -p "$OUTDIR"
 
-forimgin*.webp*.jpeg*.png*.webp2>/dev/null;do
-[[-f"$img"]]||continue
-echo"🎨Memproses:$img→$MODEmode"
+for img in *.webp *.jpeg *.png *.webp 2>/dev/null; do
+  [[ -f "$img" ]] || continue
+  echo "🎨 Memproses: $img → $MODE mode"
 
-if[["$MODE"=="crop"]];then
-magick"$img"-resize"${WIDTH}x${HEIGHT}^"-gravitycenter\
--extent"${WIDTH}x${HEIGHT}""$OUTDIR/$img"
-elif[["$MODE"=="pad"]];then
-magick"$img"-resize"${WIDTH}x${HEIGHT}"-gravitycenter\
--backgroundblack-extent"${WIDTH}x${HEIGHT}""$OUTDIR/$img"
-else
-echo"❌Modetidakdikenal:$MODE(gunakan'pad'atau'crop')"
-exit1
-fi
+  if [[ "$MODE" == "crop" ]]; then
+    magick "$img" -resize "${WIDTH}x${HEIGHT}^" -gravity center \
+      -extent "${WIDTH}x${HEIGHT}" "$OUTDIR/$img"
+  elif [[ "$MODE" == "pad" ]]; then
+    magick "$img" -resize "${WIDTH}x${HEIGHT}" -gravity center \
+      -background black -extent "${WIDTH}x${HEIGHT}" "$OUTDIR/$img"
+  else
+    echo "❌ Mode tidak dikenal: $MODE (gunakan 'pad' atau 'crop')"
+    exit 1
+  fi
 done
 
-echo"✅Semuagambarselesaidikonversike$OUTDIR/"</code></pre>
+echo "✅ Semua gambar selesai dikonversi ke $OUTDIR/"</code></pre>
 
-<h2>🧭CaraPakai</h2>
+<h2>🧭 Cara Pakai</h2>
 
 <ol>
-<li>Simpanskripsebagai<code>paksa-16-9.sh</code>.</li>
-<li>Jalankanizineksekusi:
-<pre><codeclass="language-bash">chmod+xpaksa-16-9.sh</code></pre></li>
-<li>Jalankandifoldergambar:
-<pre><codeclass="language-bash">./paksa-16-9.shpad#untukmenambahruangkosong
-./paksa-16-9.shcrop#untukmemotonggambaragarpas</code></pre></li>
+<li>Simpan skrip sebagai <code>paksa-16-9.sh</code>.</li>
+<li>Jalankan izin eksekusi:
+<pre><code class="language-bash">chmod +x paksa-16-9.sh</code></pre></li>
+<li>Jalankan di folder gambar:
+<pre><code class="language-bash">./paksa-16-9.sh pad   # untuk menambah ruang kosong
+./paksa-16-9.sh crop  # untuk memotong gambar agar pas</code></pre></li>
 </ol>
 
-<h2>🔍PenjelasanParameter</h2>
+<h2>🔍 Penjelasan Parameter</h2>
 <ul>
-<li><strong>-resize</strong>→ubahukurangambar,menjagarasio.</li>
-<li><strong>^</strong>→memenuhiareatarget(bisalebihbesar).</li>
-<li><strong>-gravitycenter</strong>→potong/letakkandaritengah.</li>
-<li><strong>-extent</strong>→ubahkanvaskeukurantertentu(memotongataumenambahruang).</li>
-<li><strong>-backgroundblack</strong>→warnaruangtambahan(bisawhite/none).</li>
-<li><strong>set-euopipefail</strong>→buatskripamandarierror.</li>
+  <li><strong>-resize</strong> → ubah ukuran gambar, menjaga rasio.</li>
+  <li><strong>^</strong> → memenuhi area target (bisa lebih besar).</li>
+  <li><strong>-gravity center</strong> → potong/letakkan dari tengah.</li>
+  <li><strong>-extent</strong> → ubah kanvas ke ukuran tertentu (memotong atau menambah ruang).</li>
+  <li><strong>-background black</strong> → warna ruang tambahan (bisa white/none).</li>
+  <li><strong>set -euo pipefail</strong> → buat skrip aman dari error.</li>
 </ul>
 
 
 </article>
 
-<!--Lightbox-->
-<divid="lightbox"onclick="window.location.hash='';">
-<imgid="lightbox-img"src=""alt="">
+<!-- Lightbox -->
+<div id="lightbox" onclick="window.location.hash='';">
+  <img id="lightbox-img" src="" alt="">
 </div>
 
 <footer>
-<p>🄯2025TipsTerminal—DitulisolehFakhrulRijal.<br>
-Bagikandi:
-<ahref="https://t.me/share/url?url=https://frijal.pages.dev/artikel/imagemagick-paksa-rasio-16-9.html"target="_blank">Telegram</a>•
-<ahref="https://twitter.com/intent/tweet?url=https://frijal.pages.dev/artikel/imagemagick-paksa-rasio-16-9.html"target="_blank">X(Twitter)</a>•
-<ahref="https://www.facebook.com/sharer/sharer.php?u=https://frijal.pages.dev/artikel/imagemagick-paksa-rasio-16-9.html"target="_blank">Facebook</a>•
-<ahref="https://www.linkedin.com/sharing/share-offsite/?url=https://frijal.pages.dev/artikel/imagemagick-paksa-rasio-16-9.html"target="_blank">LinkedIn</a>
-</p>
+  <p>🄯 2025 Tips Terminal — Ditulis oleh Fakhrul Rijal.<br>
+  Bagikan di:
+  <a href="https://t.me/share/url?url=https://frijal.pages.dev/artikel/imagemagick-paksa-rasio-16-9.html" target="_blank">Telegram</a> •
+  <a href="https://twitter.com/intent/tweet?url=https://frijal.pages.dev/artikel/imagemagick-paksa-rasio-16-9.html" target="_blank">X (Twitter)</a> •
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://frijal.pages.dev/artikel/imagemagick-paksa-rasio-16-9.html" target="_blank">Facebook</a> •
+  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://frijal.pages.dev/artikel/imagemagick-paksa-rasio-16-9.html" target="_blank">LinkedIn</a>
+  </p>
 </footer>
 
-<!--Prism.jsinline-->
+<!-- Prism.js inline -->
 <script>
-!function(){vare="undefined"!=typeofself&&self.Prism||"undefined"!=typeofglobal&&global.Prism;!e&&"undefined"!=typeofwindow&&(e=window.Prism),e.languages.bash={comment:{pattern:/(^|[^"{\\])#.*/,lookbehind:!0},string:{pattern:/(["'])(?:\\[\s\S]|(?!\1)[^\\])*\1/,greedy:!0},variable:/\$[a-zA-Z_]\w*/,function:{pattern:/(^|\s|;)(?:if|then|else|elif|fi|for|while|in|do|done|echo|exit|return|break|continue|case|esac|function)(?=\s|$)/,lookbehind:!0},operator:/&&|\|\||[&;<>|]/,punctuation:/[{}[\]()]/};}();
+!function(){var e="undefined"!=typeof self&&self.Prism||"undefined"!=typeof global&&global.Prism;!e&&"undefined"!=typeof window&&(e=window.Prism),e.languages.bash={comment:{pattern:/(^|[^"{\\])#.*/,lookbehind:!0},string:{pattern:/(["'])(?:\\[\s\S]|(?!\1)[^\\])*\1/,greedy:!0},variable:/\$[a-zA-Z_]\w*/,function:{pattern:/(^|\s|;)(?:if|then|else|elif|fi|for|while|in|do|done|echo|exit|return|break|continue|case|esac|function)(?=\s|$)/,lookbehind:!0},operator:/&&|\|\||[&;<>|]/,punctuation:/[{}[\]()]/};}();
 Prism.highlightAll();
 </script>
 
 <script>
-//Simplelightbox
-document.querySelectorAll('figurea').forEach(a=>{
-a.addEventListener('click',e=>{
-e.preventDefault();
-document.getElementById('lightbox').style.display='block';
-document.getElementById('lightbox-img').src=a.querySelector('img').src;
-});
+// Simple lightbox
+document.querySelectorAll('figure a').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    document.getElementById('lightbox').style.display='block';
+    document.getElementById('lightbox-img').src=a.querySelector('img').src;
+  });
 });
 document.getElementById('lightbox').addEventListener('click',()=>{
-document.getElementById('lightbox').style.display='none';
+  document.getElementById('lightbox').style.display='none';
 });
 </script>
 
-<divclass="search-floating-container"><inputtype="text"id="floatingSearchInput"placeholder="cariartikel..."autocomplete="off"><spanid="floatingSearchClear"class="clear-button"></span><divid="floatingSearchResults"class="floating-results-container"></div></div>
-<sectionid="related-marquee-section"><divid="related-marquee-container"></div></section><scriptdefersrc="/ext/marquee-url.js"></script>
-<scriptdefersrc="/ext/iposbrowser.js"></script>
+<div class="search-floating-container"><input type="text" id="floatingSearchInput" placeholder="cari artikel..." autocomplete="off"><span id="floatingSearchClear" class="clear-button"></span><div id="floatingSearchResults" class="floating-results-container"></div></div>
+<section id="related-marquee-section"><div id="related-marquee-container"></div></section><script defer src="/ext/marquee-url.js"></script>
+<script defer src="/ext/iposbrowser.js"></script>
 
 
 </body>

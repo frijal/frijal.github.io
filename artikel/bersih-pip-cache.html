@@ -1,147 +1,147 @@
-<!doctypehtml>
-<htmllang="id">
+<!doctype html>
+<html lang="id">
 <head>
-<metacharset="UTF-8"/>
-<metaname="viewport"content="width=device-width,initial-scale=1"/>
-<title>SkripShellBersihCachepipdiLinux</title>
-<metaname="description"content="PanduanmembuatskripshellsederhanauntukmembersihkancachepipsecaraotomatisdiLinux.Bisadijalankanmanualataudijadwalkanviacron."/>
-<linkrel="canonical"href="https://frijal.pages.dev/artikel/bersih-pip-cache.html"/>
-<linkrel="icon"href="https://frijal.pages.dev/ext/icons/favicon.ico"sizes="any"/>
-<metaname="theme-color"content="#121212"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Skrip Shell Bersih Cache pip di Linux</title>
+    <meta name="description" content="Panduan membuat skrip shell sederhana untuk membersihkan cache pip secara otomatis di Linux. Bisa dijalankan manual atau dijadwalkan via cron." />
+    <link rel="canonical" href="https://frijal.pages.dev/artikel/bersih-pip-cache.html" />
+    <link rel="icon" href="https://frijal.pages.dev/ext/icons/favicon.ico" sizes="any" />
+    <meta name="theme-color" content="#121212" />
+    
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Skrip Shell Bersih Cache pip di Linux" />
+    <meta property="og:description" content="Panduan membuat skrip shell sederhana untuk membersihkan cache pip secara otomatis di Linux." />
+    <meta property="og:url" content="https://frijal.pages.dev/artikel/bersih-pip-cache.html" />
+    <meta property="og:image" content="https://frijal.pages.dev/img/bersih-pip-cache.webp" />
+    <meta property="og:image:alt" content="Skrip Shell Bersih Cache pip di Linux" />
 
-<metaproperty="og:type"content="article"/>
-<metaproperty="og:title"content="SkripShellBersihCachepipdiLinux"/>
-<metaproperty="og:description"content="PanduanmembuatskripshellsederhanauntukmembersihkancachepipsecaraotomatisdiLinux."/>
-<metaproperty="og:url"content="https://frijal.pages.dev/artikel/bersih-pip-cache.html"/>
-<metaproperty="og:image"content="https://frijal.pages.dev/img/bersih-pip-cache.webp"/>
-<metaproperty="og:image:alt"content="SkripShellBersihCachepipdiLinux"/>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Skrip Shell Bersih Cache pip di Linux" />
+    <meta name="twitter:description" content="Panduan membuat skrip shell sederhana untuk membersihkan cache pip secara otomatis di Linux." />
+    <meta name="twitter:image" content="https://frijal.pages.dev/img/bersih-pip-cache.webp" />
+    
+    <meta itemprop="image" content="https://frijal.pages.dev/img/bersih-pip-cache.webp" />
+    <meta property="article:published_time" content="2025-10-03T11:14:58.926+00:00" />
+    
+    <style>
+      body {
+        margin: 0;
+        font-family: system-ui, sans-serif;
+        background: #0f0f12;
+        color: #eaeef3;
+        line-height: 1.7;
+      }
+      main {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+      }
+      h1 {
+        font-size: clamp(24px, 4vw, 36px);
+        color: #7dd3fc;
+      }
+      h2 {
+        border-bottom: 2px solid #262831;
+        padding-bottom: 8px;
+        margin-top: 40px;
+      }
+      pre {
+        background: #1c1d22;
+        color: #eaeef3;
+        padding: 12px;
+        border-radius: 8px;
+        overflow-x: auto;
+      }
+      code {
+        font-family: monospace;
+      }
+      .note {
+        color: #a8b0bb;
+        font-size: 14px;
+        background-color: #1c1d22;
+        border-left: 3px solid #3aa0ff;
+        padding: 10px 15px;
+        border-radius: 4px;
+      }
+      footer {
+        margin-top: 40px;
+        padding: 20px;
+        text-align: center;
+        color: #a8b0bb;
+        border-top: 1px solid #262831;
+      }
+      ol, ul {
+        padding-left: 20px;
+      }
 
-<metaname="twitter:card"content="summary_large_image"/>
-<metaname="twitter:title"content="SkripShellBersihCachepipdiLinux"/>
-<metaname="twitter:description"content="PanduanmembuatskripshellsederhanauntukmembersihkancachepipsecaraotomatisdiLinux."/>
-<metaname="twitter:image"content="https://frijal.pages.dev/img/bersih-pip-cache.webp"/>
+    </style>
 
-<metaitemprop="image"content="https://frijal.pages.dev/img/bersih-pip-cache.webp"/>
-<metaproperty="article:published_time"content="2025-10-03T11:14:58.926+00:00"/>
-
-<style>
-body{
-margin:0;
-font-family:system-ui,sans-serif;
-background:#0f0f12;
-color:#eaeef3;
-line-height:1.7;
-}
-main{
-max-width:800px;
-margin:auto;
-padding:20px;
-}
-h1{
-font-size:clamp(24px,4vw,36px);
-color:#7dd3fc;
-}
-h2{
-border-bottom:2pxsolid#262831;
-padding-bottom:8px;
-margin-top:40px;
-}
-pre{
-background:#1c1d22;
-color:#eaeef3;
-padding:12px;
-border-radius:8px;
-overflow-x:auto;
-}
-code{
-font-family:monospace;
-}
-.note{
-color:#a8b0bb;
-font-size:14px;
-background-color:#1c1d22;
-border-left:3pxsolid#3aa0ff;
-padding:10px15px;
-border-radius:4px;
-}
-footer{
-margin-top:40px;
-padding:20px;
-text-align:center;
-color:#a8b0bb;
-border-top:1pxsolid#262831;
-}
-ol,ul{
-padding-left:20px;
-}
-
-</style>
-
-<linkrel="stylesheet"href="/ext/marquee-url.css"><linkrel="alternate"type="application/rss+xml"title="30artikelbarubikin."href="https://frijal.pages.dev/rss.xml"/>
+<link rel="stylesheet" href="/ext/marquee-url.css"><link rel="alternate" type="application/rss+xml" title="30 artikel baru bikin." href="https://frijal.pages.dev/rss.xml" />
 </head>
 <body>
-<main>
-<h1>🐧SkripShelluntukMembersihkanCachepipdiLinux</h1>
-<divid="iposbrowser"></div>
+    <main>
+        <h1>🐧 Skrip Shell untuk Membersihkan Cache pip di Linux</h1>
+<div id="iposbrowser"></div>
 
-<p>
-Cachepipbisamembengkakseiringwaktu.Supayalebihpraktis,kitabisa
-bikinskripshellsederhanauntukmembersihkannyasecaraotomatis.
-</p>
+        <p>
+            Cache pip bisa membengkak seiring waktu. Supaya lebih praktis, kita bisa
+            bikin skrip shell sederhana untuk membersihkannya secara otomatis.
+        </p>
+        
+        <h2>📜 Isi Skrip</h2>
+        <p>Simpan kode berikut sebagai <code>bersih-pip-cache.sh</code>:</p>
+        <pre><code>#!/bin/bash
+echo "🧹 Membersihkan cache pip..."
 
-<h2>📜IsiSkrip</h2>
-<p>Simpankodeberikutsebagai<code>bersih-pip-cache.sh</code>:</p>
-<pre><code>#!/bin/bash
-echo"🧹Membersihkancachepip..."
-
-if!command-vpip&>/dev/null;then
-echo"❌piptidakditemukan.PastikanPythondanpipsudahterinstal."
-exit1
+if ! command -v pip &> /dev/null; then
+  echo "❌ pip tidak ditemukan. Pastikan Python dan pip sudah terinstal."
+  exit 1
 fi
 
-echo"📦Infocachepipsebelumdibersihkan:"
-pipcacheinfo
+echo "📦 Info cache pip sebelum dibersihkan:"
+pip cache info
 
-pipcachepurge
+pip cache purge
 
-echo"✅Cachepiptelahdibersihkan."
-pipcacheinfo
+echo "✅ Cache pip telah dibersihkan."
+pip cache info
 </code></pre>
+        
+        <h2>▶️ Cara Menjalankan</h2>
+        <ol>
+            <li>Beri izin eksekusi: <code>chmod +x bersih-pip-cache.sh</code></li>
+            <li>Jalankan manual: <code>./bersih-pip-cache.sh</code></li>
+        </ol>
+        
+        <h2>⏰ Jalankan Otomatis via cron</h2>
+        <p>
+            Edit cron dengan <code>crontab -e</code> lalu tambahkan baris ini untuk
+            membersihkan cache setiap Senin jam 09:00:
+        </p>
+        <pre><code>0 9 * * 1 /path/to/bersih-pip-cache.sh >> ~/.log/bersih-pip.log 2>&1</code></pre>
+        <p class="note">
+            👉 Log hasil pembersihan akan tersimpan di
+            <code>~/.log/bersih-pip.log</code>.
+        </p>
+        
+        <h2>⚠️ Catatan</h2>
+        <ul>
+            <li>
+                Skrip ini hanya menghapus cache, tidak mengganggu paket Python yang
+                sudah terinstal.
+            </li>
+            <li>
+                Setelah cache dibersihkan, pip akan mengunduh ulang paket jika
+                dibutuhkan.
+            </li>
+        </ul>
+    </main>
+    <footer>🄯 2025 frijal.pages.dev · Tutorial Linux oleh Pelan Kiri</footer>
 
-<h2>▶️CaraMenjalankan</h2>
-<ol>
-<li>Beriizineksekusi:<code>chmod+xbersih-pip-cache.sh</code></li>
-<li>Jalankanmanual:<code>./bersih-pip-cache.sh</code></li>
-</ol>
-
-<h2>⏰JalankanOtomatisviacron</h2>
-<p>
-Editcrondengan<code>crontab-e</code>lalutambahkanbarisiniuntuk
-membersihkancachesetiapSeninjam09:00:
-</p>
-<pre><code>09**1/path/to/bersih-pip-cache.sh>>~/.log/bersih-pip.log2>&1</code></pre>
-<pclass="note">
-👉Loghasilpembersihanakantersimpandi
-<code>~/.log/bersih-pip.log</code>.
-</p>
-
-<h2>⚠️Catatan</h2>
-<ul>
-<li>
-Skripinihanyamenghapuscache,tidakmengganggupaketPythonyang
-sudahterinstal.
-</li>
-<li>
-Setelahcachedibersihkan,pipakanmengunduhulangpaketjika
-dibutuhkan.
-</li>
-</ul>
-</main>
-<footer>🄯2025frijal.pages.dev·TutorialLinuxolehPelanKiri</footer>
-
-<divclass="search-floating-container"><inputtype="text"id="floatingSearchInput"placeholder="cariartikel..."autocomplete="off"><spanid="floatingSearchClear"class="clear-button"></span><divid="floatingSearchResults"class="floating-results-container"></div></div>
-<sectionid="related-marquee-section"><divid="related-marquee-container"></div></section><scriptdefersrc="/ext/marquee-url.js"></script>
-<scriptdefersrc="/ext/iposbrowser.js"></script>
+<div class="search-floating-container"><input type="text" id="floatingSearchInput" placeholder="cari artikel..." autocomplete="off"><span id="floatingSearchClear" class="clear-button"></span><div id="floatingSearchResults" class="floating-results-container"></div></div>
+<section id="related-marquee-section"><div id="related-marquee-container"></div></section><script defer src="/ext/marquee-url.js"></script>
+<script defer src="/ext/iposbrowser.js"></script>
 
 
 </body>

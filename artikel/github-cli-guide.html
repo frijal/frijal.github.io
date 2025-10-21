@@ -1,252 +1,252 @@
-<!doctypehtml>
-<htmllang="id">
+<!doctype html>
+<html lang="id">
 <head>
-<metacharset="UTF-8"/>
-<metaname="viewport"content="width=device-width,initial-scale=1"/>
-<title>PanduanGitHubCLIInteraktif:Login,Commit,PR,&Issue</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Panduan GitHub CLI Interaktif: Login, Commit, PR, & Issue</title>
 
-<metaname="description"content="PanduaninteraktifGitHubCLI(gh)untuklogin,clonerepo,commit,push,pullrequest,branch,danissue.Lengkapdengancontohperintahdandiagramvisual."/>
-<metaname="keywords"content="GitHubCLI,gh,commandline,git,login,clone,commit,push,pullrequest,branch,issue,tutorial,panduaninteraktif"/>
-<metaname="author"content="Frijal"/>
-<metaname="robots"content="index,follow"/>
+<meta name="description" content="Panduan interaktif GitHub CLI (gh) untuk login, clone repo, commit, push, pull request, branch, dan issue. Lengkap dengan contoh perintah dan diagram visual." />
+<meta name="keywords" content="GitHub CLI, gh, command line, git, login, clone, commit, push, pull request, branch, issue, tutorial, panduan interaktif" />
+<meta name="author" content="Frijal" />
+<meta name="robots" content="index, follow" />
 
-<linkrel="canonical"href="https://frijal.pages.dev/artikel/github-cli-guide.html"/>
+<link rel="canonical" href="https://frijal.pages.dev/artikel/github-cli-guide.html" />
 
-<linkrel="icon"href="/favicon.ico"sizes="any"/>
-<linkrel="icon"href="/icon.svg"type="image/svg+xml"/>
-<linkrel="manifest"href="/site.webmanifest"/>
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+<link rel="manifest" href="/site.webmanifest" />
 
-<metaproperty="og:locale"content="id_ID"/>
-<metaproperty="og:type"content="article"/>
-<metaproperty="og:title"content="PanduanGitHubCLIInteraktif:Login,Commit,PR,&Issue"/>
-<metaproperty="og:description"content="PanduaninteraktifGitHubCLI(gh)untuklogin,clonerepo,commit,push,pullrequest,branch,danissue.Lengkapdengancontohperintahdandiagramvisual."/>
-<metaproperty="og:url"content="https://frijal.pages.dev/artikel/github-cli-guide.html"/>
-<metaproperty="og:site_name"content="FrijalBlog"/>
-<metaproperty="og:image"content="https://frijal.pages.dev/img/github-cli-guide.webp"/>
-<metaproperty="og:image:width"content="1200"/>
-<metaproperty="og:image:height"content="630"/>
-<metaproperty="og:image:alt"content="IlustrasiTerminaldanLogoGitHubCLI"/>
+<meta property="og:locale" content="id_ID" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Panduan GitHub CLI Interaktif: Login, Commit, PR, & Issue" />
+<meta property="og:description" content="Panduan interaktif GitHub CLI (gh) untuk login, clone repo, commit, push, pull request, branch, dan issue. Lengkap dengan contoh perintah dan diagram visual." />
+<meta property="og:url" content="https://frijal.pages.dev/artikel/github-cli-guide.html" />
+<meta property="og:site_name" content="Frijal Blog" />
+<meta property="og:image" content="https://frijal.pages.dev/img/github-cli-guide.webp" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Ilustrasi Terminal dan Logo GitHub CLI" />
 
-<metaname="twitter:card"content="summary_large_image"/>
-<metaname="twitter:title"content="PanduanGitHubCLIInteraktif:Login,Commit,PR,&Issue"/>
-<metaname="twitter:description"content="PanduaninteraktifGitHubCLI(gh)untuklogin,clonerepo,commit,push,pullrequest,branch,danissue.Lengkapdengancontohperintahdandiagramvisual."/>
-<metaname="twitter:image"content="https://frijal.pages.dev/img/github-cli-guide.webp"/>
-<metaname="twitter:site"content="@username_twitter"/><metaproperty="fb:app_id"content="1471267430691023"/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Panduan GitHub CLI Interaktif: Login, Commit, PR, & Issue" />
+<meta name="twitter:description" content="Panduan interaktif GitHub CLI (gh) untuk login, clone repo, commit, push, pull request, branch, dan issue. Lengkap dengan contoh perintah dan diagram visual." />
+<meta name="twitter:image" content="https://frijal.pages.dev/img/github-cli-guide.webp" />
+<meta name="twitter:site" content="@username_twitter" /> <meta property="fb:app_id" content="1471267430691023" />
 
-<scriptsrc="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 <style>
-body{font-family:Inter,sans-serif;}
-.active-nav{background-color:#e5e7eb;color:#111827;font-weight:600;}
-.code-block{background-color:#1e293b;color:#e2e8f0;border-radius:0.5rem;padding:1rem;position:relative;margin-bottom:1rem;}
-.copy-btn{position:absolute;top:0.5rem;right:0.5rem;background-color:#334155;color:#94a3b8;border:none;padding:0.25rem0.75rem;border-radius:0.375rem;cursor:pointer;font-size:0.875rem;z-index:10;transition:all0.2s;}
-.copy-btn:hover{background-color:#475569;color:#e2e8f0;}
-.diagram-box{border:2pxdashed#9ca3af;background-color:#f3f4f6;padding:1rem;display:flex;justify-content:center;align-items:center;min-height:100px;margin-bottom:1rem;flex-wrap:wrap;}
-.diagram-step{text-align:center;font-family:monospace;font-size:0.875rem;margin:0.5rem;}
-.diagram-arrow{font-size:2rem;color:#3b82f6;margin:01rem;}
+body { font-family: Inter, sans-serif; }
+.active-nav { background-color: #e5e7eb; color: #111827; font-weight: 600; }
+.code-block { background-color: #1e293b; color: #e2e8f0; border-radius: 0.5rem; padding: 1rem; position: relative; margin-bottom: 1rem; }
+.copy-btn { position: absolute; top: 0.5rem; right: 0.5rem; background-color: #334155; color: #94a3b8; border: none; padding: 0.25rem 0.75rem; border-radius: 0.375rem; cursor: pointer; font-size: 0.875rem; z-index: 10; transition: all 0.2s; }
+.copy-btn:hover { background-color: #475569; color: #e2e8f0; }
+.diagram-box { border: 2px dashed #9ca3af; background-color: #f3f4f6; padding: 1rem; display: flex; justify-content: center; align-items: center; min-height: 100px; margin-bottom: 1rem; flex-wrap: wrap; }
+.diagram-step { text-align: center; font-family: monospace; font-size: 0.875rem; margin: 0.5rem; }
+.diagram-arrow { font-size: 2rem; color: #3b82f6; margin: 0 1rem; }
 
 </style>
 
-<linkrel="stylesheet"href="/ext/marquee-url.css"><linkrel="alternate"type="application/rss+xml"title="30artikelbarubikin."href="https://frijal.pages.dev/rss.xml"/>
-<metaproperty="article:published_time"content="2025-10-16T23:20:38.184+00:00">
+<link rel="stylesheet" href="/ext/marquee-url.css"><link rel="alternate" type="application/rss+xml" title="30 artikel baru bikin." href="https://frijal.pages.dev/rss.xml" />
+    <meta property="article:published_time" content="2025-10-16T23:20:38.184+00:00">
 </head>
 
-<bodyclass="bg-gray-50text-gray-800">
-<divclass="flexflex-colmd:flex-rowmin-h-screen">
-<asideclass="w-fullmd:w-1/4lg:w-1/5bg-whiteborder-rborder-gray-200p-4md:p-6md:fixedmd:h-full">
-<h1class="text-xlfont-boldtext-gray-900mb-6">PanduanGitHubCLI</h1>
-<divid="iposbrowser"></div>
+<body class="bg-gray-50 text-gray-800">
+<div class="flex flex-col md:flex-row min-h-screen">
+  <aside class="w-full md:w-1/4 lg:w-1/5 bg-white border-r border-gray-200 p-4 md:p-6 md:fixed md:h-full">
+    <h1 class="text-xl font-bold text-gray-900 mb-6">Panduan GitHub CLI</h1>
+<div id="iposbrowser"></div>
 
-<navid="navigation"class="space-y-4">
-<div>
-<h2class="text-smfont-semiboldtext-gray-500uppercasetracking-widermb-2">Dasar</h2>
-<ulclass="space-y-1">
-<li><ahref="#login"class="nav-linkblockpx-3py-2rounded-mdtext-gray-600hover:bg-gray-100">LoginkeGitHub</a></li>
-<li><ahref="#clone"class="nav-linkblockpx-3py-2rounded-mdtext-gray-600hover:bg-gray-100">CloneRepo</a></li>
-<li><ahref="#commit"class="nav-linkblockpx-3py-2rounded-mdtext-gray-600hover:bg-gray-100">Commit&Push</a></li>
-</ul>
-</div>
-<div>
-<h2class="text-smfont-semiboldtext-gray-500uppercasetracking-widermb-2">Lanjutan</h2>
-<ulclass="space-y-1">
-<li><ahref="#pr"class="nav-linkblockpx-3py-2rounded-mdtext-gray-600hover:bg-gray-100">PullRequest</a></li>
-<li><ahref="#branch"class="nav-linkblockpx-3py-2rounded-mdtext-gray-600hover:bg-gray-100">Branch</a></li>
-<li><ahref="#issue"class="nav-linkblockpx-3py-2rounded-mdtext-gray-600hover:bg-gray-100">Issue</a></li>
-</ul>
-</div>
-</nav>
-</aside>
+    <nav id="navigation" class="space-y-4">
+      <div>
+        <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Dasar</h2>
+        <ul class="space-y-1">
+          <li><a href="#login" class="nav-link block px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100">Login ke GitHub</a></li>
+          <li><a href="#clone" class="nav-link block px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100">Clone Repo</a></li>
+          <li><a href="#commit" class="nav-link block px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100">Commit & Push</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Lanjutan</h2>
+        <ul class="space-y-1">
+          <li><a href="#pr" class="nav-link block px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100">Pull Request</a></li>
+          <li><a href="#branch" class="nav-link block px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100">Branch</a></li>
+          <li><a href="#issue" class="nav-link block px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100">Issue</a></li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
 
-<mainid="content-display"class="w-fullmd:ml-[25%]lg:ml-[20%]p-6md:p-10"></main>
+  <main id="content-display" class="w-full md:ml-[25%] lg:ml-[20%] p-6 md:p-10"></main>
 </div>
 
-<!--Templates-->
-<templateid="welcome-content">
-<divclass="bg-whitep-8rounded-lgshadow-sm">
-<h2class="text-3xlfont-boldtext-gray-900mb-4">SelamatDatang!👋</h2>
-<pclass="text-lgtext-gray-600mb-4">PanduaninteraktifGitHubCLI(gh).Pilihtopikdimenusebelahkiriuntukmelihatdiagramvisual,contohperintah,danpenjelasan.</p>
-<pclass="text-gray-600">Gunakantombol"Salin"untukmenyalinperintahdenganmudahdanmencobalangsungditerminalAnda.</p>
+<!-- Templates -->
+<template id="welcome-content">
+<div class="bg-white p-8 rounded-lg shadow-sm">
+<h2 class="text-3xl font-bold text-gray-900 mb-4">Selamat Datang! 👋</h2>
+<p class="text-lg text-gray-600 mb-4">Panduan interaktif GitHub CLI (gh). Pilih topik di menu sebelah kiri untuk melihat diagram visual, contoh perintah, dan penjelasan.</p>
+<p class="text-gray-600">Gunakan tombol "Salin" untuk menyalin perintah dengan mudah dan mencoba langsung di terminal Anda.</p>
 </div>
 </template>
 
-<templateid="login-content">
-<divclass="bg-whitep-8rounded-lgshadow-sm">
-<h2class="text-2xlfont-boldtext-gray-900mb-2">LoginkeGitHub</h2>
-<divclass="diagram-box">
-<divclass="diagram-step">ghauthlogin</div>
-<divclass="diagram-arrow">→</div>
-<divclass="diagram-step">Pilihakun&metode(HTTPS/SSH)</div>
-<divclass="diagram-arrow">→</div>
-<divclass="diagram-step">Loginberhasil</div>
+<template id="login-content">
+<div class="bg-white p-8 rounded-lg shadow-sm">
+<h2 class="text-2xl font-bold text-gray-900 mb-2">Login ke GitHub</h2>
+<div class="diagram-box">
+<div class="diagram-step">gh auth login</div>
+<div class="diagram-arrow">→</div>
+<div class="diagram-step">Pilih akun & metode (HTTPS/SSH)</div>
+<div class="diagram-arrow">→</div>
+<div class="diagram-step">Login berhasil</div>
 </div>
-<divclass="code-block">
-<buttonclass="copy-btn">Salin</button>
-<pre><code>ghauthlogin</code></pre>
+<div class="code-block">
+<button class="copy-btn">Salin</button>
+<pre><code>gh auth login</code></pre>
 </div>
-<pclass="text-gray-600text-sm">AutentikasidenganGitHubmelaluiCLI.</p>
-</div>
-</template>
-
-<templateid="clone-content">
-<divclass="bg-whitep-8rounded-lgshadow-sm">
-<h2class="text-2xlfont-boldtext-gray-900mb-2">CloneRepository</h2>
-<divclass="diagram-box">
-<divclass="diagram-step">ghrepocloneusername/repo</div>
-<divclass="diagram-arrow">→</div>
-<divclass="diagram-step">Folderlokalterbuat</div>
-</div>
-<divclass="code-block">
-<buttonclass="copy-btn">Salin</button>
-<pre><code>ghrepocloneusername/repo</code></pre>
-</div>
-<pclass="text-gray-600text-sm">MengunduhrepositorydariGitHubkelokal.</p>
+<p class="text-gray-600 text-sm">Autentikasi dengan GitHub melalui CLI.</p>
 </div>
 </template>
 
-<templateid="commit-content">
-<divclass="bg-whitep-8rounded-lgshadow-sm">
-<h2class="text-2xlfont-boldtext-gray-900mb-2">Commit&Push</h2>
-<divclass="diagram-box">
-<divclass="diagram-step">gitadd.</div>
-<divclass="diagram-arrow">→</div>
-<divclass="diagram-step">gitcommit-m"Pesancommit"</div>
-<divclass="diagram-arrow">→</div>
-<divclass="diagram-step">gitpush</div>
+<template id="clone-content">
+<div class="bg-white p-8 rounded-lg shadow-sm">
+<h2 class="text-2xl font-bold text-gray-900 mb-2">Clone Repository</h2>
+<div class="diagram-box">
+<div class="diagram-step">gh repo clone username/repo</div>
+<div class="diagram-arrow">→</div>
+<div class="diagram-step">Folder lokal terbuat</div>
 </div>
-<divclass="code-block">
-<buttonclass="copy-btn">Salin</button>
-<pre><code>gitadd.
-gitcommit-m"Pesancommit"
-gitpush</code></pre>
+<div class="code-block">
+<button class="copy-btn">Salin</button>
+<pre><code>gh repo clone username/repo</code></pre>
 </div>
-<pclass="text-gray-600text-sm">TambahkanperubahandankirimkeGitHub.</p>
+<p class="text-gray-600 text-sm">Mengunduh repository dari GitHub ke lokal.</p>
 </div>
 </template>
 
-<templateid="pr-content">
-<divclass="bg-whitep-8rounded-lgshadow-sm">
-<h2class="text-2xlfont-boldtext-gray-900mb-2">PullRequest</h2>
-<divclass="diagram-box">
-<divclass="diagram-step">ghprcreate--title"Judul"--body"Deskripsi"</div>
-<divclass="diagram-arrow">→</div>
-<divclass="diagram-step">PRdibuatdirepoGitHub</div>
+<template id="commit-content">
+<div class="bg-white p-8 rounded-lg shadow-sm">
+<h2 class="text-2xl font-bold text-gray-900 mb-2">Commit & Push</h2>
+<div class="diagram-box">
+<div class="diagram-step">git add .</div>
+<div class="diagram-arrow">→</div>
+<div class="diagram-step">git commit -m "Pesan commit"</div>
+<div class="diagram-arrow">→</div>
+<div class="diagram-step">git push</div>
 </div>
-<divclass="code-block">
-<buttonclass="copy-btn">Salin</button>
-<pre><code>ghprcreate--title"Judul"--body"Deskripsi"</code></pre>
+<div class="code-block">
+<button class="copy-btn">Salin</button>
+<pre><code>git add .
+git commit -m "Pesan commit"
+git push</code></pre>
 </div>
-<pclass="text-gray-600text-sm">BuatpullrequestlangsungdariCLI.</p>
-</div>
-</template>
-
-<templateid="branch-content">
-<divclass="bg-whitep-8rounded-lgshadow-sm">
-<h2class="text-2xlfont-boldtext-gray-900mb-2">Branch</h2>
-<divclass="diagram-box">
-<divclass="diagram-step">gitcheckout-bfeature</div>
-<divclass="diagram-arrow">→</div>
-<divclass="diagram-step">Bekerjadibranchbaru</div>
-</div>
-<divclass="code-block">
-<buttonclass="copy-btn">Salin</button>
-<pre><code>gitcheckout-bfeature</code></pre>
-</div>
-<pclass="text-gray-600text-sm">Membuatdanberpindahkebranchbaru.</p>
+<p class="text-gray-600 text-sm">Tambahkan perubahan dan kirim ke GitHub.</p>
 </div>
 </template>
 
-<templateid="issue-content">
-<divclass="bg-whitep-8rounded-lgshadow-sm">
-<h2class="text-2xlfont-boldtext-gray-900mb-2">Issue</h2>
-<divclass="diagram-box">
-<divclass="diagram-step">ghissuecreate--title"Bug"--body"Deskripsi"</div>
-<divclass="diagram-arrow">→</div>
-<divclass="diagram-step">IssuedibuatdirepoGitHub</div>
+<template id="pr-content">
+<div class="bg-white p-8 rounded-lg shadow-sm">
+<h2 class="text-2xl font-bold text-gray-900 mb-2">Pull Request</h2>
+<div class="diagram-box">
+<div class="diagram-step">gh pr create --title "Judul" --body "Deskripsi"</div>
+<div class="diagram-arrow">→</div>
+<div class="diagram-step">PR dibuat di repo GitHub</div>
 </div>
-<divclass="code-block">
-<buttonclass="copy-btn">Salin</button>
-<pre><code>ghissuecreate--title"Bug"--body"Deskripsi"</code></pre>
+<div class="code-block">
+<button class="copy-btn">Salin</button>
+<pre><code>gh pr create --title "Judul" --body "Deskripsi"</code></pre>
 </div>
-<pclass="text-gray-600text-sm">BuatissuebarumelaluiCLI.</p>
+<p class="text-gray-600 text-sm">Buat pull request langsung dari CLI.</p>
 </div>
 </template>
 
-<!--Footer-->
-<divstyle="margin-top:50px;padding:20px;text-align:center;">
-<pclass="text-xstext-gray-500">🄯2025CommandLineGuides|PanduanInteraktifGitHubCLI</p>
+<template id="branch-content">
+<div class="bg-white p-8 rounded-lg shadow-sm">
+<h2 class="text-2xl font-bold text-gray-900 mb-2">Branch</h2>
+<div class="diagram-box">
+<div class="diagram-step">git checkout -b feature</div>
+<div class="diagram-arrow">→</div>
+<div class="diagram-step">Bekerja di branch baru</div>
+</div>
+<div class="code-block">
+<button class="copy-btn">Salin</button>
+<pre><code>git checkout -b feature</code></pre>
+</div>
+<p class="text-gray-600 text-sm">Membuat dan berpindah ke branch baru.</p>
+</div>
+</template>
+
+<template id="issue-content">
+<div class="bg-white p-8 rounded-lg shadow-sm">
+<h2 class="text-2xl font-bold text-gray-900 mb-2">Issue</h2>
+<div class="diagram-box">
+<div class="diagram-step">gh issue create --title "Bug" --body "Deskripsi"</div>
+<div class="diagram-arrow">→</div>
+<div class="diagram-step">Issue dibuat di repo GitHub</div>
+</div>
+<div class="code-block">
+<button class="copy-btn">Salin</button>
+<pre><code>gh issue create --title "Bug" --body "Deskripsi"</code></pre>
+</div>
+<p class="text-gray-600 text-sm">Buat issue baru melalui CLI.</p>
+</div>
+</template>
+
+<!-- Footer -->
+<div style="margin-top:50px;padding:20px;text-align:center;">
+<p class="text-xs text-gray-500">🄯 2025 Command Line Guides | Panduan Interaktif GitHub CLI</p>
 </div>
 
-<!--FacebookComments-->
+<!-- Facebook Comments -->
 
 
 <script>
 document.addEventListener("DOMContentLoaded",()=>{
-constnavigation=document.getElementById("navigation");
-constcontentDisplay=document.getElementById("content-display");
-constnavLinks=document.querySelectorAll(".nav-link");
+  const navigation=document.getElementById("navigation");
+  const contentDisplay=document.getElementById("content-display");
+  const navLinks=document.querySelectorAll(".nav-link");
 
-constcontentMap={
-"#login":"login-content",
-"#clone":"clone-content",
-"#commit":"commit-content",
-"#pr":"pr-content",
-"#branch":"branch-content",
-"#issue":"issue-content"
-};
+  const contentMap={
+    "#login":"login-content",
+    "#clone":"clone-content",
+    "#commit":"commit-content",
+    "#pr":"pr-content",
+    "#branch":"branch-content",
+    "#issue":"issue-content"
+  };
 
-constloadContent=(hash)=>{
-navLinks.forEach(l=>l.classList.remove("active-nav"));
-contentDisplay.innerHTML="";
-consttemplateId=contentMap[hash];
-if(templateId){
-consttemplate=document.getElementById(templateId);
-contentDisplay.appendChild(template.content.cloneNode(true));
-document.querySelector(`a[href="${hash}"]`)?.classList.add("active-nav");
-}else{
-constwelcomeTemplate=document.getElementById("welcome-content");
-contentDisplay.appendChild(welcomeTemplate.content.cloneNode(true));
-}
-};
+  const loadContent=(hash)=>{
+    navLinks.forEach(l=>l.classList.remove("active-nav"));
+    contentDisplay.innerHTML="";
+    const templateId=contentMap[hash];
+    if(templateId){
+      const template=document.getElementById(templateId);
+      contentDisplay.appendChild(template.content.cloneNode(true));
+      document.querySelector(`a[href="${hash}"]`)?.classList.add("active-nav");
+    } else {
+      const welcomeTemplate=document.getElementById("welcome-content");
+      contentDisplay.appendChild(welcomeTemplate.content.cloneNode(true));
+    }
+  };
 
-navigation.addEventListener("click",e=>{if(e.target.tagName==="A"){e.preventDefault();window.location.hash=e.target.hash;}});
-window.addEventListener("hashchange",()=>loadContent(window.location.hash));
+  navigation.addEventListener("click",e=>{if(e.target.tagName==="A"){e.preventDefault();window.location.hash=e.target.hash;}});
+  window.addEventListener("hashchange",()=>loadContent(window.location.hash));
 
-contentDisplay.addEventListener("click",t=>{
-if(t.target.classList.contains("copy-btn")){
-constcodeEl=t.target.nextElementSibling.querySelector("code");
-if(codeEl)navigator.clipboard.writeText(codeEl.innerText.trim())
-.then(()=>{constbtn=t.target,orig=btn.innerText;btn.innerText="Disalin!";setTimeout(()=>btn.innerText=orig,2000);})
-.catch(err=>console.error("Gagalmenyalin",err));
-}
-});
+  contentDisplay.addEventListener("click",t=>{
+    if(t.target.classList.contains("copy-btn")){
+      const codeEl=t.target.nextElementSibling.querySelector("code");
+      if(codeEl) navigator.clipboard.writeText(codeEl.innerText.trim())
+      .then(()=>{const btn=t.target,orig=btn.innerText;btn.innerText="Disalin!";setTimeout(()=>btn.innerText=orig,2000);})
+      .catch(err=>console.error("Gagal menyalin",err));
+    }
+  });
 
-if(window.location.hash)loadContent(window.location.hash);
-elseloadContent("");
+  if(window.location.hash) loadContent(window.location.hash);
+  else loadContent("");
 });
 </script>
 
-<divclass="search-floating-container"><inputtype="text"id="floatingSearchInput"placeholder="cariartikel..."autocomplete="off"><spanid="floatingSearchClear"class="clear-button"></span><divid="floatingSearchResults"class="floating-results-container"></div></div>
-<sectionid="related-marquee-section"><divid="related-marquee-container"></div></section><scriptdefersrc="/ext/marquee-url.js"></script>
-<scriptdefersrc="/ext/iposbrowser.js"></script>
+<div class="search-floating-container"><input type="text" id="floatingSearchInput" placeholder="cari artikel..." autocomplete="off"><span id="floatingSearchClear" class="clear-button"></span><div id="floatingSearchResults" class="floating-results-container"></div></div>
+<section id="related-marquee-section"><div id="related-marquee-container"></div></section><script defer src="/ext/marquee-url.js"></script>
+<script defer src="/ext/iposbrowser.js"></script>
 
 
 </body>

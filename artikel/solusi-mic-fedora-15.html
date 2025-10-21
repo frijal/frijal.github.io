@@ -1,315 +1,315 @@
-<!DOCTYPEhtml>
-<htmllang="id"dir="lrt">
+<!DOCTYPE html>
+<html lang="id" dir="lrt">
 <head>
-<metacharset="UTF-8">
-<metaname="viewport"content="width=device-width,initial-scale=1.0">
-<title>MicGakNyaladiFedora15?IniDiaSolusiSimpelnya!</title>
-<metaname="description"content="CaramudahdancepatmemperbaikimicrophoneyangtidakberfungsidiFedora15.Cukupsatuperintahditerminal,danmickamusiapuntukSkypedanGoogleHangout.">
-<metaname="author"content="Frijal">
-<metaname="keywords"content="fedora15,microphone,mictidakberfungsi,alsamixer,skype,googlehangout,linuxaudio,perbaikanmic">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mic Gak Nyala di Fedora 15? Ini Dia Solusi Simpelnya!</title>
+    <meta name="description" content="Cara mudah dan cepat memperbaiki microphone yang tidak berfungsi di Fedora 15. Cukup satu perintah di terminal, dan mic kamu siap untuk Skype dan Google Hangout.">
+    <meta name="author" content="Frijal">
+    <meta name="keywords" content="fedora 15, microphone, mic tidak berfungsi, alsamixer, skype, google hangout, linux audio, perbaikan mic">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎤</text></svg>">
+    <link rel="canonical" href="https://frijal.pages.dev/artikel/solusi-mic-fedora-15.html">
+    
+    <meta property="og:title" content="Mic Gak Nyala di Fedora 15? Ini Dia Solusi Simpelnya!">
+    <meta property="og:description" content="Cara mudah dan cepat memperbaiki microphone yang tidak berfungsi di Fedora 15. Cukup satu perintah di terminal, dan mic kamu siap untuk Skype dan Google Hangout.">
+    <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWlcYNHVF4_bhKCVkCkSKhUd23zEvuqryn7pyaC4rts1cM0tsKYBAgceNQKDZiQkw4ZTeAS403ghyphenhyphenUZTHrP-WfInswMY8HWhE4kHOcAFw5nrlO-OlMQcWJWvV9UUTDu5TYnY7jbt_qUSeH/s1600/Screenshot-fr@kurang-gawean-2.png">
+    <meta property="og:url" content="https://frijal.pages.dev/artikel/solusi-mic-fedora-15.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Frijal's Blog">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mic Gak Nyala di Fedora 15? Ini Dia Solusi Simpelnya!">
+    <meta name="twitter:description" content="Cara mudah dan cepat memperbaiki microphone yang tidak berfungsi di Fedora 15. Cukup satu perintah di terminal, dan mic kamu siap untuk Skype dan Google Hangout.">
+    <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWlcYNHVF4_bhKCVkCkSKhUd23zEvuqryn7pyaC4rts1cM0tsKYBAgceNQKDZiQkw4ZTeAS403ghyphenhyphenUZTHrP-WfInswMY8HWhE4kHOcAFw5nrlO-OlMQcWJWvV9UUTDu5TYnY7jbt_qUSeH/s1600/Screenshot-fr@kurang-gawean-2.png">
+    
+    <style>
+        /* CSS Reset & Basic Setup */
+        :root {
+            --primary-color: #007BFF;
+            --secondary-color: #FFC107;
+            --bg-color: #f0f2f5;
+            --text-color: #333;
+            --card-bg: #ffffff;
+            --header-font: 'Arial', sans-serif;
+            --body-font: 'Georgia', serif;
+        }
 
-<linkrel="icon"href="data:image/svg+xml,<svgxmlns=%22http://www.w3.org/2000/svg%22viewBox=%2200100100%22><texty=%22.9em%22font-size=%2290%22>🎤</text></svg>">
-<linkrel="canonical"href="https://frijal.pages.dev/artikel/solusi-mic-fedora-15.html">
+        html {
+            scroll-behavior: smooth;
+        }
 
-<metaproperty="og:title"content="MicGakNyaladiFedora15?IniDiaSolusiSimpelnya!">
-<metaproperty="og:description"content="CaramudahdancepatmemperbaikimicrophoneyangtidakberfungsidiFedora15.Cukupsatuperintahditerminal,danmickamusiapuntukSkypedanGoogleHangout.">
-<metaproperty="og:image"content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWlcYNHVF4_bhKCVkCkSKhUd23zEvuqryn7pyaC4rts1cM0tsKYBAgceNQKDZiQkw4ZTeAS403ghyphenhyphenUZTHrP-WfInswMY8HWhE4kHOcAFw5nrlO-OlMQcWJWvV9UUTDu5TYnY7jbt_qUSeH/s1600/Screenshot-fr@kurang-gawean-2.png">
-<metaproperty="og:url"content="https://frijal.pages.dev/artikel/solusi-mic-fedora-15.html">
-<metaproperty="og:type"content="article">
-<metaproperty="og:site_name"content="JagaDataPribadiTetapAman">
+        body {
+            margin: 0;
+            font-family: var(--body-font);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            font-size: 18px;
+        }
 
-<metaname="twitter:card"content="summary_large_image">
-<metaname="twitter:title"content="MicGakNyaladiFedora15?IniDiaSolusiSimpelnya!">
-<metaname="twitter:description"content="CaramudahdancepatmemperbaikimicrophoneyangtidakberfungsidiFedora15.Cukupsatuperintahditerminal,danmickamusiapuntukSkypedanGoogleHangout.">
-<metaname="twitter:image"content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWlcYNHVF4_bhKCVkCkSKhUd23zEvuqryn7pyaC4rts1cM0tsKYBAgceNQKDZiQkw4ZTeAS403ghyphenhyphenUZTHrP-WfInswMY8HWhE4kHOcAFw5nrlO-OlMQcWJWvV9UUTDu5TYnY7jbt_qUSeH/s1600/Screenshot-fr@kurang-gawean-2.png">
+        /* Fullscreen Hero Header */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 60vh;
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.8), rgba(255, 193, 7, 0.8)), url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWlcYNHVF4_bhKCVkCkSKhUd23zEvuqryn7pyaC4rts1cM0tsKYBAgceNQKDZiQkw4ZTeAS403ghyphenhyphenUZTHrP-WfInswMY8HWhE4kHOcAFw5nrlO-OlMQcWJWvV9UUTDu5TYnY7jbt_qUSeH/s1600/Screenshot-fr@kurang-gawean-2.png') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
 
-<style>
-/*CSSReset&BasicSetup*/
-:root{
---primary-color:#007BFF;
---secondary-color:#FFC107;
---bg-color:#f0f2f5;
---text-color:#333;
---card-bg:#ffffff;
---header-font:'Arial',sans-serif;
---body-font:'Georgia',serif;
-}
+        .hero h1 {
+            font-family: var(--header-font);
+            font-size: 3.5rem;
+            margin: 0;
+            font-weight: bold;
+        }
 
-html{
-scroll-behavior:smooth;
-}
+        /* Content Wrapper (1 Kolom) */
+        .container {
+            max-width: 800px;
+            margin: -80px auto 4rem auto;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
 
-body{
-margin:0;
-font-family:var(--body-font);
-background-color:var(--bg-color);
-color:var(--text-color);
-line-height:1.7;
-font-size:18px;
-}
+        /* Typography */
+        h2 {
+            font-family: var(--header-font);
+            color: var(--primary-color);
+        }
 
-/*FullscreenHeroHeader*/
-.hero{
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-height:60vh;
-background:linear-gradient(135deg,rgba(0,123,255,0.8),rgba(255,193,7,0.8)),url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWlcYNHVF4_bhKCVkCkSKhUd23zEvuqryn7pyaC4rts1cM0tsKYBAgceNQKDZiQkw4ZTeAS403ghyphenhyphenUZTHrP-WfInswMY8HWhE4kHOcAFw5nrlO-OlMQcWJWvV9UUTDu5TYnY7jbt_qUSeH/s1600/Screenshot-fr@kurang-gawean-2.png')no-repeatcentercenter;
-background-size:cover;
-color:white;
-padding:2rem;
-text-shadow:2px2px4pxrgba(0,0,0,0.5);
-}
+        code {
+            background-color: #e8e8e8;
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
 
-.heroh1{
-font-family:var(--header-font);
-font-size:3.5rem;
-margin:0;
-font-weight:bold;
-}
+        .command {
+            background-color: #2d2d2d;
+            color: #00ff00;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            position: relative;
+        }
 
-/*ContentWrapper(1Kolom)*/
-.container{
-max-width:800px;
-margin:-80pxauto4remauto;
-background:var(--card-bg);
-padding:2rem;
-border-radius:12px;
-box-shadow:010px30pxrgba(0,0,0,0.1);
-position:relative;
-z-index:2;
-}
+        .command::before {
+            content: '$';
+            position: absolute;
+            left: 10px;
+            color: #888;
+        }
 
-/*Typography*/
-h2{
-font-family:var(--header-font);
-color:var(--primary-color);
-}
+        .command code {
+            background: none;
+            color: #00ff00;
+            padding-left: 15px;
+        }
 
-code{
-background-color:#e8e8e8;
-padding:0.2em0.4em;
-border-radius:4px;
-font-family:'CourierNew',monospace;
-font-size:0.9em;
-}
+        /* Galeri & Lightbox */
+        .gallery {
+            text-align: center;
+            margin: 2rem 0;
+        }
 
-.command{
-background-color:#2d2d2d;
-color:#00ff00;
-padding:1rem;
-border-radius:8px;
-margin:1.5rem0;
-font-family:'CourierNew',monospace;
-overflow-x:auto;
-position:relative;
-}
+        .gallery img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
 
-.command::before{
-content:'$';
-position:absolute;
-left:10px;
-color:#888;
-}
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
 
-.commandcode{
-background:none;
-color:#00ff00;
-padding-left:15px;
-}
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            justify-content: center;
+            align-items: center;
+        }
 
-/*Galeri&Lightbox*/
-.gallery{
-text-align:center;
-margin:2rem0;
-}
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 5px;
+        }
 
-.galleryimg{
-max-width:100%;
-height:auto;
-border-radius:8px;
-cursor:pointer;
-transition:transform0.3sease,box-shadow0.3sease;
-box-shadow:04px15pxrgba(0,0,0,0.1);
-}
+        .lightbox .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
 
-.galleryimg:hover{
-transform:scale(1.05);
-box-shadow:08px25pxrgba(0,0,0,0.2);
-}
+        .lightbox .close:hover {
+            color: var(--secondary-color);
+        }
 
-.lightbox{
-display:none;
-position:fixed;
-z-index:1000;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background-color:rgba(0,0,0,0.85);
-justify-content:center;
-align-items:center;
-}
+        /* Tombol Navigasi Tetap (Dihapus) */
 
-.lightboximg{
-max-width:90%;
-max-height:80%;
-border-radius:5px;
-}
+        /* Info Pengguna (Dihapus) */
 
-.lightbox.close{
-position:absolute;
-top:20px;
-right:30px;
-font-size:40px;
-color:white;
-cursor:pointer;
-transition:color0.3s;
-}
+        /* Social Sharing */
+        .social-share {
+            text-align: center;
+            margin: 2rem 0;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
 
-.lightbox.close:hover{
-color:var(--secondary-color);
-}
+        .social-share h3 {
+            font-family: var(--header-font);
+        }
 
-/*TombolNavigasiTetap(Dihapus)*/
+        .social-share a {
+            display: inline-block;
+            margin: 0 10px;
+            transition: transform 0.3s;
+        }
 
-/*InfoPengguna(Dihapus)*/
+        .social-share a:hover {
+            transform: translateY(-5px);
+        }
 
-/*SocialSharing*/
-.social-share{
-text-align:center;
-margin:2rem0;
-padding-top:2rem;
-border-top:1pxsolid#eee;
-}
+        .social-share svg {
+            width: 40px;
+            height: 40px;
+        }
 
-.social-shareh3{
-font-family:var(--header-font);
-}
+        /* Jaga Data Pribadi Tetap Aman. Facebook */
+        .fb-comments {
+            width: 100%;
+        }
 
-.social-sharea{
-display:inline-block;
-margin:010px;
-transition:transform0.3s;
-}
+        /* Mobile-friendly */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
 
-.social-sharea:hover{
-transform:translateY(-5px);
-}
+            .container {
+                margin: -60px 1rem 2rem 1rem;
+                padding: 1.5rem;
+            }
 
-.social-sharesvg{
-width:40px;
-height:40px;
-}
+            body {
+                font-size: 16px;
+            }
+        }
 
-/*JagaDataPribadiTetapAman.Facebook*/
-.fb-comments{
-width:100%;
-}
+    </style>
+    <meta property="og:image:alt" content="Mic Gak Nyala di Fedora 15? Ini Dia Solusi Simpelnya!">
+    <meta itemprop="image" content="https://frijal.pages.dev/img/solusi-mic-fedora-15.webp">
 
-/*Mobile-friendly*/
-@media(max-width:768px){
-.heroh1{
-font-size:2.5rem;
-}
-
-.container{
-margin:-60px1rem2rem1rem;
-padding:1.5rem;
-}
-
-body{
-font-size:16px;
-}
-}
-
-</style>
-<metaproperty="og:image:alt"content="MicGakNyaladiFedora15?IniDiaSolusiSimpelnya!">
-<metaitemprop="image"content="https://frijal.pages.dev/img/solusi-mic-fedora-15.webp">
-
-<metaproperty="article:published_time"content="2025-10-14T18:15:06.423+00:00">
-<linkrel="stylesheet"href="/ext/marquee-url.css"><linkrel="alternate"type="application/rss+xml"title="30artikelbarubikin."href="https://frijal.pages.dev/rss.xml"/>
+    <meta property="article:published_time" content="2025-10-14T18:15:06.423+00:00">
+<link rel="stylesheet" href="/ext/marquee-url.css"><link rel="alternate" type="application/rss+xml" title="30 artikel baru bikin." href="https://frijal.pages.dev/rss.xml" />
 </head>
 <body>
-<headerclass="hero">
-<div>
-<h1>MicFedora15KamuBisu?<br>Sini,KitaBisikinSolusinya!</h1>
-<divid="iposbrowser"></div>
+    <header class="hero">
+        <div>
+            <h1>Mic Fedora 15 Kamu Bisu? <br>Sini, Kita Bisikin Solusinya!</h1>
+<div id="iposbrowser"></div>
 
-</div>
-</header>
+        </div>
+    </header>
+    
+    <main class="container">
+        <article>
+            <p>Pernah gak sih, lagi semangat mau Skype-an atau Google Hangout, eh... mic-nya malah gak kedeteksi di Fedora 15? Bikin bete banget, kan? Udah coba segala cara tapi suara tetep gak masuk. Tenang, kamu gak sendirian, dan solusinya ternyata gampang banget!</p>
+            <p>Gak perlu install driver aneh-aneh atau pusing bongkar pasang konfigurasi. Cukup satu jurus andalan di terminal.</p>
+            
+            <h2>Langkah Ajaib di Terminal</h2>
+            <p>Buka terminal kesayanganmu (Ctrl+Alt+T biasanya), lalu ketik atau copy-paste perintah sakti di bawah ini:</p>
+            <div class="command"><code>alsamixer -c0 -Vcapture</code></div>
+            <p>Setelah kamu tekan Enter, akan muncul tampilan seperti ini di terminal kamu. Mungkin warnanya beda, tapi isinya mirip-mirip.</p>
+            
+            <div class="gallery">
+                <a href="javascript:void(0);" onclick="openLightbox()">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWlcYNHVF4_bhKCVkCkSKhUd23zEvuqryn7pyaC4rts1cM0tsKYBAgceNQKDZiQkw4ZTeAS403ghyphenhyphenUZTHrP-WfInswMY8HWhE4kHOcAFw5nrlO-OlMQcWJWvV9UUTDu5TYnY7jbt_qUSeH/s1600/Screenshot-fr@kurang-gawean-2.png" alt="Tampilan Alsamixer Capture" loading="lazy">
+                </a>
+            </div>
+            
+            <p>Perhatikan bagian <strong>Internal Mic</strong>. Kemungkinan besar volumenya masih rendah atau bahkan di posisi nol. Nah, ini dia biang keroknya!</p>
+            <p>Gunakan tombol panah <strong>atas (↑)</strong> di keyboard untuk menaikkan volumenya sampai mentok. Pastikan juga statusnya tidak "Mute". Kalau ada tulisan "MM", tekan tombol <strong>'M'</strong> untuk meng-unmute-nya menjadi "OO".</p>
+            <p>Kalau sudah, tekan tombol <strong>Esc</strong> untuk keluar. <em>Voila!</em> Coba tes mikrofonmu sekarang. Insya Allah sudah bisa berfungsi normal dan kamu siap kembali berkomunikasi di dunia maya. Selamat mencoba! 😉</p>
+        </article>
+        
+        <hr>
+        
+        <div class="social-share">
+            <h3>Bagikan Jika Bermanfaat!</h3>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://frijal.pages.dev/artikel/solusi-mic-fedora-15.html" target="_blank" title="Bagikan ke Facebook"><svg viewBox="0 0 24 24"><path fill="#1877F2" d="M12 2.04C6.5 2.04 2 6.53 2 12.06c0 5.52 4.5 10.02 10 10.02c5.5 0 10-4.5 10-10.02C22 6.53 17.5 2.04 12 2.04zM16.5 12.3h-2.25v7.2h-3V12.3H9.75V9.6h1.5V7.8c0-1.47 0.9-2.28 2.2-2.28h1.95v2.7h-1.2c-0.7 0-0.85 0.33-0.85 0.82V9.6h2.1l-0.3 2.7z"/></svg></a>
+            <a href="https://twitter.com/intent/tweet?url=https://frijal.pages.dev/artikel/solusi-mic-fedora-15.html&text=Mic Gak Nyala di Fedora 15? Ini Dia Solusi Simpelnya!" target="_blank" title="Bagikan ke Twitter"><svg viewBox="0 0 24 24"><path fill="#1DA1F2" d="M22.46 6c-.77.35-1.6.58-2.46.67.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98-3.56-.18-6.73-1.89-8.84-4.48-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.7-.02-1.37-.22-1.95-.55v.05c0 2.08 1.48 3.82 3.44 4.21-.36.1-.74.15-1.14.15-.28 0-.55-.03-.81-.08.55 1.7 2.14 2.94 4.03 2.97-1.47 1.15-3.32 1.83-5.33 1.83-.35 0-.69-.02-1.03-.06 1.9 1.23 4.16 1.95 6.56 1.95 7.88 0 12.2-6.54 12.2-12.2 0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.22z"/></svg></a>
+            <a href="https://api.whatsapp.com/send?text=Mic Gak Nyala di Fedora 15? Ini Dia Solusi Simpelnya! https://frijal.pages.dev/artikel/solusi-mic-fedora-15.html" target="_blank" title="Bagikan ke WhatsApp"> <svg viewBox="0 0 24 24"><path fill="#25D366" d="M12.04 2C6.58 2 2.13 6.45 2.13 12c0 1.78.46 3.45 1.28 4.92L2 22l5.25-1.38c1.4.78 2.99 1.2 4.68 1.2h.01c5.46 0 9.91-4.45 9.91-9.92 0-5.46-4.45-9.91-9.91-9.91zM17.47 15.9c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.64.14-.19.28-.73.91-.89 1.1-.16.18-.32.21-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.28-.01-.43.13-.56.12-.12.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.64-1.54-.87-2.1-.23-.56-.47-.48-.64-.49-.17-.01-.36-.01-.55-.01h-.28c-.19 0-.5.07-.76.35-.26.28-.98.96-.98 2.34s1 2.71 1.14 2.89c.14.18 1.98 3.03 4.8 4.23.68.28 1.21.45 1.62.57.71.21 1.36.18 1.87.11.57-.08 1.66-.68 1.89-1.34.24-.66.24-1.22.17-1.34-.07-.12-.26-.18-.54-.32z"/></svg></a>
+        </div>
+        
+        
+        
+    </main>
+    
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close">&times;</span>
+        <img id="lightbox-img" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWlcYNHVF4_bhKCVkCkSKhUd23zEvuqryn7pyaC4rts1cM0tsKYBAgceNQKDZiQkw4ZTeAS403ghyphenhyphenUZTHrP-WfInswMY8HWhE4kHOcAFw5nrlO-OlMQcWJWvV9UUTDu5TYnY7jbt_qUSeH/s1600/Screenshot-fr@kurang-gawean-2.png" alt="Tampilan Alsamixer Capture Diperbesar">
+    </div>
 
-<mainclass="container">
-<article>
-<p>Pernahgaksih,lagisemangatmauSkype-anatauGoogleHangout,eh...mic-nyamalahgakkedeteksidiFedora15?Bikinbetebanget,kan?Udahcobasegalacaratapisuaratetepgakmasuk.Tenang,kamugaksendirian,dansolusinyaternyatagampangbanget!</p>
-<p>Gakperluinstalldriveraneh-anehataupusingbongkarpasangkonfigurasi.Cukupsatujurusandalanditerminal.</p>
+    <script>
+        // Lightbox Control Functions
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
 
-<h2>LangkahAjaibdiTerminal</h2>
-<p>Bukaterminalkesayanganmu(Ctrl+Alt+Tbiasanya),laluketikataucopy-pasteperintahsaktidibawahini:</p>
-<divclass="command"><code>alsamixer-c0-Vcapture</code></div>
-<p>SetelahkamutekanEnter,akanmuncultampilansepertiiniditerminalkamu.Mungkinwarnanyabeda,tapiisinyamirip-mirip.</p>
+        function openLightbox() {
+            lightbox.style.display = 'flex';
+        }
 
-<divclass="gallery">
-<ahref="javascript:void(0);"onclick="openLightbox()">
-<imgsrc="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWlcYNHVF4_bhKCVkCkSKhUd23zEvuqryn7pyaC4rts1cM0tsKYBAgceNQKDZiQkw4ZTeAS403ghyphenhyphenUZTHrP-WfInswMY8HWhE4kHOcAFw5nrlO-OlMQcWJWvV9UUTDu5TYnY7jbt_qUSeH/s1600/Screenshot-fr@kurang-gawean-2.png"alt="TampilanAlsamixerCapture"loading="lazy">
-</a>
-</div>
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+        }
 
-<p>Perhatikanbagian<strong>InternalMic</strong>.Kemungkinanbesarvolumenyamasihrendahataubahkandiposisinol.Nah,inidiabiangkeroknya!</p>
-<p>Gunakantombolpanah<strong>atas(↑)</strong>dikeyboarduntukmenaikkanvolumenyasampaimentok.Pastikanjugastatusnyatidak"Mute".Kalauadatulisan"MM",tekantombol<strong>'M'</strong>untukmeng-unmute-nyamenjadi"OO".</p>
-<p>Kalausudah,tekantombol<strong>Esc</strong>untukkeluar.<em>Voila!</em>Cobatesmikrofonmusekarang.InsyaAllahsudahbisaberfungsinormaldankamusiapkembaliberkomunikasididuniamaya.Selamatmencoba!😉</p>
-</article>
+        // Copy Code to Clipboard
+        function copyCode(button) {
+            const codeBlock = button.previousElementSibling;
+            const codeText = codeBlock.innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                }, 2000);
+            }).catch(err => {
+                console.error('Gagal menyalin teks: ', err);
+            });
+        }
+    </script>
 
-<hr>
-
-<divclass="social-share">
-<h3>BagikanJikaBermanfaat!</h3>
-<ahref="https://www.facebook.com/sharer/sharer.php?u=https://frijal.pages.dev/artikel/solusi-mic-fedora-15.html"target="_blank"title="BagikankeFacebook"><svgviewBox="002424"><pathfill="#1877F2"d="M122.04C6.52.0426.53212.06c05.524.510.021010.02c5.5010-4.510-10.02C226.5317.52.04122.04zM16.512.3h-2.25v7.2h-3V12.3H9.75V9.6h1.5V7.8c0-1.470.9-2.282.2-2.28h1.95v2.7h-1.2c-0.70-0.850.33-0.850.82V9.6h2.1l-0.32.7z"/></svg></a>
-<ahref="https://twitter.com/intent/tweet?url=https://frijal.pages.dev/artikel/solusi-mic-fedora-15.html&text=MicGakNyaladiFedora15?IniDiaSolusiSimpelnya!"target="_blank"title="BagikankeTwitter"><svgviewBox="002424"><pathfill="#1DA1F2"d="M22.466c-.77.35-1.6.58-2.46.67.88-.531.56-1.371.88-2.38-.83.5-1.75.85-2.721.05C18.374.517.264164c-2.350-4.271.92-4.274.290.34.04.67.11.98-3.56-.18-6.73-1.89-8.84-4.48-.37.63-.581.37-.582.1501.49.752.811.913.56-.7-.02-1.37-.22-1.95-.55v.05c02.081.483.823.444.21-.36.1-.74.15-1.14.15-.280-.55-.03-.81-.08.551.72.142.944.032.97-1.471.15-3.321.83-5.331.83-.350-.69-.02-1.03-.061.91.234.161.956.561.957.88012.2-6.5412.2-12.20-.190-.37-.01-.56.84-.61.56-1.362.14-2.22z"/></svg></a>
-<ahref="https://api.whatsapp.com/send?text=MicGakNyaladiFedora15?IniDiaSolusiSimpelnya!https://frijal.pages.dev/artikel/solusi-mic-fedora-15.html"target="_blank"title="BagikankeWhatsApp"><svgviewBox="002424"><pathfill="#25D366"d="M12.042C6.5822.136.452.1312c01.78.463.451.284.92L222l5.25-1.38c1.4.782.991.24.681.2h.01c5.4609.91-4.459.91-9.920-5.46-4.45-9.91-9.91-9.91zM17.4715.9c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.64.14-.19.28-.73.91-.891.1-.16.18-.32.21-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.28-.01-.43.13-.56.12-.12.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.64-1.54-.87-2.1-.23-.56-.47-.48-.64-.49-.17-.01-.36-.01-.55-.01h-.28c-.190-.5.07-.76.35-.26.28-.98.96-.982.34s12.711.142.89c.14.181.983.034.84.23.68.281.21.451.62.57.71.211.36.181.87.11.57-.081.66-.681.89-1.34.24-.66.24-1.22.17-1.34-.07-.12-.26-.18-.54-.32z"/></svg></a>
-</div>
-
-
-
-</main>
-
-<divid="lightbox"class="lightbox"onclick="closeLightbox()">
-<spanclass="close">&times;</span>
-<imgid="lightbox-img"src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWlcYNHVF4_bhKCVkCkSKhUd23zEvuqryn7pyaC4rts1cM0tsKYBAgceNQKDZiQkw4ZTeAS403ghyphenhyphenUZTHrP-WfInswMY8HWhE4kHOcAFw5nrlO-OlMQcWJWvV9UUTDu5TYnY7jbt_qUSeH/s1600/Screenshot-fr@kurang-gawean-2.png"alt="TampilanAlsamixerCaptureDiperbesar">
-</div>
-
-<script>
-//LightboxControlFunctions
-constlightbox=document.getElementById('lightbox');
-constlightboxImg=document.getElementById('lightbox-img');
-
-functionopenLightbox(){
-lightbox.style.display='flex';
-}
-
-functioncloseLightbox(){
-lightbox.style.display='none';
-}
-
-//CopyCodetoClipboard
-functioncopyCode(button){
-constcodeBlock=button.previousElementSibling;
-constcodeText=codeBlock.innerText;
-navigator.clipboard.writeText(codeText).then(()=>{
-button.textContent='Copied!';
-setTimeout(()=>{
-button.textContent='Copy';
-},2000);
-}).catch(err=>{
-console.error('Gagalmenyalinteks:',err);
-});
-}
-</script>
-
-<divclass="search-floating-container"><inputtype="text"id="floatingSearchInput"placeholder="cariartikel..."autocomplete="off"><spanid="floatingSearchClear"class="clear-button"></span><divid="floatingSearchResults"class="floating-results-container"></div></div>
-<sectionid="related-marquee-section"><divid="related-marquee-container"></div></section><scriptdefersrc="/ext/marquee-url.js"></script>
-<scriptdefersrc="/ext/iposbrowser.js"></script>
+<div class="search-floating-container"><input type="text" id="floatingSearchInput" placeholder="cari artikel..." autocomplete="off"><span id="floatingSearchClear" class="clear-button"></span><div id="floatingSearchResults" class="floating-results-container"></div></div>
+<section id="related-marquee-section"><div id="related-marquee-container"></div></section><script defer src="/ext/marquee-url.js"></script>
+<script defer src="/ext/iposbrowser.js"></script>
 
 
 </body>

@@ -1,245 +1,245 @@
-<!doctypehtml>
-<htmllang="id">
+<!doctype html>
+<html lang="id">
 <head>
-<metacharset="UTF-8"/>
-<metaname="viewport"content="width=device-width,initial-scale=1"/>
-<title>PanduanInteraktifImageMagick-CLIMediaManipulation🛠️</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Panduan Interaktif ImageMagick - CLI Media Manipulation 🛠️</title>
 
-<metaname="description"content="PanduaninteraktifmenggunakanImageMagick(gambar)danFFmpeg(audio/video)dicommandline.Pelajaricaramenggabung,memotong,dankonversifilemedia."/>
-<metaname="keywords"content="ImageMagick,FFmpeg,CLI,commandline,gabunggambar,merge,crop,konversi,terminal"/>
-<linkrel="canonical"href="https://frijal.pages.dev/artikel/ubah-gabung.html"/>
-<metaname="date"content="2025-09-27"/>
+    <meta name="description" content="Panduan interaktif menggunakan ImageMagick (gambar) dan FFmpeg (audio/video) di command line. Pelajari cara menggabung, memotong, dan konversi file media." />
+    <meta name="keywords" content="ImageMagick, FFmpeg, CLI, command line, gabung gambar, merge, crop, konversi, terminal" />
+    <link rel="canonical" href="https://frijal.pages.dev/artikel/ubah-gabung.html" />
+    <meta name="date" content="2025-09-27" />
 
-<metaproperty="og:title"content="PanduanInteraktifImageMagick&FFmpeg:CLIMediaManipulation🛠️"/>
-<metaproperty="og:description"content="KumpulanperintahImageMagickdanFFmpegyangmudahdisalin,lengkapdenganvisualisasidanpenjelasanparameter."/>
-<metaproperty="og:type"content="website"/>
-<metaproperty="og:url"content="https://frijal.pages.dev/artikel/panduan-interaktif-imagemagick-ffmpeg.html"/>
-<metaproperty="og:image:alt"content="PanduanInteraktifImageMagick-CLIMediaManipulation🛠️"/>
+    <meta property="og:title" content="Panduan Interaktif ImageMagick & FFmpeg: CLI Media Manipulation 🛠️" />
+    <meta property="og:description" content="Kumpulan perintah ImageMagick dan FFmpeg yang mudah disalin, lengkap dengan visualisasi dan penjelasan parameter." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://frijal.pages.dev/artikel/panduan-interaktif-imagemagick-ffmpeg.html" />
+    <meta property="og:image:alt" content="Panduan Interaktif ImageMagick - CLI Media Manipulation 🛠️" />
 
-<metaname="twitter:card"content="summary_large_image"/>
-<metaname="twitter:title"content="PanduanInteraktifImageMagick&FFmpeg:CLIMediaManipulation🛠️"/>
-<metaname="twitter:description"content="KumpulanperintahImageMagickdanFFmpegyangmudahdisalin,lengkapdenganvisualisasidanpenjelasanparameter."/>
-<metaname="twitter:image"content="https://frijal.pages.dev/img/ubah-gabung.webp"/>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Panduan Interaktif ImageMagick & FFmpeg: CLI Media Manipulation 🛠️" />
+    <meta name="twitter:description" content="Kumpulan perintah ImageMagick dan FFmpeg yang mudah disalin, lengkap dengan visualisasi dan penjelasan parameter." />
+    <meta name="twitter:image" content="https://frijal.pages.dev/img/ubah-gabung.webp" />
 
-<scriptsrc="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<style>
-body{
-font-family:Inter,sans-serif;
-}
-.active-nav{
-background-color:#e5e7eb;
-color:#111827;
-font-weight:600;
-}
-.code-block{
-background-color:#1e293b;
-color:#e2e8f0;
-border-radius:0.5rem;
-padding:1rem;
-position:relative;
-}
-.copy-btn{
-position:absolute;
-top:0.75rem;
-right:0.75rem;
-background-color:#334155;
-color:#94a3b8;
-border:none;
-padding:0.25rem0.75rem;
-border-radius:0.375rem;
-cursor:pointer;
-font-size:0.875rem;
-transition:all0.2sease;
-z-index:10;
-}
-.copy-btn:hover{
-background-color:#475569;
-color:#e2e8f0;
-}
-.diagram-box{
-border:2pxdashed#9ca3af;
-background-color:#f3f4f6;
-padding:1rem;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100px;
-}
+    <style>
+        body {
+            font-family: Inter, sans-serif;
+        }
+        .active-nav {
+            background-color: #e5e7eb;
+            color: #111827;
+            font-weight: 600;
+        }
+        .code-block {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            position: relative;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            background-color: #334155;
+            color: #94a3b8;
+            border: none;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+        .copy-btn:hover {
+            background-color: #475569;
+            color: #e2e8f0;
+        }
+        .diagram-box {
+            border: 2px dashed #9ca3af;
+            background-color: #f3f4f6;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100px;
+        }
 
-</style>
-<metaitemprop="image"content="https://frijal.pages.dev/img/ubah-gabung.webp">
-<linkrel="stylesheet"href="/ext/marquee-url.css"><linkrel="alternate"type="application/rss+xml"title="30artikelbarubikin."href="https://frijal.pages.dev/rss.xml"/>
-<metaproperty="article:published_time"content="2025-10-17T08:24:29.867+00:00">
+    </style>
+<meta itemprop="image" content="https://frijal.pages.dev/img/ubah-gabung.webp">
+<link rel="stylesheet" href="/ext/marquee-url.css"><link rel="alternate" type="application/rss+xml" title="30 artikel baru bikin." href="https://frijal.pages.dev/rss.xml" />
+    <meta property="article:published_time" content="2025-10-17T08:24:29.867+00:00">
 </head>
-<bodyclass="bg-gray-50text-gray-800">
+<body class="bg-gray-50 text-gray-800">
 
-<divclass="flexflex-colmd:flex-rowmin-h-screen">
-<asideclass="w-fullmd:w-1/4lg:w-1/5bg-whiteborder-rborder-gray-200p-4md:p-6md:fixedmd:h-full">
-<h1class="text-xlfont-boldtext-gray-900mb-6">PanduanMedia</h1>
-<divid="iposbrowser"></div>
-<navid="navigation"class="space-y-4">
-<div>
-<h2class="text-smfont-semiboldtext-gray-500uppercasetracking-widermb-2">
-ImageMagick
-</h2>
-<ulclass="space-y-1">
-<li><ahref="#imagemagick-merge-h"class="nav-linkblockpx-3py-2rounded-mdtext-gray-600hover:bg-gray-100">GabungHorizontal</a></li>
-<li><ahref="#imagemagick-merge-v"class="nav-linkblockpx-3py-2rounded-mdtext-gray-600hover:bg-gray-100">GabungVertikal</a></li>
-</ul>
-</div>
-</nav>
-</aside>
+    <div class="flex flex-col md:flex-row min-h-screen">
+        <aside class="w-full md:w-1/4 lg:w-1/5 bg-white border-r border-gray-200 p-4 md:p-6 md:fixed md:h-full">
+            <h1 class="text-xl font-bold text-gray-900 mb-6">Panduan Media</h1>
+<div id="iposbrowser"></div>
+            <nav id="navigation" class="space-y-4">
+                <div>
+                    <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                        ImageMagick
+                    </h2>
+                    <ul class="space-y-1">
+                        <li><a href="#imagemagick-merge-h" class="nav-link block px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100">Gabung Horizontal</a></li>
+                        <li><a href="#imagemagick-merge-v" class="nav-link block px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100">Gabung Vertikal</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
 
-<mainid="content-display"class="w-fullmd:ml-[25%]lg:ml-[20%]p-6md:p-10"></main>
-</div>
+        <main id="content-display" class="w-full md:ml-[25%] lg:ml-[20%] p-6 md:p-10"></main>
+    </div>
 
-<templateid="welcome-content">
-<divclass="bg-whitep-8rounded-lgshadow-sm">
-<h2class="text-3xlfont-boldtext-gray-900mb-4">SelamatDatang!🚀</h2>
-<pclass="text-lgtext-gray-600mb-4">
-Iniadalahpanduaninteraktifuntukbeberapaperintahbarisperintahyangumumdigunakanuntukmemanipulasigambardanaudio/videomenggunakan
-<strong>ImageMagick</strong>dan<strong>FFmpeg</strong>.
-</p>
-<pclass="text-gray-600">
-Silakanpilihsalahsatutugasdarimenunavigasidisebelahkiriuntukmelihatdetail,contohperintah,danvisualisasicarakerjanya.AndadapatdenganmudahmenyalinperintahlangsungkeclipboardAnda.
-</p>
-</div>
-</template>
+    <template id="welcome-content">
+        <div class="bg-white p-8 rounded-lg shadow-sm">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Selamat Datang! 🚀</h2>
+            <p class="text-lg text-gray-600 mb-4">
+                Ini adalah panduan interaktif untuk beberapa perintah baris perintah yang umum digunakan untuk memanipulasi gambar dan audio/video menggunakan
+                <strong>ImageMagick</strong> dan <strong>FFmpeg</strong>.
+            </p>
+            <p class="text-gray-600">
+                Silakan pilih salah satu tugas dari menu navigasi di sebelah kiri untuk melihat detail, contoh perintah, dan visualisasi cara kerjanya. Anda dapat dengan mudah menyalin perintah langsung ke clipboard Anda.
+            </p>
+        </div>
+    </template>
 
-<templateid="imagemagick-merge-h-content">
-<divclass="bg-whitep-8rounded-lgshadow-sm">
-<h2class="text-2xlfont-boldtext-gray-900mb-2">
-MenggabungkanGambarsecaraHorizontal
-</h2>
-<pclass="text-gray-600mb-6">
-Perintahinimenggunakan`montage`untukmenggabungkanbeberapagambarmenjadisatusecaraberdampingan(horizontal).
-</p>
-<h3class="font-semiboldmb-2text-gray-700">Visualisasi</h3>
-<divclass="diagram-boxmb-6rounded-mdflexspace-x-2">
-<divclass="flexflex-colspace-y-1">
-<divclass="w-24h-11bg-blue-200border-2border-blue-400rounded-mdflexjustify-centeritems-centerfont-monotext-sm">input_1</div>
-<divclass="w-24h-11bg-blue-200border-2border-blue-400rounded-mdflexjustify-centeritems-centerfont-monotext-sm">input_2</div>
-</div>
-<divclass="flexitems-centertext-2xltext-gray-500mx-4">&rarr;</div>
-<divclass="w-48h-11bg-green-200border-2border-green-400rounded-mdflexjustify-centeritems-centerfont-mono">output.jpg</div>
-</div>
-<h3class="font-semiboldmb-2text-gray-700">Perintah</h3>
-<divclass="code-blockmb-4">
-<buttonclass="copy-btn">Salin</button>
-<pre><code>montageinput_1.jpginput_2.jpg-tile2x1-geometry+0+0output.jpg</code></pre>
-</div>
-<h3class="font-semiboldmb-2text-gray-700">ParameterKunci</h3>
-<ulclass="list-disclist-insidetext-gray-600space-y-2">
-<li><codeclass="bg-gray-200text-smroundedpx-1py-0.5">montage</code>:PerintahImageMagickuntukmembuatkolase/gabungan.</li>
-<li><codeclass="bg-gray-200text-smroundedpx-1py-0.5">-tile2x1</code>:Mengaturtataletak(2kolom,1baris).</li>
-<li><codeclass="bg-gray-200text-smroundedpx-1py-0.5">-geometry+0+0</code>:Menghapus*border*dan*shadow*(pentinguntuk*seamlessmerge*).</li>
-</ul>
-</div>
-</template>
+    <template id="imagemagick-merge-h-content">
+        <div class="bg-white p-8 rounded-lg shadow-sm">
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">
+                Menggabungkan Gambar secara Horizontal
+            </h2>
+            <p class="text-gray-600 mb-6">
+                Perintah ini menggunakan `montage` untuk menggabungkan beberapa gambar menjadi satu secara berdampingan (horizontal).
+            </p>
+            <h3 class="font-semibold mb-2 text-gray-700">Visualisasi</h3>
+            <div class="diagram-box mb-6 rounded-md flex space-x-2">
+                <div class="flex flex-col space-y-1">
+                    <div class="w-24 h-11 bg-blue-200 border-2 border-blue-400 rounded-md flex justify-center items-center font-mono text-sm">input_1</div>
+                    <div class="w-24 h-11 bg-blue-200 border-2 border-blue-400 rounded-md flex justify-center items-center font-mono text-sm">input_2</div>
+                </div>
+                <div class="flex items-center text-2xl text-gray-500 mx-4">&rarr;</div>
+                <div class="w-48 h-11 bg-green-200 border-2 border-green-400 rounded-md flex justify-center items-center font-mono">output.jpg</div>
+            </div>
+            <h3 class="font-semibold mb-2 text-gray-700">Perintah</h3>
+            <div class="code-block mb-4">
+                <button class="copy-btn">Salin</button>
+                <pre><code>montage input_1.jpg input_2.jpg -tile 2x1 -geometry +0+0 output.jpg</code></pre>
+            </div>
+            <h3 class="font-semibold mb-2 text-gray-700">Parameter Kunci</h3>
+            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                <li><code class="bg-gray-200 text-sm rounded px-1 py-0.5">montage</code>: Perintah ImageMagick untuk membuat kolase/gabungan.</li>
+                <li><code class="bg-gray-200 text-sm rounded px-1 py-0.5">-tile 2x1</code>: Mengatur tata letak (2 kolom, 1 baris).</li>
+                <li><code class="bg-gray-200 text-sm rounded px-1 py-0.5">-geometry +0+0</code>: Menghapus *border* dan *shadow* (penting untuk *seamless merge*).</li>
+            </ul>
+        </div>
+    </template>
 
-<templateid="imagemagick-merge-v-content">
-<divclass="bg-whitep-8rounded-lgshadow-sm">
-<h2class="text-2xlfont-boldtext-gray-900mb-2">
-MenggabungkanGambarsecaraVertikal
-</h2>
-<pclass="text-gray-600mb-6">
-Perintahinidigunakanuntukmenggabungkanbeberapagambarmenjadisatusecaravertikal(atas-bawah).
-</p>
-<h3class="font-semiboldmb-2text-gray-700">Visualisasi</h3>
-<divclass="diagram-boxmb-6rounded-mdflexspace-x-2">
-<divclass="flexspace-x-1">
-<divclass="w-11h-24bg-blue-200border-2border-blue-400rounded-mdflexjustify-centeritems-centerfont-monotext-sm">in_1</div>
-<divclass="w-11h-24bg-blue-200border-2border-blue-400rounded-mdflexjustify-centeritems-centerfont-monotext-sm">in_2</div>
-</div>
-<divclass="flexitems-centertext-2xltext-gray-500mx-4">&rarr;</div>
-<divclass="w-11h-48bg-green-200border-2border-green-400rounded-mdflexjustify-centeritems-centerfont-mono">output.jpg</div>
-</div>
-<h3class="font-semiboldmb-2text-gray-700">Perintah</h3>
-<divclass="code-blockmb-4">
-<buttonclass="copy-btn">Salin</button>
-<pre><code>montageinput_1.jpginput_2.jpg-tile1x2-geometry+0+0output.jpg</code></pre>
-</div>
-<h3class="font-semiboldmb-2text-gray-700">ParameterKunci</h3>
-<ulclass="list-disclist-insidetext-gray-600space-y-2">
-<li><codeclass="bg-gray-200text-smroundedpx-1py-0.5">montage</code>:PerintahImageMagickyangdigunakan.</li>
-<li><codeclass="bg-gray-200text-smroundedpx-1py-0.5">-tile1x2</code>:Mengaturtataletak(**1kolom,2baris**).</li>
-<li><codeclass="bg-gray-200text-smroundedpx-1py-0.5">-geometry+0+0</code>:Menghapus*border*dan*shadow*(pentinguntuk*seamlessmerge*).</li>
-</ul>
-</div>
-</template>
+    <template id="imagemagick-merge-v-content">
+        <div class="bg-white p-8 rounded-lg shadow-sm">
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">
+                Menggabungkan Gambar secara Vertikal
+            </h2>
+            <p class="text-gray-600 mb-6">
+                Perintah ini digunakan untuk menggabungkan beberapa gambar menjadi satu secara vertikal (atas-bawah).
+            </p>
+            <h3 class="font-semibold mb-2 text-gray-700">Visualisasi</h3>
+            <div class="diagram-box mb-6 rounded-md flex space-x-2">
+                <div class="flex space-x-1">
+                    <div class="w-11 h-24 bg-blue-200 border-2 border-blue-400 rounded-md flex justify-center items-center font-mono text-sm">in_1</div>
+                    <div class="w-11 h-24 bg-blue-200 border-2 border-blue-400 rounded-md flex justify-center items-center font-mono text-sm">in_2</div>
+                </div>
+                <div class="flex items-center text-2xl text-gray-500 mx-4">&rarr;</div>
+                <div class="w-11 h-48 bg-green-200 border-2 border-green-400 rounded-md flex justify-center items-center font-mono">output.jpg</div>
+            </div>
+            <h3 class="font-semibold mb-2 text-gray-700">Perintah</h3>
+            <div class="code-block mb-4">
+                <button class="copy-btn">Salin</button>
+                <pre><code>montage input_1.jpg input_2.jpg -tile 1x2 -geometry +0+0 output.jpg</code></pre>
+            </div>
+            <h3 class="font-semibold mb-2 text-gray-700">Parameter Kunci</h3>
+            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                <li><code class="bg-gray-200 text-sm rounded px-1 py-0.5">montage</code>: Perintah ImageMagick yang digunakan.</li>
+                <li><code class="bg-gray-200 text-sm rounded px-1 py-0.5">-tile 1x2</code>: Mengatur tata letak (**1 kolom, 2 baris**).</li>
+                <li><code class="bg-gray-200 text-sm rounded px-1 py-0.5">-geometry +0+0</code>: Menghapus *border* dan *shadow* (penting untuk *seamless merge*).</li>
+            </ul>
+        </div>
+    </template>
 
-<footerclass="md:ml-[25%]lg:ml-[20%]mt-10p-6text-center">
-<pclass="text-xstext-gray-500">🄯2025CommandLineGuides</p>
-</footer>
+    <footer class="md:ml-[25%] lg:ml-[20%] mt-10 p-6 text-center">
+        <p class="text-xs text-gray-500">🄯 2025 Command Line Guides</p>
+    </footer>
 
-<script>
-document.addEventListener("DOMContentLoaded",()=>{
-constnavigation=document.getElementById("navigation");
-constcontentDisplay=document.getElementById("content-display");
-constnavLinks=document.querySelectorAll(".nav-link");
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const navigation = document.getElementById("navigation");
+            const contentDisplay = document.getElementById("content-display");
+            const navLinks = document.querySelectorAll(".nav-link");
 
-constcontentMap={
-"#imagemagick-merge-h":"imagemagick-merge-h-content",
-"#imagemagick-merge-v":"imagemagick-merge-v-content",
-};
+            const contentMap = {
+                "#imagemagick-merge-h": "imagemagick-merge-h-content",
+                "#imagemagick-merge-v": "imagemagick-merge-v-content",
+            };
 
-constloadContent=(hash)=>{
-navLinks.forEach((link)=>link.classList.remove("active-nav"));
-contentDisplay.innerHTML="";
+            const loadContent = (hash) => {
+                navLinks.forEach((link) => link.classList.remove("active-nav"));
+                contentDisplay.innerHTML = "";
 
-consttemplateId=contentMap[hash];
-consttemplate=document.getElementById(templateId||"welcome-content");
+                const templateId = contentMap[hash];
+                const template = document.getElementById(templateId || "welcome-content");
 
-if(template){
-constclone=template.content.cloneNode(true);
-contentDisplay.appendChild(clone);
-}
+                if (template) {
+                    const clone = template.content.cloneNode(true);
+                    contentDisplay.appendChild(clone);
+                }
 
-constactiveLink=document.querySelector(`a[href="${hash}"]`);
-if(activeLink){
-activeLink.classList.add("active-nav");
-}
-};
+                const activeLink = document.querySelector(`a[href="${hash}"]`);
+                if (activeLink) {
+                    activeLink.classList.add("active-nav");
+                }
+            };
 
-navigation.addEventListener("click",(e)=>{
-if(e.target.tagName==="A"&&e.target.hash){
-e.preventDefault();
-window.location.hash=e.target.hash;
-}
-});
+            navigation.addEventListener("click", (e) => {
+                if (e.target.tagName === "A" && e.target.hash) {
+                    e.preventDefault();
+                    window.location.hash = e.target.hash;
+                }
+            });
 
-window.addEventListener("hashchange",()=>{
-loadContent(window.location.hash);
-});
+            window.addEventListener("hashchange", () => {
+                loadContent(window.location.hash);
+            });
 
-contentDisplay.addEventListener("click",(e)=>{
-if(e.target.classList.contains("copy-btn")){
-constcodeElement=e.target.nextElementSibling?.querySelector("code");
-if(codeElement){
-navigator.clipboard.writeText(codeElement.innerText.trim())
-.then(()=>{
-constoriginalText=e.target.innerText;
-e.target.innerText="Disalin!";
-setTimeout(()=>{
-e.target.innerText=originalText;
-},2000);
-})
-.catch((err)=>console.error("Gagalmenyalin:",err));
-}
-}
-});
+            contentDisplay.addEventListener("click", (e) => {
+                if (e.target.classList.contains("copy-btn")) {
+                    const codeElement = e.target.nextElementSibling?.querySelector("code");
+                    if (codeElement) {
+                        navigator.clipboard.writeText(codeElement.innerText.trim())
+                            .then(() => {
+                                const originalText = e.target.innerText;
+                                e.target.innerText = "Disalin!";
+                                setTimeout(() => {
+                                    e.target.innerText = originalText;
+                                }, 2000);
+                            })
+                            .catch((err) => console.error("Gagal menyalin: ", err));
+                    }
+                }
+            });
 
-//InitialLoad
-loadContent(window.location.hash||"");
-if(!window.location.hash&&navLinks.length>0){
-document.querySelector(`a[href="${navLinks[0].hash}"]`)?.classList.add("active-nav");
-}
-});
-</script>
-<divclass="search-floating-container"><inputtype="text"id="floatingSearchInput"placeholder="cariartikel..."autocomplete="off"><spanid="floatingSearchClear"class="clear-button"></span><divid="floatingSearchResults"class="floating-results-container"></div></div>
-<sectionid="related-marquee-section"><divid="related-marquee-container"></div></section><scriptdefersrc="/ext/marquee-url.js"></script>
-<scriptdefersrc="/ext/iposbrowser.js"></script>
+            // Initial Load
+            loadContent(window.location.hash || "");
+            if (!window.location.hash && navLinks.length > 0) {
+                 document.querySelector(`a[href="${navLinks[0].hash}"]`)?.classList.add("active-nav");
+            }
+        });
+    </script>
+<div class="search-floating-container"><input type="text" id="floatingSearchInput" placeholder="cari artikel..." autocomplete="off"><span id="floatingSearchClear" class="clear-button"></span><div id="floatingSearchResults" class="floating-results-container"></div></div>
+<section id="related-marquee-section"><div id="related-marquee-container"></div></section><script defer src="/ext/marquee-url.js"></script>
+<script defer src="/ext/iposbrowser.js"></script>
 
 
 </body>

@@ -1,551 +1,551 @@
-<!DOCTYPEhtml>
-<htmllang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-<metacharset="utf-8"/>
-<metaname="viewport"content="width=device-width,initial-scale=1"/>
-<!--prettier-ignore-->
-<title>MirrorSelectorToolkit—SemuaDistro</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<!-- prettier-ignore -->
+<title>Mirror Selector Toolkit — Semua Distro</title>
 
-<!--Prism.jstheme-->
-<linkhref="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css"rel="stylesheet"/>
+<!-- Prism.js theme -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet"/>
 
 <style>
-:root{
---bg:#f6f8fb;
---card:#fff;
---text:#222;
+  :root{
+--bg: #f6f8fb;
+--card: #fff;
+--text: #222;
 --muted:#5b6b73;
 --accent:#0b7a75;
 --btn:#0b7a75;
-}
-*{box-sizing:border-box}
-body{
+  }
+  *{box-sizing:border-box}
+  body{
 margin:0;
-font-family:Inter,"SegoeUI",Roboto,Helvetica,Arial,sans-serif;
+font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 background:var(--bg);
 color:var(--text);
 -webkit-font-smoothing:antialiased;
 -moz-osx-font-smoothing:grayscale;
-}
-header{
+  }
+  header{
 background:linear-gradient(90deg,var(--accent),#066d68);
 color:#fff;
-padding:20px16px;
+padding:20px 16px;
 display:flex;
 gap:12px;
 align-items:center;
 justify-content:space-between;
-}
-header.title{
+  }
+  header .title{
 display:flex;
 flex-direction:column;
-}
-headerh1{margin:0;font-size:1.15rem;letter-spacing:0.2px}
-headerp{margin:0;font-size:0.88rem;opacity:0.95}
-.controls{display:flex;gap:8px;align-items:center}
-.dark-toggle{
-background:#fff;color:var(--accent);border:none;padding:8px12px;border-radius:8px;cursor:pointer;font-weight:600;
-}
+  }
+  header h1{margin:0;font-size:1.15rem;letter-spacing:0.2px}
+  header p{margin:0;font-size:0.88rem;opacity:0.95}
+  .controls{display:flex;gap:8px;align-items:center}
+  .dark-toggle{
+background:#fff;color:var(--accent);border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:600;
+  }
 
-main{
-max-width:1100px;margin:18pxauto;padding:20px;background:var(--card);border-radius:12px;box-shadow:08px30pxrgba(15,20,30,0.06);
-}
+  main{
+max-width:1100px;margin:18px auto;padding:20px;background:var(--card);border-radius:12px;box-shadow:0 8px 30px rgba(15,20,30,0.06);
+  }
 
-/*Tabs*/
-.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
-.tab-btn{
-padding:8px12px;border-radius:8px;border:1pxsolidrgba(0,0,0,0.06);
+  /* Tabs */
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+  .tab-btn{
+padding:8px 12px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);
 background:transparent;cursor:pointer;font-weight:600;color:var(--muted);
-}
-.tab-btn.active{background:var(--accent);color:#fff;border-color:transparent;box-shadow:06px18pxrgba(11,122,117,0.12)}
+  }
+  .tab-btn.active{background:var(--accent);color:#fff;border-color:transparent;box-shadow:0 6px 18px rgba(11,122,117,0.12)}
 
-/*Content*/
-.panel{display:none}
-.panel.active{display:block}
-h2{color:var(--accent);margin-top:0}
-p,li{color:var(--muted)}
+  /* Content */
+  .panel{display:none}
+  .panel.active{display:block}
+  h2{color:var(--accent);margin-top:0}
+  p, li{color:var(--muted)}
 
-/*Codeblocks*/
-pre{
-position:relative;border-radius:8px;overflow:auto;margin:14px0;background:#2d2d2d;
-}
-precode{display:block;padding:14px16px;white-space:pre}
-.code-actions{
+  /* Code blocks */
+  pre{
+position:relative;border-radius:8px;overflow:auto;margin:14px 0;background:#2d2d2d;
+  }
+  pre code{display:block;padding:14px 16px;white-space:pre}
+  .code-actions{
 position:absolute;right:8px;top:8px;display:flex;gap:8px;
-}
-.btn{
-background:var(--btn);color:#fff;border:none;padding:6px10px;border-radius:6px;cursor:pointer;font-size:0.85rem;
-}
-.btn.secondary{background:#4a4a4a}
-.note{
-background:#eef7f6;border-left:4pxsolidvar(--accent);padding:10px;border-radius:6px;color:var(--muted);
-margin:10px0;
-}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-@media(max-width:900px){.grid{grid-template-columns:1fr}header{flex-direction:column;align-items:flex-start}}
+  }
+  .btn{
+background:var(--btn);color:#fff;border:none;padding:6px 10px;border-radius:6px;cursor:pointer;font-size:0.85rem;
+  }
+  .btn.secondary{background:#4a4a4a}
+  .note{
+background:#eef7f6;border-left:4px solid var(--accent);padding:10px;border-radius:6px;color:var(--muted);
+margin:10px 0;
+  }
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media (max-width:900px){ .grid{grid-template-columns:1fr} header{flex-direction:column;align-items:flex-start} }
 
-footer{margin-top:18px;text-align:center;color:var(--muted);font-size:0.9rem}
+  footer{margin-top:18px;text-align:center;color:var(--muted);font-size:0.9rem}
 
-/*Darkmode*/
-body.dark{
+  /* Dark mode */
+  body.dark{
 --bg:#071018;--card:#071218;--text:#e6f3f2;--muted:#a8c1bf;--accent:#66b2b0;--btn:#196f65;
 background:var(--bg);color:var(--text);
-}
-body.darkheader{background:linear-gradient(90deg,#0a6a66,#085e5a)}
-body.dark.tab-btn{background:transparent;color:var(--muted);border-color:rgba(255,255,255,0.03)}
-body.dark.tab-btn.active{box-shadow:06px18pxrgba(6,110,102,0.18)}
-body.darkpre{background:#071421}
-body.dark.note{background:#042827;color:var(--muted)}
-.download-link{display:inline-block;background:#263238;color:#fff;padding:8px12px;border-radius:8px;text-decoration:none;font-weight:600}
-.download-link:hover{opacity:0.95}
+  }
+  body.dark header{background:linear-gradient(90deg,#0a6a66,#085e5a)}
+  body.dark .tab-btn{background:transparent;color:var(--muted);border-color:rgba(255,255,255,0.03)}
+  body.dark .tab-btn.active{box-shadow:0 6px 18px rgba(6,110,102,0.18)}
+  body.dark pre{background:#071421}
+  body.dark .note{background:#042827;color:var(--muted)}
+  .download-link{display:inline-block;background:#263238;color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:600}
+  .download-link:hover{opacity:0.95}
 
 
 </style>
-<metaname="date"content="2025-09-28">
+<meta name="date" content="2025-09-28">
 
 
-<metaproperty="og:image"content="https://frijal.pages.dev/img/linux-mirrors-all.webp">
-<metaproperty="og:image:alt"content="MirrorSelectorToolkit—SemuaDistro">
-<metaname="twitter:card"content="summary_large_image">
-<metaname="twitter:image"content="https://frijal.pages.dev/img/linux-mirrors-all.webp">
-<metaitemprop="image"content="https://frijal.pages.dev/img/linux-mirrors-all.webp">
+  <meta property="og:image" content="https://frijal.pages.dev/img/linux-mirrors-all.webp">
+  <meta property="og:image:alt" content="Mirror Selector Toolkit — Semua Distro">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://frijal.pages.dev/img/linux-mirrors-all.webp">
+  <meta itemprop="image" content="https://frijal.pages.dev/img/linux-mirrors-all.webp">
 
-<linkrel="stylesheet"href="/ext/marquee-url.css"><linkrel="alternate"type="application/rss+xml"title="30artikelbarubikin."href="https://frijal.pages.dev/rss.xml"/>
-<metaproperty="article:published_time"content="2025-09-16T11:00:00+08:00"></head>
+<link rel="stylesheet" href="/ext/marquee-url.css"><link rel="alternate" type="application/rss+xml" title="30 artikel baru bikin." href="https://frijal.pages.dev/rss.xml" />
+<meta property="article:published_time" content="2025-09-16T11:00:00+08:00"></head>
 <body>
-<header>
-<divclass="title">
-<h1>MirrorSelectorToolkit—SemuaDistro</h1>
-<divid="iposbrowser"></div>
+  <header>
+<div class="title">
+  <h1>Mirror Selector Toolkit — Semua Distro</h1>
+<div id="iposbrowser"></div>
 
-<p>Debian/Ubuntu•Arch/Manjaro•Fedora•openSUSE•Slackware•NixOS—skrip&panduanotomatis</p>
+  <p>Debian/Ubuntu • Arch/Manjaro • Fedora • openSUSE • Slackware • NixOS — skrip & panduan otomatis</p>
 </div>
-<divclass="controls">
-<buttonclass="dark-toggle"id="darkToggle">🌙DarkMode</button>
+<div class="controls">
+  <button class="dark-toggle" id="darkToggle">🌙 Dark Mode</button>
 </div>
-</header>
+  </header>
 
-<main>
-<divclass="tabs"role="tablist"aria-label="Distribusi">
-<buttonclass="tab-btnactive"data-target="debian">Debian/Ubuntu</button>
-<buttonclass="tab-btn"data-target="arch">Arch/Manjaro</button>
-<buttonclass="tab-btn"data-target="fedora">Fedora</button>
-<buttonclass="tab-btn"data-target="opensuse">openSUSE</button>
-<buttonclass="tab-btn"data-target="slackware">Slackware</button>
-<buttonclass="tab-btn"data-target="nixos">NixOS</button>
+  <main>
+<div class="tabs" role="tablist" aria-label="Distribusi">
+  <button class="tab-btn active" data-target="debian">Debian / Ubuntu</button>
+  <button class="tab-btn" data-target="arch">Arch / Manjaro</button>
+  <button class="tab-btn" data-target="fedora">Fedora</button>
+  <button class="tab-btn" data-target="opensuse">openSUSE</button>
+  <button class="tab-btn" data-target="slackware">Slackware</button>
+  <button class="tab-btn" data-target="nixos">NixOS</button>
 </div>
 
-<!--DEBIAN-->
-<sectionid="debian"class="panelactive"role="tabpanel">
-<h2>Debian/Ubuntu—netselect-apt</h2>
-<p>Gunakan<code>netselect-apt</code>untukmenemukanmirrorAPTtercepatsecaraotomatis.Scriptiniakanbackup<code>/etc/apt/sources.list</code>lalumenggantinya.</p>
-<divclass="note">Jalankandengan<code>sudo</code>.Pilihreleasesesuai(mis.<code>bookworm</code>,<code>bullseye</code>,<code>jammy</code>).</div>
+<!-- DEBIAN -->
+<section id="debian" class="panel active" role="tabpanel">
+  <h2>Debian / Ubuntu — netselect-apt</h2>
+  <p>Gunakan <code>netselect-apt</code> untuk menemukan mirror APT tercepat secara otomatis. Script ini akan backup <code>/etc/apt/sources.list</code> lalu menggantinya.</p>
+  <div class="note">Jalankan dengan <code>sudo</code>. Pilih release sesuai (mis. <code>bookworm</code>, <code>bullseye</code>, <code>jammy</code>).</div>
 
-<divclass="grid">
+  <div class="grid">
 <div>
-<h3>Skrip:debian-mirror.sh</h3>
-<pre><divclass="code-actions">
-<buttonclass="btn"onclick="copyCode(this)">Copy</button>
-<buttonclass="btnsecondary"onclick="downloadCode('debian-mirror.sh',debianScript)">Download</button>
-</div><codeclass="language-bash"id="debianCode">#!/bin/bash
-#debian-mirror.sh—otomatispilihmirrortercepatuntukDebian/Ubuntu
-set-e
-RELEASE="${1:-stable}"#opsional:stable/bookworm/jammy/dll
+  <h3>Skrip: debian-mirror.sh</h3>
+  <pre><div class="code-actions">
+<button class="btn" onclick="copyCode(this)">Copy</button>
+<button class="btn secondary" onclick="downloadCode('debian-mirror.sh', debianScript)">Download</button>
+  </div><code class="language-bash" id="debianCode">#!/bin/bash
+# debian-mirror.sh — otomatis pilih mirror tercepat untuk Debian/Ubuntu
+set -e
+RELEASE="${1:-stable}"   # opsional: stable/bookworm/jammy/dll
 
-echo"[INFO]update&installnetselect-apt..."
-sudoaptupdate
-sudoaptinstall-ynetselect-apt
+echo "[INFO] update & install netselect-apt..."
+sudo apt update
+sudo apt install -y netselect-apt
 
-echo"[INFO]menjalankannetselect-aptuntukrilis:$RELEASE..."
-sudonetselect-apt"$RELEASE"-n
+echo "[INFO] menjalankan netselect-apt untuk rilis: $RELEASE ..."
+sudo netselect-apt "$RELEASE" -n
 
-echo"[INFO]backupsources.listlama..."
-sudocp/etc/apt/sources.list/etc/apt/sources.list.bak.$(date+%F_%T)
+echo "[INFO] backup sources.list lama..."
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak.$(date +%F_%T)
 
-echo"[INFO]menggantisources.list..."
-sudomvsources.list/etc/apt/sources.list
+echo "[INFO] mengganti sources.list..."
+sudo mv sources.list /etc/apt/sources.list
 
-echo"[INFO]aptupdate..."
-sudoaptupdate
+echo "[INFO] apt update..."
+sudo apt update
 
-echo"[DONE]MirrorAPTtelahdiperbarui."</code></pre>
+echo "[DONE] Mirror APT telah diperbarui. "</code></pre>
 </div>
 
 <div>
-<h3>Petunjuksingkat</h3>
-<ol>
-<li>Simpanskripsebagai<code>debian-mirror.sh</code>.</li>
-<li>Jalankan:<code>sudobashdebian-mirror.shbookworm</code>(gantireleasesesuai).</li>
-<li>Jikaingintestingdahulu:jalankan<code>netselect-aptbookworm</code>manual.</li>
-</ol>
+  <h3>Petunjuk singkat</h3>
+  <ol>
+<li>Simpan skrip sebagai <code>debian-mirror.sh</code>.</li>
+<li>Jalankan: <code>sudo bash debian-mirror.sh bookworm</code> (ganti release sesuai).</li>
+<li>Jika ingin testing dahulu: jalankan <code>netselect-apt bookworm</code> manual.</li>
+  </ol>
 </div>
-</div>
+  </div>
 </section>
 
-<!--ARCH-->
-<sectionid="arch"class="panel"role="tabpanel"aria-hidden="true">
-<h2>Arch/Manjaro—reflector/pacman-mirrors</h2>
-<p>Archpakai<code>reflector</code>untukmemilihmirrorcepat;Manjaropunya<code>pacman-mirrors</code>.</p>
-<divclass="note">Jalankanperintahdengan<code>sudo</code>.Pilihnegarasesuailokasiuntukhasilterbaik.</div>
+<!-- ARCH -->
+<section id="arch" class="panel" role="tabpanel" aria-hidden="true">
+  <h2>Arch / Manjaro — reflector / pacman-mirrors</h2>
+  <p>Arch pakai <code>reflector</code> untuk memilih mirror cepat; Manjaro punya <code>pacman-mirrors</code>.</p>
+  <div class="note">Jalankan perintah dengan <code>sudo</code>. Pilih negara sesuai lokasi untuk hasil terbaik.</div>
 
-<divclass="grid">
+  <div class="grid">
 <div>
-<h3>Skrip:arch-mirror.sh</h3>
-<pre><divclass="code-actions">
-<buttonclass="btn"onclick="copyCode(this)">Copy</button>
-<buttonclass="btnsecondary"onclick="downloadCode('arch-mirror.sh',archScript)">Download</button>
-</div><codeclass="language-bash"id="archCode">#!/bin/bash
-#arch-mirror.sh—pilihmirrortercepatArchLinuxdenganreflector
-set-e
+  <h3>Skrip: arch-mirror.sh</h3>
+  <pre><div class="code-actions">
+<button class="btn" onclick="copyCode(this)">Copy</button>
+<button class="btn secondary" onclick="downloadCode('arch-mirror.sh', archScript)">Download</button>
+  </div><code class="language-bash" id="archCode">#!/bin/bash
+# arch-mirror.sh — pilih mirror tercepat Arch Linux dengan reflector
+set -e
 COUNTRY="${1:-Indonesia}"
 
-echo"[INFO]installreflectorjikabelumada..."
-sudopacman-Sy--noconfirmreflector
+echo "[INFO] install reflector jika belum ada..."
+sudo pacman -Sy --noconfirm reflector
 
-echo"[INFO]backupmirrorlist..."
-sudocp/etc/pacman.d/mirrorlist/etc/pacman.d/mirrorlist.bak.$(date+%F_%T)
+echo "[INFO] backup mirrorlist..."
+sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak.$(date +%F_%T)
 
-echo"[INFO]menjalankanreflector(country=$COUNTRY)..."
-sudoreflector--country"$COUNTRY"--latest10--sortrate--save/etc/pacman.d/mirrorlist
+echo "[INFO] menjalankan reflector (country=$COUNTRY)..."
+sudo reflector --country "$COUNTRY" --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 
-echo"[INFO]sync&refreshdatabase..."
-sudopacman-Syy
+echo "[INFO] sync & refresh database..."
+sudo pacman -Syy
 
-echo"[DONE]MirrorlistArchtelahdiperbarui."</code></pre>
+echo "[DONE] Mirrorlist Arch telah diperbarui."</code></pre>
 </div>
 
 <div>
-<h3>Petunjuksingkat</h3>
-<ul>
-<li>Arch:<code>basharch-mirror.shIndonesia</code></li>
-<li>Manjaro:gunakan<code>sudopacman-mirrors--fasttrack</code>lalu<code>sudopacman-Syyu</code>.</li>
-</ul>
+  <h3>Petunjuk singkat</h3>
+  <ul>
+<li>Arch: <code>bash arch-mirror.sh Indonesia</code></li>
+<li>Manjaro: gunakan <code>sudo pacman-mirrors --fasttrack</code> lalu <code>sudo pacman -Syyu</code>.</li>
+  </ul>
 </div>
-</div>
+  </div>
 </section>
 
-<!--FEDORA-->
-<sectionid="fedora"class="panel"role="tabpanel"aria-hidden="true">
-<h2>Fedora—dnf&fastestmirror</h2>
-<p>FedoramenggunakanMirrorManager.Aktifkanplugin&refreshcacheuntukmemastikanAndamenggunakanmirrortercepat.</p>
-<divclass="note">Skripmengaktifkanfastestmirrordanmembersihkancache.</div>
+<!-- FEDORA -->
+<section id="fedora" class="panel" role="tabpanel" aria-hidden="true">
+  <h2>Fedora — dnf & fastestmirror</h2>
+  <p>Fedora menggunakan MirrorManager. Aktifkan plugin & refresh cache untuk memastikan Anda menggunakan mirror tercepat.</p>
+  <div class="note">Skrip mengaktifkan fastestmirror dan membersihkan cache.</div>
 
-<divclass="grid">
+  <div class="grid">
 <div>
-<h3>Skrip:fedora-mirror.sh</h3>
-<pre><divclass="code-actions">
-<buttonclass="btn"onclick="copyCode(this)">Copy</button>
-<buttonclass="btnsecondary"onclick="downloadCode('fedora-mirror.sh',fedoraScript)">Download</button>
-</div><codeclass="language-bash"id="fedoraCode">#!/bin/bash
-#fedora-mirror.sh—aktifkanfastestmirrorpadaDNF(Fedora)
-set-e
+  <h3>Skrip: fedora-mirror.sh</h3>
+  <pre><div class="code-actions">
+<button class="btn" onclick="copyCode(this)">Copy</button>
+<button class="btn secondary" onclick="downloadCode('fedora-mirror.sh', fedoraScript)">Download</button>
+  </div><code class="language-bash" id="fedoraCode">#!/bin/bash
+# fedora-mirror.sh — aktifkan fastestmirror pada DNF (Fedora)
+set -e
 
-echo"[INFO]pastikanplugintersedia..."
-sudodnfinstall-ydnf-plugins-core
+echo "[INFO] pastikan plugin tersedia..."
+sudo dnf install -y dnf-plugins-core
 
-echo"[INFO]backupdnf.conf..."
-sudocp/etc/dnf/dnf.conf/etc/dnf/dnf.conf.bak.$(date+%F_%T)
+echo "[INFO] backup dnf.conf..."
+sudo cp /etc/dnf/dnf.conf /etc/dnf/dnf.conf.bak.$(date +%F_%T)
 
-echo"[INFO]mengaktifkanfastestmirror..."
-if!grep-q"^fastestmirror"/etc/dnf/dnf.conf2>/dev/null;then
-echo"fastestmirror=True"|sudotee-a/etc/dnf/dnf.conf
+echo "[INFO] mengaktifkan fastestmirror..."
+if ! grep -q "^fastestmirror" /etc/dnf/dnf.conf 2>/dev/null; then
+  echo "fastestmirror=True" | sudo tee -a /etc/dnf/dnf.conf
 fi
 
-echo"[INFO]membersihkancache..."
-sudodnfcleanall
-sudodnfmakecache--refresh
+echo "[INFO] membersihkan cache..."
+sudo dnf clean all
+sudo dnf makecache --refresh
 
-echo"[DONE]fastestmirroraktif.Jalankan'sudodnfupgrade--refresh'untukmemperbarui."</code></pre>
+echo "[DONE] fastestmirror aktif. Jalankan 'sudo dnf upgrade --refresh' untuk memperbarui."</code></pre>
 </div>
 
 <div>
-<h3>Petunjuksingkat</h3>
-<ul>
-<li>Jalankan:<code>sudobashfedora-mirror.sh</code></li>
-<li>Setelahitu:<code>sudodnfupgrade--refresh</code></li>
-</ul>
+  <h3>Petunjuk singkat</h3>
+  <ul>
+<li>Jalankan: <code>sudo bash fedora-mirror.sh</code></li>
+<li>Setelah itu: <code>sudo dnf upgrade --refresh</code></li>
+  </ul>
 </div>
-</div>
+  </div>
 </section>
 
-<!--OPENSUSE-->
-<sectionid="opensuse"class="panel"role="tabpanel"aria-hidden="true">
-<h2>openSUSE—zypper+mirrorlist.opensuse.org</h2>
-<p>openSUSEmenyediakanmirrorlistservice;scriptinimenggantirepoagarmenggunakanmirrorlistotomatislalurefresh.</p>
-<divclass="note">Skripmenghapusrepolama(backup)danmenambahkanOSS&Non-OSSviamirrorlist.</div>
+<!-- OPENSUSE -->
+<section id="opensuse" class="panel" role="tabpanel" aria-hidden="true">
+  <h2>openSUSE — zypper + mirrorlist.opensuse.org</h2>
+  <p>openSUSE menyediakan mirrorlist service; script ini mengganti repo agar menggunakan mirrorlist otomatis lalu refresh.</p>
+  <div class="note">Skrip menghapus repo lama (backup) dan menambahkan OSS & Non-OSS via mirrorlist.</div>
 
-<divclass="grid">
+  <div class="grid">
 <div>
-<h3>Skrip:opensuse-mirror.sh</h3>
-<pre><divclass="code-actions">
-<buttonclass="btn"onclick="copyCode(this)">Copy</button>
-<buttonclass="btnsecondary"onclick="downloadCode('opensuse-mirror.sh',opensuseScript)">Download</button>
-</div><codeclass="language-bash"id="opensuseCode">#!/bin/bash
-#opensuse-mirror.sh—gunakanmirrorlist.opensuse.orguntukrepoopenSUSE
-set-e
+  <h3>Skrip: opensuse-mirror.sh</h3>
+  <pre><div class="code-actions">
+<button class="btn" onclick="copyCode(this)">Copy</button>
+<button class="btn secondary" onclick="downloadCode('opensuse-mirror.sh', opensuseScript)">Download</button>
+  </div><code class="language-bash" id="opensuseCode">#!/bin/bash
+# opensuse-mirror.sh — gunakan mirrorlist.opensuse.org untuk repo openSUSE
+set -e
 
-echo"[INFO]backuprepo.repo..."
-sudomkdir-p/etc/zypp/repos.d/backup
-sudocp/etc/zypp/repos.d/*.repo/etc/zypp/repos.d/backup/2>/dev/null||true
+echo "[INFO] backup repo .repo..."
+sudo mkdir -p /etc/zypp/repos.d/backup
+sudo cp /etc/zypp/repos.d/*.repo /etc/zypp/repos.d/backup/ 2>/dev/null || true
 
-OS_VERSION=$(grepVERSION_ID/etc/os-release|cut-d'"'-f2)
+OS_VERSION=$(grep VERSION_ID /etc/os-release | cut -d '"' -f2)
 
-echo"[INFO]menghapusrepolama..."
-sudozypperrr-a||true
+echo "[INFO] menghapus repo lama..."
+sudo zypper rr -a || true
 
-echo"[INFO]menambahkanrepoOSS&Non-OSSviamirrorlist..."
-sudozypperar-f"http://mirrorlist.opensuse.org/?repo=download.opensuse.org/distribution/leap/$OS_VERSION/repo/oss""openSUSE-OSS"
-sudozypperar-f"http://mirrorlist.opensuse.org/?repo=download.opensuse.org/distribution/leap/$OS_VERSION/repo/non-oss""openSUSE-Non-OSS"
+echo "[INFO] menambahkan repo OSS & Non-OSS via mirrorlist..."
+sudo zypper ar -f "http://mirrorlist.opensuse.org/?repo=download.opensuse.org/distribution/leap/$OS_VERSION/repo/oss" "openSUSE-OSS"
+sudo zypper ar -f "http://mirrorlist.opensuse.org/?repo=download.opensuse.org/distribution/leap/$OS_VERSION/repo/non-oss" "openSUSE-Non-OSS"
 
-echo"[INFO]refreshrepo..."
-sudozypperref
+echo "[INFO] refresh repo..."
+sudo zypper ref
 
-echo"[DONE]openSUSEkinimenggunakanmirrorlist.opensuse.org"</code></pre>
+echo "[DONE] openSUSE kini menggunakan mirrorlist.opensuse.org"</code></pre>
 </div>
 
 <div>
-<h3>Petunjuksingkat</h3>
-<ul>
-<li>Jalankan:<code>sudobashopensuse-mirror.sh</code></li>
-<li>Periksarepodengan<code>sudozypperlr-u</code></li>
-</ul>
+  <h3>Petunjuk singkat</h3>
+  <ul>
+<li>Jalankan: <code>sudo bash opensuse-mirror.sh</code></li>
+<li>Periksa repo dengan <code>sudo zypper lr -u</code></li>
+  </ul>
 </div>
-</div>
+  </div>
 </section>
 
-<!--SLACKWARE-->
-<sectionid="slackware"class="panel"role="tabpanel"aria-hidden="true">
-<h2>Slackware—slackpkgmirrors</h2>
-<p>Slackwarememakai<code>/etc/slackpkg/mirrors</code>.SkripinibackuplalumemintausermemasukkanURLmirrorpilihan.</p>
-<divclass="note">Saran:pilihmirrorresmiSlackware(mirrors.slackware.com)ataumirrorlokalterpercaya.</div>
+<!-- SLACKWARE -->
+<section id="slackware" class="panel" role="tabpanel" aria-hidden="true">
+  <h2>Slackware — slackpkg mirrors</h2>
+  <p>Slackware memakai <code>/etc/slackpkg/mirrors</code>. Skrip ini backup lalu meminta user memasukkan URL mirror pilihan.</p>
+  <div class="note">Saran: pilih mirror resmi Slackware (mirrors.slackware.com) atau mirror lokal terpercaya.</div>
 
-<divclass="grid">
+  <div class="grid">
 <div>
-<h3>Skrip:slackware-mirror.sh</h3>
-<pre><divclass="code-actions">
-<buttonclass="btn"onclick="copyCode(this)">Copy</button>
-<buttonclass="btnsecondary"onclick="downloadCode('slackware-mirror.sh',slackwareScript)">Download</button>
-</div><codeclass="language-bash"id="slackwareCode">#!/bin/bash
-#slackware-mirror.sh—aturmirroruntukslackpkg
-set-e
+  <h3>Skrip: slackware-mirror.sh</h3>
+  <pre><div class="code-actions">
+<button class="btn" onclick="copyCode(this)">Copy</button>
+<button class="btn secondary" onclick="downloadCode('slackware-mirror.sh', slackwareScript)">Download</button>
+  </div><code class="language-bash" id="slackwareCode">#!/bin/bash
+# slackware-mirror.sh — atur mirror untuk slackpkg
+set -e
 MIRROR_FILE="/etc/slackpkg/mirrors"
-BACKUP="/etc/slackpkg/mirrors.backup.$(date+%F_%T)"
+BACKUP="/etc/slackpkg/mirrors.backup.$(date +%F_%T)"
 
-echo"[INFO]backupmirrorlamake$BACKUP..."
-sudocp"$MIRROR_FILE""$BACKUP"
+echo "[INFO] backup mirror lama ke $BACKUP ..."
+sudo cp "$MIRROR_FILE" "$BACKUP"
 
-echo"[INFO]menampilkandaftarmirroryangtidakdikomentari:"
-grep-v'^#'"$MIRROR_FILE"|grep-E'http|ftp'||true
+echo "[INFO] menampilkan daftar mirror yang tidak dikomentari:"
+grep -v '^#' "$MIRROR_FILE" | grep -E 'http|ftp' || true
 
-echo""
-read-p"MasukkanURLmirrorpilihan(mis:http://mirrors.slackware.com/slackware64-15.0/):"MIRROR_URL
+echo ""
+read -p "Masukkan URL mirror pilihan (mis: http://mirrors.slackware.com/slackware64-15.0/): " MIRROR_URL
 
-if[-z"$MIRROR_URL"];then
-echo"[ERROR]Tidakadainput.Batal."
-exit1
+if [ -z "$MIRROR_URL" ]; then
+  echo "[ERROR] Tidak ada input. Batal."
+  exit 1
 fi
 
-echo"[INFO]menulis$MIRROR_URLke$MIRROR_FILE..."
-echo"$MIRROR_URL"|sudotee"$MIRROR_FILE">/dev/null
+echo "[INFO] menulis $MIRROR_URL ke $MIRROR_FILE ..."
+echo "$MIRROR_URL" | sudo tee "$MIRROR_FILE" > /dev/null
 
-echo"[INFO]updateslackpkg..."
-sudoslackpkgupdategpg
-sudoslackpkgupdate
+echo "[INFO] update slackpkg..."
+sudo slackpkg update gpg
+sudo slackpkg update
 
-echo"[DONE]Mirrorslackpkgdisetke$MIRROR_URL"</code></pre>
+echo "[DONE] Mirror slackpkg diset ke $MIRROR_URL"</code></pre>
 </div>
 
 <div>
-<h3>Petunjuksingkat</h3>
-<ul>
-<li>Jalankan:<code>sudobashslackware-mirror.sh</code>danmasukkanURLmirror.</li>
-<li>Periksa:<code>sudoslackpkgupdate</code>.</li>
-</ul>
+  <h3>Petunjuk singkat</h3>
+  <ul>
+<li>Jalankan: <code>sudo bash slackware-mirror.sh</code> dan masukkan URL mirror.</li>
+<li>Periksa: <code>sudo slackpkg update</code>.</li>
+  </ul>
 </div>
-</div>
+  </div>
 </section>
 
-<!--NIXOS-->
-<sectionid="nixos"class="panel"role="tabpanel"aria-hidden="true">
-<h2>NixOS—/etc/nix/nix.confsubstituters</h2>
-<p>Nixmengandalkansubstituters(cache)untukmempercepatpengunduhanstore.Skripinibackup<code>/etc/nix/nix.conf</code>danmenambahkansubstitutersertatrustedkeycontoh.</p>
-<divclass="note">Pastikanpublickeysubstituterbenar—contohkeydisertakansebagaiplaceholder,gantisesuaimirrorAnda.</div>
+<!-- NIXOS -->
+<section id="nixos" class="panel" role="tabpanel" aria-hidden="true">
+  <h2>NixOS — /etc/nix/nix.conf substituters</h2>
+  <p>Nix mengandalkan substituters (cache) untuk mempercepat pengunduhan store. Skrip ini backup <code>/etc/nix/nix.conf</code> dan menambahkan substituter serta trusted key contoh.</p>
+  <div class="note">Pastikan public key substituter benar — contoh key disertakan sebagai placeholder, ganti sesuai mirror Anda.</div>
 
-<divclass="grid">
+  <div class="grid">
 <div>
-<h3>Skrip:nixos-mirror.sh</h3>
-<pre><divclass="code-actions">
-<buttonclass="btn"onclick="copyCode(this)">Copy</button>
-<buttonclass="btnsecondary"onclick="downloadCode('nixos-mirror.sh',nixosScript)">Download</button>
-</div><codeclass="language-bash"id="nixosCode">#!/bin/bash
-#nixos-mirror.sh—tambahkansubstitutermirrorNixOS
-set-e
+  <h3>Skrip: nixos-mirror.sh</h3>
+  <pre><div class="code-actions">
+<button class="btn" onclick="copyCode(this)">Copy</button>
+<button class="btn secondary" onclick="downloadCode('nixos-mirror.sh', nixosScript)">Download</button>
+  </div><code class="language-bash" id="nixosCode">#!/bin/bash
+# nixos-mirror.sh — tambahkan substituter mirror NixOS
+set -e
 CONF="/etc/nix/nix.conf"
-BACKUP="/etc/nix/nix.conf.backup.$(date+%F_%T)"
+BACKUP="/etc/nix/nix.conf.backup.$(date +%F_%T)"
 
-echo"[INFO]backup$CONFke$BACKUP..."
-sudocp"$CONF""$BACKUP"2>/dev/null||true
+echo "[INFO] backup $CONF ke $BACKUP ..."
+sudo cp "$CONF" "$BACKUP" 2>/dev/null || true
 
-echo"[INFO]menambahkansubstituter&trustedkey(contoh)..."
-sudotee-a/etc/nix/nix.conf>/dev/null<<'EOF'
+echo "[INFO] menambahkan substituter & trusted key (contoh)..."
+sudo tee -a /etc/nix/nix.conf > /dev/null <<'EOF'
 
-#tambahansubstitutercepat(contoh)
-substituters=https://cache.nixos.orghttps://mirror.sjtu.edu.cn/nix-channels/store
-trusted-public-keys=cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=mirror.sjtu.edu.cn-1:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# tambahan substituter cepat (contoh)
+substituters = https://cache.nixos.org https://mirror.sjtu.edu.cn/nix-channels/store
+trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= mirror.sjtu.edu.cn-1:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 EOF
 
-echo"[INFO]updatechannel..."
-sudonix-channel--update||true
+echo "[INFO] update channel..."
+sudo nix-channel --update || true
 
-echo"[DONE]substituterditambahkan.Pastikantrustedkeyvaliduntukmirroryangdipakai."</code></pre>
+echo "[DONE] substituter ditambahkan. Pastikan trusted key valid untuk mirror yang dipakai."</code></pre>
 </div>
 
 <div>
-<h3>Petunjuksingkat</h3>
-<ul>
-<li>Jalankan:<code>sudobashnixos-mirror.sh</code></li>
-<li>GantiURLsubstituter/trustedkeysesuaimirrorresmiyangdipilih.</li>
-</ul>
+  <h3>Petunjuk singkat</h3>
+  <ul>
+<li>Jalankan: <code>sudo bash nixos-mirror.sh</code></li>
+<li>Ganti URL substituter / trusted key sesuai mirror resmi yang dipilih.</li>
+  </ul>
 </div>
-</div>
+  </div>
 </section>
 
-<hrstyle="margin:18px0;border:none;border-top:1pxsolidrgba(0,0,0,0.06)">
+<hr style="margin:18px 0;border:none;border-top:1px solid rgba(0,0,0,0.06)">
 
 <section>
-<h2>Catatanpenting&tips</h2>
-<ul>
-<li>Selalu<strong>backup</strong>konfigurasi(sources.list,mirrorlist,repofiles,nix.conf)sebelummengganti.</li>
-<li>Ujimirrorhasildenganupdatekecil,janganlangsungmelakukanoperasikritikaldiserverproduksi.</li>
-<li>Untukkoneksiyangfluktuatif,pilihmirroryangstabil(frekuensisinkronisasitinggilebihpentingdaripadalatencykecilsaja).</li>
-<li>Jikaterjadierrorpakethilang,rollbackfilekonfigurasiyangdibackupdangunakanmirrorresmi.</li>
-</ul>
+  <h2>Catatan penting & tips</h2>
+  <ul>
+<li>Selalu <strong>backup</strong> konfigurasi (sources.list, mirrorlist, repo files, nix.conf) sebelum mengganti.</li>
+<li>Uji mirror hasil dengan update kecil, jangan langsung melakukan operasi kritikal di server produksi.</li>
+<li>Untuk koneksi yang fluktuatif, pilih mirror yang stabil (frekuensi sinkronisasi tinggi lebih penting daripada latency kecil saja).</li>
+<li>Jika terjadi error paket hilang, rollback file konfigurasi yang dibackup dan gunakan mirror resmi.</li>
+  </ul>
 </section>
 
 <footer>
-🄯2025•MirrorSelectorToolkit—Gunakandenganhati-hati.Semuaskripdisediakansebagaicontoh;sesuaikandengankebutuhan.
+  🄯 2025 • Mirror Selector Toolkit — Gunakan dengan hati-hati. Semua skrip disediakan sebagai contoh; sesuaikan dengan kebutuhan.
 </footer>
-</main>
+  </main>
 
-<!--Prism.js-->
-<scriptsrc="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
-<scriptsrc="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+<!-- Prism.js -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
 
 <script>
-//Tabhandling
-document.querySelectorAll('.tab-btn').forEach(btn=>{
-btn.addEventListener('click',()=>{
-document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-btn.classList.add('active');
-consttarget=btn.dataset.target;
-document.querySelectorAll('.panel').forEach(p=>{
-if(p.id===target){p.classList.add('active');p.removeAttribute('aria-hidden');}
-else{p.classList.remove('active');p.setAttribute('aria-hidden','true');}
+  // Tab handling
+  document.querySelectorAll('.tab-btn').forEach(btn=>{
+btn.addEventListener('click', ()=>{
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const target = btn.dataset.target;
+  document.querySelectorAll('.panel').forEach(p=>{
+if(p.id === target){ p.classList.add('active'); p.removeAttribute('aria-hidden'); }
+else { p.classList.remove('active'); p.setAttribute('aria-hidden','true'); }
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
 });
-window.scrollTo({top:0,behavior:'smooth'});
-});
-});
+  });
 
-//Copybutton-findsthenearest<code>siblinginsidesamepre
-functioncopyCode(btn){
-constpre=btn.closest('pre');
-constcode=pre.querySelector('code');
-if(!code)return;
+  // Copy button - finds the nearest <code> sibling inside same pre
+  function copyCode(btn){
+const pre = btn.closest('pre');
+const code = pre.querySelector('code');
+if(!code) return;
 navigator.clipboard.writeText(code.innerText).then(()=>{
-constold=btn.textContent;
-btn.textContent='Copied!';
-setTimeout(()=>btn.textContent=old,1400);
-}).catch(()=>alert('Copygagal—silakansalinmanual.'));
-}
+  const old = btn.textContent;
+  btn.textContent = 'Copied!';
+  setTimeout(()=> btn.textContent = old, 1400);
+}).catch(()=> alert('Copy gagal — silakan salin manual.'));
+  }
 
-//Downloadcode:createblobfromthecodeelementmatchingidorfrompassedstring
-functiondownloadCode(filename,contentString){
-//contentStringmightbeundefined;trytoinferfrommatchingcodeelementnearbutton
-if(typeofcontentString==='string'){
-startDownload(filename,contentString);
-return;
+  // Download code: create blob from the code element matching id or from passed string
+  function downloadCode(filename, contentString){
+// contentString might be undefined; try to infer from matching code element near button
+if(typeof contentString === 'string'){
+  startDownload(filename, contentString);
+  return;
 }
-//else,trytofindcodeinthesamepanel:findcodeelementwithmatchingidbyfilenamemapping
-constmapping={
-'debian-mirror.sh':document.getElementById('debianCode'),
-'arch-mirror.sh':document.getElementById('archCode'),
-'fedora-mirror.sh':document.getElementById('fedoraCode'),
-'opensuse-mirror.sh':document.getElementById('opensuseCode'),
-'slackware-mirror.sh':document.getElementById('slackwareCode'),
-'nixos-mirror.sh':document.getElementById('nixosCode')
+// else, try to find code in the same panel: find code element with matching id by filename mapping
+const mapping = {
+  'debian-mirror.sh': document.getElementById('debianCode'),
+  'arch-mirror.sh': document.getElementById('archCode'),
+  'fedora-mirror.sh': document.getElementById('fedoraCode'),
+  'opensuse-mirror.sh': document.getElementById('opensuseCode'),
+  'slackware-mirror.sh': document.getElementById('slackwareCode'),
+  'nixos-mirror.sh': document.getElementById('nixosCode')
 };
-constcodeEl=mapping[filename];
+const codeEl = mapping[filename];
 if(codeEl){
-startDownload(filename,codeEl.innerText);
-}else{
-alert('Gagalmenemukankodeuntukdiunduh.');
+  startDownload(filename, codeEl.innerText);
+} else {
+  alert('Gagal menemukan kode untuk diunduh.');
 }
-}
+  }
 
-functionstartDownload(filename,text){
-constblob=newBlob([text],{type:'text/plain;charset=utf-8'});
-consturl=URL.createObjectURL(blob);
-consta=document.createElement('a');
-a.href=url;a.download=filename;
+  function startDownload(filename, text){
+const blob = new Blob([text], {type: 'text/plain;charset=utf-8'});
+const url = URL.createObjectURL(blob);
+const a = document.createElement('a');
+a.href = url; a.download = filename;
 document.body.appendChild(a);
 a.click();
 a.remove();
 URL.revokeObjectURL(url);
-}
+  }
 
-//Pre-populateJSvariablesfordirectdownloadconvenience
-constdebianScript=document.getElementById('debianCode').innerText;
-constarchScript=document.getElementById('archCode').innerText;
-constfedoraScript=document.getElementById('fedoraCode').innerText;
-constopensuseScript=document.getElementById('opensuseCode').innerText;
-constslackwareScript=document.getElementById('slackwareCode').innerText;
-constnixosScript=document.getElementById('nixosCode').innerText;
+  // Pre-populate JS variables for direct download convenience
+  const debianScript = document.getElementById('debianCode').innerText;
+  const archScript = document.getElementById('archCode').innerText;
+  const fedoraScript = document.getElementById('fedoraCode').innerText;
+  const opensuseScript = document.getElementById('opensuseCode').innerText;
+  const slackwareScript = document.getElementById('slackwareCode').innerText;
+  const nixosScript = document.getElementById('nixosCode').innerText;
 
-//Providebutton-leveldownloadhandlers(buttonsmarkedwith.secondarycalldownloadCodewithfilename+contentvar)
-document.querySelectorAll('.btn.secondary').forEach(btn=>{
-btn.addEventListener('click',(e)=>{
-//findfilenamebycontext:thebuttonisinsidepre->findcodeidfromancestor
-constpre=btn.closest('pre');
-constcode=pre.querySelector('code');
-if(!code)return;
-//mapcodeidtofilename
-constid=code.id;
-constmap={
+  // Provide button-level download handlers (buttons marked with .secondary call downloadCode with filename + content var)
+  document.querySelectorAll('.btn.secondary').forEach(btn=>{
+btn.addEventListener('click', (e)=>{
+  // find filename by context: the button is inside pre -> find code id from ancestor
+  const pre = btn.closest('pre');
+  const code = pre.querySelector('code');
+  if(!code) return;
+  // map code id to filename
+  const id = code.id;
+  const map = {
 'debianCode':'debian-mirror.sh',
 'archCode':'arch-mirror.sh',
 'fedoraCode':'fedora-mirror.sh',
 'opensuseCode':'opensuse-mirror.sh',
 'slackwareCode':'slackware-mirror.sh',
 'nixosCode':'nixos-mirror.sh'
-};
-constfilename=map[id]||'script.sh';
-startDownload(filename,code.innerText);
+  };
+  const filename = map[id] || 'script.sh';
+  startDownload(filename, code.innerText);
 });
-});
+  });
 
-//Darkmodetoggle
-constdarkToggle=document.getElementById('darkToggle');
-darkToggle.addEventListener('click',()=>{
+  // Dark mode toggle
+  const darkToggle = document.getElementById('darkToggle');
+  darkToggle.addEventListener('click', ()=>{
 document.body.classList.toggle('dark');
-conston=document.body.classList.contains('dark');
-darkToggle.textContent=on?'☀️LightMode':'🌙DarkMode';
-});
+const on = document.body.classList.contains('dark');
+darkToggle.textContent = on ? '☀️ Light Mode' : '🌙 Dark Mode';
+  });
 
-//Enablekeyboardnavigationfortabs(optional)
-consttabButtons=Array.from(document.querySelectorAll('.tab-btn'));
-tabButtons.forEach((btn,i)=>{
-btn.addEventListener('keydown',(e)=>{
-if(e.key==='ArrowRight')tabButtons[(i+1)%tabButtons.length].focus();
-if(e.key==='ArrowLeft')tabButtons[(i-1+tabButtons.length)%tabButtons.length].focus();
-if(e.key==='Home')tabButtons[0].focus();
-if(e.key==='End')tabButtons[tabButtons.length-1].focus();
+  // Enable keyboard navigation for tabs (optional)
+  const tabButtons = Array.from(document.querySelectorAll('.tab-btn'));
+  tabButtons.forEach((btn,i)=>{
+btn.addEventListener('keydown', (e)=>{
+  if(e.key === 'ArrowRight') tabButtons[(i+1)%tabButtons.length].focus();
+  if(e.key === 'ArrowLeft') tabButtons[(i-1+tabButtons.length)%tabButtons.length].focus();
+  if(e.key === 'Home') tabButtons[0].focus();
+  if(e.key === 'End') tabButtons[tabButtons.length-1].focus();
 });
-});
+  });
 </script>
 
-<divclass="search-floating-container"><inputtype="text"id="floatingSearchInput"placeholder="cariartikel..."autocomplete="off"><spanid="floatingSearchClear"class="clear-button"></span><divid="floatingSearchResults"class="floating-results-container"></div></div>
-<sectionid="related-marquee-section"><divid="related-marquee-container"></div></section><scriptdefersrc="/ext/marquee-url.js"></script>
-<scriptdefersrc="/ext/iposbrowser.js"></script>
+<div class="search-floating-container"><input type="text" id="floatingSearchInput" placeholder="cari artikel..." autocomplete="off"><span id="floatingSearchClear" class="clear-button"></span><div id="floatingSearchResults" class="floating-results-container"></div></div>
+<section id="related-marquee-section"><div id="related-marquee-container"></div></section><script defer src="/ext/marquee-url.js"></script>
+<script defer src="/ext/iposbrowser.js"></script>
 
 
 </body>
