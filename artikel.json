@@ -1684,6 +1684,20 @@
     ],
   "🐧 Linux & Open Source": [
       [
+      "Mengamankan Repositori: Panduan Lengkap Actions Permissions di GitHub",
+      "github-actions-permissions-security.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-B_tNpehEn6YhovPemrCBF1kK24Gw4u_U9TyX9q7JVJ5rAdfak7ifPG3VIKdExoNr9fv_rrb0QJs9ETDLTS-5_lbDreQbW4MBNK0yK4F2usvDtP73cBjDGchyphenhyphenqSCeL03i_HKptp9sGK6ekCkpV6ikBMIqoVWbDG0Nl7H_CYRzR1njbBBomonse_ivF98/s1600/Screenshot%20From%202025-10-21%2022-35-04.png",
+      "2025-10-21T16:48:14.661+00:00",
+      "Pahami cara kerja Actions Permissions di GitHub. Pelajari risiko"
+    ],
+      [
+      "Fitur 'Sign Off' di GitHub, Perlu Diaktifkan Gak Sih? Penjelasan Lengkap soal DCO",
+      "github-commit-sign-off-dco.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSsPCmt8a_lZAMiUHrMi26B7meAmM-nq6o10cFufw3ykrhir8x696lJUt1Nzfrm-TqX5iqqcT9o7sJhTCvHS5xslzk9_h2AZopA0v9NTDsoHwLADyaFW7D1ZezwmRnQodzb7cPK8JcOjQZZTerX1FmIneaA1ML06bcL204zM7yn9ShBoIpfmG68nOcKwA/s1600/Screenshot%20From%202025-10-21%2022-14-00.png",
+      "2025-10-21T16:48:14.661+00:00",
+      "Melihat opsi"
+    ],
+      [
       "Sosialisasi Open Source Software di Kutai Kartanegara | Kementerian Riset dan Teknologi",
       "sosialisasi-oss-kutai-kartanegara.html",
       "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1UyeLmW3xXbYWK52wxfAaWeToDtM6BVqNXGyDjNQ2LMtvfVSHZVOk5D3t29vj5NncO6vnF7fZzwBXwtl-mqwcXGBuiuEOBuO2ZEVWS8MfQbMo5uBD-jVHeVjZgWK3b4get9paJmAQAxRU_w4CneNqCnIj-wtGfS0RnEd2Ni11bhgcYKMP0QU-owOo914/s1600/Gemini_Generated_Image_rar5ysrar5ysrar5.png",
@@ -2784,6 +2798,27 @@
     ]
     ],
   "🖥️ Teknologi Web, AI & Umum": [
+      [
+      "Pilih Merge, Squash, atau Rebase? Panduan Santai Git Pull Request",
+      "git-merge-squash-rebase.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGZN5mOfutvye29JMIUeY2b_gqcVZY_pSAuVAkO0aiuDRn_V9N5-33LqjZMYpGLfV_MbaK2MQD7hVgeLrVzupcmegz7B9ekb9-sCS5nP3qxrFLKAusIrDsAkLL1bx2GU2Pe3Dm7_6U4_4dTSnFT5T-5UvhBxj_e5-SgoarLv4HxtfA6RllESEWy79KVhM/s1600/Screenshot%20From%202025-10-21%2021-48-41.png",
+      "2025-10-21T16:48:14.661+00:00",
+      "Bingung pilih merge, squash, atau rebase saat me-review Pull Request di GitHub? Yuk, kita bedah satu per satu dengan analogi santai biar nggak pusing lagi."
+    ],
+      [
+      "Mengamankan GitHub Actions: Izin Baca vs. Tulis untuk GITHUB_TOKEN",
+      "github-actions-workflow-permissions.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQQWCgT4AUgvX8nbcUcqTh1pWgTdtWeqwAhcyPdXAwzzyISi9c1yPGD0d5TW5vJiccUtmPEtmwas8wL75LyrYD5p6WEBs_yjzKAO2gHjdQuVjg4c6sP4V92ddtveKF6cj5QrE-JKK53dwaLrgjp4xxi8qkIKGuL85QWfEVZ4GiQfIznIjBOAaMwkihDZU/s1600/Screenshot%20From%202025-10-21%2022-29-44.png",
+      "2025-10-21T16:48:14.661+00:00",
+      "Pelajari cara mengamankan repositori dengan mengatur Workflow Permissions di GitHub Actions. Pahami beda Read vs. Write permission untuk GITHUB_TOKEN dan kenapa Read-Only adalah pilihan terbaik."
+    ],
+      [
+      "Setting PR GitHub yang Bikin Hidup Gampang: Auto Update, Merge & Delete",
+      "github-pr-workflow-settings.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPqJtix7wPezXkcZ8cFUsMF9o7kZ-C-Bpw6sTKEohzq7QL9ngeScIyma7uZwfGyWQc1Y8kGiUbWS_o8EZpPjYaTer7VDqEeRZ-35aJqdpTtV-uSkgwwj3JlvqulEGRnslWKLFCIsZHDw6Ki1myAmQThpQouvTw4LJv1m6yzbtIBtBV0it-g2fv7hm79Mc/s1600/Screenshot%20From%202025-10-21%2022-01-03.png",
+      "2025-10-21T16:48:14.661+00:00",
+      "Optimalkan alur kerja GitHub kamu dengan mengaktifkan tiga fitur simpel ini: auto-update, auto-merge, dan auto-delete branches. Bikin development lebih cepat dan rapi!"
+    ],
       [
       "Kisah FCKGW dan Windows XP: Bukan hasil crack, tapi VLK yang bocor",
       "fckgw-windows-xp.html",

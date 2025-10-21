@@ -6,7 +6,34 @@
     <description><![CDATA[Feed artikel terbaru untuk kategori 🖥️ Teknologi Web, AI & Umum]]></description>
     <language>id-ID</language>
     <atom:link href="https://frijal.pages.dev/feed-teknologi-web-ai-and-umum.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Tue, 21 Oct 2025 16:16:13 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 21 Oct 2025 16:48:19 GMT</lastBuildDate>
+    <item>
+      <title><![CDATA[Pilih Merge, Squash, atau Rebase? Panduan Santai Git Pull Request]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/git-merge-squash-rebase.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/git-merge-squash-rebase.html]]></guid>
+      <pubDate>Tue, 21 Oct 2025 16:48:14 GMT</pubDate>
+      <description><![CDATA[Bingung pilih merge, squash, atau rebase saat me-review Pull Request di GitHub? Yuk, kita bedah satu per satu dengan analogi santai biar nggak pusing lagi.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+<enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGZN5mOfutvye29JMIUeY2b_gqcVZY_pSAuVAkO0aiuDRn_V9N5-33LqjZMYpGLfV_MbaK2MQD7hVgeLrVzupcmegz7B9ekb9-sCS5nP3qxrFLKAusIrDsAkLL1bx2GU2Pe3Dm7_6U4_4dTSnFT5T-5UvhBxj_e5-SgoarLv4HxtfA6RllESEWy79KVhM/s1600/Screenshot%20From%202025-10-21%2021-48-41.png" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Mengamankan GitHub Actions: Izin Baca vs. Tulis untuk GITHUB_TOKEN]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/github-actions-workflow-permissions.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/github-actions-workflow-permissions.html]]></guid>
+      <pubDate>Tue, 21 Oct 2025 16:48:14 GMT</pubDate>
+      <description><![CDATA[Pelajari cara mengamankan repositori dengan mengatur Workflow Permissions di GitHub Actions. Pahami beda Read vs. Write permission untuk GITHUB_TOKEN dan kenapa Read-Only adalah pilihan terbaik.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+<enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQQWCgT4AUgvX8nbcUcqTh1pWgTdtWeqwAhcyPdXAwzzyISi9c1yPGD0d5TW5vJiccUtmPEtmwas8wL75LyrYD5p6WEBs_yjzKAO2gHjdQuVjg4c6sP4V92ddtveKF6cj5QrE-JKK53dwaLrgjp4xxi8qkIKGuL85QWfEVZ4GiQfIznIjBOAaMwkihDZU/s1600/Screenshot%20From%202025-10-21%2022-29-44.png" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Setting PR GitHub yang Bikin Hidup Gampang: Auto Update, Merge & Delete]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/github-pr-workflow-settings.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/github-pr-workflow-settings.html]]></guid>
+      <pubDate>Tue, 21 Oct 2025 16:48:14 GMT</pubDate>
+      <description><![CDATA[Optimalkan alur kerja GitHub kamu dengan mengaktifkan tiga fitur simpel ini: auto-update, auto-merge, dan auto-delete branches. Bikin development lebih cepat dan rapi!]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+<enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPqJtix7wPezXkcZ8cFUsMF9o7kZ-C-Bpw6sTKEohzq7QL9ngeScIyma7uZwfGyWQc1Y8kGiUbWS_o8EZpPjYaTer7VDqEeRZ-35aJqdpTtV-uSkgwwj3JlvqulEGRnslWKLFCIsZHDw6Ki1myAmQThpQouvTw4LJv1m6yzbtIBtBV0it-g2fv7hm79Mc/s1600/Screenshot%20From%202025-10-21%2022-01-03.png" length="0" type="image/webp" />
+    </item>
     <item>
       <title><![CDATA[Kisah FCKGW dan Windows XP: Bukan hasil crack, tapi VLK yang bocor]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/fckgw-windows-xp.html]]></link>
