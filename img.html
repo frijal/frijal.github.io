@@ -205,18 +205,15 @@
     </div>
 
     <script>
-        // URL sumber data (tidak perlu form lagi)
         const JSON_URL = 'https://frijal.pages.dev/artikel.json';
 
-        // Ambil elemen dari halaman
         const statusDiv = document.getElementById('status');
         const galleryContainer = document.getElementById('gallery-container');
         const listViewBtn = document.getElementById('listViewBtn');
         const thumbViewBtn = document.getElementById('thumbViewBtn');
 
-        let imageData = []; // Simpan URL lengkap gambar
+        let imageData = [];
 
-        // Fungsi utama untuk mengambil dan menampilkan gambar
         async function fetchAndDisplayImages() {
             statusDiv.textContent = 'Membaca artikel.json... ⏳';
             
@@ -227,27 +224,33 @@
                 }
                 const data = await response.json();
                 
-                if (!Array.isArray(data)) {
-                    throw new Error('File artikel.json tidak berisi sebuah array.');
+                // ===== PERUBAHAN UTAMA DI SINI =====
+                // Cek apakah data adalah sebuah objek (diawali '{') dan bukan array
+                if (typeof data !== 'object' || Array.isArray(data) || data === null) {
+                    throw new Error('Format artikel.json salah. Seharusnya berisi objek dengan kategori.');
                 }
 
-                // --- PERUBAHAN UTAMA ---
-                // Ambil URL lengkap dari elemen ke-3 (indeks 2)
-                const imageUrls = data.map(item => {
+                // Ambil semua array dari setiap kategori (misal: dari "📸 Multimedia & Editing", "📢 Catatan & Opini Sosial", dll)
+                // lalu gabungkan (flat) menjadi satu array besar berisi semua artikel.
+                const allArticles = Object.values(data).flat();
+
+                // Dari array gabungan tersebut, ambil URL gambar dari posisi ke-3 (indeks 2)
+                const imageUrls = allArticles.map(item => {
                     if (Array.isArray(item) && item.length > 2 && typeof item[2] === 'string' && item[2].startsWith('http')) {
                         return item[2];
                     }
                     return null;
                 }).filter(Boolean); // Hapus entri yang tidak valid
+                // ===================================
                 
                 if (imageUrls.length === 0) {
                     statusDiv.textContent = 'Tidak ada URL gambar yang valid ditemukan di artikel.json.';
                     return;
                 }
 
-                imageData = imageUrls; // Simpan array berisi URL lengkap
+                imageData = imageUrls;
                 statusDiv.textContent = `Ditemukan ${imageData.length} gambar.`;
-                displayThumbnails(); // Tampilkan thumbnail sebagai default
+                displayThumbnails();
                 
             } catch (error) {
                 statusDiv.textContent = `Error: ${error.message}`;
@@ -255,7 +258,6 @@
             }
         }
 
-        // Fungsi untuk menampilkan galeri thumbnail
         function displayThumbnails() {
             galleryContainer.className = 'thumb-view';
             galleryContainer.innerHTML = '';
@@ -263,17 +265,16 @@
             listViewBtn.classList.remove('active');
 
             imageData.forEach(fullUrl => {
-                // PERUBAHAN: Ambil nama file dari URL lengkap untuk tampilan
                 const fileName = fullUrl.split('/').pop();
 
                 const item = document.createElement('a');
-                item.href = fullUrl; // Langsung gunakan URL lengkap
+                item.href = fullUrl;
                 item.target = '_blank';
                 item.className = 'thumb-item';
                 item.title = fileName;
 
                 const img = document.createElement('img');
-                img.src = fullUrl; // Langsung gunakan URL lengkap
+                img.src = fullUrl;
                 img.alt = fileName;
                 img.loading = 'lazy';
                 
@@ -287,7 +288,6 @@
             });
         }
         
-        // Fungsi untuk menampilkan daftar direktori
         function displayList() {
             galleryContainer.className = 'list-view';
             galleryContainer.innerHTML = '';
@@ -295,11 +295,10 @@
             thumbViewBtn.classList.remove('active');
 
             imageData.forEach(fullUrl => {
-                // PERUBAHAN: Ambil nama file dari URL lengkap untuk tampilan
                 const fileName = fullUrl.split('/').pop();
 
                 const item = document.createElement('a');
-                item.href = fullUrl; // Langsung gunakan URL lengkap
+                item.href = fullUrl;
                 item.target = '_blank';
                 item.className = 'list-item';
                 item.title = fileName;
@@ -318,10 +317,8 @@
             });
         }
 
-        // --- Pemicu Otomatis ---
         document.addEventListener('DOMContentLoaded', fetchAndDisplayImages);
 
-        // Event listener untuk tombol view
         thumbViewBtn.addEventListener('click', () => {
             if (imageData.length > 0) displayThumbnails();
         });
