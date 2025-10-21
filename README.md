@@ -16,7 +16,7 @@
 [![ChatGPT](https://img.shields.io/badge/ChatGPT-Yes-blue?logo=openai&logoColor=white)](#readme)
 [![Copilot](https://img.shields.io/badge/Copilot-Yes-purple?logo=github&logoColor=white)](#readme)
 [![artikelx > artikel](https://github.com/frijal/frijal.github.io/frijal-github-io/actions/workflows/modif-artikelX-artikel.yml/badge.svg?branch=main&logo=githubactions&logoColor=white)](https://github.com/frijal/frijal.github.io/actions/workflows/proses-artikelx.yml)
-[![Generator](https://github.com/frijal/frijal.github.io/frijal-github-io/actions/workflows/generate-json-xml.yml/badge.svg?branch=main&logo=githubactions&logoColor=white)](https://github.com/frijal/frijal.github.io/actions/workflows/generate-json-xml.yml)
+[![☢️ Build and Generate Site Files](https://github.com/frijal/frijal.github.io/actions/workflows/generate-json-xml.yml/badge.svg?branch=main)](https://github.com/frijal/frijal.github.io/actions/workflows/generate-json-xml.yml)
 
 [![Google Drive](https://img.shields.io/badge/Google%20Drive-Available-34A853?logo=googledrive&logoColor=white)](#readme)
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Yes-blue?logo=github&logoColor=white)](#readme)
