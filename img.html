@@ -163,6 +163,11 @@
             padding: 5px 15px;
             border-radius: 5px;
             text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .lightbox-caption:hover {
+            background-color: rgba(0, 170, 255, 0.5);
         }
         .lightbox-close, .lightbox-nav {
             position: absolute;
@@ -218,11 +223,12 @@
         <span id="lightbox-prev" class="lightbox-nav lightbox-prev">&#10094;</span>
         <span id="lightbox-next" class="lightbox-nav lightbox-next">&#10095;</span>
         <img id="lightbox-img" class="lightbox-content">
-        <div id="lightbox-caption" class="lightbox-caption"></div>
+        <a id="lightbox-caption" class="lightbox-caption" href="#" target="_blank"></a>
     </div>
 
     <script>
         const JSON_URL = 'https://frijal.pages.dev/artikel.json';
+        const ARTICLE_BASE_URL = 'https://frijal.pages.dev/';
 
         const statusDiv = document.getElementById('status');
         const galleryContainer = document.getElementById('gallery-container');
@@ -251,25 +257,19 @@
 
                 const allArticles = Object.values(data).flat();
                 
-                // --- PERUBAHAN UTAMA DI SINI ---
                 allImageData = allArticles.map(item => {
-                    // Cek format data dasar
                     if (Array.isArray(item) && item.length > 3 && typeof item[2] === 'string' && item[2].startsWith('http')) {
                         const url = item[2];
-                        
-                        // Ambil nama dari elemen ke-2 (indeks 1) dan hapus .html
                         const htmlFile = item[1]; 
                         const name = (typeof htmlFile === 'string' && htmlFile.includes('.html')) 
                             ? htmlFile.replace('.html', '') 
-                            : url.split('/').pop(); // Fallback jika format tidak sesuai
-                        
+                            : url.split('/').pop();
                         const type = url.split('/').pop().split('.').pop();
                         const date = item[3];
-                        return { url, name, type, date };
+                        return { url, name, htmlFile, type, date }; // Simpan juga htmlFile
                     }
                     return null;
                 }).filter(Boolean);
-                // -----------------------------
                 
                 if (allImageData.length === 0) {
                     statusDiv.textContent = 'Tidak ada URL gambar yang valid ditemukan.';
@@ -323,6 +323,8 @@
             const currentImage = allImageData[currentIndex];
             lightboxImg.src = currentImage.url;
             lightboxCaption.textContent = currentImage.name;
+            // Set href untuk caption
+            lightboxCaption.href = `${ARTICLE_BASE_URL}${currentImage.htmlFile}`;
         }
 
         function openLightbox(index) {
@@ -345,7 +347,6 @@
             updateLightbox();
         }
 
-        // --- Event Listeners ---
         document.addEventListener('DOMContentLoaded', () => {
             fetchAndDisplayImages();
 
