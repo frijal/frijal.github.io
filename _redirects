@@ -8,3 +8,5 @@
 /rss            /feed.html       301
 /rss/           /feed.html       301
 /rss.html       /feed.html       301
+
+https://frijal.github.io/*    https://frijal.pages.dev/:splat    301
