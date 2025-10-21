@@ -10,6 +10,10 @@ on:
   # Memungkinkan Anda menjalankan workflow ini secara manual
   workflow_dispatch:
 
+# [PERBAIKAN] Tambahkan blok ini untuk memberikan izin push
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -26,7 +30,7 @@ jobs:
       # Langkah 3: Salin hanya file dan folder yang diizinkan
       - name: Sync allowed files to deploy directory
         run: |
-          rsync -a --delete \
+          rsync -av --delete \
             --include='artikel/***' \
             --include='ext/***' \
             --include='img/***' \
@@ -41,6 +45,7 @@ jobs:
             --include='logo.*' \
             --include='thumbnail.*' \
             --include='*.webmanifest' \
+            --exclude='.*' \
             --exclude='*' \
             ./ deploy_dir/
       
@@ -51,7 +56,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./deploy_dir
           
-          # [DIUBAH] Nama branch tujuan sekarang adalah 'site'
           publish_branch: site
           
           user_name: 'github-actions[bot]'
