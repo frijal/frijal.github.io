@@ -23,8 +23,6 @@
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Yes-blue?logo=github&logoColor=white)](#readme)
 [![Release Continuous](https://img.shields.io/badge/Release-Continuous-orange?logo=github&logoColor=white)](#readme)
 [![Last Commit](https://img.shields.io/github/last-commit/frijal/frijal.github.io?logo=github&logoColor=white)](#readme)
-[![HTML Count](https://img.shields.io/endpoint?url=https://frijal.github.io/mini/html_count_badge.json&logo=html5&logoColor=white)](#readme)
-[![JPG Count](https://img.shields.io/endpoint?url=https://frijal.github.io/mini/jpg_count_badge.json&logo=file&logoColor=white)](#readme)
 
 [![Heroku](https://img.shields.io/badge/Heroku-Yes-430098?logo=heroku&logoColor=white)](#readme)
 [![Aria2](https://img.shields.io/badge/Aria2-Yes-green?logo=aria2&logoColor=white)](#readme)
