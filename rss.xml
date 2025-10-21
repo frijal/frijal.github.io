@@ -6,25 +6,7 @@
     <description><![CDATA[Feed 30 artikel terbaru]]></description>
     <language>id-ID</language>
     <atom:link href="https://frijal.pages.dev/rss.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Tue, 21 Oct 2025 17:19:22 GMT</lastBuildDate>
-    <item>
-      <title><![CDATA[Mengamankan Repositori: Panduan Lengkap Actions Permissions di GitHub]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/github-actions-permissions-security.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/github-actions-permissions-security.html]]></guid>
-      <pubDate>Tue, 21 Oct 2025 16:48:14 GMT</pubDate>
-      <description><![CDATA[Pahami cara kerja Actions Permissions di GitHub. Pelajari risiko]]></description>
-      <category><![CDATA[🐧 Linux & Open Source]]></category>
-    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-B_tNpehEn6YhovPemrCBF1kK24Gw4u_U9TyX9q7JVJ5rAdfak7ifPG3VIKdExoNr9fv_rrb0QJs9ETDLTS-5_lbDreQbW4MBNK0yK4F2usvDtP73cBjDGchyphenhyphenqSCeL03i_HKptp9sGK6ekCkpV6ikBMIqoVWbDG0Nl7H_CYRzR1njbBBomonse_ivF98/s1600/Screenshot%20From%202025-10-21%2022-35-04.png" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Fitur 'Sign Off' di GitHub, Perlu Diaktifkan Gak Sih? Penjelasan Lengkap soal DCO]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/github-commit-sign-off-dco.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/github-commit-sign-off-dco.html]]></guid>
-      <pubDate>Tue, 21 Oct 2025 16:48:14 GMT</pubDate>
-      <description><![CDATA[Melihat opsi]]></description>
-      <category><![CDATA[🐧 Linux & Open Source]]></category>
-    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSsPCmt8a_lZAMiUHrMi26B7meAmM-nq6o10cFufw3ykrhir8x696lJUt1Nzfrm-TqX5iqqcT9o7sJhTCvHS5xslzk9_h2AZopA0v9NTDsoHwLADyaFW7D1ZezwmRnQodzb7cPK8JcOjQZZTerX1FmIneaA1ML06bcL204zM7yn9ShBoIpfmG68nOcKwA/s1600/Screenshot%20From%202025-10-21%2022-14-00.png" length="0" type="image/webp" />
-    </item>
+    <lastBuildDate>Tue, 21 Oct 2025 21:18:19 GMT</lastBuildDate>
     <item>
       <title><![CDATA[Pilih Merge, Squash, atau Rebase? Panduan Santai Git Pull Request]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/git-merge-squash-rebase.html]]></link>
@@ -51,6 +33,24 @@
       <description><![CDATA[Optimalkan alur kerja GitHub kamu dengan mengaktifkan tiga fitur simpel ini: auto-update, auto-merge, dan auto-delete branches. Bikin development lebih cepat dan rapi!]]></description>
       <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
     <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPqJtix7wPezXkcZ8cFUsMF9o7kZ-C-Bpw6sTKEohzq7QL9ngeScIyma7uZwfGyWQc1Y8kGiUbWS_o8EZpPjYaTer7VDqEeRZ-35aJqdpTtV-uSkgwwj3JlvqulEGRnslWKLFCIsZHDw6Ki1myAmQThpQouvTw4LJv1m6yzbtIBtBV0it-g2fv7hm79Mc/s1600/Screenshot%20From%202025-10-21%2022-01-03.png" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Mengamankan Repositori: Panduan Lengkap Actions Permissions di GitHub]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/github-actions-permissions-security.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/github-actions-permissions-security.html]]></guid>
+      <pubDate>Tue, 21 Oct 2025 16:48:14 GMT</pubDate>
+      <description><![CDATA[Pahami cara kerja Actions Permissions di GitHub. Pelajari risiko]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-B_tNpehEn6YhovPemrCBF1kK24Gw4u_U9TyX9q7JVJ5rAdfak7ifPG3VIKdExoNr9fv_rrb0QJs9ETDLTS-5_lbDreQbW4MBNK0yK4F2usvDtP73cBjDGchyphenhyphenqSCeL03i_HKptp9sGK6ekCkpV6ikBMIqoVWbDG0Nl7H_CYRzR1njbBBomonse_ivF98/s1600/Screenshot%20From%202025-10-21%2022-35-04.png" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Fitur 'Sign Off' di GitHub, Perlu Diaktifkan Gak Sih? Penjelasan Lengkap soal DCO]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/github-commit-sign-off-dco.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/github-commit-sign-off-dco.html]]></guid>
+      <pubDate>Tue, 21 Oct 2025 16:48:14 GMT</pubDate>
+      <description><![CDATA[Melihat opsi]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSsPCmt8a_lZAMiUHrMi26B7meAmM-nq6o10cFufw3ykrhir8x696lJUt1Nzfrm-TqX5iqqcT9o7sJhTCvHS5xslzk9_h2AZopA0v9NTDsoHwLADyaFW7D1ZezwmRnQodzb7cPK8JcOjQZZTerX1FmIneaA1ML06bcL204zM7yn9ShBoIpfmG68nOcKwA/s1600/Screenshot%20From%202025-10-21%2022-14-00.png" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[Kisah FCKGW dan Windows XP: Bukan hasil crack, tapi VLK yang bocor]]></title>
@@ -98,15 +98,6 @@
     <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzswtddIeRYMjOfMQVFSH1xeExCjZzO2739dtTmDz_dR3L752lseXIEEw9gy-O9aU10vinbFb5Fo4nASYr7DNpTHxH79tFV5n4fhY4yQ72GQ9_bjDwb_GguPrQF9KsamzS9-0NLzx5Sxj43Lw9DAK-OjRqa3D0pu74r33tR4upx3yJOvxIzfiwg4u5bYE/s1600/sikat-gigi-aduk.jpg" length="0" type="image/webp" />
     </item>
     <item>
-      <title><![CDATA[Fenomena “kemiskinan mendadak” di PPDB — SKTM palsu dan jalan keluarnya]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/ppdb-sktm-palsu.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/ppdb-sktm-palsu.html]]></guid>
-      <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
-      <description><![CDATA[Di balik riuh PPDB, muncul fenomena ‘kemiskinan mendadak’: SKTM palsu demi lolos jalur afirmasi. Tonton video, pahami masalahnya, dan lihat solusi yang menyejukkan.]]></description>
-      <category><![CDATA[📢 Catatan & Opini Sosial]]></category>
-    <enclosure url="https://frijal.pages.dev/img/ppdb-sktm-palsu.webp" length="0" type="image/webp" />
-    </item>
-    <item>
       <title><![CDATA[Produk Dairy & Alternatif Non-Dairy untuk Kopi Susu]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/produk-dairy-dan-alternatif.html]]></link>
       <guid><![CDATA[https://frijal.pages.dev/artikel/produk-dairy-dan-alternatif.html]]></guid>
@@ -116,13 +107,13 @@
     <enclosure url="https://frijal.pages.dev/img/produk-dairy-dan-alternatif.webp" length="0" type="image/webp" />
     </item>
     <item>
-      <title><![CDATA[POAC dan perencanaan partisipatif: pondasi organisasi yang sehat]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/poac-perencanaan-partisipatif.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/poac-perencanaan-partisipatif.html]]></guid>
+      <title><![CDATA[Fenomena “kemiskinan mendadak” di PPDB — SKTM palsu dan jalan keluarnya]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/ppdb-sktm-palsu.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/ppdb-sktm-palsu.html]]></guid>
       <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
-      <description><![CDATA[Memahami POAC (Planning, Organizing, Actuating, Controlling) dengan fokus pada perencanaan partisipatif, kebersamaan, dan pengakuan kompetensi. Disertai contoh praktis, gallery, dan tampilan interaktif.]]></description>
+      <description><![CDATA[Di balik riuh PPDB, muncul fenomena ‘kemiskinan mendadak’: SKTM palsu demi lolos jalur afirmasi. Tonton video, pahami masalahnya, dan lihat solusi yang menyejukkan.]]></description>
       <category><![CDATA[📢 Catatan & Opini Sosial]]></category>
-    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi54eXubNn7ZUI1o_7_9rs0S5ZTo_gueeZ0ZZEb1gYZEqniNSG-lmwd7oag4M9p46c3ezIIQRN1Wgw8AuvXPJ0GJrE40BMVXGPC6UWtW_di8EIw6g2acUJMv6A90ev5bksibELLvcBl7Ulv/s320/swot-and-poac-18-638.jpg" length="0" type="image/webp" />
+    <enclosure url="https://frijal.pages.dev/img/ppdb-sktm-palsu.webp" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[Sakit Kepala? Jangan Buru-Buru Minum Obat, Coba Pijat Relaksasi Ini!]]></title>
@@ -141,6 +132,15 @@
       <description><![CDATA[Panduan gaya hidup sehat untuk menjaga usus tetap bahagia dan sistem pencernaan berfungsi optimal.]]></description>
       <category><![CDATA[🍜 Kuliner, Gaya Hidup & Kesehatan]]></category>
     <enclosure url="https://frijal.pages.dev/img/pola-hidup-sehat-untuk-usus.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[POAC dan perencanaan partisipatif: pondasi organisasi yang sehat]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/poac-perencanaan-partisipatif.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/poac-perencanaan-partisipatif.html]]></guid>
+      <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
+      <description><![CDATA[Memahami POAC (Planning, Organizing, Actuating, Controlling) dengan fokus pada perencanaan partisipatif, kebersamaan, dan pengakuan kompetensi. Disertai contoh praktis, gallery, dan tampilan interaktif.]]></description>
+      <category><![CDATA[📢 Catatan & Opini Sosial]]></category>
+    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi54eXubNn7ZUI1o_7_9rs0S5ZTo_gueeZ0ZZEb1gYZEqniNSG-lmwd7oag4M9p46c3ezIIQRN1Wgw8AuvXPJ0GJrE40BMVXGPC6UWtW_di8EIw6g2acUJMv6A90ev5bksibELLvcBl7Ulv/s320/swot-and-poac-18-638.jpg" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[Momen Peresmian Bandara Sepinggan Balikpapan]]></title>
@@ -179,15 +179,6 @@
     <enclosure url="https://frijal.pages.dev/img/mudahnya-wanita-masuk-surga.webp" length="0" type="image/webp" />
     </item>
     <item>
-      <title><![CDATA[Pentingnya Menjalankan Rencana di Era Digital: Strategi Prioritas dan Produktivitas]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/menjalankan-rencana.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/menjalankan-rencana.html]]></guid>
-      <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
-      <description><![CDATA[Pelajari pentingnya menjalankan rencana dengan baik di era digital yang serba cepat. Temukan strategi prioritas tugas dan tips untuk meningkatkan produktivitas Anda.]]></description>
-      <category><![CDATA[📢 Catatan & Opini Sosial]]></category>
-    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh49IbwTVMG3oKUQpzcWsqj0KoQv_kxfMBXfW1y82xwiDWNcxqKCabotR43t6GlWmjk8fpLHCwJUM8dQd489Iu-UE036k9srmw0OdhYoOiW2-Vrf9LUOF9-Rz4_MTmSUyW0zvyJhfNVhQE1/s1600/tumblr_mrerv3IRsz1qa5bf5o1_500.jpg" length="0" type="image/webp" />
-    </item>
-    <item>
       <title><![CDATA[Metode Wanita]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/metode-wanita.html]]></link>
       <guid><![CDATA[https://frijal.pages.dev/artikel/metode-wanita.html]]></guid>
@@ -195,6 +186,15 @@
       <description><![CDATA[Panduan modern menghadapi perilaku wanita yang sulit, lengkap dengan metode praktis dan infografis ringkas.]]></description>
       <category><![CDATA[🍜 Kuliner, Gaya Hidup & Kesehatan]]></category>
     <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqsGvA6h5GpXtlRm-xO3oNtemgYUU1_vnoBApmWIlok4aMkzOVMuRxCiyflHZdTfvrd9TAvXD2Xm0rIE98VrWMh_Y-9l_tMgfXO6lgH8doZSmPfrbpwmgJd25GqTpcMH909_GXRrGY7dCj/s800/aci.jpg" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Pentingnya Menjalankan Rencana di Era Digital: Strategi Prioritas dan Produktivitas]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/menjalankan-rencana.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/menjalankan-rencana.html]]></guid>
+      <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
+      <description><![CDATA[Pelajari pentingnya menjalankan rencana dengan baik di era digital yang serba cepat. Temukan strategi prioritas tugas dan tips untuk meningkatkan produktivitas Anda.]]></description>
+      <category><![CDATA[📢 Catatan & Opini Sosial]]></category>
+    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh49IbwTVMG3oKUQpzcWsqj0KoQv_kxfMBXfW1y82xwiDWNcxqKCabotR43t6GlWmjk8fpLHCwJUM8dQd489Iu-UE036k9srmw0OdhYoOiW2-Vrf9LUOF9-Rz4_MTmSUyW0zvyJhfNVhQE1/s1600/tumblr_mrerv3IRsz1qa5bf5o1_500.jpg" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[Mengambil Semua Gambar dari File PDF dengan pdfimages]]></title>
@@ -215,6 +215,15 @@
     <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcpQejBp4qszEwvg64uNK2Wb2RqhkBiancJPZzrsIXLpHr6TV32rxlH2TTA9-uk0YAbSD67P8smApb50y6HRu2UN-W1vJUC8O4MXInMnRd1RE_nsya9xK_NKTie_g-s-7aPmBa8lrf6_hT7ttpgQTR4FhNWjhSjvkVPfHGqwzzL7TvC-MXT3oJqQqkAxo/s1600/20230608-20230607201414-1-pohon-kurma-2000-tahun-003-pandasurya-wijaya.jpg" length="0" type="image/webp" />
     </item>
     <item>
+      <title><![CDATA[Osborne 1 - Laptop Pertama Dunia]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/laptop-pertama-osborne1.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/laptop-pertama-osborne1.html]]></guid>
+      <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
+      <description><![CDATA[Osborne 1, laptop pertama di dunia yang dibuat oleh Adam Osborne pada tahun 1981. Berat 10kg, harga $1795, sejarah lengkap & gambar.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8bFisLsDrynWzbNVXt5lJ0zBdvvL6nAXTn_0PrAPkmfENUerHby-6tBJDg0amBAzC1-cd5pEWO_bqC_WOrE-WI9uUHMfOgZerldszngkxRCOdgFdsSRR1z9bhth1FqGy5QTHSoJ-J9Thy1xkvi7gXP-2qk9g7JQKnHlCnFnZ6FltbOfxUHo3U_dhg1-8/s1600/xadam-osborne.png" length="0" type="image/webp" />
+    </item>
+    <item>
       <title><![CDATA[Kreativitas Satlantas Grobogan: Teguran Unik untuk Pengendara]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/kreativitas-satlantas-grobogan.html]]></link>
       <guid><![CDATA[https://frijal.pages.dev/artikel/kreativitas-satlantas-grobogan.html]]></guid>
@@ -224,13 +233,13 @@
     <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjR__hBkM2oCvdPN6hm_8-zgrt_uMvEFzG5gsiJd-XNZvHO_32eyVAXdvLGCeYmVhfKrF9Udfk_g-BhyJK1HvWq-LGHlK3NEg5aGg1EE-jKBpOrL4ItGACnhjexfmsdSjT01gUoi52TKwzs/s1600/1779778_696607060361435_964018863_n.jpg" length="0" type="image/webp" />
     </item>
     <item>
-      <title><![CDATA[Osborne 1 - Laptop Pertama Dunia]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/laptop-pertama-osborne1.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/laptop-pertama-osborne1.html]]></guid>
+      <title><![CDATA[Kisah Keluarga Sahabat: Air Mata Rasulullah Menetes — Abu Dujanah]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/kisah-keluarga-sahabat-abu-dujanah.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/kisah-keluarga-sahabat-abu-dujanah.html]]></guid>
       <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
-      <description><![CDATA[Osborne 1, laptop pertama di dunia yang dibuat oleh Adam Osborne pada tahun 1981. Berat 10kg, harga $1795, sejarah lengkap & gambar.]]></description>
-      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
-    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8bFisLsDrynWzbNVXt5lJ0zBdvvL6nAXTn_0PrAPkmfENUerHby-6tBJDg0amBAzC1-cd5pEWO_bqC_WOrE-WI9uUHMfOgZerldszngkxRCOdgFdsSRR1z9bhth1FqGy5QTHSoJ-J9Thy1xkvi7gXP-2qk9g7JQKnHlCnFnZ6FltbOfxUHo3U_dhg1-8/s1600/xadam-osborne.png" length="0" type="image/webp" />
+      <description><![CDATA[Kisah menyentuh tentang Abu Dujanah yang menjaga keluarganya dari harta haram hingga Rasulullah meneteskan air mata. Pelajaran tentang integritas, amanah, dan kejujuran.]]></description>
+      <category><![CDATA[📚 Sejarah & Religi]]></category>
+    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBi4dcL751KtKRzFEhYHsDfOFGgTYX1eMdamUp1z-8fUA5LezsI_q5UqlMtrYCMjyY-RvEMr0l2VEOJeErFHADWzozhbnSidJ61C_v5TdMdBFw8Uu9uSvk65ojqhxlOsdc38uqqj3501c-NCvDpIhwD_ryMxSdPcicIVX3KKRTNHVozRWuXXdLAbQAakM/s1600/Dujanah.jpg" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[Cara Konversi M4A ke OGG dengan FFmpeg + find]]></title>
@@ -249,15 +258,6 @@
       <description><![CDATA[Cara mengecilkan ukuran PDF hasil scan dari puluhan MB menjadi hanya beberapa MB menggunakan Ghostscript di GNU/Linux. Lengkap dengan contoh perintah, opsi kualitas, tips, dan solusi error.]]></description>
       <category><![CDATA[📸 Multimedia & Editing]]></category>
     <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHzahydQn3VjRRz_RA6o7-ebiPiZr0VvcwxOplhpq6KcPwAQ0XvBq19SoIapkr0Jx0TTBa79YuG7XcjEeVlAMMY2o5Q1xF0O8U2kaClVMjL_c8HFbA_P_1jiWh4aR8xCPAQ39hOYCPUu-35G01-Y67AJJ6GDKSQiGdqmTbs0T9G0sVBEmR3T5nAJgBepE/s1600/photo-1510936111840-65e151ad71bb.jpg" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Kisah Keluarga Sahabat: Air Mata Rasulullah Menetes — Abu Dujanah]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/kisah-keluarga-sahabat-abu-dujanah.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/kisah-keluarga-sahabat-abu-dujanah.html]]></guid>
-      <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
-      <description><![CDATA[Kisah menyentuh tentang Abu Dujanah yang menjaga keluarganya dari harta haram hingga Rasulullah meneteskan air mata. Pelajaran tentang integritas, amanah, dan kejujuran.]]></description>
-      <category><![CDATA[📚 Sejarah & Religi]]></category>
-    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBi4dcL751KtKRzFEhYHsDfOFGgTYX1eMdamUp1z-8fUA5LezsI_q5UqlMtrYCMjyY-RvEMr0l2VEOJeErFHADWzozhbnSidJ61C_v5TdMdBFw8Uu9uSvk65ojqhxlOsdc38uqqj3501c-NCvDpIhwD_ryMxSdPcicIVX3KKRTNHVozRWuXXdLAbQAakM/s1600/Dujanah.jpg" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[Kerupuk 'Tolak Miskin', Ternyata Beneran Ada!]]></title>

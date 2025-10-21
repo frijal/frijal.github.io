@@ -6,25 +6,7 @@
     <description><![CDATA[Feed artikel terbaru untuk kategori 🐧 Linux & Open Source]]></description>
     <language>id-ID</language>
     <atom:link href="https://frijal.pages.dev/feed-linux-and-open-source.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Tue, 21 Oct 2025 17:19:22 GMT</lastBuildDate>
-    <item>
-      <title><![CDATA[Mengamankan Repositori: Panduan Lengkap Actions Permissions di GitHub]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/github-actions-permissions-security.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/github-actions-permissions-security.html]]></guid>
-      <pubDate>Tue, 21 Oct 2025 16:48:14 GMT</pubDate>
-      <description><![CDATA[Pahami cara kerja Actions Permissions di GitHub. Pelajari risiko]]></description>
-      <category><![CDATA[🐧 Linux & Open Source]]></category>
-<enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-B_tNpehEn6YhovPemrCBF1kK24Gw4u_U9TyX9q7JVJ5rAdfak7ifPG3VIKdExoNr9fv_rrb0QJs9ETDLTS-5_lbDreQbW4MBNK0yK4F2usvDtP73cBjDGchyphenhyphenqSCeL03i_HKptp9sGK6ekCkpV6ikBMIqoVWbDG0Nl7H_CYRzR1njbBBomonse_ivF98/s1600/Screenshot%20From%202025-10-21%2022-35-04.png" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Fitur 'Sign Off' di GitHub, Perlu Diaktifkan Gak Sih? Penjelasan Lengkap soal DCO]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/github-commit-sign-off-dco.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/github-commit-sign-off-dco.html]]></guid>
-      <pubDate>Tue, 21 Oct 2025 16:48:14 GMT</pubDate>
-      <description><![CDATA[Melihat opsi]]></description>
-      <category><![CDATA[🐧 Linux & Open Source]]></category>
-<enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSsPCmt8a_lZAMiUHrMi26B7meAmM-nq6o10cFufw3ykrhir8x696lJUt1Nzfrm-TqX5iqqcT9o7sJhTCvHS5xslzk9_h2AZopA0v9NTDsoHwLADyaFW7D1ZezwmRnQodzb7cPK8JcOjQZZTerX1FmIneaA1ML06bcL204zM7yn9ShBoIpfmG68nOcKwA/s1600/Screenshot%20From%202025-10-21%2022-14-00.png" length="0" type="image/webp" />
-    </item>
+    <lastBuildDate>Tue, 21 Oct 2025 21:18:19 GMT</lastBuildDate>
     <item>
       <title><![CDATA[Sosialisasi Open Source Software di Kutai Kartanegara | Kementerian Riset dan Teknologi]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/sosialisasi-oss-kutai-kartanegara.html]]></link>
