@@ -27,7 +27,7 @@
     <meta name="twitter:image" content="https://frijal.pages.dev/thumbnail.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -166,6 +166,7 @@
             background-color: rgba(0, 0, 0, 0.9);
             justify-content: center;
             align-items: center;
+            flex-direction: column; /* Ubah untuk caption */
         }
 
         .lightbox.active { display: flex; }
@@ -173,6 +174,17 @@
             max-width: 90%;
             max-height: 80%;
             object-fit: contain;
+        }
+
+        /* Lightbox Caption */
+        .lightbox-caption {
+            margin-top: 15px;
+            color: white;
+            font-size: 1rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px 15px;
+            border-radius: 5px;
+            text-align: center;
         }
 
         .lightbox-close, .lightbox-nav {
@@ -186,8 +198,8 @@
         
         .lightbox-close:hover, .lightbox-nav:hover { color: #ccc; }
         .lightbox-close { top: 15px; right: 35px; }
-        .lightbox-prev { left: 15px; }
-        .lightbox-next { right: 15px; }
+        .lightbox-prev { left: 15px; top: 50%; transform: translateY(-50%); }
+        .lightbox-next { right: 15px; top: 50%; transform: translateY(-50%); }
     </style>
 </head>
 <body>
@@ -219,9 +231,10 @@
     
     <div id="lightbox" class="lightbox">
         <span id="lightbox-close" class="lightbox-close">&times;</span>
-        <img id="lightbox-img" class="lightbox-content">
         <span id="lightbox-prev" class="lightbox-nav lightbox-prev">&#10094;</span>
         <span id="lightbox-next" class="lightbox-nav lightbox-next">&#10095;</span>
+        <img id="lightbox-img" class="lightbox-content">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
     </div>
 
     <script>
@@ -236,6 +249,7 @@
         // Lightbox elements
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption'); // Tambahkan ini
         const lightboxClose = document.getElementById('lightbox-close');
         const lightboxPrev = document.getElementById('lightbox-prev');
         const lightboxNext = document.getElementById('lightbox-next');
@@ -257,13 +271,12 @@
 
                 const allArticles = Object.values(data).flat();
                 
-                // --- PERUBAHAN: Mengambil data TANGGAL, bukan UKURAN ---
                 allImageData = allArticles.map(item => {
                     if (Array.isArray(item) && item.length > 3 && typeof item[2] === 'string' && item[2].startsWith('http')) {
                         const url = item[2];
                         const name = url.split('/').pop();
                         const type = name.split('.').pop();
-                        const date = item[3]; // Ambil tanggal dari elemen ke-4 (indeks 3)
+                        const date = item[3];
                         return { url, name, type, date };
                     }
                     return null;
@@ -285,13 +298,12 @@
         function sortAndRender() {
             const sortBy = sortSelect.value;
             
-            // --- PERUBAHAN: Logika sorting menggunakan TANGGAL ---
             allImageData.sort((a, b) => {
                 switch (sortBy) {
                     case 'name_asc': return a.name.localeCompare(b.name);
                     case 'name_desc': return b.name.localeCompare(a.name);
-                    case 'date_desc': return new Date(b.date) - new Date(a.date); // Terbaru ke terlama
-                    case 'date_asc': return new Date(a.date) - new Date(b.date); // Terlama ke terbaru
+                    case 'date_desc': return new Date(b.date) - new Date(a.date);
+                    case 'date_asc': return new Date(a.date) - new Date(b.date);
                     case 'type_asc': return a.type.localeCompare(b.type);
                     case 'type_desc': return b.type.localeCompare(a.type);
                     default: return 0;
@@ -336,7 +348,6 @@
             galleryContainer.className = 'list-view';
             listViewBtn.classList.add('active');
             thumbViewBtn.classList.remove('active');
-            // --- PERUBAHAN: Menghapus tampilan UKURAN ---
             renderGallery((file) => {
                 const item = document.createElement('div');
                 item.className = 'list-item';
@@ -348,10 +359,16 @@
             });
         }
 
-        // --- Lightbox Functions (Tidak ada perubahan di sini) ---
+        // --- Lightbox Functions ---
+        function updateLightbox() {
+            const currentImage = allImageData[currentIndex];
+            lightboxImg.src = currentImage.url;
+            lightboxCaption.textContent = currentImage.name; // Perbarui caption
+        }
+
         function openLightbox(index) {
             currentIndex = index;
-            lightboxImg.src = allImageData[currentIndex].url;
+            updateLightbox(); // Gunakan fungsi baru
             lightbox.classList.add('active');
         }
 
@@ -361,12 +378,12 @@
 
         function showNext() {
             currentIndex = (currentIndex + 1) % allImageData.length;
-            lightboxImg.src = allImageData[currentIndex].url;
+            updateLightbox(); // Gunakan fungsi baru
         }
 
         function showPrev() {
             currentIndex = (currentIndex - 1 + allImageData.length) % allImageData.length;
-            lightboxImg.src = allImageData[currentIndex].url;
+            updateLightbox(); // Gunakan fungsi baru
         }
 
         // --- Event Listeners ---
