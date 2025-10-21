@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galeri Gambar - Frijal's Blog</title>
-    <meta name="description" content="Jelajahi koleksi gambar WebP dari artikel-artikel di blog Frijal. Temukan semua gambar dalam format galeri yang mudah di navigasi.">
+    <meta name="description" content="Jelajahi koleksi gambar WebP dari artikel-artikel di blog Frijal. Temukan semua gambar dalam format galeri yang mudah dinavigasi.">
     <meta name="keywords" content="galeri gambar, koleksi foto, gambar webp, frijal, blog, portofolio">
     <meta name="author" content="Frijal">
     <link rel="canonical" href="https://frijal.pages.dev/img.html">
@@ -82,7 +82,6 @@
             font-family: inherit;
         }
 
-        /* Styling untuk tombol baru */
         .action-buttons {
             display: flex;
             align-items: center;
@@ -183,7 +182,7 @@
 
     <div class="container">
         <header>
-            <h1><a href="https://frijal.pages.dev/">Galeri Gambar</a></h1>
+            <h1>Galeri Gambar</h1>
         </header>
 
         <div class="controls">
@@ -229,7 +228,6 @@
         const galleryContainer = document.getElementById('gallery-container');
         const sortSelect = document.getElementById('sort-select');
 
-        // Lightbox elements
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxCaption = document.getElementById('lightbox-caption');
@@ -253,16 +251,25 @@
 
                 const allArticles = Object.values(data).flat();
                 
+                // --- PERUBAHAN UTAMA DI SINI ---
                 allImageData = allArticles.map(item => {
+                    // Cek format data dasar
                     if (Array.isArray(item) && item.length > 3 && typeof item[2] === 'string' && item[2].startsWith('http')) {
                         const url = item[2];
-                        const name = url.split('/').pop();
-                        const type = name.split('.').pop();
+                        
+                        // Ambil nama dari elemen ke-2 (indeks 1) dan hapus .html
+                        const htmlFile = item[1]; 
+                        const name = (typeof htmlFile === 'string' && htmlFile.includes('.html')) 
+                            ? htmlFile.replace('.html', '') 
+                            : url.split('/').pop(); // Fallback jika format tidak sesuai
+                        
+                        const type = url.split('/').pop().split('.').pop();
                         const date = item[3];
                         return { url, name, type, date };
                     }
                     return null;
                 }).filter(Boolean);
+                // -----------------------------
                 
                 if (allImageData.length === 0) {
                     statusDiv.textContent = 'Tidak ada URL gambar yang valid ditemukan.';
