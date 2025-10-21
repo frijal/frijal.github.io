@@ -3,31 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Galeri Gambar - Frijal's Blog</title>
     <meta name="description" content="Jelajahi koleksi gambar WebP dari artikel-artikel di blog Frijal. Temukan semua gambar dalam format galeri yang mudah dinavigasi.">
     <meta name="keywords" content="galeri gambar, koleksi foto, gambar webp, frijal, blog, portofolio">
     <meta name="author" content="Frijal">
-    
     <link rel="canonical" href="https://frijal.pages.dev/img.html">
-
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/ext/icon/apple-touch-icon.png">
-
     <meta property="og:title" content="Galeri Gambar - Frijal's Blog">
     <meta property="og:description" content="Jelajahi koleksi gambar WebP dari artikel-artikel di blog Frijal.">
     <meta property="og:image" content="https://frijal.pages.dev/thumbnail.webp">
     <meta property="og:url" content="https://frijal.pages.dev/img.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frijal's Blog">
-
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Galeri Gambar - Frijal's Blog">
     <meta name="twitter:description" content="Jelajahi koleksi gambar WebP dari artikel-artikel di blog Frijal.">
     <meta name="twitter:image" content="https://frijal.pages.dev/thumbnail.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         :root {
@@ -56,24 +52,25 @@
             margin-bottom: 30px;
         }
 
-        h1 { font-size: 2.2rem; font-weight: 600; color: white; }
+        h1 { font-size: 2.2rem; font-weight: 600; }
+        h1 a { color: white; text-decoration: none; transition: color 0.3s ease; }
+        h1 a:hover { color: var(--primary-color); }
 
         .controls {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
             margin-bottom: 20px;
-            padding: 10px;
+            padding: 10px 20px;
             background-color: var(--card-bg);
             border-radius: 8px;
         }
         
-        #status { font-style: italic; color: #aaa; flex-grow: 1; }
+        #status { font-style: italic; color: #aaa; }
 
-        .sort-container, .view-buttons { display: flex; align-items: center; }
-        
+        .sort-container { display: flex; align-items: center; }
         .sort-container label { margin-right: 10px; font-size: 0.9rem; }
 
         select {
@@ -85,27 +82,37 @@
             font-family: inherit;
         }
 
-        .view-buttons button {
-            background-color: #333;
-            margin-left: 10px;
-            padding: 8px 15px;
-            border: none;
-            border-radius: 6px;
-            color: white;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+        /* Styling untuk tombol baru */
+        .action-buttons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
-        
-        .view-buttons button.active { background-color: var(--primary-color); }
+        .action-buttons .action-btn {
+            color: var(--text-color);
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .action-buttons .action-btn:hover {
+            transform: scale(1.2);
+        }
+        .action-buttons .social-twitter:hover { color: #1DA1F2; }
+        .action-buttons .social-facebook:hover { color: #1877F2; }
+        .action-buttons .social-whatsapp:hover { color: #25D366; }
+        .action-buttons .separator {
+            color: var(--border-color);
+            font-size: 1.2rem;
+            align-self: center;
+        }
 
-        #gallery-container { padding: 10px; border-radius: 8px; min-height: 200px; }
-        
-        .thumb-view {
+        #gallery-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             gap: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            min-height: 200px;
         }
 
         .thumb-item {
@@ -116,7 +123,6 @@
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
         }
-
         .thumb-item img {
             width: 100%; height: 100%;
             object-fit: cover;
@@ -124,10 +130,8 @@
             display: block;
             transition: transform 0.3s ease;
         }
-        
         .thumb-item:hover img { transform: scale(1.1); }
         .thumb-item:hover .caption { transform: translateY(0); }
-
         .thumb-item .caption {
             position: absolute; bottom: 0; left: 0; right: 0;
             background: rgba(0, 0, 0, 0.7);
@@ -136,25 +140,6 @@
             text-overflow: ellipsis; transform: translateY(100%);
             transition: transform 0.3s ease;
         }
-
-        .list-view { display: flex; flex-direction: column; gap: 8px; }
-        .list-item {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            align-items: center;
-            gap: 15px;
-            padding: 12px;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            text-decoration: none;
-            color: var(--text-color);
-            transition: background-color 0.3s ease;
-            cursor: pointer;
-        }
-        .list-item:hover { background-color: #3c3c3c; color: white; }
-        .list-item-icon { font-size: 1.2rem; }
-        .list-item-name { flex-grow: 1; }
 
         /* Lightbox CSS */
         .lightbox {
@@ -166,17 +151,10 @@
             background-color: rgba(0, 0, 0, 0.9);
             justify-content: center;
             align-items: center;
-            flex-direction: column; /* Ubah untuk caption */
+            flex-direction: column;
         }
-
         .lightbox.active { display: flex; }
-        .lightbox-content {
-            max-width: 90%;
-            max-height: 80%;
-            object-fit: contain;
-        }
-
-        /* Lightbox Caption */
+        .lightbox-content { max-width: 90%; max-height: 80%; object-fit: contain; }
         .lightbox-caption {
             margin-top: 15px;
             color: white;
@@ -186,7 +164,6 @@
             border-radius: 5px;
             text-align: center;
         }
-
         .lightbox-close, .lightbox-nav {
             position: absolute;
             color: white;
@@ -195,7 +172,6 @@
             user-select: none;
             transition: color 0.2s;
         }
-        
         .lightbox-close:hover, .lightbox-nav:hover { color: #ccc; }
         .lightbox-close { top: 15px; right: 35px; }
         .lightbox-prev { left: 15px; top: 50%; transform: translateY(-50%); }
@@ -205,7 +181,9 @@
 <body>
 
     <div class="container">
-        <header><h1>Galeri Gambar Interaktif</h1></header>
+        <header>
+            <h1><a href="https://frijal.pages.dev/">Galeri Gambar</a></h1>
+        </header>
 
         <div class="controls">
             <div id="status">Memuat gambar...</div>
@@ -220,13 +198,18 @@
                     <option value="type_desc">Tipe (Z-A)</option>
                 </select>
             </div>
-            <div class="view-buttons">
-                <button id="listViewBtn">List</button>
-                <button id="thumbViewBtn" class="active">Thumbnail</button>
+            
+            <div class="action-buttons">
+                <a href="https://frijal.pages.dev/" class="action-btn" title="Beranda"><i class="fas fa-home"></i></a>
+                <a href="https://frijal.pages.dev/feed/" class="action-btn" title="RSS Feed"><i class="fas fa-rss"></i></a>
+                <span class="separator">|</span>
+                <a href="#" class="action-btn social-twitter" title="Bagikan ke Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="action-btn social-facebook" title="Bagikan ke Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="action-btn social-whatsapp" title="Bagikan ke WhatsApp"><i class="fab fa-whatsapp"></i></a>
             </div>
         </div>
 
-        <div id="gallery-container" class="thumb-view"></div>
+        <div id="gallery-container"></div>
     </div>
     
     <div id="lightbox" class="lightbox">
@@ -242,20 +225,17 @@
 
         const statusDiv = document.getElementById('status');
         const galleryContainer = document.getElementById('gallery-container');
-        const listViewBtn = document.getElementById('listViewBtn');
-        const thumbViewBtn = document.getElementById('thumbViewBtn');
         const sortSelect = document.getElementById('sort-select');
 
         // Lightbox elements
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
-        const lightboxCaption = document.getElementById('lightbox-caption'); // Tambahkan ini
+        const lightboxCaption = document.getElementById('lightbox-caption');
         const lightboxClose = document.getElementById('lightbox-close');
         const lightboxPrev = document.getElementById('lightbox-prev');
         const lightboxNext = document.getElementById('lightbox-next');
 
         let allImageData = []; 
-        let currentView = 'thumb';
         let currentIndex = 0;
 
         async function fetchAndDisplayImages() {
@@ -310,65 +290,35 @@
                 }
             });
 
-            if (currentView === 'thumb') {
-                displayThumbnails();
-            } else {
-                displayList();
-            }
+            displayThumbnails();
         }
 
-        function renderGallery(displayFunc) {
+        function displayThumbnails() {
             galleryContainer.innerHTML = '';
             allImageData.forEach((file, index) => {
-                const item = displayFunc(file);
+                const item = document.createElement('div');
+                item.className = 'thumb-item';
+                item.title = file.name;
                 item.dataset.index = index;
                 item.addEventListener('click', () => openLightbox(index));
+                
+                item.innerHTML = `
+                    <img src="${file.url}" alt="${file.name}" loading="lazy">
+                    <div class="caption">${file.name}</div>`;
+                
                 galleryContainer.appendChild(item);
             });
         }
 
-        function displayThumbnails() {
-            currentView = 'thumb';
-            galleryContainer.className = 'thumb-view';
-            thumbViewBtn.classList.add('active');
-            listViewBtn.classList.remove('active');
-            renderGallery((file) => {
-                const item = document.createElement('div');
-                item.className = 'thumb-item';
-                item.title = file.name;
-                item.innerHTML = `
-                    <img src="${file.url}" alt="${file.name}" loading="lazy">
-                    <div class="caption">${file.name}</div>`;
-                return item;
-            });
-        }
-        
-        function displayList() {
-            currentView = 'list';
-            galleryContainer.className = 'list-view';
-            listViewBtn.classList.add('active');
-            thumbViewBtn.classList.remove('active');
-            renderGallery((file) => {
-                const item = document.createElement('div');
-                item.className = 'list-item';
-                item.title = file.name;
-                item.innerHTML = `
-                    <span class="list-item-icon">🖼️</span>
-                    <span class="list-item-name">${file.name}</span>`;
-                return item;
-            });
-        }
-
-        // --- Lightbox Functions ---
         function updateLightbox() {
             const currentImage = allImageData[currentIndex];
             lightboxImg.src = currentImage.url;
-            lightboxCaption.textContent = currentImage.name; // Perbarui caption
+            lightboxCaption.textContent = currentImage.name;
         }
 
         function openLightbox(index) {
             currentIndex = index;
-            updateLightbox(); // Gunakan fungsi baru
+            updateLightbox();
             lightbox.classList.add('active');
         }
 
@@ -378,20 +328,41 @@
 
         function showNext() {
             currentIndex = (currentIndex + 1) % allImageData.length;
-            updateLightbox(); // Gunakan fungsi baru
+            updateLightbox();
         }
 
         function showPrev() {
             currentIndex = (currentIndex - 1 + allImageData.length) % allImageData.length;
-            updateLightbox(); // Gunakan fungsi baru
+            updateLightbox();
         }
 
         // --- Event Listeners ---
-        document.addEventListener('DOMContentLoaded', fetchAndDisplayImages);
-        sortSelect.addEventListener('change', sortAndRender);
-        thumbViewBtn.addEventListener('click', () => { if (currentView !== 'thumb') sortAndRender() });
-        listViewBtn.addEventListener('click', () => { if (currentView !== 'list') sortAndRender() });
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchAndDisplayImages();
 
+            // --- Social Share Logic ---
+            const pageUrl = encodeURIComponent(window.location.href);
+            const pageTitle = encodeURIComponent(document.title);
+
+            const twitterShare = document.querySelector('.social-twitter');
+            const facebookShare = document.querySelector('.social-facebook');
+            const whatsappShare = document.querySelector('.social-whatsapp');
+            
+            if(twitterShare) twitterShare.href = `https://twitter.com/intent/tweet?text=${pageTitle}&url=${pageUrl}`;
+            if(facebookShare) facebookShare.href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+            if(whatsappShare) whatsappShare.href = `https://api.whatsapp.com/send?text=${pageTitle}%20${pageUrl}`;
+
+            const shareLinks = document.querySelectorAll('.social-twitter, .social-facebook, .social-whatsapp');
+            shareLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Hanya popup, biarkan link Home & RSS berfungsi normal
+                    e.preventDefault();
+                    window.open(this.href, 'share-window', 'height=450,width=550,toolbar=0,location=0,menubar=0,directories=0,scrollbars=0');
+                });
+            });
+        });
+
+        sortSelect.addEventListener('change', sortAndRender);
         lightboxClose.addEventListener('click', closeLightbox);
         lightboxNext.addEventListener('click', showNext);
         lightboxPrev.addEventListener('click', showPrev);
