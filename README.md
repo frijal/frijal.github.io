@@ -15,13 +15,13 @@
 [![Gemini](https://img.shields.io/badge/Gemini-Yes-blueviolet?logo=google&logoColor=white)](#readme)
 [![ChatGPT](https://img.shields.io/badge/ChatGPT-Yes-blue?logo=openai&logoColor=white)](#readme)
 [![Copilot](https://img.shields.io/badge/Copilot-Yes-purple?logo=github&logoColor=white)](#readme)
-[![artikelx > artikel](https://github.com/frijal/frijal.github.io/frijal-github-io/actions/workflows/modif-artikelX-artikel.yml/badge.svg?branch=main&logo=githubactions&logoColor=white)](https://github.com/frijal/frijal.github.io/frijal-github-io/actions/workflows/proses-artikelx.yml)
-[![Generator](https://github.com/frijal/frijal.github.io/frijal-github-io/actions/workflows/generate-json-xml.yml/badge.svg?branch=main&logo=githubactions&logoColor=white)](https://github.com/frijal/frijal.github.io/frijal-github-io/actions/workflows/generate-json-xml.yml)
+[![artikelx > artikel](https://github.com/frijal/frijal.github.io/frijal-github-io/actions/workflows/modif-artikelX-artikel.yml/badge.svg?branch=main&logo=githubactions&logoColor=white)](https://github.com/frijal/frijal.github.io/actions/workflows/proses-artikelx.yml)
+[![Generator](https://github.com/frijal/frijal.github.io/frijal-github-io/actions/workflows/generate-json-xml.yml/badge.svg?branch=main&logo=githubactions&logoColor=white)](https://github.com/frijal/frijal.github.io/actions/workflows/generate-json-xml.yml)
 
 [![Google Drive](https://img.shields.io/badge/Google%20Drive-Available-34A853?logo=googledrive&logoColor=white)](#readme)
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Yes-blue?logo=github&logoColor=white)](#readme)
 [![Release Continuous](https://img.shields.io/badge/Release-Continuous-orange?logo=github&logoColor=white)](#readme)
-[![Last Commit](https://img.shields.io/github/last-commit/frijal/frijal.github.io/frijal-github-io?logo=github&logoColor=white)](#readme)
+[![Last Commit](https://img.shields.io/github/last-commit/frijal/frijal.github.io?logo=github&logoColor=white)](#readme)
 [![HTML Count](https://img.shields.io/endpoint?url=https://frijal.github.io/mini/html_count_badge.json&logo=html5&logoColor=white)](#readme)
 [![JPG Count](https://img.shields.io/endpoint?url=https://frijal.github.io/mini/jpg_count_badge.json&logo=file&logoColor=white)](#readme)
 
