@@ -2,7 +2,7 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap/image/1.1 http://www.google.com/schemas/sitemap/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://frijal.pages.dev/artikel/git-repo-size-reduction.html</loc>
-    <lastmod>2025-10-22T09:26:57.340+00:00</lastmod>
+    <lastmod>2025-10-22T11:53:56.623+00:00</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
     <image:image>
@@ -11,7 +11,7 @@
   </url>
   <url>
     <loc>https://frijal.pages.dev/artikel/build-deploy-clean-branch.html</loc>
-    <lastmod>2025-10-22T09:26:57.330+00:00</lastmod>
+    <lastmod>2025-10-22T11:53:56.613+00:00</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
     <image:image>
@@ -1649,7 +1649,7 @@
   </url>
   <url>
     <loc>https://frijal.pages.dev/artikel/rahmah-adab-dan-rasa.html</loc>
-    <lastmod>2025-10-22T09:26:57.362+00:00</lastmod>
+    <lastmod>2025-10-22T11:53:56.646+00:00</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
     <image:image>
@@ -2684,7 +2684,7 @@
   </url>
   <url>
     <loc>https://frijal.pages.dev/artikel/membuat-git-orphan-branch.html</loc>
-    <lastmod>2025-10-22T09:26:57.353+00:00</lastmod>
+    <lastmod>2025-10-22T11:53:56.636+00:00</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
     <image:image>
@@ -2693,11 +2693,20 @@
   </url>
   <url>
     <loc>https://frijal.pages.dev/artikel/git-prevent-auto-merge-request.html</loc>
-    <lastmod>2025-10-22T09:26:57.340+00:00</lastmod>
+    <lastmod>2025-10-22T11:53:56.623+00:00</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
     <image:image>
       <image:loc>https://frijal.pages.dev/img/git-prevent-auto-merge-request.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://frijal.pages.dev/artikel/evolusi-workflow-deploy-github-actions.html</loc>
+    <lastmod>2025-10-22T11:53:56.617+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://frijal.pages.dev/img/evolusi-workflow-deploy-github-actions.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -4088,7 +4097,7 @@
   </url>
   <url>
     <loc>https://frijal.pages.dev/artikel/pengecekan-dan-laporan-konten-harian.html</loc>
-    <lastmod>2025-10-22T09:26:57.359+00:00</lastmod>
+    <lastmod>2025-10-22T11:53:56.642+00:00</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
     <image:image>
@@ -4097,7 +4106,7 @@
   </url>
   <url>
     <loc>https://frijal.pages.dev/artikel/pengecekan-laporan-konten-harian.html</loc>
-    <lastmod>2025-10-22T09:26:57.359+00:00</lastmod>
+    <lastmod>2025-10-22T11:53:56.642+00:00</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
     <image:image>
@@ -4105,8 +4114,17 @@
     </image:image>
   </url>
   <url>
+    <loc>https://frijal.pages.dev/artikel/optimasi-workflow-harian-github-actions.html</loc>
+    <lastmod>2025-10-22T11:53:56.641+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://frijal.pages.dev/img/optimasi-workflow-harian-github-actions.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://frijal.pages.dev/artikel/git-passive-branch-merge.html</loc>
-    <lastmod>2025-10-22T09:26:57.340+00:00</lastmod>
+    <lastmod>2025-10-22T11:53:56.622+00:00</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
     <image:image>

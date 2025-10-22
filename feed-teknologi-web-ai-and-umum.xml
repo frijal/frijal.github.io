@@ -6,12 +6,12 @@
     <description><![CDATA[Feed artikel terbaru untuk kategori 🖥️ Teknologi Web, AI & Umum]]></description>
     <language>id-ID</language>
     <atom:link href="https://frijal.pages.dev/feed-teknologi-web-ai-and-umum.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Wed, 22 Oct 2025 09:50:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 22 Oct 2025 11:54:10 GMT</lastBuildDate>
     <item>
       <title><![CDATA[Cara Membuat Orphan Branch di Git & GitHub | Frijal's Page]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/membuat-git-orphan-branch.html]]></link>
       <guid><![CDATA[https://frijal.pages.dev/artikel/membuat-git-orphan-branch.html]]></guid>
-      <pubDate>Wed, 22 Oct 2025 09:26:57 GMT</pubDate>
+      <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
       <description><![CDATA[Tutorial lengkap dan santai cara membuat branch Git baru (orphan branch) yang tidak punya riwayat commit dari branch main. Cocok untuk halaman gh-pages atau proyek terpisah.]]></description>
       <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
 <enclosure url="https://frijal.pages.dev/assets/images/og-image-orphan-branch.png" length="0" type="image/webp" />
@@ -20,10 +20,19 @@
       <title><![CDATA[Cara Agar Branch Tidak Minta Merge Otomatis ke Main | Frijal's Page]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/git-prevent-auto-merge-request.html]]></link>
       <guid><![CDATA[https://frijal.pages.dev/artikel/git-prevent-auto-merge-request.html]]></guid>
-      <pubDate>Wed, 22 Oct 2025 09:26:57 GMT</pubDate>
+      <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
       <description><![CDATA[Tutorial santai cara kerja Git dan GitHub agar anak branch tidak]]></description>
       <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
 <enclosure url="https://frijal.pages.dev/img/git-prevent-auto-merge-request.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Dari Boros ke Kilat: Evolusi Cerdas Workflow Deploy GitHub Actions]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/evolusi-workflow-deploy-github-actions.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/evolusi-workflow-deploy-github-actions.html]]></guid>
+      <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
+      <description><![CDATA[Tutorial lengkap cara mengoptimalkan workflow deploy GitHub Actions. Pelajari perbandingan rsync vs. git diff untuk mencegah deploy yang tidak perlu dan menghemat waktu.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+<enclosure url="https://frijal.pages.dev/img/evolusi-workflow-deploy-github-actions.webp" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[Pilih Merge, Squash, atau Rebase? Panduan Santai Git Pull Request]]></title>

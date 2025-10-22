@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { titleToCategory } from './titleToCategory.js';
 
-// ===================================================================
+// ==================================================================
 // KONFIGURASI TERPUSAT
 // ===================================================================
 const __filename = fileURLToPath(import.meta.url);
