@@ -1,4 +1,699 @@
 {
+  "🖥️ Teknologi Web, AI & Umum": [
+    [
+      "Bedah Skrip Generator Konten Cerdas (Node.js)",
+      "analisis-skrip-generator-konten-nodejs.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFck_UrHNNPuq7efqdzls4mrrPJv3ZRlKibwYD3w1FVCgAu0NlzQz2LDieWiUg2nsgJiFT_dr-oShXctQ3K1BckCglQ0rkOoxuYC9ceIYwSRIqt14efmNgMJDoYqBtyJalfWy3Eok6yKh-08bSSYmvyFfE7ZWpqqk9_hVC-sI8wUdjycBO22uAwFoCu-E/s1600/licensed-image.webp",
+      "2025-10-22T12:23:43.380+00:00",
+      "Bedah tuntas skrip Node.js canggih yang mengotomatiskan pembuatan artikel.json, sitemap.xml, dan halaman kategori, lengkap dengan fitur self-healing."
+    ],
+    [
+      "Cara Membuat Orphan Branch di Git & GitHub | Frijal's Page",
+      "membuat-git-orphan-branch.html",
+      "https://frijal.pages.dev/assets/images/og-image-orphan-branch.png",
+      "2025-10-22T11:53:56.636+00:00",
+      "Tutorial lengkap dan santai cara membuat branch Git baru (orphan branch) yang tidak punya riwayat commit dari branch main. Cocok untuk halaman gh-pages atau proyek terpisah."
+    ],
+    [
+      "Cara Agar Branch Tidak Minta Merge Otomatis ke Main | Frijal's Page",
+      "git-prevent-auto-merge-request.html",
+      "https://frijal.pages.dev/img/git-prevent-auto-merge-request.webp",
+      "2025-10-22T11:53:56.623+00:00",
+      "Tutorial santai cara kerja Git dan GitHub agar anak branch tidak"
+    ],
+    [
+      "Dari Boros ke Kilat: Evolusi Cerdas Workflow Deploy GitHub Actions",
+      "evolusi-workflow-deploy-github-actions.html",
+      "https://frijal.pages.dev/img/evolusi-workflow-deploy-github-actions.webp",
+      "2025-10-22T11:53:56.617+00:00",
+      "Tutorial lengkap cara mengoptimalkan workflow deploy GitHub Actions. Pelajari perbandingan rsync vs. git diff untuk mencegah deploy yang tidak perlu dan menghemat waktu."
+    ],
+    [
+      "Pilih Merge, Squash, atau Rebase? Panduan Santai Git Pull Request",
+      "git-merge-squash-rebase.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGZN5mOfutvye29JMIUeY2b_gqcVZY_pSAuVAkO0aiuDRn_V9N5-33LqjZMYpGLfV_MbaK2MQD7hVgeLrVzupcmegz7B9ekb9-sCS5nP3qxrFLKAusIrDsAkLL1bx2GU2Pe3Dm7_6U4_4dTSnFT5T-5UvhBxj_e5-SgoarLv4HxtfA6RllESEWy79KVhM/s1600/Screenshot%20From%202025-10-21%2021-48-41.png",
+      "2025-10-21T16:48:14.661+00:00",
+      "Bingung pilih merge, squash, atau rebase saat me-review Pull Request di GitHub? Yuk, kita bedah satu per satu dengan analogi santai biar nggak pusing lagi."
+    ],
+    [
+      "Mengamankan GitHub Actions: Izin Baca vs. Tulis untuk GITHUB_TOKEN",
+      "github-actions-workflow-permissions.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQQWCgT4AUgvX8nbcUcqTh1pWgTdtWeqwAhcyPdXAwzzyISi9c1yPGD0d5TW5vJiccUtmPEtmwas8wL75LyrYD5p6WEBs_yjzKAO2gHjdQuVjg4c6sP4V92ddtveKF6cj5QrE-JKK53dwaLrgjp4xxi8qkIKGuL85QWfEVZ4GiQfIznIjBOAaMwkihDZU/s1600/Screenshot%20From%202025-10-21%2022-29-44.png",
+      "2025-10-21T16:48:14.661+00:00",
+      "Pelajari cara mengamankan repositori dengan mengatur Workflow Permissions di GitHub Actions. Pahami beda Read vs. Write permission untuk GITHUB_TOKEN dan kenapa Read-Only adalah pilihan terbaik."
+    ],
+    [
+      "Setting PR GitHub yang Bikin Hidup Gampang: Auto Update, Merge & Delete",
+      "github-pr-workflow-settings.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPqJtix7wPezXkcZ8cFUsMF9o7kZ-C-Bpw6sTKEohzq7QL9ngeScIyma7uZwfGyWQc1Y8kGiUbWS_o8EZpPjYaTer7VDqEeRZ-35aJqdpTtV-uSkgwwj3JlvqulEGRnslWKLFCIsZHDw6Ki1myAmQThpQouvTw4LJv1m6yzbtIBtBV0it-g2fv7hm79Mc/s1600/Screenshot%20From%202025-10-21%2022-01-03.png",
+      "2025-10-21T16:48:14.661+00:00",
+      "Optimalkan alur kerja GitHub kamu dengan mengaktifkan tiga fitur simpel ini: auto-update, auto-merge, dan auto-delete branches. Bikin development lebih cepat dan rapi!"
+    ],
+    [
+      "Mengamankan Repositori: Panduan Lengkap Actions Permissions di GitHub",
+      "github-actions-permissions-security.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-B_tNpehEn6YhovPemrCBF1kK24Gw4u_U9TyX9q7JVJ5rAdfak7ifPG3VIKdExoNr9fv_rrb0QJs9ETDLTS-5_lbDreQbW4MBNK0yK4F2usvDtP73cBjDGchyphenhyphenqSCeL03i_HKptp9sGK6ekCkpV6ikBMIqoVWbDG0Nl7H_CYRzR1njbBBomonse_ivF98/s1600/Screenshot%20From%202025-10-21%2022-35-04.png",
+      "2025-10-21T16:48:14.661+00:00",
+      "Pahami cara kerja Actions Permissions di GitHub. Pelajari risiko"
+    ],
+    [
+      "Fitur 'Sign Off' di GitHub, Perlu Diaktifkan Gak Sih? Penjelasan Lengkap soal DCO",
+      "github-commit-sign-off-dco.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSsPCmt8a_lZAMiUHrMi26B7meAmM-nq6o10cFufw3ykrhir8x696lJUt1Nzfrm-TqX5iqqcT9o7sJhTCvHS5xslzk9_h2AZopA0v9NTDsoHwLADyaFW7D1ZezwmRnQodzb7cPK8JcOjQZZTerX1FmIneaA1ML06bcL204zM7yn9ShBoIpfmG68nOcKwA/s1600/Screenshot%20From%202025-10-21%2022-14-00.png",
+      "2025-10-21T16:48:14.661+00:00",
+      "Melihat opsi"
+    ],
+    [
+      "Kisah FCKGW dan Windows XP: Bukan hasil crack, tapi VLK yang bocor",
+      "fckgw-windows-xp.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5aF9ZZi9tVuJR6mnuViMNZmMSeRM6xI40trSWEBLxt2Eo8ERglHlBGHO70HesUvuzCLEqcuYKiqqKY1PZrjWgX-VI5I9pNoPYS9YJzz1QnPyLVtk1WN6MUx1s4MZG1AcrvTRGTegtGg_sqoIYP7m-UKAP-pAIDacYL6eL1TI317SIhirJnUVioQWEWxU/s1600/fckgw.webp",
+      "2025-10-19T17:47:38.687+00:00",
+      "Di balik kesuksesan Windows XP, kisah kelam VLK FCKGW yang bocor ke publik. Bukan hasil crack, melainkan lisensi volume resmi yang menyebar luas dan jadi ikon era bajakan."
+    ],
+    [
+      "Osborne 1 - Laptop Pertama Dunia",
+      "laptop-pertama-osborne1.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8bFisLsDrynWzbNVXt5lJ0zBdvvL6nAXTn_0PrAPkmfENUerHby-6tBJDg0amBAzC1-cd5pEWO_bqC_WOrE-WI9uUHMfOgZerldszngkxRCOdgFdsSRR1z9bhth1FqGy5QTHSoJ-J9Thy1xkvi7gXP-2qk9g7JQKnHlCnFnZ6FltbOfxUHo3U_dhg1-8/s1600/xadam-osborne.png",
+      "2025-10-18T00:31:19.948+00:00",
+      "Osborne 1, laptop pertama di dunia yang dibuat oleh Adam Osborne pada tahun 1981. Berat 10kg, harga $1795, sejarah lengkap & gambar."
+    ],
+    [
+      "Salin Isi HDD dengan dd",
+      "dd-hdd-copy.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0V7CxStcCDAHjWsU-svtZ1XBscBMB7hE4dkGm5SHHpu_W2H1LY9T2-jfMxsEU_6lT8e7E7qjaZJnBDzZtOdtgtkD7IIdLhzaM2ueZUhge7hX3lp5-ycjN-a4SFe_VXA72FsG-SimHUa61aRq0h44nX3-dNoyA6Oo-paborGutLooXcayZv22kJlBRNJI/s1600/Disk-Cloning-using-DD-CAT.jpg",
+      "2025-10-18T00:31:19.935+00:00",
+      "Panduan mudah menyalin isi HDD ke HDD lain menggunakan perintah dd di terminal Linux."
+    ],
+    [
+      "Demo Gorilla Glass Samsung Galaxy S2",
+      "gorilla-glass-s2.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgtW5sjYcXyRJwMKQ9cU4_luhCw74TlBDppiVQBEd9n_0oPov7_QVUucXKalaAxELQOM2RujOk-LNHMfkSz-NAlyjaMoM5q-jRkgrIN0rpK9ZxYRFxcqxQJ91WXkLmRY2x2wHLqDvxX2IkvuApp4i0zPbvlZ92nvSE8Gbc79eBQDYriA4EUc35ZQoRYVWk/s1600/hqdefault.jpg",
+      "2025-10-17T12:38:48.540+00:00",
+      "Demo Gorilla Glass pada Samsung Galaxy S2 putih, dengan mematikan rokok di layar handphone. Jangan ditiru, hanya untuk hiburan."
+    ],
+    [
+      "Windows vs Linux: beda kebiasaan pengguna (tanpa nyinyir)",
+      "windows-vs-linux-kebiasaan.html",
+      "https://frijal.pages.dev/thumbnail.webp",
+      "2025-10-17T08:24:29.868+00:00",
+      ""
+    ],
+    [
+      "Uji Kecepatan Internet dari Terminal: Panduan Santai",
+      "uji-kecepatan-internet-dari-terminal.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6z6_M-x_agbooaxeVfyZp5K-yLD33q8xTsW9iQmQR1QdHZQGtgcqaLA6oCv3QhyphenhyphenLzJwahDYes-DTBNShwq0dwLCbju8v7r4dkmfvyrup993r6QFoFr5QRVBBCgk03LQnipZk44WvcMg_c/w1200-h630-p-k-no-nu/image2993.png",
+      "2025-10-16T23:20:38.208+00:00",
+      "Pelajari cara mengukur kecepatan internet langsung dari terminal dengan speedtest-cli. Panduan mudah untuk Linux dan Windows."
+    ],
+    [
+      "Apa Itu Kejahatan Phishing dan Cara Mencegahnya?",
+      "waspada-kejahatan-phishing.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiVHkObjiTPqhlkCa-m4gLhedgCnS1ErHjwQ9Avm6UUrDw7acLRjePYi96EMpcxYQKUd5OjuWCkoep4Tvd33ZqRslrJ5v9g-Wl4fsXQahX1ub3wyY4iq1DnCAYzUC34MjsVAKD6oMb1sSwL/s1600/golput.jpg",
+      "2025-10-16T23:20:38.208+00:00",
+      "Kenali apa itu phishing, cara kerjanya, dan tips santai untuk menjaga data pribadi dan finansial kamu dari penipuan online."
+    ],
+    [
+      "Kenalan Sama Strategi Branching Populer di GitHub 📊",
+      "strategi-branching-github.html",
+      "https://frijal.pages.dev/img/strategi-branching-github.webp",
+      "2025-10-16T23:20:38.206+00:00",
+      "Bingung kenapa repo bisa banyak branch? Yuk, kenalan sama Git Flow, Trunk Based, dan GitHub Flow. Dijelasin santai, lengkap dengan perbandingan."
+    ],
+    [
+      "Thunderbird 144: Dukungan Microsoft Exchange Hadir Oktober 2025",
+      "thunderbird-exchange-144.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq3fZWSfUH3WElJYSwVA8dSTWI_ceYZQK2NiC50pt5rgXOG4LlqlbJf9Bg0Q0lO2NBUAt-BpSkjL2MmBZ5sUB7itEBtXf4RmtEN3F8j2GtJNKTEu2TnzsXlWE6M1RfNiTHFckZ9RPbAWezhGtVz8uDOITNXDGALfQJBPI8aH1mU1CMm6nyIwyoRbc5qdU/s1600/thunderbird-exchange.jpg",
+      "2025-10-16T23:20:38.206+00:00",
+      "Thunderbird versi 144 menambahkan dukungan email Microsoft Exchange pada Oktober 2025, meliputi undo/redo, notifikasi, pencarian, autosync, dan peningkatan lampiran."
+    ],
+    [
+      "SSH3: Evolusi Keamanan dan Kecepatan di Era Internet Modern",
+      "ssh3-evolusi-keamanan.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaupjz-fdFQV0A_v0YyQgVyVylHGjgPX684A5qgSH_44BaahHcOudPRKWjpkEh_b0BDxL2vFsMa_foPKT9eWBBtbGgBe3dPwl8jlux8krkBXChY5TVJw0oK9E-G4DYAKlf52BnRwK-DNCKEqhxFnATCL6N2EazUCWjNI1hUKoK8tAb6XDiHV0YAsh3kBY/s1600/ssh3.jpg",
+      "2025-10-16T23:20:38.205+00:00",
+      "SSH3 dibangun di atas HTTP/3 (QUIC + TLS 1.3): lebih cepat, lebih aman, lebih fleksibel. Autentikasi modern, resiliensi koneksi, dan multiplexing untuk era internet."
+    ],
+    [
+      "4 Cara Mempercepat Shutdown Windows – Tips Ampuh",
+      "shutdown-windows-cepat.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-KMdK8ieHOuYwZi5QHDkPFr2Wtt-g_X6JE8gFkFQcsHTCdRULKv837UjUt87yFLOg0op43P4e3i3fqUg7cRC1vLCao1Q4p9rIw_xgLGEiWNR9hyQc1773BUosjhXNVqw6Wl_DEzYksbIR/s1600/waittokillservicetimeout_zrn5mjryip.png",
+      "2025-10-16T23:20:38.204+00:00",
+      "Sering menunggu proses shutdown Windows lama? Simak 4 cara ampuh mempercepat shutdown Windows, termasuk Registry, Shortcut, dan lainnya."
+    ],
+    [
+      "Refresh GitHub Codespaces dari browser: Rebuild, Full Rebuild, Restart",
+      "refresh-codespaces-browser-github.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOxYcyBbPN-C9uuE7TIR7rRoO1JA9OCZRoXze_Tc87jcbAyPffQkSljn9UiyfLZrZVW33-ItxUUbnrZse-5izb7XYzWGaLnEXhwFIjbStJKPfC1LDcoYIwoMOOVEUyPAcnpCwFTNRiJf1nfU2xYs59sRUq-CkFjHrxxR4mzj317JUK8asTKAYJ8UfBP98/s1600/Copilot_20251006_215118.png",
+      "2025-10-16T23:20:38.202+00:00",
+      "Cheat sheet cara refresh GitHub Codespaces langsung dari browser: Restart, Rebuild Container, Full Rebuild. Plus diagram alur singkat kapan pilih yang mana."
+    ],
+    [
+      "Refresh GitHub Codespaces dari Browser: Rebuild, Full Rebuild, Restart",
+      "refresh-codespaces-browser.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyiGg7d3w67OPfBLHy8OHsY09rMvaxzU1NelbOIshAoMVBNNYyTkHe6qfOJPCQM3bm6jg3EEOAIC980ckSoxFLwCLw3Xm-g6FHekjLS6DbwkwCwCMfhCOIrNX0tfHhyvCjbTx9vV_5rxBMtYvTcbiqPFYtszeXM_XqYAw9qQw95-cK8LJkivmpFEx853c/s1600/Screenshot%20From%202025-10-06%2020-48-01.png",
+      "2025-10-16T23:20:38.202+00:00",
+      "Cheat sheet cara refresh GitHub Codespaces langsung dari browser: Restart, Rebuild Container, Full Rebuild. Plus diagram alur singkat kapan pilih yang mana."
+    ],
+    [
+      "Dilema Pengguna Biasa Pindah ke Linux Tanpa Terminal 🐧",
+      "pindah-ke-linux-tanpa-terminal.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgO_tHGWGURdkubbWYaysqwezM71H5YfHjE1_MX45TXtDXK3EN6P2KVCIOOY2EJ6A_GA585bCNomUAS88X0TQKU5QEHgnQuQm8c1I2Qgi3M2jqk0NMsJ9DKlYxSojfUO33CveDrkGnM7kkeqcKTVvENvvXn9qKcT7CnHzosnqLKqK0mO0ghfQ4GyrpjIks/s1600/softwaremanger.jpg",
+      "2025-10-16T23:20:38.201+00:00",
+      "Membahas transisi pengguna biasa dari Windows ke Linux tanpa harus menyentuh Terminal. Fokus pada pengalaman GUI penuh, aplikasi, dan kenyamanan."
+    ],
+    [
+      "Panduan Lengkap robots.txt untuk SEO: Dari Pemula hingga Mahir",
+      "panduan-robots-txt.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQHqOUt1g5wam4v8EVGW93C7Hr_XDCp305phr2WUKomkd5KQsr8GN9VaGZa-mPXmeWWntAyBcFAp3z9DIKJa4L_sJZS6HYn8Yx4yKx-2bMLmBlRkdRxoIzH8jvnz8aDwUiOstE-dGiU8S_Ay5AtkG1WJLkpaAZgIKesTHnm0JtsRCPy8dCaNFclvQCICk/s1600/robotstxtx.png",
+      "2025-10-16T23:20:38.199+00:00",
+      "Bingung cara membuat file robots.txt yang benar agar blog dikenali Google? Pelajari contoh, sintaks, dan kesalahan umum dalam panduan santai dan lengkap ini."
+    ],
+    [
+      "Apa Itu rel=noreferrer dalam HTML?",
+      "noreferrer.html",
+      "https://frijal.pages.dev/img/noreferrer.webp",
+      "2025-10-16T23:20:38.198+00:00",
+      "Penjelasan lengkap rel=noreferrer dalam HTML: arti, fungsi, perbedaan dengan noopener, kapan digunakan, dampaknya tanpa target=_blank, tabel keputusan cepat, dan contoh flowchart."
+    ],
+    [
+      "Apa Dampaknya rel=\"noreferrer\" Tanpa target=\"_blank\"",
+      "noreferrer-tanpa-target.html",
+      "https://frijal.pages.dev/img/noreferrer-tanpa-target.webp",
+      "2025-10-16T23:20:38.198+00:00",
+      "Penjelasan lengkap dan santai tentang dampak penggunaan rel="
+    ],
+    [
+      "Menolak Data Anda untuk Pelatihan AI Meta: Cara, Hoaks, dan Privasi",
+      "meta-opt-out.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiq7K_ryLz7ORz3JCz-kZT66VfLZa9k6ADP1WTUVNz8BBZ1ejLeDzJZl8OYsUwg6lePQF3ahUAuvt-Jj7r2xTGrHozHdbwKfoXk2B2TN8ugqPn5XcpHyDvuEDQFi2xmO8kKYpV7NNn5z4LW7cMRU7me66vrOg9jZg73XmpDFZxPo3hZHEDnHfQ84_9L8JY/s1600/nsa_facebook_google_mind_control.jpg",
+      "2025-10-16T23:20:38.196+00:00",
+      "Panduan santai menolak penggunaan data publik Anda oleh Meta untuk pelatihan AI, meluruskan hoaks"
+    ],
+    [
+      "Linux vs Windows: Si Transparan dan Si Misterius dalam Dunia Update",
+      "linux-vs-windows-updates.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEje4G0Kejhn9T2u8gLzznStttUUM5qGS8af4r3cjrMtP56Wtgp67a9U0cGchX1IWwbAve7_D_ZLi1a-mCDs2OXK5gpFbdIf7wk1KkIHsvxpPX9KMxgdKctnDNHUjmnO5dSsJ7jAuNguuP4KEO23fDHwwEnNTGDAeDlt3yEnflRtK0ZLn5UUkQyKDanBv6g/s1600/hasil_horizontal_1.jpg",
+      "2025-10-16T23:20:38.191+00:00",
+      "Narasi santai membandingkan pengalaman update dan instalasi antara Linux dan Windows, tentang transparansi, kontrol, dan kenyamanan pengguna."
+    ],
+    [
+      "Kisah Migrasi Software Legal di Kutai Kartanegara | frijal.github.io",
+      "kisah-migrasi-oss-kutai.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1UyeLmW3xXbYWK52wxfAaWeToDtM6BVqNXGyDjNQ2LMtvfVSHZVOk5D3t29vj5NncO6vnF7fZzwBXwtl-mqwcXGBuiuEOBuO2ZEVWS8MfQbMo5uBD-jVHeVjZgWK3b4get9paJmAQAxRU_w4CneNqCnIj-wtGfS0RnEd2Ni11bhgcYKMP0QU-owOo914/s1600/Gemini_Generated_Image_rar5ysrar5ysrar5.png",
+      "2025-10-16T23:20:38.189+00:00",
+      "Cerita seru tentang sosialisasi dan migrasi ke software legal berbasis Open Source Software (OSS) di lingkungan Pemda Kabupaten Kutai Kartanegara pada tahun 2010."
+    ],
+    [
+      "Panduan GitHub CLI Interaktif: Login, Commit, PR, & Issue",
+      "github-cli-guide.html",
+      "https://frijal.pages.dev/img/github-cli-guide.webp",
+      "2025-10-16T23:20:38.184+00:00",
+      "Panduan interaktif GitHub CLI (gh) untuk login, clone repo, commit, push, pull request, branch, dan issue. Lengkap dengan contoh perintah dan diagram visual."
+    ],
+    [
+      "Panduan GitHub CLI Lengkap",
+      "github-cli-lengkap.html",
+      "https://frijal.pages.dev/img/github-cli-lengkap.webp",
+      "2025-10-16T23:20:38.184+00:00",
+      "Panduan interaktif GitHub CLI untuk login, clone repo, commit, push, pull request, branch, issue, fork, merge, release, dan workflow lengkap lainnya. Lengkap dengan diagram dan tombol salin kode."
+    ],
+    [
+      "Petunjuk Penggunaan Cleanup Tools 🪄",
+      "cleanup-tools.html",
+      "https://frijal.pages.dev/img/cleanup-tools.webp",
+      "2025-10-16T23:20:38.178+00:00",
+      "Panduan otomatis membersihkan dependensi Node.js yang tidak digunakan pada repositori GitHub Pages menggunakan skrip cleanup.js."
+    ],
+    [
+      "Cleanup Interaktif Paket Node.js untuk GitHub Pages",
+      "cleanup.html",
+      "https://frijal.pages.dev/thumbnail.webp",
+      "2025-10-16T23:20:38.178+00:00",
+      "Panduan lengkap untuk membersihkan paket Node.js yang tidak terpakai di proyek GitHub Pages menggunakan skrip interaktif berbasis depcheck dan inquirer."
+    ],
+    [
+      "Pembersihan Otomatis Dependencies (Non-Interaktif)",
+      "cleanup-auto.html",
+      "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg",
+      "2025-10-16T23:20:38.178+00:00",
+      "Panduan lengkap menjalankan pembersihan otomatis dependencies dan reinstall Node.js package secara non-interaktif di proyek GitHub Pages menggunakan workflow atau terminal."
+    ],
+    [
+      "Cara Mengaktifkan Branch Protection di GitHub",
+      "cara-aktifkan-branch-protection.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQ370qCptJsD7-fxr6zLl_xT9VpZhvoN8Z-thmLcNfCK-s2VIhdivD7hcTYRVGZwGJPXwkwDGn-1t9OucGSDFdHYUVPI2T7jcEoLwBPjNcvFwl3MURH3N_5ln473zIFTzfLESXX9lDsmxQ7UCrAIUyupi6RVFBGEzwFf8ylVV6s4OaxLqNYhHyYb_w6uk/s1600/maxresdefault.jpg",
+      "2025-10-16T23:20:38.177+00:00",
+      "Panduan lengkap cara mengaktifkan branch protection di GitHub agar semua perubahan wajib melalui Pull Request (PR) dan tidak bisa langsung di-push ke branch utama."
+    ],
+    [
+      "Workflow Otomatis Build & Generate Site Files di GitHub Pages",
+      "build-workflow.html",
+      "https://frijal.pages.dev/thumbnail.webp",
+      "2025-10-16T23:20:38.176+00:00",
+      "Panduan lengkap membuat workflow otomatis untuk membangun dan menghasilkan file situs di GitHub Pages menggunakan YAML dan GitHub Actions."
+    ],
+    [
+      "Belajar Perintah cURL: Cheat Sheet Lengkap untuk Pemula",
+      "belajar-perintah-curl.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-NJHsjiZ8ARDSEOUdSXZ2Wyxf6xh8YfTAD6S4jzM6enz0Z4U_kXFlDeBBtslX5SpZ80GkbLI5A4HqA-rMwilslrCIoREe5jyC70s-mdimAKdnKmknt9yquRHX4wJ6Rsh1dJ1zB-l0KKjpzlsTpNKIKqp0vwea8AgnKOsGuUJ4aBAHCmxQJzNcaa-RUEI/s1600/curl.jpg",
+      "2025-10-16T23:20:38.175+00:00",
+      "Kumpulan contoh perintah cURL lengkap untuk berbagai kebutuhan: GET, POST, download file, dan lainnya. Cheat sheet ini cocok untuk developer, tester, dan siapa saja yang ingin belajar cURL."
+    ],
+    [
+      "Branches di GitHub — Penjelasan Santai, Lengkap, dan Praktis",
+      "branches-di-github.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiJgagKhVJjhVG-p99nyUUn-lSLqSNgjtVJZCQhKUAZRCOCZmRco0VhftpQKeBT_O08in5iw-EQICCvp5oBu8-8-iPQf_om9Qluf3VcdlLdexS_gn9ATl9anRzd58Xp6RWP6vLHGofKCo76K0FtyhGK8Aiw1Ng7KCc74SLcDDdAfFwik7vuRfpv1ZN4YIo/s1600/SHGShgSH.png",
+      "2025-10-16T23:20:38.175+00:00",
+      "Penjelasan santai dan lengkap tentang Branches di GitHub: konsep, fungsi, alur kerja, analogi, serta praktik terbaik."
+    ],
+    [
+      "Pasang 20 Aplikasi Windows Sekaligus dengan Winget",
+      "winget-instal-20-aplikasi.html",
+      "https://frijal.pages.dev/img/winget-instal-20-aplikasi.webp",
+      "2025-10-14T18:15:06.430+00:00",
+      "Winget bikin setup Windows jadi cepat, aman, dan otomatis. Panduan santai + skrip PowerShell untuk memasang 20 aplikasi sekaligus, lengkap dengan tips, ekspor/impor daftar, dan best practice."
+    ],
+    [
+      "Apa Artinya 'Main Branch Isn't Protected' di GitHub?",
+      "main-branch-protection.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQ370qCptJsD7-fxr6zLl_xT9VpZhvoN8Z-thmLcNfCK-s2VIhdivD7hcTYRVGZwGJPXwkwDGn-1t9OucGSDFdHYUVPI2T7jcEoLwBPjNcvFwl3MURH3N_5ln473zIFTzfLESXX9lDsmxQ7UCrAIUyupi6RVFBGEzwFf8ylVV6s4OaxLqNYhHyYb_w6uk/s1600/maxresdefault.jpg",
+      "2025-10-14T18:15:06.406+00:00",
+      "Penjelasan santai tentang arti"
+    ],
+    [
+      "Gemini – Jagoan Terbaik Buat Belajar dan Eksplorasi",
+      "gemini-ai-terbaik.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjT6g_iOZl1Ooh4YIvHTbLTaBiUbW1uBRM8qrsO3kXJtczJ-RrUHsRtuaNVtg6ACEZtFeq3qAI-8Bnv1AiZI6Yqimd4y-0B2G9DNtGBGYYj0KC1bzjfpUAFML_zgmEEXEGXo_vaNRlbMVNjSJBaxFfcpObZDGWzXDq1S4NJVJOfUt_kGZsnHetCCknwbco/s1600/gemini-ai.png",
+      "2025-10-14T18:15:06.393+00:00",
+      "Review Gemini AI, model LLM dari Google yang unggul untuk belajar dan riset. Dengan context window 1 juta token dan fitur NotebookLM, Gemini mempermudah pemahaman dokumen dan pembuatan catatan."
+    ],
+    [
+      "Daftar Lengkap Alternatif Software Open Source Gratis (Versi Tabel)",
+      "daftar-alternatif-windows-linux.html",
+      "https://i.ibb.co/6yqJc3f/open-source-hero.jpg",
+      "2025-10-14T18:15:06.387+00:00",
+      "Nggak perlu bajakan! Temukan daftar lengkap alternatif software gratis dan open source dalam tabel perbandingan untuk menggantikan aplikasi populer seperti Adobe Photoshop, Microsoft Office, dan lainnya."
+    ],
+    [
+      "Cara Memaksa Merge Branch di GitHub Menggunakan GitHub CLI",
+      "github-cli-force-merge.html",
+      "https://frijal.pages.dev/img/github-cli-force-merge.webp",
+      "2025-10-13T21:14:36.044+00:00",
+      "Panduan lengkap untuk memaksa merge branch Git yang belum di-merge menggunakan GitHub CLI (gh). Lengkap dengan opsi admin override, auto merge, dan cara aman mengatasi konflik."
+    ],
+    [
+      "Skrip Otomatis gh-force-clean.sh: Bersihkan Branch Lokal & Remote yang Sudah Di-Merge",
+      "gh-force-clean.html",
+      "https://frijal.pages.dev/img/gh-force-clean.webp",
+      "2025-10-13T21:14:36.042+00:00",
+      "Panduan membuat skrip otomatis gh-force-clean.sh untuk membersihkan branch Git yang sudah di-merge, baik lokal maupun remote. Lengkap dengan opsi dry-run, auto, dan base branch."
+    ],
+    [
+      "Skrip Otomatis gh-force-merge.sh: Merge & Fallback Otomatis via GitHub CLI",
+      "gh-force-merge.html",
+      "https://frijal.pages.dev/img/gh-force-merge.webp",
+      "2025-10-13T21:14:36.042+00:00",
+      "Panduan membuat skrip otomatis gh-force-merge.sh untuk memaksa merge branch GitHub dengan GitHub CLI (gh). Lengkap dengan deteksi PR, opsi --dry-run, --auto, dan fallback admin-squash."
+    ],
+    [
+      "Paket gh-force-tools: Otomatisasi Merge & Clean Branch GitHub",
+      "gh-force-tools-index.html",
+      "https://frijal.pages.dev/img/gh-force-tools-index.webp",
+      "2025-10-13T21:14:36.042+00:00",
+      "Kumpulan skrip otomatis gh-force-tools untuk GitHub CLI: gh-force-merge.sh dan gh-force-clean.sh. Lengkap dengan fitur dry-run, auto mode, dan dukungan CI/CD."
+    ],
+    [
+      "Cara Mengetahui Branch Git yang Sudah Di-Merge dan Tidak Dipakai Lagi",
+      "git-cek-branch-merged.html",
+      "https://frijal.pages.dev/img/git-cek-branch-merged.webp",
+      "2025-10-13T21:14:36.042+00:00",
+      "Panduan lengkap untuk mengetahui branch Git yang sudah di-merge dan tidak dipakai lagi. Lengkap dengan perintah git, contoh, dan tips membersihkan branch lama secara aman."
+    ],
+    [
+      "Skrip Otomatis Bersihkan Branch Git yang Sudah Di-Merge",
+      "git-clean-merged-branches.html",
+      "https://frijal.pages.dev/img/git-clean-merged-branches.webp",
+      "2025-10-13T21:14:36.042+00:00",
+      "Skrip bash otomatis untuk menampilkan dan menghapus branch Git yang sudah di-merge, dengan opsi --dry-run dan --auto. Aman, interaktif, dan bisa bersihkan lokal & remote sekaligus."
+    ],
+    [
+      "Timeline Evolusi Browser Engine: Dari KHTML ke Blink",
+      "evolusi-browser-engine.html",
+      "https://frijal.pages.dev/img/evolusi-browser-engine.webp",
+      "2025-10-13T21:14:36.020+00:00",
+      "Jelajahi sejarah singkat mesin browser modern! Lihat bagaimana KHTML melahirkan WebKit, yang kemudian menjadi dasar bagi Chromium dan akhirnya Blink. Timeline interaktif dan seru!"
+    ],
+    [
+      "Evolusi Mesin Browser: Garis Keturunan HTML Rendering Engine",
+      "evolusi-mesin-browser.html",
+      "https://frijal.pages.dev/img/evolusi-mesin-browser.webp",
+      "2025-10-13T21:14:36.020+00:00",
+      "Diagram interaktif yang menggambarkan evolusi mesin browser dari KHTML, WebKit, Chromium hingga Blink dengan panah dan tooltip penjelasan."
+    ],
+    [
+      "Manajer Kata Sandi Firefox: Penjaga Rahasia Digitalmu",
+      "manajer-kata-sandi-firefox.html",
+      "https://frijal.pages.dev/img/manajer-kata-sandi-firefox.webp",
+      "2025-10-12T12:28:39.584+00:00",
+      "Ketahui lebih dalam tentang Manajer Kata Sandi bawaan Firefox. Simpan, kelola, dan amankan semua kata sandi kamu dengan mudah di desktop maupun di semua perangkat. Temukan cara mengaktifkan Kata Sandi Utama dan sinkronisasi akun."
+    ],
+    [
+      "Perbaiki Error “cannot run ssh” di Git — Windows CMD & PowerShell",
+      "fix-git-ssh-windows.html",
+      "https://frijal.pages.dev/img/fix-git-ssh-windows.webp",
+      "2025-10-12T04:53:51.215+00:00",
+      "Panduan memperbaiki error Git"
+    ],
+    [
+      "Panduan Lengkap: Perbaiki “cannot run ssh” di Git (Semua Platform)",
+      "fix-git-ssh-index.html",
+      "https://frijal.pages.dev/img/fix-git-ssh-slackware.webp",
+      "2025-10-12T04:53:51.214+00:00",
+      "Panduan lintas platform memperbaiki error Git"
+    ],
+    [
+      "Perbaiki Error “cannot run ssh” di Git — macOS",
+      "fix-git-ssh-macos.html",
+      "https://frijal.pages.dev/img/fix-git-ssh-macos.webp",
+      "2025-10-12T04:53:51.214+00:00",
+      "Panduan lengkap memperbaiki error Git"
+    ],
+    [
+      "Cleanup Series – Manajemen Dependensi Otomatis GitHub Pages",
+      "cleanup-series.html",
+      "https://frijal.pages.dev/img/cleanup-series.webp",
+      "2025-10-09T00:31:25.606+00:00",
+      "Seri artikel tentang cara membersihkan dan mengoptimalkan dependensi Node.js di GitHub Pages menggunakan skrip cleanup.js dan cleanup-auto.js."
+    ],
+    [
+      "Perbandingan cleanup.js vs cleanup-auto.js",
+      "cleanup-comparison.html",
+      "https://frijal.pages.dev/img/cleanup-comparison.webp",
+      "2025-10-09T00:31:25.605+00:00",
+      "Perbandingan antara cleanup.js interaktif dan cleanup-auto.js otomatis untuk manajemen dependensi Node.js di GitHub Pages."
+    ],
+    [
+      "Manajemen Dependencies Node.js",
+      "cleanup-dependencies.html",
+      "https://frijal.pages.dev/img/cleanup-dependencies.webp",
+      "2025-10-09T00:31:25.605+00:00",
+      "Panduan lengkap membersihkan dan mengelola dependencies Node.js pada proyek GitHub Pages menggunakan cleanup.js dan cleanup-auto.js."
+    ],
+    [
+      "Pembersih Paket Otomatis GitHub Pages",
+      "cleanup-doc.html",
+      "https://frijal.pages.dev/img/cleanup-doc.webp",
+      "2025-10-09T00:31:25.605+00:00",
+      "Panduan lengkap dan skrip siap pakai untuk membersihkan dependensi Node.js yang tidak terpakai di proyek GitHub Pages menggunakan depcheck."
+    ],
+    [
+      "🪄 Petunjuk Penggunaan Cleanup Script",
+      "cleanup-guide.html",
+      "https://frijal.pages.dev/img/cleanup-guide.webp",
+      "2025-10-09T00:31:25.605+00:00",
+      "Panduan lengkap cara menggunakan skrip cleanup.js untuk menghapus dependensi Node.js yang tidak terpakai di proyek GitHub Pages, lengkap dengan reset node_modules dan reinstal otomatis."
+    ],
+    [
+      "Mengapa Banyak Branch di Repo GitHub?",
+      "mengapa-banyak-branch.html",
+      "https://frijal.pages.dev/img/mengapa-banyak-branch.webp",
+      "2025-10-07T00:02:59.162+00:00",
+      "Penjelasan santai kenapa repo GitHub bisa punya banyak branch. Dibahas dengan gaya ringan, interaktif, dark-mode, responsif, plus galeri, lightbox, ikon sharing, komentar Facebook, dan deteksi browser/OS/lokasi."
+    ],
+    [
+      "Perplexity AI – Riset Topik Terkini Jadi Gampang",
+      "perplexity-ai-riset-terkini.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0XrBjBQtc_dVe4TlJdGu_sdpxKtaiXitrXiIEw3S2dO1GqBLum6w2gDnGK9k8HuqPsSl_7A5jt0PZGENeq37uR0XYHADfP00FJGULlUuHGMUtZ1UdatiJYghRJOrwWeWf3gKIgijjirA0racAtPmCv61A3KsIj5dQIhjXDZMvcoOPKrlG5lkHXrVI8iI/s1600/perplexityes.png",
+      "2025-10-06T06:06:53.388+00:00",
+      "Review Perplexity AI, chatbot yang berfungsi sebagai mesin pencari canggih. Dapatkan informasi terkini dari web secara langsung, lengkap dengan sumber dan sitasi yang jelas."
+    ],
+    [
+      "Claude – AI Jagoan Buat Coding dan Matematika",
+      "claude-ai-terbaik.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgK5ydH9pJ1GayVywJNImQDcbuTIC3QBtcAW045ZOBczjn9Mj44HJmttQBfUiTZeoIS9011xtiPRCzVGNqaITPM4t8OsIWxBFvQVkejMDMs9uTn9AA4qRqGMPbYgK_ZclGY-1m57izLDXWLrF2paABsWi5Mtp-CtAMjSYmxOye1Z-Wy2bw-rDr4TiShRl8/s1600/claude-ai.png",
+      "2025-10-06T06:06:53.236+00:00",
+      "Review Claude AI, chatbot yang unggul dalam penalaran terstruktur. Sangat cocok untuk software development, matematika, dan tugas STEM, serta bisa terhubung dengan tool produktivitasmu."
+    ],
+    [
+      "ChatGPT – AI Chatbot Paling Asyik dan Serbaguna",
+      "chatgpt-terbaik-umum.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEixJG3kWuEgLqPIqZrOvcR6PC-i-wa19ViIdqtvpJJQGjSG6ponPSX0OZZzwbcfe-gAKrLj1-Qhx9HvLYicgdaPfDnrEl_Ucg5e1xaASkpa97UdGHhILbQDH0OmUErWdM3t2yle54RKDfEpYV4PWpzqthG16F4cwAmYExI71BDMJJsyb6EDfkJUGU6NgQw/s1600/chtgpt.png",
+      "2025-10-06T06:06:53.235+00:00",
+      "Review lengkap ChatGPT, AI chatbot serbaguna dari OpenAI. Punya kemampuan adaptasi luar biasa, bisa dipersonalisasi, dan cocok untuk berbagai kebutuhan, dari tugas sampai ngobrol santai."
+    ],
+    [
+      "Jangan Cuma Andalkan Satu AI, Manfaatkan Kelebihan Masing-Masing!",
+      "jangan-andalkan-satu-ai.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEixJG3kWuEgLqPIqZrOvcR6PC-i-wa19ViIdqtvpJJQGjSG6ponPSX0OZZzwbcfe-gAKrLj1-Qhx9HvLYicgdaPfDnrEl_Ucg5e1xaASkpa97UdGHhILbQDH0OmUErWdM3t2yle54RKDfEpYV4PWpzqthG16F4cwAmYExI71BDMJJsyb6EDfkJUGU6NgQw/s1600/chtgpt.png",
+      "2025-10-06T06:06:53.000+00:00",
+      "Jangan menaruh semua telur dalam satu keranjang, terutama saat menggunakan AI. Setiap chatbot LLM punya kelebihan dan kekurangan. Pelajari cara memaksimalkan produktivitas dengan menggunakan AI yang tepat untuk tugas yang tepat."
+    ],
+    [
+      "Panduan pakai banyak AI chatbot",
+      "jangan-taruh-semua-telur-satu-keranjang.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEixJG3kWuEgLqPIqZrOvcR6PC-i-wa19ViIdqtvpJJQGjSG6ponPSX0OZZzwbcfe-gAKrLj1-Qhx9HvLYicgdaPfDnrEl_Ucg5e1xaASkpa97UdGHhILbQDH0OmUErWdM3t2yle54RKDfEpYV4PWpzqthG16F4cwAmYExI71BDMJJsyb6EDfkJUGU6NgQw/s1600/chtgpt.png",
+      "2025-10-06T00:41:00.000+00:00",
+      "Jangan bergantung ke satu AI chatbot saja. Tiap LLM punya kekuatan dan kelemahan. Halaman 1 kolom dark-mode, responsif, widescreen, mobile-friendly, dengan SEO lengkap, galeri, lightbox, share, komentar Facebook, dan deteksi perangkat/IP."
+    ],
+    [
+      "Tren AI di Masa Depan dan Nasib UMKM",
+      "tren-masa-depan-ai-umkm.html",
+      "https://frijal.pages.dev/img/tren-masa-depan-ai-umkm.webp",
+      "2025-10-04T15:37:18.280+00:00",
+      "Masa depan sudah tiba! Pelajari tren AI seperti analitik prediktif dan pemasaran personal yang akan mengubah cara UMKM berbisnis dan jadi bekal penting untuk karier pelajar."
+    ],
+    [
+      "Tools AI Canggih untuk UMKM Naik Kelas",
+      "tools-ai-untuk-umkm.html",
+      "https://frijal.pages.dev/img/tools-ai-untuk-umkm.webp",
+      "2025-10-04T15:37:18.279+00:00",
+      "AI bukan lagi cuma buat perusahaan raksasa. Pelajari 10 tools AI yang bisa bantu UMKM dan pelajar untuk tumbuh dan bekerja lebih efisien, dari marketing sampai layanan pelanggan."
+    ],
+    [
+      "Tidio: Chatbot Cerdas untuk Layanan Pelanggan 24/7",
+      "tidio-chatbot-ai.html",
+      "https://frijal.pages.dev/img/tidio-chatbot-ai.webp",
+      "2025-10-04T15:37:18.278+00:00",
+      "Punya toko online tapi capek balas chat? Kenali Tidio, chatbot AI yang bisa jawab pertanyaan, kasih rekomendasi produk, dan jaga tokomu tetap responsif 24 jam."
+    ],
+    [
+      "QuickBooks AI: Asisten Keuangan Cerdas untuk UMKM",
+      "quickbooks-ai-keuangan-umkm.html",
+      "https://frijal.pages.dev/img/quickbooks-ai-keuangan-umkm.webp",
+      "2025-10-04T15:37:18.238+00:00",
+      "Pusing urus keuangan? Kenali QuickBooks AI, asisten cerdas yang otomatis melacak pengeluaran, bikin laporan, dan hitung pajak. Cocok untuk UMKM dan pelajar."
+    ],
+    [
+      "Peran AI dalam Membantu UMKM Bersaing di Pasar Modern",
+      "peran-ai-bantu-umkm-bersaing.html",
+      "https://frijal.pages.dev/img/peran-ai-bantu-umkm-bersaing.webp",
+      "2025-10-04T15:37:18.225+00:00",
+      "AI bukan lagi cuma buat perusahaan besar. Pelajari bagaimana AI bisa jadi senjata rahasia UMKM untuk otomatisasi, hemat waktu, dan bersaing dengan korporasi raksasa."
+    ],
+    [
+      "Panduan Lengkap: Membuat Skrip Otomatis untuk Memperbaiki HTML",
+      "panduan-skrip-fix-html.html",
+      "https://frijal.pages.dev/img/panduan-skrip-fix-html.webp",
+      "2025-10-04T15:37:18.219+00:00",
+      "Tutorial lengkap langkah demi langkah untuk membuat skrip Python dengan BeautifulSoup guna memperbaiki error HTML umum secara otomatis, termasuk mengatasi masalah instalasi di Linux."
+    ],
+    [
+      "Notion AI: Partner Produktivitas Cerdas untuk Semua Kalangan",
+      "notion-ai-productivity-partner.html",
+      "https://frijal.pages.dev/img/notion-ai-productivity-partner.webp",
+      "2025-10-04T15:37:18.212+00:00",
+      "Kewalahan antara tugas kuliah dan bisnis? Kenali Notion AI, partner cerdas yang menggabungkan catatan, manajemen proyek, dan AI writer dalam satu aplikasi."
+    ],
+    [
+      "Jasper AI: Mesin Penulis Konten Super Cepat",
+      "jasper-ai-content-writer.html",
+      "https://frijal.pages.dev/img/jasper-ai-content-writer.webp",
+      "2025-10-04T15:37:18.137+00:00",
+      "Suka nulis tapi sering mentok? Kenali Jasper AI, rekan kerja virtual yang bisa menulis artikel, caption, dan email marketing SEO-friendly dalam sekejap."
+    ],
+    [
+      "Grammarly: Nulis Keren dan Profesional Pakai Bantuan AI",
+      "grammarly-ai-writing-assistant.html",
+      "https://frijal.pages.dev/img/grammarly-ai-writing-assistant.webp",
+      "2025-10-04T15:37:18.114+00:00",
+      "Komunikasi adalah kunci. Pelajari bagaimana Grammarly membantu UMKM dan pelajar menulis proposal, email, dan konten media sosial dengan jelas, profesional, dan bebas typo."
+    ],
+    [
+      "Gemini AI: Asisten Virtual Serbaguna untuk UMKM & Pelajar",
+      "gemini-asisten-virtual-umkm.html",
+      "https://frijal.pages.dev/img/gemini-asisten-virtual-umkm.webp",
+      "2025-10-04T15:37:18.109+00:00",
+      "Kenali Gemini, tool AI serbaguna yang bisa jadi asisten virtualmu. Dari bikin konten marketing sampai brainstorming ide bisnis, Gemini siap bantu UMKM dan pelajar untuk lebih produktif."
+    ],
+    [
+      "Pertanyaan Umum tentang AI untuk UMKM",
+      "faq-ai-umkm.html",
+      "https://frijal.pages.dev/img/faq-ai-umkm.webp",
+      "2025-10-04T15:37:18.098+00:00",
+      "Masih bingung soal AI untuk bisnis? Temukan jawaban atas pertanyaan umum apakah AI itu mahal, sulit dipakai, atau bisa menggantikan manusia di dunia UMKM."
+    ],
+    [
+      "Copy.ai: Bikin Konten Iklan yang Menjual dalam Sekejap",
+      "copy-ai-konten-otomatis.html",
+      "https://frijal.pages.dev/img/copy-ai-konten-otomatis.webp",
+      "2025-10-04T15:37:18.088+00:00",
+      "Habis waktu mikirin caption? Kenali Copy.ai, tool AI yang bisa membuat teks iklan, deskripsi produk, dan postingan media sosial yang persuasif hanya dalam hitungan detik."
+    ],
+    [
+      "ChatGPT: Asisten Virtual Serbaguna untuk UMKM & Pelajar",
+      "chatgpt-asisten-virtual-umkm.html",
+      "https://frijal.pages.dev/img/chatgpt-asisten-virtual-umkm.webp",
+      "2025-10-04T15:37:18.085+00:00",
+      "Kenali ChatGPT, tool AI serbaguna yang bisa jadi asisten virtualmu. Dari bikin konten marketing sampai brainstorming ide bisnis, ChatGPT siap bantu UMKM dan pelajar untuk lebih produktif."
+    ],
+    [
+      "Dampak Akibat rel=noreferrer Tanpa target=_blank",
+      "noreferrer-tanpa-target-blank.html",
+      "https://frijal.pages.dev/img/noreferrer-tanpa-target-blank.webp",
+      "2025-10-02T03:00:00.000+00:00",
+      "Penjelasan lengkap dan santai tentang dampak penggunaan rel="
+    ],
+    [
+      "Apa Bedanya target =_blank dengan target =''?",
+      "target-blank-vs-empty.html",
+      "https://frijal.pages.dev/img/target-blank-vs-empty.webp",
+      "2025-10-02T03:00:00.000+00:00",
+      "Penjelasan lengkap tentang perbedaan target="
+    ],
+    [
+      "GitHub Apakah main branch yang tidak protected itu berbahaya? (Jawaban santai tapi lengkap)",
+      "main-branch-unprotected.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQ370qCptJsD7-fxr6zLl_xT9VpZhvoN8Z-thmLcNfCK-s2VIhdivD7hcTYRVGZwGJPXwkwDGn-1t9OucGSDFdHYUVPI2T7jcEoLwBPjNcvFwl3MURH3N_5ln473zIFTzfLESXX9lDsmxQ7UCrAIUyupi6RVFBGEzwFf8ylVV6s4OaxLqNYhHyYb_w6uk/s1600/maxresdefault.jpg",
+      "2025-09-24T06:11:00.000+00:00",
+      "Apakah main branch yang tidak protected berarti semua orang bisa mengubah atau menghapus isi repo? Jawaban singkat: tidak. Penjelasan lengkap tentang hak akses, branch protection, dan best practice."
+    ],
+    [
+      "GitHub Badges Markdown 200+ | Copy-ready Markdown",
+      "github-badges.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjR17eLccx3eRqm0xttxHSpr0_j_UpeNAiSqTjFHAOzhhEvK70mWa1uWT7IQ8iXx7rokPpOu9lc-qUcZQFAcVQpx5eoxZ1nWaWKowdtFiGpYoW9vUH2t9fiZRl5o6gF2116RYebCk6_KqbzG0TEh5ZcjvVdXfGqWONjbeLjecK1b7MQd6RvJZI_hrLZdQs/s1600/githubbadges.jpg",
+      "2025-09-20T03:00:00.000+00:00",
+      "Halaman berisi 200+ GitHub badges dengan format Markdown siap copy. Badge dikelompokkan per kategori, log interaktif, dan mobile-friendly."
+    ],
+    [
+      "EULA (End User License Agreement) - Panduan Lengkap Memahami Lisensi Perangkat Lunak",
+      "eula-guide.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQziDXtrcs4LjhjcsJFfNdR6VHWcdpMoa2CdnSq3CilHewNoHhyphenhyphenZL6eX7d4lGDhAs26TKRKzPDGGKX2dZRJSVxY8pO1x0l-ojQJfxw9jKe7sRAgBlwVpN5b4qRgs5mX_5OjuwOoL9UCLIx/s16000/hahahaaa_24xacehuqy.jpg",
+      "2025-09-16T03:00:00.000+00:00",
+      "Panduan lengkap memahami EULA (End User License Agreement) - Perjanjian lisensi perangkat lunak yang harus dipahami pengguna Windows dan software lainnya."
+    ],
+    [
+      "Mengatasi Error Private Email di GitHub: Panduan Konfigurasi Noreply",
+      "konfigurasi-git-email-noreply.html",
+      "https://frijal.pages.dev/img/konfigurasi-git-email-noreply.webp",
+      "2025-09-16T03:00:00.000+00:00",
+      "Stuck karena error"
+    ],
+    [
+      "Membongkar Misteri Ikon di Log GitHub Actions - Panduan Lengkap",
+      "memahami-ikon-github-actions.html",
+      "https://frijal.pages.dev/img/memahami-ikon-github-actions.webp",
+      "2025-09-16T03:00:00.000+00:00",
+      "Pernah bingung dengan arti ikon centang hijau, silang merah, atau lingkaran biru di log GitHub Actions? Artikel ini membahas tuntas arti setiap ikon secara santai dan mudah dipahami."
+    ],
+    [
+      "npm audit Menemukan Vulnerability 'High'? Jangan Panik, Ini Penjelasannya!",
+      "memahami-npm-audit-vulnerability.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiq7uS9B8rXgFmpdZnYUH2uaI8vPG4SRnePhk3bO79VUt2_MpVgpV-irC_ziU-jO4wmooQEk5Iqeh4JtC9i6iN-O7llA980V8qViZyE5G8UpNuFwKT2ZBI-1Mb00dXyWghOU9PyoWbp_VWv7MLfSgYGnU0WucbM8RtEPFYNn9_yAagMAyhL9DgjAtITvUc/s1600/redos.png",
+      "2025-09-16T03:00:00.000+00:00",
+      "Mendapat laporan kerentanan (vulnerability) high severity dari npm audit seperti ReDoS? Panduan lengkap ini menjelaskan artinya, risikonya, dan apa yang harus dilakukan."
+    ],
+    [
+      "Error 'Non-Fast-Forward' Saat git push? Ini Penjelasan dan Solusinya!",
+      "mengatasi-error-git-push-non-fast-forward.html",
+      "https://frijal.pages.dev/img/mengatasi-error-git-push-non-fast-forward.webp",
+      "2025-09-16T03:00:00.000+00:00",
+      "Panduan lengkap dan mudah dipahami untuk mengatasi error"
+    ],
+    [
+      "Refresh Desktop Windows: Mengapa Pengguna Sering Klik Kanan",
+      "refresh-desktop.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWMVGpKbdPGNGhU96tKmwGCUI1XcAcTCvZCnImVjijSZ4DNkCW8F3kRXLRxNlvvbO3MKbk4yh-jDn5zGrJT-xAe4E6KOJuYTet-PxaBdCNnOZ-DDhXJ3Pf858LpWN1h_kk6hgYpoOWiZBL/s16000/windows.jpg",
+      "2025-09-16T03:00:00.000+00:00",
+      "Artikel ini menjelaskan kebiasaan pengguna komputer yang sering melakukan"
+    ],
+    [
+      "Mengatasi Git Merge Conflict dengan Santai",
+      "git-merge-conflict.html",
+      "https://frijal.pages.dev/img/git-merge-conflict.webp",
+      "2025-09-14T03:00:00.000+00:00",
+      "Panduan lengkap mengatasi git merge conflict di branch main dengan penjelasan santai, responsif, dan mudah dipahami."
+    ],
+    [
+      "Git Fetch vs Pull: Cara Aman Update Repo Lokal Tanpa Kehilangan Perubahan",
+      "git-fetch-vs-pull.html",
+      "https://frijal.pages.dev/img/git-fetch-vs-pull.webp",
+      "2025-09-14T03:00:00.000+00:00",
+      "Panduan lengkap dan detail untuk memperbarui repository Git lokal Anda dengan aman menggunakan git fetch dan git stash, menghindari konflik dan perubahan tak terduga dari git pull."
+    ],
+    [
+      "Optimasi Windows 11 untuk CPU Lawas",
+      "Windows-11-lebih-ringan-untuk-CPU-lawas.html",
+      "https://frijal.pages.dev/img/Windows-11-lebih-ringan-untuk-CPU-lawas.webp",
+      "2025-09-13T03:00:00.000+00:00",
+      "Cara membuat Windows 11 berjalan lebih ringan dan cepat di komputer dengan CPU lawas. Ikuti langkah optimasi mudah untuk meningkatkan performa."
+    ],
+    [
+      "Wine: Si Penerjemah Ajaib, Bukan Emulator (Dan Kenapa Itu Penting!)",
+      "wine-bukan-emulator.html",
+      "https://frijal.pages.dev/img/wine-bukan-emulator.webp",
+      "2025-07-15T03:30:00.000+00:00",
+      "Pahami kenapa Wine bukan emulator. Ia adalah compatibility layer yang menjembatani dunia Windows dan POSIX—lebih ringan, mulus, dan penuh peluang."
+    ],
+    [
+      "Peramban web ringan terbaik untuk Linux mudah, cepat, tetap kompatibel",
+      "peramban-ringan-linux-terbaik.html",
+      "https://img.youtube.com/vi/1QW72jFLkis/hqdefault.jpg",
+      "2023-01-01T01:00:00.000+00:00",
+      "Alternatif peramban web ringan untuk Linux: ukuran kecil, hemat RAM/CPU, tetap mudah dipakai dan merender situs dengan benar. Tonton videonya dan mulai jelajah lebih enteng."
+    ],
+    [
+      "Pengecekan & Laporan Konten Harian - Otomasi GitHub Actions 🔆",
+      "pengecekan-dan-laporan-konten-harian.html",
+      "https://frijal.pages.dev/img/pengecekan-dan-laporan-konten-harian.webp",
+      "2025-10-22T11:53:56.642+00:00",
+      "Workflow GitHub Actions otomatis untuk membersihkan gambar orphan, menghitung jumlah artikel dan cover WebP, serta membuat laporan konten harian di GitHub Pages."
+    ],
+    [
+      "Pengecekan & Laporan Konten Harian — GitHub Actions 🔆",
+      "pengecekan-laporan-konten-harian.html",
+      "https://frijal.pages.dev/img/pengecekan-laporan-konten-harian.webp",
+      "2025-10-22T11:53:56.642+00:00",
+      "Workflow GitHub Actions untuk otomatis membersihkan gambar orphan dan membuat laporan konten harian di frijal.pages.dev. Dilengkapi penjelasan lengkap dan kode siap pakai."
+    ],
+    [
+      "Workflow Cerdas: Satu Job untuk Semua Tugas Perawatan Harian",
+      "optimasi-workflow-harian-github-actions.html",
+      "https://frijal.pages.dev/img/optimasi-workflow-harian-github-actions.webp",
+      "2025-10-22T11:53:56.641+00:00",
+      "Tutorial cara mengoptimalkan workflow GitHub Actions dengan menggabungkan beberapa job (screenshots, cleanup, reporting) menjadi satu job tunggal yang efisien dan atomik."
+    ],
+    [
+      "Cara Kerja Git: Branch \"Pasif\" & Main Branch \"Memanggil\"",
+      "git-passive-branch-merge.html",
+      "https://frijal.pages.dev/img/git-passive-branch-merge.webp",
+      "2025-10-22T11:53:56.622+00:00",
+      "Tutorial Git santai tentang cara kerja branch pasif (anak branch) yang tidak minta merge, dan main branch yang aktif memanggil perubahan. Pahami alur kerja Git mendasar."
+    ],
+    [
+      "Cara Mengecilkan Ukuran Repo Git Lokal (Bye Bye node_modules!)",
+      "git-repo-size-reduction.html",
+      "https://frijal.pages.dev/img/git-repo-size-reduction.webp",
+      "2025-10-22T11:53:56.623+00:00",
+      "Tutorial lengkap dan santai cara membuat ukuran repositori Git lokal menjadi kecil dengan mengabaikan dan membersihkan folder node_modules dari riwayat commit."
+    ],
+    [
+      "Build and Deploy to Clean Branch — Alur Dibalik + Cek Perubahan Sebelum rsync ⚠️",
+      "build-deploy-clean-branch.html",
+      "https://frijal.pages.dev/img/build-deploy-clean-branch.webp",
+      "2025-10-22T11:53:56.613+00:00",
+      "Workflow GitHub Actions yang membalik alur: cek perubahan terlebih dulu di daftar file terizinkan, baru jalankan rsync dan deploy ke branch site. Dengan penjelasan santai, opsi logging, dan contoh YAML siap pakai."
+    ]
+  ],
   "🐧 Linux & Open Source": [
     [
       "Sosialisasi Open Source Software di Kutai Kartanegara | Kementerian Riset dan Teknologi",
@@ -496,13 +1191,6 @@
       "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcZze1B8effjBgy9jbK3ucLENi40tQeX0NRovwwuTQ78TTDM5L1ai2IonB-N-Ms7W2t1ZCURYFCYa_u7kR1Ymotd6hhDPvK5R8dtwqBfqOYEaLrfqGq1GxERW-dSSn61DbmAhfORxhnGJp/s1600/instalasiselesai.png",
       "2025-10-14T18:15:06.390+00:00",
       "Baru update Fedora 15 dan modem USB gak konek? Ini cara santai tapi tuntas memperbaiki bug NetworkManager versi gnome-0.8.999.3.git20110526 di Fedora 15, lengkap dengan langkah terminal, tautan RPM, dan tips aman."
-    ],
-    [
-      "Biskuit Linux: Camilan Unik dengan Nama OS Populer",
-      "biskuit-linux.html",
-      "https://frijal.pages.dev/img/biskuit-linux.webp",
-      "2025-10-14T18:15:06.383+00:00",
-      "Tahukah Anda ada camilan berupa biskuit dengan merek Linux? Simak ulasan unik dan menarik seputar biskuit ini beserta gambar-gambarnya."
     ],
     [
       "Apa Itu PKGBUILD? Memahami File Resep Rahasia di Arch Linux dan AUR",
@@ -1100,181 +1788,111 @@
       "Panduan mudah memperbaiki sinyal WiFi lemah pada adapter Realtek di Linux menggunakan beberapa perintah sederhana di terminal."
     ]
   ],
-  "🍜 Kuliner, Gaya Hidup & Kesehatan": [
+  "🔆 Lainnya": [
     [
-      "Sulit Buang Air Besar (Sembelit) — Penyebab, Cara Mengatasi & Pencegahan",
-      "sembelit.html",
-      "https://frijal.pages.dev/img/sembelit.webp",
-      "2025-10-18T06:42:10.055+00:00",
-      "Panduan ringkas dan santai tentang penyebab sulit buang air besar (sembelit), cara aman mengatasinya di rumah, kapan harus ke dokter, dan tips pencegahan."
+      "Tips Cooling Laptop AMD",
+      "tips-cooling-laptop-amd.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiVBY-3DKVAoxkQ6cErt9ZqKUaX0cr5rof0CJwaivsuFICz6U8Mb-N2TpZJJOVhxNLfT6iY9J4aDt7_jCCaS87SEmvzDCtnoA_Pf2xlnGgATw2fnHHZS_yhSLsPBS5aHiyseLhuJF7e4Vul/s1600/kipas2.jpg",
+      "2025-10-18T00:31:19.968+00:00",
+      "Panduan menjaga laptop AMD tetap dingin dengan metode sederhana menggunakan kipas box dan tips perawatan. Cocok untuk pengguna yang aktif menggunakan laptop berjam-jam."
     ],
     [
-      "Bahaya Menggunakan Sikat Gigi untuk Mengaduk Minuman",
-      "sikat-gigi-aduk.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzswtddIeRYMjOfMQVFSH1xeExCjZzO2739dtTmDz_dR3L752lseXIEEw9gy-O9aU10vinbFb5Fo4nASYr7DNpTHxH79tFV5n4fhY4yQ72GQ9_bjDwb_GguPrQF9KsamzS9-0NLzx5Sxj43Lw9DAK-OjRqa3D0pu74r33tR4upx3yJOvxIzfiwg4u5bYE/s1600/sikat-gigi-aduk.jpg",
-      "2025-10-18T00:31:19.965+00:00",
-      "Kenapa sikat gigi tidak boleh digunakan untuk mengaduk minuman? Simak penjelasan masalah kesehatan, kebersihan, serta alternatif yang lebih aman."
-    ],
-    [
-      "Produk Dairy & Alternatif Non-Dairy untuk Kopi Susu",
-      "produk-dairy-dan-alternatif.html",
-      "https://frijal.pages.dev/img/produk-dairy-dan-alternatif.webp",
-      "2025-10-18T00:31:19.962+00:00",
-      "Penjelasan santai tentang pengaruh produk dairy terhadap pencernaan dan frekuensi buang air besar, serta berbagai alternatif susu non-dairy untuk kopi susu yang lebih ringan dan sehat."
-    ],
-    [
-      "Sakit Kepala? Jangan Buru-Buru Minum Obat, Coba Pijat Relaksasi Ini!",
-      "pijat-sakit-kepala.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimOPCZ0reQuY_6QTC63V_fsSBK5psMYaH_A1kADCtULkoHermpGjvxhN_9R7i4UFQiUqgEexBDCJZ93nPvq5j0EoHNuCC_Cr4CVmH5JIBwSWkx83zPE8NUwMl47XOAOAMMkQGvt6C-ogmA/s1600/pijat1.jpg",
-      "2025-10-18T00:31:19.961+00:00",
-      "Cara mudah dan efektif meredakan sakit kepala dan ketegangan dengan teknik pijat sederhana yang bisa kamu lakukan sambil duduk di depan komputer."
-    ],
-    [
-      "Pola Hidup Sehat untuk Usus yang Bahagia",
-      "pola-hidup-sehat-untuk-usus.html",
-      "https://frijal.pages.dev/img/pola-hidup-sehat-untuk-usus.webp",
-      "2025-10-18T00:31:19.961+00:00",
-      "Panduan gaya hidup sehat untuk menjaga usus tetap bahagia dan sistem pencernaan berfungsi optimal."
-    ],
-    [
-      "Renungan Niat: Menjadi Pegawai Negeri atau Pengusaha?",
-      "niat-cpns.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmTF0M6TQTCadeEeVq8CqaSE_AoZ4Vo3NJdpmhSfKjeVTQeMTZmlUMp4WCk2D2AlvbZuS0ysHaL2FKgOaVaejGnGUPGVp_B2veq14dffr9BH3gIKOERkinXGoqnBY3f3HhkQLyMO5_qIke/s1600/Info+Penerima+CPNS+Terbaru+2013.jpg",
-      "2025-10-18T00:31:19.957+00:00",
-      "Kisah inspiratif tentang seorang ayah yang membimbing anaknya untuk merenungkan niatnya sebelum menjadi pegawai negeri, mengajarkan arti pengabdian dan perjuangan."
-    ],
-    [
-      "Minuman yang Membantu Melancarkan Pencernaan",
-      "minuman-bantu-pencernaan.html",
-      "https://frijal.pages.dev/img/minuman-bantu-pencernaan.webp",
-      "2025-10-18T00:31:19.956+00:00",
-      "Daftar minuman alami yang membantu melancarkan pencernaan dan buang air besar, lengkap dengan manfaat dan tips konsumsi sehari-hari."
-    ],
-    [
-      "Metode Wanita",
-      "metode-wanita.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqsGvA6h5GpXtlRm-xO3oNtemgYUU1_vnoBApmWIlok4aMkzOVMuRxCiyflHZdTfvrd9TAvXD2Xm0rIE98VrWMh_Y-9l_tMgfXO6lgH8doZSmPfrbpwmgJd25GqTpcMH909_GXRrGY7dCj/s800/aci.jpg",
-      "2025-10-18T00:31:19.955+00:00",
-      "Panduan modern menghadapi perilaku wanita yang sulit, lengkap dengan metode praktis dan infografis ringkas."
-    ],
-    [
-      "Manfaat Memakan Kurma - Khasiat, Nutrisi, dan Cara Mengonsumsinya",
-      "manfaat-kurma.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcpQejBp4qszEwvg64uNK2Wb2RqhkBiancJPZzrsIXLpHr6TV32rxlH2TTA9-uk0YAbSD67P8smApb50y6HRu2UN-W1vJUC8O4MXInMnRd1RE_nsya9xK_NKTie_g-s-7aPmBa8lrf6_hT7ttpgQTR4FhNWjhSjvkVPfHGqwzzL7TvC-MXT3oJqQqkAxo/s1600/20230608-20230607201414-1-pohon-kurma-2000-tahun-003-pandasurya-wijaya.jpg",
-      "2025-10-18T00:31:19.951+00:00",
-      "Temukan manfaat kesehatan kurma: sumber energi, serat, vitamin & mineral, serta tips konsumsi yang tepat."
-    ],
-    [
-      "Kerupuk 'Tolak Miskin', Ternyata Beneran Ada!",
-      "kerupuk-tolak-miskin.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjW2EBdi-5c3Wt-1I7NoGdfqULTamPSbXYxkGDjVUbZhyn9ryyUHFMdDhwBrw42WitBnF7Sesd7cc-Ju4aJx-biCO7_LBccJDgi9sjcTBbP8h_B_dogtRk2Wm0ZCjAZs2b7iPT_b0iyGuc2JijXv5-WBfhTO9IrsNlt7yHn0EWNpKjIslv7Kcl3eESnqVg/s1600/tumblr_n1rcfu5xNk1qa5bf5o1_500.jpg",
-      "2025-10-18T00:31:19.946+00:00",
-      "Ternyata ada kerupuk yang dinamai"
-    ],
-    [
-      "Gerimis & Jagung Godog: Hangatnya Camilan Sederhana | Catatan Kuliner",
-      "jagung-godog-gerimis.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0r1imvdjpEn5pOlBuhIapv3yS-WK0yGWWvMjhyphenhyphen6aGN1px8oo2nZtM5xeoLiKlFk0VytYdARzQbCv5SophBCEUvr1OodDK9rwPQnLisCRfg7q_WTs7G9gIzuDct-oX_nZfVkbZ1i-wK4x193aZRtqMdiby2pWG0mqWkju0B5B-GjKPzRErJq5EayJFX4Y/s1600/jagung.jpg",
-      "2025-10-18T00:31:19.944+00:00",
-      "Ketika gerimis mengundang, nikmatnya jagung godog terasa berlipat. Cerita singkat, galeri foto, tips penyajian, dan fitur interaktif."
-    ],
-    [
-      "Catatan Harian Seorang Wanita - Versi Santai, Ceria",
-      "catatan-harian-wanita.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhluMB0COG88VNMI1BrkubcDOcc_zV0Vw4eP1vsMcx9V0nYTlIZGwbWRwTiCvi2vBIEVddmfxo1Pp9ziJHDt6uuzJSedZuvYp81bxg84LO-EEHq4wWKqWZnnMfcYm99KZTSyl8zAFs3mZnpOWMAQpC5KwaZdvF6rKKeNdryITWxW6880wgxK8MhBDKsjiw/s16000/IMG_20170923_160248.jpg",
-      "2025-10-18T00:31:19.933+00:00",
-      "Catatan harian seorang wanita: versi santai, ceria, fullscreen. Humor, renungan, dan obrolan hangat tentang dinamika hubungan."
-    ],
-    [
-      "Bumbu Pecel Kacang - Pengertian, Bahan & Cara Membuat",
-      "bumbu-pecel-kacang.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqBhQtbv1A3W1wzkw3pOE15P8XKWMq_niShyphenhyphenwy687lsd-Jt0glqJLpRCKJVtClGC586Sli2ywjLVmQI03MHuuTfvB2LWSqondit9OD75fkj1A0WPscGDDKSM122IeEzOca5BhKFaPLz72Xi3RqKRtBl4kY4NnmqTOb1kcktCkA7euB9UbJbeavXDtXhm8/s1600/Pecel_Hariadhi.webp",
-      "2025-10-18T00:31:19.932+00:00",
-      "Bumbu pecel kacang: resep, bahan, cara membuat dan tips menyajikan pecel yang enak. Panduan praktis dalam bahasa Indonesia."
-    ],
-    [
-      "Susah Tidur? Panduan Praktis untuk Tidur Lebih Nyenyak",
-      "Susah-Tidur.html",
-      "https://upload.wikimedia.org/wikipedia/commons/2/22/%22No_Sleep%22.png",
-      "2025-10-18T00:31:19.927+00:00",
-      "Tips praktis dan mudah dipahami untuk mengatasi kesulitan tidur (insomnia ringan). Termasuk rutinitas, lingkungan tidur, teknik relaksasi, dan kapan perlu konsultasi medis."
-    ],
-    [
-      "Tips Melancarkan Pencernaan & Buang Air Besar",
-      "tips-melancarkan-pencernaan.html",
-      "https://frijal.pages.dev/img/tips-melancarkan-pencernaan.webp",
-      "2025-10-17T12:38:48.566+00:00",
-      "Panduan santai untuk menjaga pencernaan tetap sehat dan buang air besar lancar setiap hari. Lengkap dengan tips pola makan, gaya hidup, dan kebiasaan sederhana."
-    ],
-    [
-      "Menjaga Pencernaan Tetap Sehat dan Lancar",
-      "rangkuman-akhir-pencernaan-sehat.html",
-      "https://frijal.pages.dev/img/rangkuman-akhir-pencernaan-sehat.webp",
-      "2025-10-17T12:38:48.561+00:00",
-      "Rangkuman lengkap panduan pencernaan sehat — mulai dari asupan serat, pengaruh dairy, pilihan susu non-dairy, hingga gaya hidup yang mendukung kesehatan usus."
-    ],
-    [
-      "Ngopi Sek Ben Ra Edan, Yuk!",
-      "ngopi-ben-ra-edan.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqkfbd27HXDClCRcWYmjs50mBTQB0ex25NGRfBMvo20AkuoHPYdPxVPh1AszufmQOp1gIhbw8Rq1H5h4p-RguzJyt7dgia3Y4_egFQgkG8G07u4P09npCah_L4D0CueHG8V9dHYl0CWRRx/s1600/ngopi-sek-ben-ra-edan-727198.png",
+      "Permohonan Kebijakan Parkir untuk Ojol di Balikpapan",
+      "ojol-parkir-balikpapan.html",
+      "https://frijal.pages.dev/img/ojol-parkir-balikpapan.webp",
       "2025-10-17T12:38:48.556+00:00",
-      "Ternyata sudah dua hari ini saya belum ngopi! Ayo, siapa mau gabung? Ngopi dulu biar tidak"
+      "Surat terbuka untuk para pimpinan fasilitas publik di Balikpapan agar mempertimbangkan kebijakan karcis parkir bagi driver ojek online yang mengantar-jemput penumpang, barang, dan makanan."
     ],
     [
-      "Mengapa Tidak Buang Air Besar Setiap Hari? Penjelasan & Solusi",
-      "tidak-boker-tiap-hari.html",
-      "https://frijal.pages.dev/img/tidak-boker-tiap-hari.webp",
-      "2025-10-17T08:24:29.866+00:00",
-      "Penjelasan santai tentang kenapa seseorang bisa tidak buang air besar setiap hari, lengkap dengan penyebab, posisi kolon, serta tips agar pencernaan tetap lancar."
+      "Keutamaan Membela Kehormatan Saudara: Jalan Pintas Menjauhi Api Neraka!",
+      "keutamaan-membela-kehormatan-saudara.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhm3-ep9kd4RiSx6zMzmvDIQc1GLLu88xH3eJZ73VklHFxEfSvICaCgl-UaJ0R5oJtDajgOCMzGU2uzDvYRsOwqTIy9dcqvKHoggVK-Rg3I1IVdPUV2eH60GU7IL-CMiJNnMXyc1xKur3-19pXQL1nUZyGeDZ6XnxHtI2ft9_gOP0w1f8rY35BlywY0k44/s1600/membela.jpg",
+      "2025-10-17T12:38:48.546+00:00",
+      "Nilai pahala besar saat membela kehormatan saudara dari gosip dan fitnah. Implementasi nyata, empati, dan solidaritas dalam kehidupan sehari-hari."
     ],
     [
-      "Suka Kopi Susu Tapi Jadi Susah Boker? Ini Penjelasannya!",
-      "susu-dan-pencernaan.html",
-      "https://frijal.pages.dev/img/susu-dan-pencernaan.webp",
-      "2025-10-11T06:14:13.216+00:00",
-      "Penjelasan santai kenapa produk dairy seperti susu bisa bikin susah buang air besar (senep), plus rekomendasi susu non-dairy yang enak buat kopi susu."
+      "Hidup Bukan Sekedar Eksistensi, Tapi Pengabdian",
+      "hidup-bukan-sekedar-eksistensi-tapi-pengabdian.html",
+      "https://frijal.pages.dev/img/hidup-bukan-sekedar-eksistensi-tapi-pengabdian.webp",
+      "2025-10-17T12:38:48.541+00:00",
+      "Renungan tentang tujuan hidup manusia menurut Al-Qur’an dan hadits: bahwa hidup bukan sekadar eksistensi, melainkan pengabdian dan ibadah kepada Allah Subhanahu wa Ta"
     ],
     [
-      "Kenapa Nggak Boker Tiap Hari? Kupas Tuntas Kesehatan Pencernaan",
-      "kesehatan-pencernaan-boker.html",
-      "https://frijal.pages.dev/img/kesehatan-pencernaan-boker.webp",
-      "2025-10-11T06:14:13.069+00:00",
-      "Santai tapi serius, ini penjelasan kenapa frekuensi buang air besar bisa beda-beda. Dari soal serat, stres, sampai di mana sebenarnya feses disimpan."
+      "10 Kalimat Mulia yang Wajib Dibiasakan",
+      "10-kalimat-muslim.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiszs3xKFruxJs_wbn8xmzKf1UwstX-d7UvshLsQb7GdeyLjBVlYrRKToNR9_omcQe3hFk1ur6IaP9F6sGtqMoAfOb27ok7WI8vCT5JM3no0GW7aze4I19sTfP0gkvtEVGFy0zHqA2v27ou/s1600/1072168_10200715146018901_1734749230_o-710526.jpg",
+      "2025-10-17T12:38:48.522+00:00",
+      "Pelajari 10 kalimat mulia dalam Islam yang bisa kita biasakan setiap hari, lengkap dengan makna dan kapan waktu yang tepat untuk mengucapkannya."
     ],
     [
-      "Apa Penyebab Tidak Boker Setiap Hari? | Frijal",
-      "kenapa-tidak-boker-harian.html",
-      "https://frijal.pages.dev/img/kenapa-tidak-boker-harian.webp",
-      "2025-10-11T06:14:13.067+00:00",
-      "Ada beberapa alasan mengapa seseorang mungkin tidak buang air besar setiap hari. Pelajari penyebab, proses pencernaan, dan tips menjaga kesehatan usus dalam gaya santai dan lengkap."
+      "UNLICENSE: Dedikasi Domain Publik untuk Kebebasan Maksimum",
+      "unlicense.html",
+      "https://frijal.pages.dev/img/unlicense.webp",
+      "2025-10-17T08:24:29.868+00:00",
+      "Lisensi UNLICENSE adalah dedikasi domain publik agar karya dapat digunakan tanpa batasan. Penjelasan, karakteristik, alasan menggunakan, dan contoh ikon."
     ],
     [
-      "Satu Hari Bersama Komunitas Ubuntu",
-      "ergonomi-darurat-ubuntu.html",
-      "https://frijal.pages.dev/img/ergonomi-darurat-ubuntu.webp",
-      "2025-09-18T03:00:00.000+00:00",
-      ""
+      "Kisah Badui kencing di Masjid",
+      "badui-kencing-di-masjid.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEin1se4wIHWwB1TtLRjc_XW6KnnE-ZfGyFco73OWbKYH8W84tVHqiGKL3aIdEKQsV4p_vTaY0QESN3pX54A0SfQVgi_8C_RU4FRmGjOqSjNqgT5tDrFXWJmzOfuskf9IlPOFLD56f2MhbUCQllw-GXE2BjHL8Oi9vKQ2rxxIf9RWszqPdlPSMOcLx1rs-c/s1600/badui.jpg",
+      "2025-10-17T08:24:29.839+00:00",
+      "Rasulullah ﷺ menanggapi seorang Badui yang kencing di masjid dengan kelembutan, bukan kemarahan: pelajaran agung tentang dakwah yang memudahkan."
     ],
     [
-      "Angkringan Jogja - Kuliner Tradisional Yang Legendaris",
-      "angkringan-jogja.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLNoFBzPv6IPbZz9UCt9pl6yvP-SFvUIXuKZx_YvSWgfhujAZtl0eJ1uh4mTOghGA7zLDd9r3zgxPxTj8brV8uJg4hb3505IqPqDA2kfVJEOhsMNvYY-wKbDajGRPZVYXLVUvyjJSyOFz8/s800/wpid-DSC_2991.jpg",
+      "Gunakan Perangkat Lunak Bebas Terbuka di Sekolah | frijal.pages.dev",
+      "oss-sekolah.html",
+      "https://frijal.pages.dev/img/oss-sekolah.webp",
+      "2025-10-16T23:20:38.199+00:00",
+      "Ajaklah semua orang untuk menggunakan perangkat lunak bebas terbuka di sekolah. Alternatif gratis seperti Linux, LibreOffice, GIMP, dan GNUCash bisa menghemat biaya pendidikan."
+    ],
+    [
+      "Kalkulator Laundry Berkah",
+      "Kalkulator-Laundry-Berkah.html",
+      "https://frijal.pages.dev/img/Kalkulator-Laundry-Berkah.webp",
+      "2025-10-14T18:15:06.377+00:00",
+      "Hitung biaya laundry kiloan atau satuan dengan cepat dan akurat. Kalkulator Laundry Berkah mempermudah manajemen pesanan dan memberikan total harga secara instan."
+    ],
+    [
+      "Masa Depan Milik Mereka yang Melek Teknologi",
+      "kesimpulan-ai-umkm.html",
+      "https://frijal.pages.dev/img/kesimpulan-ai-umkm.webp",
+      "2025-10-04T15:37:18.145+00:00",
+      "Dunia bisnis berubah cepat. AI bukan lagi sekadar alat, tapi kunci sukses. Baik untuk pelajar maupun UMKM, inilah saatnya memanfaatkan teknologi untuk bertumbuh."
+    ],
+    [
+      "Menepis Gelap, Menyambut Terang – Perspektif Baru tentang Ujian Hidup",
+      "menepis-gelap-menyambut-terang.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRf8zVNc8EH8F5blFMb1rDjvygJWR3zhbeUpEWOUeQoU5yqXNElV9nA7isqx1MJDc8psbH3VksF5L6EHNIdjKB1Q8eP7UuysJrsZ0G7B-4goSreQQZfjcq3ZKePM1JqjCWd1qpVH3xP2JUoRxBWAP19CP1S2mBp7SDqZc3r8eTSNIAFheNaeF4FC8Evfk/s2048/Insyirah.jpg",
+      "2025-09-28T08:10:00.000+00:00",
+      "Perspektif santai dan hangat tentang ujian hidup: kejujuran menghitung nikmat, makna Al-Insyirah, serta langkah praktis menyempurnakan ikhtiar. Responsif, interaktif, dan SEO-ready."
+    ],
+    [
+      "Queen Anne’s Revenge: Kisah La Concorde & Blackbeard",
+      "queen-annes-revenge.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjiY3ksXIHpzt-yBzIxp3kKyI1-z0BudgsyfW7TKC3-1PUY4S9yiZtkjxUb7Ny7-qnSM4QP6VPXmv7znA2HWkPUaJOW22y-F_-TVqp4-otHwMNDVWIg6HB5hBd-8_rnkK-M5Iq6Ufw3tzoX7FtkmbRg1gq9LWi17XSJGxqYujAYb-3ZDjbX16eEOmWDdSc/s1600/budak.jpg",
+      "2025-09-24T03:00:00.000+00:00",
+      "Kisah La Concorde yang direbut Blackbeard lalu menjadi Queen Anne’s Revenge. Dari tragedi perdagangan budak ke legenda bajak laut Karibia."
+    ],
+    [
+      "Pulang - Nostalgia, Rindu, dan Senyum Kecil",
+      "lirik-pulang-nostalgia.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-ZNw_6NfIpPHV1bQm4XSc1h_kaoaIsBzpxST9LTZCa3-uzFjTzgs9ltY4ubinjuoane27PgSWh5US3Zw1M2UHELqiOXxlxrdsEcoCUrNVCx9-4Oa_pqPhGJrSa8ZM5smv7TwjgXSA5AZUmeXIn9cMObt7ZoXwsUFctBlLx6b70JgY_AJKGQi_Flfl-Sg/s1024/kamarlama.png",
+      "2025-09-22T06:40:00.000+00:00",
+      "Lirik bernuansa rindu dan pulang: nostalgia kamar, wibawa ayah, hangatnya ibu, plus selipan humor kehidupan. Baca, dengar, dan nikmati."
+    ],
+    [
+      "Makan untuk Hidup, Hidup untuk Makan",
+      "makan-untuk-hidup-hidup-untuk-makan.html",
+      "https://frijal.pages.dev/img/makan-untuk-hidup-hidup-untuk-makan.webp",
       "2025-09-16T03:00:00.000+00:00",
-      "Nikmati kuliner tradisional Jogja di Angkringan dengan sate telur puyuh yang legendaris. Cita rasa autentik yang tak terlupakan bagi warga Yogyakarta."
+      "Refleksi: makan sebagai kebutuhan, bahaya berlebihan, nasihat klasik (Lukman, Abu Bakar) dan panduan praktis agar hidup seimbang—makan untuk hidup, bukan hidup untuk makan."
     ],
     [
-      "Wifi Gratis di Taman Bekapai, Balikpapan - Catatan Siang PENGACARA",
-      "wifi-gratis-taman-bekapai-balikpapan.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkd-yHixL8RHNFi0CssIxEr90Iluv04WAgg-lXjKdL9DzEk6ca7xjmPJ0GlKP86PDRlQsrX83raRPGJk8ledCpug67dhjPiSH_tBK4VgwHwR7wGm57zN1svg1E3WV_K2Z9ZVECmMxilMqy/s1200/DSC05503.JPG",
-      "2010-03-03T04:00:00.000+00:00",
-      "Siang yang panjang berubah jadi seru: ngenet gratis di Taman Bekapai, Balikpapan. Foto, cerita, tips, dan peta lokasi."
-    ],
-    [
-      "Biskuit LINUX itu nyata — camilan yang bikin senyum",
-      "biskuit-linux-itu-nyata.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvEnsFPUo28nZRJ_DaUyKHuJhKCM1aBpWE0uc2T5k6xEzz3ILtutdfB3vF1mnoN2yg6Q-FKnKHmaPe3XKgaA-wu91itVIV432fy4DOadZUC4MPV6jvDRGsS7gFByn7FccHnNV8oQwq5T0t/s1600/4644903006_3b3fbd6f2f.jpg",
-      "2010-01-15T02:00:00.000+00:00",
-      "Ada biskuit bermerek LINUX. Serius. Lihat foto-fotonya, senyum, lalu kirim ke grup open source favoritmu."
+      "Cara Mudah dan Cepat Menyelesaikan Psikotes",
+      "cara-mudah-menyelesaikan-psikotes.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMHz0gnXIjqKR6RAKHzI8Ms1ftSYMwWgo6m1dRSpPfv4XeXoDC0nS8bRXpvPEwg-mlUGbUi7TMOObAG36VJpPVYrEhMhKzpt3OX32cMMfL-EfcPu5D_YNhBQyQp9LPB8HBa5olZOElHtHDpCPJrKaaFuThU3pkx13FfBEfsvE4Ck7V37JfO0Esw0tpeI0/s1024/Gemini_Generated_Image_5xj3u75xj3u75xj3.png",
+      "2025-09-14T03:00:00.000+00:00",
+      "Panduan lengkap cara mudah dan cepat menyelesaikan soal-soal psikotes: tes logika, aritmatika, penalaran, EPPS, Kraepelin, Warteg, dan lainnya."
     ]
   ],
   "📚 Sejarah & Religi": [
@@ -2077,738 +2695,6 @@
       "“Jika kau tak sanggup menahan lelah karena belajar, maka kau harus sanggup menderita karena kebodohan.” - Imam Syafi’i. Mari rawat semangat belajar, kapanpun dan dimanapun."
     ]
   ],
-  "🖥️ Teknologi Web, AI & Umum": [
-    [
-      "Pilih Merge, Squash, atau Rebase? Panduan Santai Git Pull Request",
-      "git-merge-squash-rebase.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGZN5mOfutvye29JMIUeY2b_gqcVZY_pSAuVAkO0aiuDRn_V9N5-33LqjZMYpGLfV_MbaK2MQD7hVgeLrVzupcmegz7B9ekb9-sCS5nP3qxrFLKAusIrDsAkLL1bx2GU2Pe3Dm7_6U4_4dTSnFT5T-5UvhBxj_e5-SgoarLv4HxtfA6RllESEWy79KVhM/s1600/Screenshot%20From%202025-10-21%2021-48-41.png",
-      "2025-10-21T16:48:14.661+00:00",
-      "Bingung pilih merge, squash, atau rebase saat me-review Pull Request di GitHub? Yuk, kita bedah satu per satu dengan analogi santai biar nggak pusing lagi."
-    ],
-    [
-      "Mengamankan GitHub Actions: Izin Baca vs. Tulis untuk GITHUB_TOKEN",
-      "github-actions-workflow-permissions.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQQWCgT4AUgvX8nbcUcqTh1pWgTdtWeqwAhcyPdXAwzzyISi9c1yPGD0d5TW5vJiccUtmPEtmwas8wL75LyrYD5p6WEBs_yjzKAO2gHjdQuVjg4c6sP4V92ddtveKF6cj5QrE-JKK53dwaLrgjp4xxi8qkIKGuL85QWfEVZ4GiQfIznIjBOAaMwkihDZU/s1600/Screenshot%20From%202025-10-21%2022-29-44.png",
-      "2025-10-21T16:48:14.661+00:00",
-      "Pelajari cara mengamankan repositori dengan mengatur Workflow Permissions di GitHub Actions. Pahami beda Read vs. Write permission untuk GITHUB_TOKEN dan kenapa Read-Only adalah pilihan terbaik."
-    ],
-    [
-      "Setting PR GitHub yang Bikin Hidup Gampang: Auto Update, Merge & Delete",
-      "github-pr-workflow-settings.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPqJtix7wPezXkcZ8cFUsMF9o7kZ-C-Bpw6sTKEohzq7QL9ngeScIyma7uZwfGyWQc1Y8kGiUbWS_o8EZpPjYaTer7VDqEeRZ-35aJqdpTtV-uSkgwwj3JlvqulEGRnslWKLFCIsZHDw6Ki1myAmQThpQouvTw4LJv1m6yzbtIBtBV0it-g2fv7hm79Mc/s1600/Screenshot%20From%202025-10-21%2022-01-03.png",
-      "2025-10-21T16:48:14.661+00:00",
-      "Optimalkan alur kerja GitHub kamu dengan mengaktifkan tiga fitur simpel ini: auto-update, auto-merge, dan auto-delete branches. Bikin development lebih cepat dan rapi!"
-    ],
-    [
-      "Kisah FCKGW dan Windows XP: Bukan hasil crack, tapi VLK yang bocor",
-      "fckgw-windows-xp.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5aF9ZZi9tVuJR6mnuViMNZmMSeRM6xI40trSWEBLxt2Eo8ERglHlBGHO70HesUvuzCLEqcuYKiqqKY1PZrjWgX-VI5I9pNoPYS9YJzz1QnPyLVtk1WN6MUx1s4MZG1AcrvTRGTegtGg_sqoIYP7m-UKAP-pAIDacYL6eL1TI317SIhirJnUVioQWEWxU/s1600/fckgw.webp",
-      "2025-10-19T17:47:38.687+00:00",
-      "Di balik kesuksesan Windows XP, kisah kelam VLK FCKGW yang bocor ke publik. Bukan hasil crack, melainkan lisensi volume resmi yang menyebar luas dan jadi ikon era bajakan."
-    ],
-    [
-      "Osborne 1 - Laptop Pertama Dunia",
-      "laptop-pertama-osborne1.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8bFisLsDrynWzbNVXt5lJ0zBdvvL6nAXTn_0PrAPkmfENUerHby-6tBJDg0amBAzC1-cd5pEWO_bqC_WOrE-WI9uUHMfOgZerldszngkxRCOdgFdsSRR1z9bhth1FqGy5QTHSoJ-J9Thy1xkvi7gXP-2qk9g7JQKnHlCnFnZ6FltbOfxUHo3U_dhg1-8/s1600/xadam-osborne.png",
-      "2025-10-18T00:31:19.948+00:00",
-      "Osborne 1, laptop pertama di dunia yang dibuat oleh Adam Osborne pada tahun 1981. Berat 10kg, harga $1795, sejarah lengkap & gambar."
-    ],
-    [
-      "Salin Isi HDD dengan dd",
-      "dd-hdd-copy.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0V7CxStcCDAHjWsU-svtZ1XBscBMB7hE4dkGm5SHHpu_W2H1LY9T2-jfMxsEU_6lT8e7E7qjaZJnBDzZtOdtgtkD7IIdLhzaM2ueZUhge7hX3lp5-ycjN-a4SFe_VXA72FsG-SimHUa61aRq0h44nX3-dNoyA6Oo-paborGutLooXcayZv22kJlBRNJI/s1600/Disk-Cloning-using-DD-CAT.jpg",
-      "2025-10-18T00:31:19.935+00:00",
-      "Panduan mudah menyalin isi HDD ke HDD lain menggunakan perintah dd di terminal Linux."
-    ],
-    [
-      "Demo Gorilla Glass Samsung Galaxy S2",
-      "gorilla-glass-s2.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgtW5sjYcXyRJwMKQ9cU4_luhCw74TlBDppiVQBEd9n_0oPov7_QVUucXKalaAxELQOM2RujOk-LNHMfkSz-NAlyjaMoM5q-jRkgrIN0rpK9ZxYRFxcqxQJ91WXkLmRY2x2wHLqDvxX2IkvuApp4i0zPbvlZ92nvSE8Gbc79eBQDYriA4EUc35ZQoRYVWk/s1600/hqdefault.jpg",
-      "2025-10-17T12:38:48.540+00:00",
-      "Demo Gorilla Glass pada Samsung Galaxy S2 putih, dengan mematikan rokok di layar handphone. Jangan ditiru, hanya untuk hiburan."
-    ],
-    [
-      "Windows vs Linux: beda kebiasaan pengguna (tanpa nyinyir)",
-      "windows-vs-linux-kebiasaan.html",
-      "https://frijal.pages.dev/thumbnail.webp",
-      "2025-10-17T08:24:29.868+00:00",
-      ""
-    ],
-    [
-      "Uji Kecepatan Internet dari Terminal: Panduan Santai",
-      "uji-kecepatan-internet-dari-terminal.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6z6_M-x_agbooaxeVfyZp5K-yLD33q8xTsW9iQmQR1QdHZQGtgcqaLA6oCv3QhyphenhyphenLzJwahDYes-DTBNShwq0dwLCbju8v7r4dkmfvyrup993r6QFoFr5QRVBBCgk03LQnipZk44WvcMg_c/w1200-h630-p-k-no-nu/image2993.png",
-      "2025-10-16T23:20:38.208+00:00",
-      "Pelajari cara mengukur kecepatan internet langsung dari terminal dengan speedtest-cli. Panduan mudah untuk Linux dan Windows."
-    ],
-    [
-      "Apa Itu Kejahatan Phishing dan Cara Mencegahnya?",
-      "waspada-kejahatan-phishing.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiVHkObjiTPqhlkCa-m4gLhedgCnS1ErHjwQ9Avm6UUrDw7acLRjePYi96EMpcxYQKUd5OjuWCkoep4Tvd33ZqRslrJ5v9g-Wl4fsXQahX1ub3wyY4iq1DnCAYzUC34MjsVAKD6oMb1sSwL/s1600/golput.jpg",
-      "2025-10-16T23:20:38.208+00:00",
-      "Kenali apa itu phishing, cara kerjanya, dan tips santai untuk menjaga data pribadi dan finansial kamu dari penipuan online."
-    ],
-    [
-      "Kenalan Sama Strategi Branching Populer di GitHub 📊",
-      "strategi-branching-github.html",
-      "https://frijal.pages.dev/img/strategi-branching-github.webp",
-      "2025-10-16T23:20:38.206+00:00",
-      "Bingung kenapa repo bisa banyak branch? Yuk, kenalan sama Git Flow, Trunk Based, dan GitHub Flow. Dijelasin santai, lengkap dengan perbandingan."
-    ],
-    [
-      "Thunderbird 144: Dukungan Microsoft Exchange Hadir Oktober 2025",
-      "thunderbird-exchange-144.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq3fZWSfUH3WElJYSwVA8dSTWI_ceYZQK2NiC50pt5rgXOG4LlqlbJf9Bg0Q0lO2NBUAt-BpSkjL2MmBZ5sUB7itEBtXf4RmtEN3F8j2GtJNKTEu2TnzsXlWE6M1RfNiTHFckZ9RPbAWezhGtVz8uDOITNXDGALfQJBPI8aH1mU1CMm6nyIwyoRbc5qdU/s1600/thunderbird-exchange.jpg",
-      "2025-10-16T23:20:38.206+00:00",
-      "Thunderbird versi 144 menambahkan dukungan email Microsoft Exchange pada Oktober 2025, meliputi undo/redo, notifikasi, pencarian, autosync, dan peningkatan lampiran."
-    ],
-    [
-      "SSH3: Evolusi Keamanan dan Kecepatan di Era Internet Modern",
-      "ssh3-evolusi-keamanan.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaupjz-fdFQV0A_v0YyQgVyVylHGjgPX684A5qgSH_44BaahHcOudPRKWjpkEh_b0BDxL2vFsMa_foPKT9eWBBtbGgBe3dPwl8jlux8krkBXChY5TVJw0oK9E-G4DYAKlf52BnRwK-DNCKEqhxFnATCL6N2EazUCWjNI1hUKoK8tAb6XDiHV0YAsh3kBY/s1600/ssh3.jpg",
-      "2025-10-16T23:20:38.205+00:00",
-      "SSH3 dibangun di atas HTTP/3 (QUIC + TLS 1.3): lebih cepat, lebih aman, lebih fleksibel. Autentikasi modern, resiliensi koneksi, dan multiplexing untuk era internet."
-    ],
-    [
-      "4 Cara Mempercepat Shutdown Windows – Tips Ampuh",
-      "shutdown-windows-cepat.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-KMdK8ieHOuYwZi5QHDkPFr2Wtt-g_X6JE8gFkFQcsHTCdRULKv837UjUt87yFLOg0op43P4e3i3fqUg7cRC1vLCao1Q4p9rIw_xgLGEiWNR9hyQc1773BUosjhXNVqw6Wl_DEzYksbIR/s1600/waittokillservicetimeout_zrn5mjryip.png",
-      "2025-10-16T23:20:38.204+00:00",
-      "Sering menunggu proses shutdown Windows lama? Simak 4 cara ampuh mempercepat shutdown Windows, termasuk Registry, Shortcut, dan lainnya."
-    ],
-    [
-      "Refresh GitHub Codespaces dari browser: Rebuild, Full Rebuild, Restart",
-      "refresh-codespaces-browser-github.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOxYcyBbPN-C9uuE7TIR7rRoO1JA9OCZRoXze_Tc87jcbAyPffQkSljn9UiyfLZrZVW33-ItxUUbnrZse-5izb7XYzWGaLnEXhwFIjbStJKPfC1LDcoYIwoMOOVEUyPAcnpCwFTNRiJf1nfU2xYs59sRUq-CkFjHrxxR4mzj317JUK8asTKAYJ8UfBP98/s1600/Copilot_20251006_215118.png",
-      "2025-10-16T23:20:38.202+00:00",
-      "Cheat sheet cara refresh GitHub Codespaces langsung dari browser: Restart, Rebuild Container, Full Rebuild. Plus diagram alur singkat kapan pilih yang mana."
-    ],
-    [
-      "Refresh GitHub Codespaces dari Browser: Rebuild, Full Rebuild, Restart",
-      "refresh-codespaces-browser.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyiGg7d3w67OPfBLHy8OHsY09rMvaxzU1NelbOIshAoMVBNNYyTkHe6qfOJPCQM3bm6jg3EEOAIC980ckSoxFLwCLw3Xm-g6FHekjLS6DbwkwCwCMfhCOIrNX0tfHhyvCjbTx9vV_5rxBMtYvTcbiqPFYtszeXM_XqYAw9qQw95-cK8LJkivmpFEx853c/s1600/Screenshot%20From%202025-10-06%2020-48-01.png",
-      "2025-10-16T23:20:38.202+00:00",
-      "Cheat sheet cara refresh GitHub Codespaces langsung dari browser: Restart, Rebuild Container, Full Rebuild. Plus diagram alur singkat kapan pilih yang mana."
-    ],
-    [
-      "Dilema Pengguna Biasa Pindah ke Linux Tanpa Terminal 🐧",
-      "pindah-ke-linux-tanpa-terminal.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgO_tHGWGURdkubbWYaysqwezM71H5YfHjE1_MX45TXtDXK3EN6P2KVCIOOY2EJ6A_GA585bCNomUAS88X0TQKU5QEHgnQuQm8c1I2Qgi3M2jqk0NMsJ9DKlYxSojfUO33CveDrkGnM7kkeqcKTVvENvvXn9qKcT7CnHzosnqLKqK0mO0ghfQ4GyrpjIks/s1600/softwaremanger.jpg",
-      "2025-10-16T23:20:38.201+00:00",
-      "Membahas transisi pengguna biasa dari Windows ke Linux tanpa harus menyentuh Terminal. Fokus pada pengalaman GUI penuh, aplikasi, dan kenyamanan."
-    ],
-    [
-      "Panduan Lengkap robots.txt untuk SEO: Dari Pemula hingga Mahir",
-      "panduan-robots-txt.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQHqOUt1g5wam4v8EVGW93C7Hr_XDCp305phr2WUKomkd5KQsr8GN9VaGZa-mPXmeWWntAyBcFAp3z9DIKJa4L_sJZS6HYn8Yx4yKx-2bMLmBlRkdRxoIzH8jvnz8aDwUiOstE-dGiU8S_Ay5AtkG1WJLkpaAZgIKesTHnm0JtsRCPy8dCaNFclvQCICk/s1600/robotstxtx.png",
-      "2025-10-16T23:20:38.199+00:00",
-      "Bingung cara membuat file robots.txt yang benar agar blog dikenali Google? Pelajari contoh, sintaks, dan kesalahan umum dalam panduan santai dan lengkap ini."
-    ],
-    [
-      "Apa Itu rel=noreferrer dalam HTML?",
-      "noreferrer.html",
-      "https://frijal.pages.dev/img/noreferrer.webp",
-      "2025-10-16T23:20:38.198+00:00",
-      "Penjelasan lengkap rel=noreferrer dalam HTML: arti, fungsi, perbedaan dengan noopener, kapan digunakan, dampaknya tanpa target=_blank, tabel keputusan cepat, dan contoh flowchart."
-    ],
-    [
-      "Apa Dampaknya rel=\"noreferrer\" Tanpa target=\"_blank\"",
-      "noreferrer-tanpa-target.html",
-      "https://frijal.pages.dev/img/noreferrer-tanpa-target.webp",
-      "2025-10-16T23:20:38.198+00:00",
-      "Penjelasan lengkap dan santai tentang dampak penggunaan rel="
-    ],
-    [
-      "Menolak Data Anda untuk Pelatihan AI Meta: Cara, Hoaks, dan Privasi",
-      "meta-opt-out.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiq7K_ryLz7ORz3JCz-kZT66VfLZa9k6ADP1WTUVNz8BBZ1ejLeDzJZl8OYsUwg6lePQF3ahUAuvt-Jj7r2xTGrHozHdbwKfoXk2B2TN8ugqPn5XcpHyDvuEDQFi2xmO8kKYpV7NNn5z4LW7cMRU7me66vrOg9jZg73XmpDFZxPo3hZHEDnHfQ84_9L8JY/s1600/nsa_facebook_google_mind_control.jpg",
-      "2025-10-16T23:20:38.196+00:00",
-      "Panduan santai menolak penggunaan data publik Anda oleh Meta untuk pelatihan AI, meluruskan hoaks"
-    ],
-    [
-      "Linux vs Windows: Si Transparan dan Si Misterius dalam Dunia Update",
-      "linux-vs-windows-updates.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEje4G0Kejhn9T2u8gLzznStttUUM5qGS8af4r3cjrMtP56Wtgp67a9U0cGchX1IWwbAve7_D_ZLi1a-mCDs2OXK5gpFbdIf7wk1KkIHsvxpPX9KMxgdKctnDNHUjmnO5dSsJ7jAuNguuP4KEO23fDHwwEnNTGDAeDlt3yEnflRtK0ZLn5UUkQyKDanBv6g/s1600/hasil_horizontal_1.jpg",
-      "2025-10-16T23:20:38.191+00:00",
-      "Narasi santai membandingkan pengalaman update dan instalasi antara Linux dan Windows, tentang transparansi, kontrol, dan kenyamanan pengguna."
-    ],
-    [
-      "Kisah Migrasi Software Legal di Kutai Kartanegara | frijal.github.io",
-      "kisah-migrasi-oss-kutai.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1UyeLmW3xXbYWK52wxfAaWeToDtM6BVqNXGyDjNQ2LMtvfVSHZVOk5D3t29vj5NncO6vnF7fZzwBXwtl-mqwcXGBuiuEOBuO2ZEVWS8MfQbMo5uBD-jVHeVjZgWK3b4get9paJmAQAxRU_w4CneNqCnIj-wtGfS0RnEd2Ni11bhgcYKMP0QU-owOo914/s1600/Gemini_Generated_Image_rar5ysrar5ysrar5.png",
-      "2025-10-16T23:20:38.189+00:00",
-      "Cerita seru tentang sosialisasi dan migrasi ke software legal berbasis Open Source Software (OSS) di lingkungan Pemda Kabupaten Kutai Kartanegara pada tahun 2010."
-    ],
-    [
-      "Panduan GitHub CLI Interaktif: Login, Commit, PR, & Issue",
-      "github-cli-guide.html",
-      "https://frijal.pages.dev/img/github-cli-guide.webp",
-      "2025-10-16T23:20:38.184+00:00",
-      "Panduan interaktif GitHub CLI (gh) untuk login, clone repo, commit, push, pull request, branch, dan issue. Lengkap dengan contoh perintah dan diagram visual."
-    ],
-    [
-      "Panduan GitHub CLI Lengkap",
-      "github-cli-lengkap.html",
-      "https://frijal.pages.dev/img/github-cli-lengkap.webp",
-      "2025-10-16T23:20:38.184+00:00",
-      "Panduan interaktif GitHub CLI untuk login, clone repo, commit, push, pull request, branch, issue, fork, merge, release, dan workflow lengkap lainnya. Lengkap dengan diagram dan tombol salin kode."
-    ],
-    [
-      "Petunjuk Penggunaan Cleanup Tools 🪄",
-      "cleanup-tools.html",
-      "https://frijal.pages.dev/img/cleanup-tools.webp",
-      "2025-10-16T23:20:38.178+00:00",
-      "Panduan otomatis membersihkan dependensi Node.js yang tidak digunakan pada repositori GitHub Pages menggunakan skrip cleanup.js."
-    ],
-    [
-      "Cleanup Interaktif Paket Node.js untuk GitHub Pages",
-      "cleanup.html",
-      "https://frijal.pages.dev/thumbnail.webp",
-      "2025-10-16T23:20:38.178+00:00",
-      "Panduan lengkap untuk membersihkan paket Node.js yang tidak terpakai di proyek GitHub Pages menggunakan skrip interaktif berbasis depcheck dan inquirer."
-    ],
-    [
-      "Pembersihan Otomatis Dependencies (Non-Interaktif)",
-      "cleanup-auto.html",
-      "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg",
-      "2025-10-16T23:20:38.178+00:00",
-      "Panduan lengkap menjalankan pembersihan otomatis dependencies dan reinstall Node.js package secara non-interaktif di proyek GitHub Pages menggunakan workflow atau terminal."
-    ],
-    [
-      "Cara Mengaktifkan Branch Protection di GitHub",
-      "cara-aktifkan-branch-protection.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQ370qCptJsD7-fxr6zLl_xT9VpZhvoN8Z-thmLcNfCK-s2VIhdivD7hcTYRVGZwGJPXwkwDGn-1t9OucGSDFdHYUVPI2T7jcEoLwBPjNcvFwl3MURH3N_5ln473zIFTzfLESXX9lDsmxQ7UCrAIUyupi6RVFBGEzwFf8ylVV6s4OaxLqNYhHyYb_w6uk/s1600/maxresdefault.jpg",
-      "2025-10-16T23:20:38.177+00:00",
-      "Panduan lengkap cara mengaktifkan branch protection di GitHub agar semua perubahan wajib melalui Pull Request (PR) dan tidak bisa langsung di-push ke branch utama."
-    ],
-    [
-      "Workflow Otomatis Build & Generate Site Files di GitHub Pages",
-      "build-workflow.html",
-      "https://frijal.pages.dev/thumbnail.webp",
-      "2025-10-16T23:20:38.176+00:00",
-      "Panduan lengkap membuat workflow otomatis untuk membangun dan menghasilkan file situs di GitHub Pages menggunakan YAML dan GitHub Actions."
-    ],
-    [
-      "Belajar Perintah cURL: Cheat Sheet Lengkap untuk Pemula",
-      "belajar-perintah-curl.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-NJHsjiZ8ARDSEOUdSXZ2Wyxf6xh8YfTAD6S4jzM6enz0Z4U_kXFlDeBBtslX5SpZ80GkbLI5A4HqA-rMwilslrCIoREe5jyC70s-mdimAKdnKmknt9yquRHX4wJ6Rsh1dJ1zB-l0KKjpzlsTpNKIKqp0vwea8AgnKOsGuUJ4aBAHCmxQJzNcaa-RUEI/s1600/curl.jpg",
-      "2025-10-16T23:20:38.175+00:00",
-      "Kumpulan contoh perintah cURL lengkap untuk berbagai kebutuhan: GET, POST, download file, dan lainnya. Cheat sheet ini cocok untuk developer, tester, dan siapa saja yang ingin belajar cURL."
-    ],
-    [
-      "Branches di GitHub — Penjelasan Santai, Lengkap, dan Praktis",
-      "branches-di-github.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiJgagKhVJjhVG-p99nyUUn-lSLqSNgjtVJZCQhKUAZRCOCZmRco0VhftpQKeBT_O08in5iw-EQICCvp5oBu8-8-iPQf_om9Qluf3VcdlLdexS_gn9ATl9anRzd58Xp6RWP6vLHGofKCo76K0FtyhGK8Aiw1Ng7KCc74SLcDDdAfFwik7vuRfpv1ZN4YIo/s1600/SHGShgSH.png",
-      "2025-10-16T23:20:38.175+00:00",
-      "Penjelasan santai dan lengkap tentang Branches di GitHub: konsep, fungsi, alur kerja, analogi, serta praktik terbaik."
-    ],
-    [
-      "Pasang 20 Aplikasi Windows Sekaligus dengan Winget",
-      "winget-instal-20-aplikasi.html",
-      "https://frijal.pages.dev/img/winget-instal-20-aplikasi.webp",
-      "2025-10-14T18:15:06.430+00:00",
-      "Winget bikin setup Windows jadi cepat, aman, dan otomatis. Panduan santai + skrip PowerShell untuk memasang 20 aplikasi sekaligus, lengkap dengan tips, ekspor/impor daftar, dan best practice."
-    ],
-    [
-      "Apa Artinya 'Main Branch Isn't Protected' di GitHub?",
-      "main-branch-protection.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQ370qCptJsD7-fxr6zLl_xT9VpZhvoN8Z-thmLcNfCK-s2VIhdivD7hcTYRVGZwGJPXwkwDGn-1t9OucGSDFdHYUVPI2T7jcEoLwBPjNcvFwl3MURH3N_5ln473zIFTzfLESXX9lDsmxQ7UCrAIUyupi6RVFBGEzwFf8ylVV6s4OaxLqNYhHyYb_w6uk/s1600/maxresdefault.jpg",
-      "2025-10-14T18:15:06.406+00:00",
-      "Penjelasan santai tentang arti"
-    ],
-    [
-      "Gemini – Jagoan Terbaik Buat Belajar dan Eksplorasi",
-      "gemini-ai-terbaik.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjT6g_iOZl1Ooh4YIvHTbLTaBiUbW1uBRM8qrsO3kXJtczJ-RrUHsRtuaNVtg6ACEZtFeq3qAI-8Bnv1AiZI6Yqimd4y-0B2G9DNtGBGYYj0KC1bzjfpUAFML_zgmEEXEGXo_vaNRlbMVNjSJBaxFfcpObZDGWzXDq1S4NJVJOfUt_kGZsnHetCCknwbco/s1600/gemini-ai.png",
-      "2025-10-14T18:15:06.393+00:00",
-      "Review Gemini AI, model LLM dari Google yang unggul untuk belajar dan riset. Dengan context window 1 juta token dan fitur NotebookLM, Gemini mempermudah pemahaman dokumen dan pembuatan catatan."
-    ],
-    [
-      "Daftar Lengkap Alternatif Software Open Source Gratis (Versi Tabel)",
-      "daftar-alternatif-windows-linux.html",
-      "https://i.ibb.co/6yqJc3f/open-source-hero.jpg",
-      "2025-10-14T18:15:06.387+00:00",
-      "Nggak perlu bajakan! Temukan daftar lengkap alternatif software gratis dan open source dalam tabel perbandingan untuk menggantikan aplikasi populer seperti Adobe Photoshop, Microsoft Office, dan lainnya."
-    ],
-    [
-      "Cara Memaksa Merge Branch di GitHub Menggunakan GitHub CLI",
-      "github-cli-force-merge.html",
-      "https://frijal.pages.dev/img/github-cli-force-merge.webp",
-      "2025-10-13T21:14:36.044+00:00",
-      "Panduan lengkap untuk memaksa merge branch Git yang belum di-merge menggunakan GitHub CLI (gh). Lengkap dengan opsi admin override, auto merge, dan cara aman mengatasi konflik."
-    ],
-    [
-      "Skrip Otomatis gh-force-clean.sh: Bersihkan Branch Lokal & Remote yang Sudah Di-Merge",
-      "gh-force-clean.html",
-      "https://frijal.pages.dev/img/gh-force-clean.webp",
-      "2025-10-13T21:14:36.042+00:00",
-      "Panduan membuat skrip otomatis gh-force-clean.sh untuk membersihkan branch Git yang sudah di-merge, baik lokal maupun remote. Lengkap dengan opsi dry-run, auto, dan base branch."
-    ],
-    [
-      "Skrip Otomatis gh-force-merge.sh: Merge & Fallback Otomatis via GitHub CLI",
-      "gh-force-merge.html",
-      "https://frijal.pages.dev/img/gh-force-merge.webp",
-      "2025-10-13T21:14:36.042+00:00",
-      "Panduan membuat skrip otomatis gh-force-merge.sh untuk memaksa merge branch GitHub dengan GitHub CLI (gh). Lengkap dengan deteksi PR, opsi --dry-run, --auto, dan fallback admin-squash."
-    ],
-    [
-      "Paket gh-force-tools: Otomatisasi Merge & Clean Branch GitHub",
-      "gh-force-tools-index.html",
-      "https://frijal.pages.dev/img/gh-force-tools-index.webp",
-      "2025-10-13T21:14:36.042+00:00",
-      "Kumpulan skrip otomatis gh-force-tools untuk GitHub CLI: gh-force-merge.sh dan gh-force-clean.sh. Lengkap dengan fitur dry-run, auto mode, dan dukungan CI/CD."
-    ],
-    [
-      "Cara Mengetahui Branch Git yang Sudah Di-Merge dan Tidak Dipakai Lagi",
-      "git-cek-branch-merged.html",
-      "https://frijal.pages.dev/img/git-cek-branch-merged.webp",
-      "2025-10-13T21:14:36.042+00:00",
-      "Panduan lengkap untuk mengetahui branch Git yang sudah di-merge dan tidak dipakai lagi. Lengkap dengan perintah git, contoh, dan tips membersihkan branch lama secara aman."
-    ],
-    [
-      "Skrip Otomatis Bersihkan Branch Git yang Sudah Di-Merge",
-      "git-clean-merged-branches.html",
-      "https://frijal.pages.dev/img/git-clean-merged-branches.webp",
-      "2025-10-13T21:14:36.042+00:00",
-      "Skrip bash otomatis untuk menampilkan dan menghapus branch Git yang sudah di-merge, dengan opsi --dry-run dan --auto. Aman, interaktif, dan bisa bersihkan lokal & remote sekaligus."
-    ],
-    [
-      "Timeline Evolusi Browser Engine: Dari KHTML ke Blink",
-      "evolusi-browser-engine.html",
-      "https://frijal.pages.dev/img/evolusi-browser-engine.webp",
-      "2025-10-13T21:14:36.020+00:00",
-      "Jelajahi sejarah singkat mesin browser modern! Lihat bagaimana KHTML melahirkan WebKit, yang kemudian menjadi dasar bagi Chromium dan akhirnya Blink. Timeline interaktif dan seru!"
-    ],
-    [
-      "Evolusi Mesin Browser: Garis Keturunan HTML Rendering Engine",
-      "evolusi-mesin-browser.html",
-      "https://frijal.pages.dev/img/evolusi-mesin-browser.webp",
-      "2025-10-13T21:14:36.020+00:00",
-      "Diagram interaktif yang menggambarkan evolusi mesin browser dari KHTML, WebKit, Chromium hingga Blink dengan panah dan tooltip penjelasan."
-    ],
-    [
-      "Manajer Kata Sandi Firefox: Penjaga Rahasia Digitalmu",
-      "manajer-kata-sandi-firefox.html",
-      "https://frijal.pages.dev/img/manajer-kata-sandi-firefox.webp",
-      "2025-10-12T12:28:39.584+00:00",
-      "Ketahui lebih dalam tentang Manajer Kata Sandi bawaan Firefox. Simpan, kelola, dan amankan semua kata sandi kamu dengan mudah di desktop maupun di semua perangkat. Temukan cara mengaktifkan Kata Sandi Utama dan sinkronisasi akun."
-    ],
-    [
-      "Perbaiki Error “cannot run ssh” di Git — Windows CMD & PowerShell",
-      "fix-git-ssh-windows.html",
-      "https://frijal.pages.dev/img/fix-git-ssh-windows.webp",
-      "2025-10-12T04:53:51.215+00:00",
-      "Panduan memperbaiki error Git"
-    ],
-    [
-      "Panduan Lengkap: Perbaiki “cannot run ssh” di Git (Semua Platform)",
-      "fix-git-ssh-index.html",
-      "https://frijal.pages.dev/img/fix-git-ssh-slackware.webp",
-      "2025-10-12T04:53:51.214+00:00",
-      "Panduan lintas platform memperbaiki error Git"
-    ],
-    [
-      "Perbaiki Error “cannot run ssh” di Git — macOS",
-      "fix-git-ssh-macos.html",
-      "https://frijal.pages.dev/img/fix-git-ssh-macos.webp",
-      "2025-10-12T04:53:51.214+00:00",
-      "Panduan lengkap memperbaiki error Git"
-    ],
-    [
-      "Cleanup Series – Manajemen Dependensi Otomatis GitHub Pages",
-      "cleanup-series.html",
-      "https://frijal.pages.dev/img/cleanup-series.webp",
-      "2025-10-09T00:31:25.606+00:00",
-      "Seri artikel tentang cara membersihkan dan mengoptimalkan dependensi Node.js di GitHub Pages menggunakan skrip cleanup.js dan cleanup-auto.js."
-    ],
-    [
-      "Perbandingan cleanup.js vs cleanup-auto.js",
-      "cleanup-comparison.html",
-      "https://frijal.pages.dev/img/cleanup-comparison.webp",
-      "2025-10-09T00:31:25.605+00:00",
-      "Perbandingan antara cleanup.js interaktif dan cleanup-auto.js otomatis untuk manajemen dependensi Node.js di GitHub Pages."
-    ],
-    [
-      "Manajemen Dependencies Node.js",
-      "cleanup-dependencies.html",
-      "https://frijal.pages.dev/img/cleanup-dependencies.webp",
-      "2025-10-09T00:31:25.605+00:00",
-      "Panduan lengkap membersihkan dan mengelola dependencies Node.js pada proyek GitHub Pages menggunakan cleanup.js dan cleanup-auto.js."
-    ],
-    [
-      "Pembersih Paket Otomatis GitHub Pages",
-      "cleanup-doc.html",
-      "https://frijal.pages.dev/img/cleanup-doc.webp",
-      "2025-10-09T00:31:25.605+00:00",
-      "Panduan lengkap dan skrip siap pakai untuk membersihkan dependensi Node.js yang tidak terpakai di proyek GitHub Pages menggunakan depcheck."
-    ],
-    [
-      "🪄 Petunjuk Penggunaan Cleanup Script",
-      "cleanup-guide.html",
-      "https://frijal.pages.dev/img/cleanup-guide.webp",
-      "2025-10-09T00:31:25.605+00:00",
-      "Panduan lengkap cara menggunakan skrip cleanup.js untuk menghapus dependensi Node.js yang tidak terpakai di proyek GitHub Pages, lengkap dengan reset node_modules dan reinstal otomatis."
-    ],
-    [
-      "Mengapa Banyak Branch di Repo GitHub?",
-      "mengapa-banyak-branch.html",
-      "https://frijal.pages.dev/img/mengapa-banyak-branch.webp",
-      "2025-10-07T00:02:59.162+00:00",
-      "Penjelasan santai kenapa repo GitHub bisa punya banyak branch. Dibahas dengan gaya ringan, interaktif, dark-mode, responsif, plus galeri, lightbox, ikon sharing, komentar Facebook, dan deteksi browser/OS/lokasi."
-    ],
-    [
-      "Perplexity AI – Riset Topik Terkini Jadi Gampang",
-      "perplexity-ai-riset-terkini.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0XrBjBQtc_dVe4TlJdGu_sdpxKtaiXitrXiIEw3S2dO1GqBLum6w2gDnGK9k8HuqPsSl_7A5jt0PZGENeq37uR0XYHADfP00FJGULlUuHGMUtZ1UdatiJYghRJOrwWeWf3gKIgijjirA0racAtPmCv61A3KsIj5dQIhjXDZMvcoOPKrlG5lkHXrVI8iI/s1600/perplexityes.png",
-      "2025-10-06T06:06:53.388+00:00",
-      "Review Perplexity AI, chatbot yang berfungsi sebagai mesin pencari canggih. Dapatkan informasi terkini dari web secara langsung, lengkap dengan sumber dan sitasi yang jelas."
-    ],
-    [
-      "Claude – AI Jagoan Buat Coding dan Matematika",
-      "claude-ai-terbaik.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgK5ydH9pJ1GayVywJNImQDcbuTIC3QBtcAW045ZOBczjn9Mj44HJmttQBfUiTZeoIS9011xtiPRCzVGNqaITPM4t8OsIWxBFvQVkejMDMs9uTn9AA4qRqGMPbYgK_ZclGY-1m57izLDXWLrF2paABsWi5Mtp-CtAMjSYmxOye1Z-Wy2bw-rDr4TiShRl8/s1600/claude-ai.png",
-      "2025-10-06T06:06:53.236+00:00",
-      "Review Claude AI, chatbot yang unggul dalam penalaran terstruktur. Sangat cocok untuk software development, matematika, dan tugas STEM, serta bisa terhubung dengan tool produktivitasmu."
-    ],
-    [
-      "ChatGPT – AI Chatbot Paling Asyik dan Serbaguna",
-      "chatgpt-terbaik-umum.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEixJG3kWuEgLqPIqZrOvcR6PC-i-wa19ViIdqtvpJJQGjSG6ponPSX0OZZzwbcfe-gAKrLj1-Qhx9HvLYicgdaPfDnrEl_Ucg5e1xaASkpa97UdGHhILbQDH0OmUErWdM3t2yle54RKDfEpYV4PWpzqthG16F4cwAmYExI71BDMJJsyb6EDfkJUGU6NgQw/s1600/chtgpt.png",
-      "2025-10-06T06:06:53.235+00:00",
-      "Review lengkap ChatGPT, AI chatbot serbaguna dari OpenAI. Punya kemampuan adaptasi luar biasa, bisa dipersonalisasi, dan cocok untuk berbagai kebutuhan, dari tugas sampai ngobrol santai."
-    ],
-    [
-      "Jangan Cuma Andalkan Satu AI, Manfaatkan Kelebihan Masing-Masing!",
-      "jangan-andalkan-satu-ai.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEixJG3kWuEgLqPIqZrOvcR6PC-i-wa19ViIdqtvpJJQGjSG6ponPSX0OZZzwbcfe-gAKrLj1-Qhx9HvLYicgdaPfDnrEl_Ucg5e1xaASkpa97UdGHhILbQDH0OmUErWdM3t2yle54RKDfEpYV4PWpzqthG16F4cwAmYExI71BDMJJsyb6EDfkJUGU6NgQw/s1600/chtgpt.png",
-      "2025-10-06T06:06:53.000+00:00",
-      "Jangan menaruh semua telur dalam satu keranjang, terutama saat menggunakan AI. Setiap chatbot LLM punya kelebihan dan kekurangan. Pelajari cara memaksimalkan produktivitas dengan menggunakan AI yang tepat untuk tugas yang tepat."
-    ],
-    [
-      "Panduan pakai banyak AI chatbot",
-      "jangan-taruh-semua-telur-satu-keranjang.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEixJG3kWuEgLqPIqZrOvcR6PC-i-wa19ViIdqtvpJJQGjSG6ponPSX0OZZzwbcfe-gAKrLj1-Qhx9HvLYicgdaPfDnrEl_Ucg5e1xaASkpa97UdGHhILbQDH0OmUErWdM3t2yle54RKDfEpYV4PWpzqthG16F4cwAmYExI71BDMJJsyb6EDfkJUGU6NgQw/s1600/chtgpt.png",
-      "2025-10-06T00:41:00.000+00:00",
-      "Jangan bergantung ke satu AI chatbot saja. Tiap LLM punya kekuatan dan kelemahan. Halaman 1 kolom dark-mode, responsif, widescreen, mobile-friendly, dengan SEO lengkap, galeri, lightbox, share, komentar Facebook, dan deteksi perangkat/IP."
-    ],
-    [
-      "Tren AI di Masa Depan dan Nasib UMKM",
-      "tren-masa-depan-ai-umkm.html",
-      "https://frijal.pages.dev/img/tren-masa-depan-ai-umkm.webp",
-      "2025-10-04T15:37:18.280+00:00",
-      "Masa depan sudah tiba! Pelajari tren AI seperti analitik prediktif dan pemasaran personal yang akan mengubah cara UMKM berbisnis dan jadi bekal penting untuk karier pelajar."
-    ],
-    [
-      "Tools AI Canggih untuk UMKM Naik Kelas",
-      "tools-ai-untuk-umkm.html",
-      "https://frijal.pages.dev/img/tools-ai-untuk-umkm.webp",
-      "2025-10-04T15:37:18.279+00:00",
-      "AI bukan lagi cuma buat perusahaan raksasa. Pelajari 10 tools AI yang bisa bantu UMKM dan pelajar untuk tumbuh dan bekerja lebih efisien, dari marketing sampai layanan pelanggan."
-    ],
-    [
-      "Tidio: Chatbot Cerdas untuk Layanan Pelanggan 24/7",
-      "tidio-chatbot-ai.html",
-      "https://frijal.pages.dev/img/tidio-chatbot-ai.webp",
-      "2025-10-04T15:37:18.278+00:00",
-      "Punya toko online tapi capek balas chat? Kenali Tidio, chatbot AI yang bisa jawab pertanyaan, kasih rekomendasi produk, dan jaga tokomu tetap responsif 24 jam."
-    ],
-    [
-      "QuickBooks AI: Asisten Keuangan Cerdas untuk UMKM",
-      "quickbooks-ai-keuangan-umkm.html",
-      "https://frijal.pages.dev/img/quickbooks-ai-keuangan-umkm.webp",
-      "2025-10-04T15:37:18.238+00:00",
-      "Pusing urus keuangan? Kenali QuickBooks AI, asisten cerdas yang otomatis melacak pengeluaran, bikin laporan, dan hitung pajak. Cocok untuk UMKM dan pelajar."
-    ],
-    [
-      "Peran AI dalam Membantu UMKM Bersaing di Pasar Modern",
-      "peran-ai-bantu-umkm-bersaing.html",
-      "https://frijal.pages.dev/img/peran-ai-bantu-umkm-bersaing.webp",
-      "2025-10-04T15:37:18.225+00:00",
-      "AI bukan lagi cuma buat perusahaan besar. Pelajari bagaimana AI bisa jadi senjata rahasia UMKM untuk otomatisasi, hemat waktu, dan bersaing dengan korporasi raksasa."
-    ],
-    [
-      "Panduan Lengkap: Membuat Skrip Otomatis untuk Memperbaiki HTML",
-      "panduan-skrip-fix-html.html",
-      "https://frijal.pages.dev/img/panduan-skrip-fix-html.webp",
-      "2025-10-04T15:37:18.219+00:00",
-      "Tutorial lengkap langkah demi langkah untuk membuat skrip Python dengan BeautifulSoup guna memperbaiki error HTML umum secara otomatis, termasuk mengatasi masalah instalasi di Linux."
-    ],
-    [
-      "Notion AI: Partner Produktivitas Cerdas untuk Semua Kalangan",
-      "notion-ai-productivity-partner.html",
-      "https://frijal.pages.dev/img/notion-ai-productivity-partner.webp",
-      "2025-10-04T15:37:18.212+00:00",
-      "Kewalahan antara tugas kuliah dan bisnis? Kenali Notion AI, partner cerdas yang menggabungkan catatan, manajemen proyek, dan AI writer dalam satu aplikasi."
-    ],
-    [
-      "Jasper AI: Mesin Penulis Konten Super Cepat",
-      "jasper-ai-content-writer.html",
-      "https://frijal.pages.dev/img/jasper-ai-content-writer.webp",
-      "2025-10-04T15:37:18.137+00:00",
-      "Suka nulis tapi sering mentok? Kenali Jasper AI, rekan kerja virtual yang bisa menulis artikel, caption, dan email marketing SEO-friendly dalam sekejap."
-    ],
-    [
-      "Grammarly: Nulis Keren dan Profesional Pakai Bantuan AI",
-      "grammarly-ai-writing-assistant.html",
-      "https://frijal.pages.dev/img/grammarly-ai-writing-assistant.webp",
-      "2025-10-04T15:37:18.114+00:00",
-      "Komunikasi adalah kunci. Pelajari bagaimana Grammarly membantu UMKM dan pelajar menulis proposal, email, dan konten media sosial dengan jelas, profesional, dan bebas typo."
-    ],
-    [
-      "Gemini AI: Asisten Virtual Serbaguna untuk UMKM & Pelajar",
-      "gemini-asisten-virtual-umkm.html",
-      "https://frijal.pages.dev/img/gemini-asisten-virtual-umkm.webp",
-      "2025-10-04T15:37:18.109+00:00",
-      "Kenali Gemini, tool AI serbaguna yang bisa jadi asisten virtualmu. Dari bikin konten marketing sampai brainstorming ide bisnis, Gemini siap bantu UMKM dan pelajar untuk lebih produktif."
-    ],
-    [
-      "Pertanyaan Umum tentang AI untuk UMKM",
-      "faq-ai-umkm.html",
-      "https://frijal.pages.dev/img/faq-ai-umkm.webp",
-      "2025-10-04T15:37:18.098+00:00",
-      "Masih bingung soal AI untuk bisnis? Temukan jawaban atas pertanyaan umum apakah AI itu mahal, sulit dipakai, atau bisa menggantikan manusia di dunia UMKM."
-    ],
-    [
-      "Copy.ai: Bikin Konten Iklan yang Menjual dalam Sekejap",
-      "copy-ai-konten-otomatis.html",
-      "https://frijal.pages.dev/img/copy-ai-konten-otomatis.webp",
-      "2025-10-04T15:37:18.088+00:00",
-      "Habis waktu mikirin caption? Kenali Copy.ai, tool AI yang bisa membuat teks iklan, deskripsi produk, dan postingan media sosial yang persuasif hanya dalam hitungan detik."
-    ],
-    [
-      "ChatGPT: Asisten Virtual Serbaguna untuk UMKM & Pelajar",
-      "chatgpt-asisten-virtual-umkm.html",
-      "https://frijal.pages.dev/img/chatgpt-asisten-virtual-umkm.webp",
-      "2025-10-04T15:37:18.085+00:00",
-      "Kenali ChatGPT, tool AI serbaguna yang bisa jadi asisten virtualmu. Dari bikin konten marketing sampai brainstorming ide bisnis, ChatGPT siap bantu UMKM dan pelajar untuk lebih produktif."
-    ],
-    [
-      "Dampak Akibat rel=noreferrer Tanpa target=_blank",
-      "noreferrer-tanpa-target-blank.html",
-      "https://frijal.pages.dev/img/noreferrer-tanpa-target-blank.webp",
-      "2025-10-02T03:00:00.000+00:00",
-      "Penjelasan lengkap dan santai tentang dampak penggunaan rel="
-    ],
-    [
-      "Apa Bedanya target =_blank dengan target =''?",
-      "target-blank-vs-empty.html",
-      "https://frijal.pages.dev/img/target-blank-vs-empty.webp",
-      "2025-10-02T03:00:00.000+00:00",
-      "Penjelasan lengkap tentang perbedaan target="
-    ],
-    [
-      "GitHub Apakah main branch yang tidak protected itu berbahaya? (Jawaban santai tapi lengkap)",
-      "main-branch-unprotected.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQ370qCptJsD7-fxr6zLl_xT9VpZhvoN8Z-thmLcNfCK-s2VIhdivD7hcTYRVGZwGJPXwkwDGn-1t9OucGSDFdHYUVPI2T7jcEoLwBPjNcvFwl3MURH3N_5ln473zIFTzfLESXX9lDsmxQ7UCrAIUyupi6RVFBGEzwFf8ylVV6s4OaxLqNYhHyYb_w6uk/s1600/maxresdefault.jpg",
-      "2025-09-24T06:11:00.000+00:00",
-      "Apakah main branch yang tidak protected berarti semua orang bisa mengubah atau menghapus isi repo? Jawaban singkat: tidak. Penjelasan lengkap tentang hak akses, branch protection, dan best practice."
-    ],
-    [
-      "GitHub Badges Markdown 200+ | Copy-ready Markdown",
-      "github-badges.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjR17eLccx3eRqm0xttxHSpr0_j_UpeNAiSqTjFHAOzhhEvK70mWa1uWT7IQ8iXx7rokPpOu9lc-qUcZQFAcVQpx5eoxZ1nWaWKowdtFiGpYoW9vUH2t9fiZRl5o6gF2116RYebCk6_KqbzG0TEh5ZcjvVdXfGqWONjbeLjecK1b7MQd6RvJZI_hrLZdQs/s1600/githubbadges.jpg",
-      "2025-09-20T03:00:00.000+00:00",
-      "Halaman berisi 200+ GitHub badges dengan format Markdown siap copy. Badge dikelompokkan per kategori, log interaktif, dan mobile-friendly."
-    ],
-    [
-      "EULA (End User License Agreement) - Panduan Lengkap Memahami Lisensi Perangkat Lunak",
-      "eula-guide.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQziDXtrcs4LjhjcsJFfNdR6VHWcdpMoa2CdnSq3CilHewNoHhyphenhyphenZL6eX7d4lGDhAs26TKRKzPDGGKX2dZRJSVxY8pO1x0l-ojQJfxw9jKe7sRAgBlwVpN5b4qRgs5mX_5OjuwOoL9UCLIx/s16000/hahahaaa_24xacehuqy.jpg",
-      "2025-09-16T03:00:00.000+00:00",
-      "Panduan lengkap memahami EULA (End User License Agreement) - Perjanjian lisensi perangkat lunak yang harus dipahami pengguna Windows dan software lainnya."
-    ],
-    [
-      "Mengatasi Error Private Email di GitHub: Panduan Konfigurasi Noreply",
-      "konfigurasi-git-email-noreply.html",
-      "https://frijal.pages.dev/img/konfigurasi-git-email-noreply.webp",
-      "2025-09-16T03:00:00.000+00:00",
-      "Stuck karena error"
-    ],
-    [
-      "Membongkar Misteri Ikon di Log GitHub Actions - Panduan Lengkap",
-      "memahami-ikon-github-actions.html",
-      "https://frijal.pages.dev/img/memahami-ikon-github-actions.webp",
-      "2025-09-16T03:00:00.000+00:00",
-      "Pernah bingung dengan arti ikon centang hijau, silang merah, atau lingkaran biru di log GitHub Actions? Artikel ini membahas tuntas arti setiap ikon secara santai dan mudah dipahami."
-    ],
-    [
-      "npm audit Menemukan Vulnerability 'High'? Jangan Panik, Ini Penjelasannya!",
-      "memahami-npm-audit-vulnerability.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiq7uS9B8rXgFmpdZnYUH2uaI8vPG4SRnePhk3bO79VUt2_MpVgpV-irC_ziU-jO4wmooQEk5Iqeh4JtC9i6iN-O7llA980V8qViZyE5G8UpNuFwKT2ZBI-1Mb00dXyWghOU9PyoWbp_VWv7MLfSgYGnU0WucbM8RtEPFYNn9_yAagMAyhL9DgjAtITvUc/s1600/redos.png",
-      "2025-09-16T03:00:00.000+00:00",
-      "Mendapat laporan kerentanan (vulnerability) high severity dari npm audit seperti ReDoS? Panduan lengkap ini menjelaskan artinya, risikonya, dan apa yang harus dilakukan."
-    ],
-    [
-      "Error 'Non-Fast-Forward' Saat git push? Ini Penjelasan dan Solusinya!",
-      "mengatasi-error-git-push-non-fast-forward.html",
-      "https://frijal.pages.dev/img/mengatasi-error-git-push-non-fast-forward.webp",
-      "2025-09-16T03:00:00.000+00:00",
-      "Panduan lengkap dan mudah dipahami untuk mengatasi error"
-    ],
-    [
-      "Refresh Desktop Windows: Mengapa Pengguna Sering Klik Kanan",
-      "refresh-desktop.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWMVGpKbdPGNGhU96tKmwGCUI1XcAcTCvZCnImVjijSZ4DNkCW8F3kRXLRxNlvvbO3MKbk4yh-jDn5zGrJT-xAe4E6KOJuYTet-PxaBdCNnOZ-DDhXJ3Pf858LpWN1h_kk6hgYpoOWiZBL/s16000/windows.jpg",
-      "2025-09-16T03:00:00.000+00:00",
-      "Artikel ini menjelaskan kebiasaan pengguna komputer yang sering melakukan"
-    ],
-    [
-      "Mengatasi Git Merge Conflict dengan Santai",
-      "git-merge-conflict.html",
-      "https://frijal.pages.dev/img/git-merge-conflict.webp",
-      "2025-09-14T03:00:00.000+00:00",
-      "Panduan lengkap mengatasi git merge conflict di branch main dengan penjelasan santai, responsif, dan mudah dipahami."
-    ],
-    [
-      "Git Fetch vs Pull: Cara Aman Update Repo Lokal Tanpa Kehilangan Perubahan",
-      "git-fetch-vs-pull.html",
-      "https://frijal.pages.dev/img/git-fetch-vs-pull.webp",
-      "2025-09-14T03:00:00.000+00:00",
-      "Panduan lengkap dan detail untuk memperbarui repository Git lokal Anda dengan aman menggunakan git fetch dan git stash, menghindari konflik dan perubahan tak terduga dari git pull."
-    ],
-    [
-      "Optimasi Windows 11 untuk CPU Lawas",
-      "Windows-11-lebih-ringan-untuk-CPU-lawas.html",
-      "https://frijal.pages.dev/img/Windows-11-lebih-ringan-untuk-CPU-lawas.webp",
-      "2025-09-13T03:00:00.000+00:00",
-      "Cara membuat Windows 11 berjalan lebih ringan dan cepat di komputer dengan CPU lawas. Ikuti langkah optimasi mudah untuk meningkatkan performa."
-    ],
-    [
-      "Wine: Si Penerjemah Ajaib, Bukan Emulator (Dan Kenapa Itu Penting!)",
-      "wine-bukan-emulator.html",
-      "https://frijal.pages.dev/img/wine-bukan-emulator.webp",
-      "2025-07-15T03:30:00.000+00:00",
-      "Pahami kenapa Wine bukan emulator. Ia adalah compatibility layer yang menjembatani dunia Windows dan POSIX—lebih ringan, mulus, dan penuh peluang."
-    ],
-    [
-      "Peramban web ringan terbaik untuk Linux mudah, cepat, tetap kompatibel",
-      "peramban-ringan-linux-terbaik.html",
-      "https://img.youtube.com/vi/1QW72jFLkis/hqdefault.jpg",
-      "2023-01-01T01:00:00.000+00:00",
-      "Alternatif peramban web ringan untuk Linux: ukuran kecil, hemat RAM/CPU, tetap mudah dipakai dan merender situs dengan benar. Tonton videonya dan mulai jelajah lebih enteng."
-    ],
-    [
-      "Mengamankan Repositori: Panduan Lengkap Actions Permissions di GitHub",
-      "github-actions-permissions-security.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-B_tNpehEn6YhovPemrCBF1kK24Gw4u_U9TyX9q7JVJ5rAdfak7ifPG3VIKdExoNr9fv_rrb0QJs9ETDLTS-5_lbDreQbW4MBNK0yK4F2usvDtP73cBjDGchyphenhyphenqSCeL03i_HKptp9sGK6ekCkpV6ikBMIqoVWbDG0Nl7H_CYRzR1njbBBomonse_ivF98/s1600/Screenshot%20From%202025-10-21%2022-35-04.png",
-      "2025-10-21T16:48:14.661+00:00",
-      "Pahami cara kerja Actions Permissions di GitHub. Pelajari risiko"
-    ],
-    [
-      "Fitur 'Sign Off' di GitHub, Perlu Diaktifkan Gak Sih? Penjelasan Lengkap soal DCO",
-      "github-commit-sign-off-dco.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSsPCmt8a_lZAMiUHrMi26B7meAmM-nq6o10cFufw3ykrhir8x696lJUt1Nzfrm-TqX5iqqcT9o7sJhTCvHS5xslzk9_h2AZopA0v9NTDsoHwLADyaFW7D1ZezwmRnQodzb7cPK8JcOjQZZTerX1FmIneaA1ML06bcL204zM7yn9ShBoIpfmG68nOcKwA/s1600/Screenshot%20From%202025-10-21%2022-14-00.png",
-      "2025-10-21T16:48:14.661+00:00",
-      "Melihat opsi"
-    ]
-  ],
-  "🔆 Lainnya": [
-    [
-      "Tips Cooling Laptop AMD",
-      "tips-cooling-laptop-amd.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiVBY-3DKVAoxkQ6cErt9ZqKUaX0cr5rof0CJwaivsuFICz6U8Mb-N2TpZJJOVhxNLfT6iY9J4aDt7_jCCaS87SEmvzDCtnoA_Pf2xlnGgATw2fnHHZS_yhSLsPBS5aHiyseLhuJF7e4Vul/s1600/kipas2.jpg",
-      "2025-10-18T00:31:19.968+00:00",
-      "Panduan menjaga laptop AMD tetap dingin dengan metode sederhana menggunakan kipas box dan tips perawatan. Cocok untuk pengguna yang aktif menggunakan laptop berjam-jam."
-    ],
-    [
-      "Permohonan Kebijakan Parkir untuk Ojol di Balikpapan",
-      "ojol-parkir-balikpapan.html",
-      "https://frijal.pages.dev/img/ojol-parkir-balikpapan.webp",
-      "2025-10-17T12:38:48.556+00:00",
-      "Surat terbuka untuk para pimpinan fasilitas publik di Balikpapan agar mempertimbangkan kebijakan karcis parkir bagi driver ojek online yang mengantar-jemput penumpang, barang, dan makanan."
-    ],
-    [
-      "Keutamaan Membela Kehormatan Saudara: Jalan Pintas Menjauhi Api Neraka!",
-      "keutamaan-membela-kehormatan-saudara.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhm3-ep9kd4RiSx6zMzmvDIQc1GLLu88xH3eJZ73VklHFxEfSvICaCgl-UaJ0R5oJtDajgOCMzGU2uzDvYRsOwqTIy9dcqvKHoggVK-Rg3I1IVdPUV2eH60GU7IL-CMiJNnMXyc1xKur3-19pXQL1nUZyGeDZ6XnxHtI2ft9_gOP0w1f8rY35BlywY0k44/s1600/membela.jpg",
-      "2025-10-17T12:38:48.546+00:00",
-      "Nilai pahala besar saat membela kehormatan saudara dari gosip dan fitnah. Implementasi nyata, empati, dan solidaritas dalam kehidupan sehari-hari."
-    ],
-    [
-      "Hidup Bukan Sekedar Eksistensi, Tapi Pengabdian",
-      "hidup-bukan-sekedar-eksistensi-tapi-pengabdian.html",
-      "https://frijal.pages.dev/img/hidup-bukan-sekedar-eksistensi-tapi-pengabdian.webp",
-      "2025-10-17T12:38:48.541+00:00",
-      "Renungan tentang tujuan hidup manusia menurut Al-Qur’an dan hadits: bahwa hidup bukan sekadar eksistensi, melainkan pengabdian dan ibadah kepada Allah Subhanahu wa Ta"
-    ],
-    [
-      "10 Kalimat Mulia yang Wajib Dibiasakan",
-      "10-kalimat-muslim.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiszs3xKFruxJs_wbn8xmzKf1UwstX-d7UvshLsQb7GdeyLjBVlYrRKToNR9_omcQe3hFk1ur6IaP9F6sGtqMoAfOb27ok7WI8vCT5JM3no0GW7aze4I19sTfP0gkvtEVGFy0zHqA2v27ou/s1600/1072168_10200715146018901_1734749230_o-710526.jpg",
-      "2025-10-17T12:38:48.522+00:00",
-      "Pelajari 10 kalimat mulia dalam Islam yang bisa kita biasakan setiap hari, lengkap dengan makna dan kapan waktu yang tepat untuk mengucapkannya."
-    ],
-    [
-      "UNLICENSE: Dedikasi Domain Publik untuk Kebebasan Maksimum",
-      "unlicense.html",
-      "https://frijal.pages.dev/img/unlicense.webp",
-      "2025-10-17T08:24:29.868+00:00",
-      "Lisensi UNLICENSE adalah dedikasi domain publik agar karya dapat digunakan tanpa batasan. Penjelasan, karakteristik, alasan menggunakan, dan contoh ikon."
-    ],
-    [
-      "Kisah Badui kencing di Masjid",
-      "badui-kencing-di-masjid.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEin1se4wIHWwB1TtLRjc_XW6KnnE-ZfGyFco73OWbKYH8W84tVHqiGKL3aIdEKQsV4p_vTaY0QESN3pX54A0SfQVgi_8C_RU4FRmGjOqSjNqgT5tDrFXWJmzOfuskf9IlPOFLD56f2MhbUCQllw-GXE2BjHL8Oi9vKQ2rxxIf9RWszqPdlPSMOcLx1rs-c/s1600/badui.jpg",
-      "2025-10-17T08:24:29.839+00:00",
-      "Rasulullah ﷺ menanggapi seorang Badui yang kencing di masjid dengan kelembutan, bukan kemarahan: pelajaran agung tentang dakwah yang memudahkan."
-    ],
-    [
-      "Gunakan Perangkat Lunak Bebas Terbuka di Sekolah | frijal.pages.dev",
-      "oss-sekolah.html",
-      "https://frijal.pages.dev/img/oss-sekolah.webp",
-      "2025-10-16T23:20:38.199+00:00",
-      "Ajaklah semua orang untuk menggunakan perangkat lunak bebas terbuka di sekolah. Alternatif gratis seperti Linux, LibreOffice, GIMP, dan GNUCash bisa menghemat biaya pendidikan."
-    ],
-    [
-      "Kalkulator Laundry Berkah",
-      "Kalkulator-Laundry-Berkah.html",
-      "https://frijal.pages.dev/img/Kalkulator-Laundry-Berkah.webp",
-      "2025-10-14T18:15:06.377+00:00",
-      "Hitung biaya laundry kiloan atau satuan dengan cepat dan akurat. Kalkulator Laundry Berkah mempermudah manajemen pesanan dan memberikan total harga secara instan."
-    ],
-    [
-      "Masa Depan Milik Mereka yang Melek Teknologi",
-      "kesimpulan-ai-umkm.html",
-      "https://frijal.pages.dev/img/kesimpulan-ai-umkm.webp",
-      "2025-10-04T15:37:18.145+00:00",
-      "Dunia bisnis berubah cepat. AI bukan lagi sekadar alat, tapi kunci sukses. Baik untuk pelajar maupun UMKM, inilah saatnya memanfaatkan teknologi untuk bertumbuh."
-    ],
-    [
-      "Menepis Gelap, Menyambut Terang – Perspektif Baru tentang Ujian Hidup",
-      "menepis-gelap-menyambut-terang.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRf8zVNc8EH8F5blFMb1rDjvygJWR3zhbeUpEWOUeQoU5yqXNElV9nA7isqx1MJDc8psbH3VksF5L6EHNIdjKB1Q8eP7UuysJrsZ0G7B-4goSreQQZfjcq3ZKePM1JqjCWd1qpVH3xP2JUoRxBWAP19CP1S2mBp7SDqZc3r8eTSNIAFheNaeF4FC8Evfk/s2048/Insyirah.jpg",
-      "2025-09-28T08:10:00.000+00:00",
-      "Perspektif santai dan hangat tentang ujian hidup: kejujuran menghitung nikmat, makna Al-Insyirah, serta langkah praktis menyempurnakan ikhtiar. Responsif, interaktif, dan SEO-ready."
-    ],
-    [
-      "Queen Anne’s Revenge: Kisah La Concorde & Blackbeard",
-      "queen-annes-revenge.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjiY3ksXIHpzt-yBzIxp3kKyI1-z0BudgsyfW7TKC3-1PUY4S9yiZtkjxUb7Ny7-qnSM4QP6VPXmv7znA2HWkPUaJOW22y-F_-TVqp4-otHwMNDVWIg6HB5hBd-8_rnkK-M5Iq6Ufw3tzoX7FtkmbRg1gq9LWi17XSJGxqYujAYb-3ZDjbX16eEOmWDdSc/s1600/budak.jpg",
-      "2025-09-24T03:00:00.000+00:00",
-      "Kisah La Concorde yang direbut Blackbeard lalu menjadi Queen Anne’s Revenge. Dari tragedi perdagangan budak ke legenda bajak laut Karibia."
-    ],
-    [
-      "Pulang - Nostalgia, Rindu, dan Senyum Kecil",
-      "lirik-pulang-nostalgia.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-ZNw_6NfIpPHV1bQm4XSc1h_kaoaIsBzpxST9LTZCa3-uzFjTzgs9ltY4ubinjuoane27PgSWh5US3Zw1M2UHELqiOXxlxrdsEcoCUrNVCx9-4Oa_pqPhGJrSa8ZM5smv7TwjgXSA5AZUmeXIn9cMObt7ZoXwsUFctBlLx6b70JgY_AJKGQi_Flfl-Sg/s1024/kamarlama.png",
-      "2025-09-22T06:40:00.000+00:00",
-      "Lirik bernuansa rindu dan pulang: nostalgia kamar, wibawa ayah, hangatnya ibu, plus selipan humor kehidupan. Baca, dengar, dan nikmati."
-    ],
-    [
-      "Makan untuk Hidup, Hidup untuk Makan",
-      "makan-untuk-hidup-hidup-untuk-makan.html",
-      "https://frijal.pages.dev/img/makan-untuk-hidup-hidup-untuk-makan.webp",
-      "2025-09-16T03:00:00.000+00:00",
-      "Refleksi: makan sebagai kebutuhan, bahaya berlebihan, nasihat klasik (Lukman, Abu Bakar) dan panduan praktis agar hidup seimbang—makan untuk hidup, bukan hidup untuk makan."
-    ],
-    [
-      "Cara Mudah dan Cepat Menyelesaikan Psikotes",
-      "cara-mudah-menyelesaikan-psikotes.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMHz0gnXIjqKR6RAKHzI8Ms1ftSYMwWgo6m1dRSpPfv4XeXoDC0nS8bRXpvPEwg-mlUGbUi7TMOObAG36VJpPVYrEhMhKzpt3OX32cMMfL-EfcPu5D_YNhBQyQp9LPB8HBa5olZOElHtHDpCPJrKaaFuThU3pkx13FfBEfsvE4Ck7V37JfO0Esw0tpeI0/s1024/Gemini_Generated_Image_5xj3u75xj3u75xj3.png",
-      "2025-09-14T03:00:00.000+00:00",
-      "Panduan lengkap cara mudah dan cepat menyelesaikan soal-soal psikotes: tes logika, aritmatika, penalaran, EPPS, Kraepelin, Warteg, dan lainnya."
-    ]
-  ],
   "📸 Multimedia & Editing": [
     [
       "Solusi LibreOffice Lambat di Jaringan",
@@ -3406,6 +3292,190 @@
       "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjdW4blweq_8XOLDjC6FZptgnqp1YsR1GQG6qcGtXFN9opwknEGhDlwcLUwKtsg_TB0tlNg8OwAfbYpkS2TMuDganL6oPPmtEF4U-p1RT_xitvR274wByfSWyE8G75Vgw1-JIfAdgM3728/s1600/geeks+at+aryaduta+2.resized.JPG",
       "2009-11-01T13:00:00.000+00:00",
       "Serunya ngoprek bareng SPG Ubuntu Jogja saat GCOS 2009: ponsel, kamera, wireless, sampai Ubuntu. Menginap di The Aryaduta Suite Hotel Semanggi. Galeri foto + cerita singkat."
+    ],
+    [
+      "Ketika Ekonomi Cuma Pemicu — Rahmah, Adab, Dan Rasa",
+      "rahmah-adab-dan-rasa.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7yjmdxT5W_ra88nxMvA51yzbONIUGarPUax6CEbYEpd6NF64qkOICmmyZp2-Heiv_34oXMP3ho8DLBl-5jMwFEruWXOy6A6m1Ik7Z2lerBjz19LLiwz1elF49pclkSm5EXecO1XGKdXVLYW86qBk79-d0DGLSYsHawkOtgGcw0Eee6LUiF23OoXlD97I/s1600/kitabelilagi.webp",
+      "2025-10-22T11:53:56.646+00:00",
+      "Tulisan reflektif tentang rumah tangga: adab sebagai akar, ekonomi sebagai pemicu. Kekayaan membuat menatap, adab membuat menetap. Tentang suami sederhana, syukur, sabar, dan rahmah dalam pernikahan."
+    ]
+  ],
+  "🍜 Kuliner, Gaya Hidup & Kesehatan": [
+    [
+      "Sulit Buang Air Besar (Sembelit) — Penyebab, Cara Mengatasi & Pencegahan",
+      "sembelit.html",
+      "https://frijal.pages.dev/img/sembelit.webp",
+      "2025-10-18T06:42:10.055+00:00",
+      "Panduan ringkas dan santai tentang penyebab sulit buang air besar (sembelit), cara aman mengatasinya di rumah, kapan harus ke dokter, dan tips pencegahan."
+    ],
+    [
+      "Bahaya Menggunakan Sikat Gigi untuk Mengaduk Minuman",
+      "sikat-gigi-aduk.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzswtddIeRYMjOfMQVFSH1xeExCjZzO2739dtTmDz_dR3L752lseXIEEw9gy-O9aU10vinbFb5Fo4nASYr7DNpTHxH79tFV5n4fhY4yQ72GQ9_bjDwb_GguPrQF9KsamzS9-0NLzx5Sxj43Lw9DAK-OjRqa3D0pu74r33tR4upx3yJOvxIzfiwg4u5bYE/s1600/sikat-gigi-aduk.jpg",
+      "2025-10-18T00:31:19.965+00:00",
+      "Kenapa sikat gigi tidak boleh digunakan untuk mengaduk minuman? Simak penjelasan masalah kesehatan, kebersihan, serta alternatif yang lebih aman."
+    ],
+    [
+      "Produk Dairy & Alternatif Non-Dairy untuk Kopi Susu",
+      "produk-dairy-dan-alternatif.html",
+      "https://frijal.pages.dev/img/produk-dairy-dan-alternatif.webp",
+      "2025-10-18T00:31:19.962+00:00",
+      "Penjelasan santai tentang pengaruh produk dairy terhadap pencernaan dan frekuensi buang air besar, serta berbagai alternatif susu non-dairy untuk kopi susu yang lebih ringan dan sehat."
+    ],
+    [
+      "Sakit Kepala? Jangan Buru-Buru Minum Obat, Coba Pijat Relaksasi Ini!",
+      "pijat-sakit-kepala.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimOPCZ0reQuY_6QTC63V_fsSBK5psMYaH_A1kADCtULkoHermpGjvxhN_9R7i4UFQiUqgEexBDCJZ93nPvq5j0EoHNuCC_Cr4CVmH5JIBwSWkx83zPE8NUwMl47XOAOAMMkQGvt6C-ogmA/s1600/pijat1.jpg",
+      "2025-10-18T00:31:19.961+00:00",
+      "Cara mudah dan efektif meredakan sakit kepala dan ketegangan dengan teknik pijat sederhana yang bisa kamu lakukan sambil duduk di depan komputer."
+    ],
+    [
+      "Pola Hidup Sehat untuk Usus yang Bahagia",
+      "pola-hidup-sehat-untuk-usus.html",
+      "https://frijal.pages.dev/img/pola-hidup-sehat-untuk-usus.webp",
+      "2025-10-18T00:31:19.961+00:00",
+      "Panduan gaya hidup sehat untuk menjaga usus tetap bahagia dan sistem pencernaan berfungsi optimal."
+    ],
+    [
+      "Renungan Niat: Menjadi Pegawai Negeri atau Pengusaha?",
+      "niat-cpns.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmTF0M6TQTCadeEeVq8CqaSE_AoZ4Vo3NJdpmhSfKjeVTQeMTZmlUMp4WCk2D2AlvbZuS0ysHaL2FKgOaVaejGnGUPGVp_B2veq14dffr9BH3gIKOERkinXGoqnBY3f3HhkQLyMO5_qIke/s1600/Info+Penerima+CPNS+Terbaru+2013.jpg",
+      "2025-10-18T00:31:19.957+00:00",
+      "Kisah inspiratif tentang seorang ayah yang membimbing anaknya untuk merenungkan niatnya sebelum menjadi pegawai negeri, mengajarkan arti pengabdian dan perjuangan."
+    ],
+    [
+      "Minuman yang Membantu Melancarkan Pencernaan",
+      "minuman-bantu-pencernaan.html",
+      "https://frijal.pages.dev/img/minuman-bantu-pencernaan.webp",
+      "2025-10-18T00:31:19.956+00:00",
+      "Daftar minuman alami yang membantu melancarkan pencernaan dan buang air besar, lengkap dengan manfaat dan tips konsumsi sehari-hari."
+    ],
+    [
+      "Metode Wanita",
+      "metode-wanita.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqsGvA6h5GpXtlRm-xO3oNtemgYUU1_vnoBApmWIlok4aMkzOVMuRxCiyflHZdTfvrd9TAvXD2Xm0rIE98VrWMh_Y-9l_tMgfXO6lgH8doZSmPfrbpwmgJd25GqTpcMH909_GXRrGY7dCj/s800/aci.jpg",
+      "2025-10-18T00:31:19.955+00:00",
+      "Panduan modern menghadapi perilaku wanita yang sulit, lengkap dengan metode praktis dan infografis ringkas."
+    ],
+    [
+      "Manfaat Memakan Kurma - Khasiat, Nutrisi, dan Cara Mengonsumsinya",
+      "manfaat-kurma.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcpQejBp4qszEwvg64uNK2Wb2RqhkBiancJPZzrsIXLpHr6TV32rxlH2TTA9-uk0YAbSD67P8smApb50y6HRu2UN-W1vJUC8O4MXInMnRd1RE_nsya9xK_NKTie_g-s-7aPmBa8lrf6_hT7ttpgQTR4FhNWjhSjvkVPfHGqwzzL7TvC-MXT3oJqQqkAxo/s1600/20230608-20230607201414-1-pohon-kurma-2000-tahun-003-pandasurya-wijaya.jpg",
+      "2025-10-18T00:31:19.951+00:00",
+      "Temukan manfaat kesehatan kurma: sumber energi, serat, vitamin & mineral, serta tips konsumsi yang tepat."
+    ],
+    [
+      "Kerupuk 'Tolak Miskin', Ternyata Beneran Ada!",
+      "kerupuk-tolak-miskin.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjW2EBdi-5c3Wt-1I7NoGdfqULTamPSbXYxkGDjVUbZhyn9ryyUHFMdDhwBrw42WitBnF7Sesd7cc-Ju4aJx-biCO7_LBccJDgi9sjcTBbP8h_B_dogtRk2Wm0ZCjAZs2b7iPT_b0iyGuc2JijXv5-WBfhTO9IrsNlt7yHn0EWNpKjIslv7Kcl3eESnqVg/s1600/tumblr_n1rcfu5xNk1qa5bf5o1_500.jpg",
+      "2025-10-18T00:31:19.946+00:00",
+      "Ternyata ada kerupuk yang dinamai"
+    ],
+    [
+      "Gerimis & Jagung Godog: Hangatnya Camilan Sederhana | Catatan Kuliner",
+      "jagung-godog-gerimis.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0r1imvdjpEn5pOlBuhIapv3yS-WK0yGWWvMjhyphenhyphen6aGN1px8oo2nZtM5xeoLiKlFk0VytYdARzQbCv5SophBCEUvr1OodDK9rwPQnLisCRfg7q_WTs7G9gIzuDct-oX_nZfVkbZ1i-wK4x193aZRtqMdiby2pWG0mqWkju0B5B-GjKPzRErJq5EayJFX4Y/s1600/jagung.jpg",
+      "2025-10-18T00:31:19.944+00:00",
+      "Ketika gerimis mengundang, nikmatnya jagung godog terasa berlipat. Cerita singkat, galeri foto, tips penyajian, dan fitur interaktif."
+    ],
+    [
+      "Catatan Harian Seorang Wanita - Versi Santai, Ceria",
+      "catatan-harian-wanita.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhluMB0COG88VNMI1BrkubcDOcc_zV0Vw4eP1vsMcx9V0nYTlIZGwbWRwTiCvi2vBIEVddmfxo1Pp9ziJHDt6uuzJSedZuvYp81bxg84LO-EEHq4wWKqWZnnMfcYm99KZTSyl8zAFs3mZnpOWMAQpC5KwaZdvF6rKKeNdryITWxW6880wgxK8MhBDKsjiw/s16000/IMG_20170923_160248.jpg",
+      "2025-10-18T00:31:19.933+00:00",
+      "Catatan harian seorang wanita: versi santai, ceria, fullscreen. Humor, renungan, dan obrolan hangat tentang dinamika hubungan."
+    ],
+    [
+      "Bumbu Pecel Kacang - Pengertian, Bahan & Cara Membuat",
+      "bumbu-pecel-kacang.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqBhQtbv1A3W1wzkw3pOE15P8XKWMq_niShyphenhyphenwy687lsd-Jt0glqJLpRCKJVtClGC586Sli2ywjLVmQI03MHuuTfvB2LWSqondit9OD75fkj1A0WPscGDDKSM122IeEzOca5BhKFaPLz72Xi3RqKRtBl4kY4NnmqTOb1kcktCkA7euB9UbJbeavXDtXhm8/s1600/Pecel_Hariadhi.webp",
+      "2025-10-18T00:31:19.932+00:00",
+      "Bumbu pecel kacang: resep, bahan, cara membuat dan tips menyajikan pecel yang enak. Panduan praktis dalam bahasa Indonesia."
+    ],
+    [
+      "Susah Tidur? Panduan Praktis untuk Tidur Lebih Nyenyak",
+      "Susah-Tidur.html",
+      "https://upload.wikimedia.org/wikipedia/commons/2/22/%22No_Sleep%22.png",
+      "2025-10-18T00:31:19.927+00:00",
+      "Tips praktis dan mudah dipahami untuk mengatasi kesulitan tidur (insomnia ringan). Termasuk rutinitas, lingkungan tidur, teknik relaksasi, dan kapan perlu konsultasi medis."
+    ],
+    [
+      "Tips Melancarkan Pencernaan & Buang Air Besar",
+      "tips-melancarkan-pencernaan.html",
+      "https://frijal.pages.dev/img/tips-melancarkan-pencernaan.webp",
+      "2025-10-17T12:38:48.566+00:00",
+      "Panduan santai untuk menjaga pencernaan tetap sehat dan buang air besar lancar setiap hari. Lengkap dengan tips pola makan, gaya hidup, dan kebiasaan sederhana."
+    ],
+    [
+      "Menjaga Pencernaan Tetap Sehat dan Lancar",
+      "rangkuman-akhir-pencernaan-sehat.html",
+      "https://frijal.pages.dev/img/rangkuman-akhir-pencernaan-sehat.webp",
+      "2025-10-17T12:38:48.561+00:00",
+      "Rangkuman lengkap panduan pencernaan sehat — mulai dari asupan serat, pengaruh dairy, pilihan susu non-dairy, hingga gaya hidup yang mendukung kesehatan usus."
+    ],
+    [
+      "Ngopi Sek Ben Ra Edan, Yuk!",
+      "ngopi-ben-ra-edan.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqkfbd27HXDClCRcWYmjs50mBTQB0ex25NGRfBMvo20AkuoHPYdPxVPh1AszufmQOp1gIhbw8Rq1H5h4p-RguzJyt7dgia3Y4_egFQgkG8G07u4P09npCah_L4D0CueHG8V9dHYl0CWRRx/s1600/ngopi-sek-ben-ra-edan-727198.png",
+      "2025-10-17T12:38:48.556+00:00",
+      "Ternyata sudah dua hari ini saya belum ngopi! Ayo, siapa mau gabung? Ngopi dulu biar tidak"
+    ],
+    [
+      "Mengapa Tidak Buang Air Besar Setiap Hari? Penjelasan & Solusi",
+      "tidak-boker-tiap-hari.html",
+      "https://frijal.pages.dev/img/tidak-boker-tiap-hari.webp",
+      "2025-10-17T08:24:29.866+00:00",
+      "Penjelasan santai tentang kenapa seseorang bisa tidak buang air besar setiap hari, lengkap dengan penyebab, posisi kolon, serta tips agar pencernaan tetap lancar."
+    ],
+    [
+      "Suka Kopi Susu Tapi Jadi Susah Boker? Ini Penjelasannya!",
+      "susu-dan-pencernaan.html",
+      "https://frijal.pages.dev/img/susu-dan-pencernaan.webp",
+      "2025-10-11T06:14:13.216+00:00",
+      "Penjelasan santai kenapa produk dairy seperti susu bisa bikin susah buang air besar (senep), plus rekomendasi susu non-dairy yang enak buat kopi susu."
+    ],
+    [
+      "Kenapa Nggak Boker Tiap Hari? Kupas Tuntas Kesehatan Pencernaan",
+      "kesehatan-pencernaan-boker.html",
+      "https://frijal.pages.dev/img/kesehatan-pencernaan-boker.webp",
+      "2025-10-11T06:14:13.069+00:00",
+      "Santai tapi serius, ini penjelasan kenapa frekuensi buang air besar bisa beda-beda. Dari soal serat, stres, sampai di mana sebenarnya feses disimpan."
+    ],
+    [
+      "Apa Penyebab Tidak Boker Setiap Hari? | Frijal",
+      "kenapa-tidak-boker-harian.html",
+      "https://frijal.pages.dev/img/kenapa-tidak-boker-harian.webp",
+      "2025-10-11T06:14:13.067+00:00",
+      "Ada beberapa alasan mengapa seseorang mungkin tidak buang air besar setiap hari. Pelajari penyebab, proses pencernaan, dan tips menjaga kesehatan usus dalam gaya santai dan lengkap."
+    ],
+    [
+      "Satu Hari Bersama Komunitas Ubuntu",
+      "ergonomi-darurat-ubuntu.html",
+      "https://frijal.pages.dev/img/ergonomi-darurat-ubuntu.webp",
+      "2025-09-18T03:00:00.000+00:00",
+      ""
+    ],
+    [
+      "Angkringan Jogja - Kuliner Tradisional Yang Legendaris",
+      "angkringan-jogja.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLNoFBzPv6IPbZz9UCt9pl6yvP-SFvUIXuKZx_YvSWgfhujAZtl0eJ1uh4mTOghGA7zLDd9r3zgxPxTj8brV8uJg4hb3505IqPqDA2kfVJEOhsMNvYY-wKbDajGRPZVYXLVUvyjJSyOFz8/s800/wpid-DSC_2991.jpg",
+      "2025-09-16T03:00:00.000+00:00",
+      "Nikmati kuliner tradisional Jogja di Angkringan dengan sate telur puyuh yang legendaris. Cita rasa autentik yang tak terlupakan bagi warga Yogyakarta."
+    ],
+    [
+      "Wifi Gratis di Taman Bekapai, Balikpapan - Catatan Siang PENGACARA",
+      "wifi-gratis-taman-bekapai-balikpapan.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkd-yHixL8RHNFi0CssIxEr90Iluv04WAgg-lXjKdL9DzEk6ca7xjmPJ0GlKP86PDRlQsrX83raRPGJk8ledCpug67dhjPiSH_tBK4VgwHwR7wGm57zN1svg1E3WV_K2Z9ZVECmMxilMqy/s1200/DSC05503.JPG",
+      "2010-03-03T04:00:00.000+00:00",
+      "Siang yang panjang berubah jadi seru: ngenet gratis di Taman Bekapai, Balikpapan. Foto, cerita, tips, dan peta lokasi."
+    ],
+    [
+      "Biskuit LINUX itu nyata — camilan yang bikin senyum",
+      "biskuit-linux-itu-nyata.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvEnsFPUo28nZRJ_DaUyKHuJhKCM1aBpWE0uc2T5k6xEzz3ILtutdfB3vF1mnoN2yg6Q-FKnKHmaPe3XKgaA-wu91itVIV432fy4DOadZUC4MPV6jvDRGsS7gFByn7FccHnNV8oQwq5T0t/s1600/4644903006_3b3fbd6f2f.jpg",
+      "2010-01-15T02:00:00.000+00:00",
+      "Ada biskuit bermerek LINUX. Serius. Lihat foto-fotonya, senyum, lalu kirim ke grup open source favoritmu."
     ]
   ]
 }
