@@ -6,7 +6,6 @@ on:
   # 1. Menunggu workflow lain selesai
   workflow_run:
     # GANTI NAMA INI: Sesuaikan dengan nama file .yml workflow yang harus selesai duluan.
-    # Contoh: "build-and-test.yml"
     workflows: ["generate-json-xml.yml", "generate-json-xml.yml", "generate-json-xml.yml", "generate-json-xml.yml", "baris-langsunghapus.yml", "baris-langsunghapus.yml", "baris-langsunghapus.yml", "hapushitung.yml","masukan-baris.yml", "pindah-file.yml"]
     types:
       - completed # Hanya berjalan setelah workflow tsb selesai
