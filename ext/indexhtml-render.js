@@ -1,4 +1,4 @@
-import { IDX_TITLE, IDX_FILENAME, IDX_IMAGE, IDX_DATE, IDX_DESCRIPTION, DEFAULT_THUMBNAIL, getIconAndClass, categoryToId, formatDate } from 'ext/indexhtml-util.js';
+import { IDX_TITLE, IDX_FILENAME, IDX_IMAGE, IDX_DATE, IDX_DESCRIPTION, DEFAULT_THUMBNAIL, getIconAndClass, categoryToId, formatDate } from '/ext/indexhtml-util.js';
 
 export function createArticleCard(item) {
   const title = item[IDX_TITLE];
