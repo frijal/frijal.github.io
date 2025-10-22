@@ -264,10 +264,10 @@ function initNavIcons(allArticlesData, currentFilename) {
         const prevArticle = articlesInCategory[prevIndex];
 
         prevBtn.href = `/artikel/${prevArticle[1]}`;
-        prevBtn.title = `Sebelumnya: ${prevArticle[0]}`;
+        prevBtn.title = `${prevArticle[0]}`;
         
         nextBtn.href = `/artikel/${nextArticle[1]}`;
-        nextBtn.title = `Berikutnya: ${nextArticle[0]}`;
+        nextBtn.title = `${nextArticle[0]}`;
     }
 }
 
