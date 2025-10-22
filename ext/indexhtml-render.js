@@ -21,8 +21,7 @@ export function createArticleCard(item) {
   link.title = description;
 
   link.innerHTML = `
-    <img src="${thumbnailUrl}" alt="${title}" loading="lazy"
-         onerror="this.onerror=null; this.src='${DEFAULT_THUMBNAIL}';">
+    <img src="${thumbnailUrl}" alt="${title}" onerror="this.onerror=null; this.src='${DEFAULT_THUMBNAIL}';">
     <div class="card-content">
       <h3>${title}</h3>
       <p>${dateString}</p>
@@ -57,7 +56,7 @@ export function createQuickNav(categories) {
     anchor.addEventListener('click', function (e) {
       if (this.getAttribute('href') === '#top') {
         e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo(0, 0);
       }
     });
   });
