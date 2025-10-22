@@ -141,6 +141,9 @@ jobs:
             printf '%s\n' "${files[@]:7}" | xargs rm -f
           fi
 
+      - name: Pull latest changes from main
+        run: git pull origin main --rebase
+
       - name: Commit Laporan & Badge
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
