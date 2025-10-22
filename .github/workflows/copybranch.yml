@@ -45,8 +45,8 @@ jobs:
           # [GANTI NAMA INI] Masukkan nama "check" dari workflow yang ingin ditunggu.
           # Biasanya ini adalah NAMA JOB dari file .yml tersebut.
           check-name: |
-            ☢️ Build and Generate Site Files
-            🔄 Proses ArtikelX
+            process_and_move_articles
+            build
           ref: ${{ github.sha }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           # Waktu tunggu maksimal sebelum dianggap gagal (dalam detik)
