@@ -6,6 +6,9 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -50,15 +53,16 @@ jobs:
             --exclude='*' \
             source/ deploy_dir/
 
-      # Bandingkan dengan branch site
-      - name: Check for changes
+      # --------------------------------------------------------------------------
+      # LANGKAH PENGECEKAN DIBUAT MINIMAL TANPA LOGGING
+      # --------------------------------------------------------------------------
+      - name: Check for changes (Fast & No-Log)
         id: check_changes
         run: |
-          rsync -a --dry-run --delete deploy_dir/ site/ > diff.log
-          if [ -s diff.log ]; then
-            echo "changed=true" >> $GITHUB_OUTPUT
-          else
+          if git diff --no-index --quiet deploy_dir/ site/; then
             echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
           fi
 
       # Deploy hanya jika ada perubahan
@@ -71,4 +75,5 @@ jobs:
           publish_branch: site
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
-          force_orphan: true
+          force_orphan: false
+          keep_files: false
