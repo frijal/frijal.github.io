@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       target_folder:
-        description: 'Masukkan nama folder tempat file HTML akan diproses (contoh: artikelx)'
+        description: 'Masukkan nama folder tempat file HTML akan diproses (contoh: aartikelx)'
         required: true
         default: ''
 
