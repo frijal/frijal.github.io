@@ -1,5 +1,5 @@
-import { IDX_FILENAME, IDX_DATE } from './utils.js';
-import { createArticleCard, createQuickNav } from './render.js';
+import { IDX_FILENAME, IDX_DATE } from 'ext/indexhtml-util.js';
+import { createArticleCard, createQuickNav } from 'ext/indexhtml-render.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const mainContainer = document.getElementById('main-container');
