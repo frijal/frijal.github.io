@@ -3,55 +3,16 @@ name: ⚠️ Build and Deploy to Clean Branch
 
 # Pemicu: Kapan workflow ini akan berjalan
 on:
-  # 1. Berjalan setiap kali ada push ke branch 'main'
+  # Berjalan setiap kali ada push ke branch 'main'
   push:
     branches:
       - main
-  # 2. Memungkinkan Anda menjalankan workflow ini secara manual
+  # Memungkinkan Anda menjalankan workflow ini secara manual
   workflow_dispatch:
-
-# [PENTING] Mengatur konkurensi agar tidak ada tumpukan eksekusi
-concurrency:
-  # Grupkan eksekusi berdasarkan commit SHA, tapi untuk `main` saja
-  group: ${{ github.workflow }}-${{ github.ref == 'refs/heads/main' && github.sha || github.ref }}
-  cancel-in-progress: true
-
-# Memberikan izin yang diperlukan
-permissions:
-  contents: write
-  # [TAMBAHAN] Izin untuk membaca status 'checks' dari workflow lain
-  actions: read
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
-    steps:
-      # Langkah 1: Checkout kode dari branch 'main'
-      # Kita tetap butuh ref dari push atau manual trigger
-      - name: Checkout source branch
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      # ----------------------------------------------------------------------------------
-      # LANGKAH KUNCI BARU: Tahan dan tunggu workflow lain selesai
-      # ----------------------------------------------------------------------------------
-      - name: Wait for other workflows to complete
-        # Hanya jalankan langkah ini jika pemicunya adalah 'push'
-        if: github.event_name == 'push'
-        uses: lewagon/wait-on-check-action@v1.3.3
-        with:
-          # [GANTI NAMA INI] Masukkan nama "check" dari workflow yang ingin ditunggu.
-          # Biasanya ini adalah NAMA JOB dari file .yml tersebut.
-          check-name: |
-            process_and_move_articles
-            build
-          ref: ${{ github.sha }}
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          # Waktu tunggu maksimal sebelum dianggap gagal (dalam detik)
-          wait-interval: 10
-      # ----------------------------------------------------------------------------------
 
       # Langkah 3: Cek apakah ada perubahan pada file konten yang relevan
       - name: Cek Perubahan File Konten
@@ -98,7 +59,6 @@ jobs:
             --include='logo.*' \
             --include='thumbnail.*' \
             --include='*.webmanifest' \
-            --exclude='.*' \
             --exclude='*' \
             ./ deploy_dir/
 
