@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       position:
-        description: 'Sisipkan "sebelum" atau "sesudah" target?'
+        description: 'Sissipkan "sebelum" atau "sesudah" target?'
         required: true
         type: choice
         default: 'sesudah'
