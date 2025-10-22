@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       target:
-        description: 'Teks/Tag yang ingin dihapus (contoh: <h3>Artikel Terkait</h3> atau | frijal.github.io)'
+        description: 'Teks/Tag yang ingin dihapus (contoh: <h3>ArtikelTerkait</h3> atau | frijal.github.io)'
         required: true
         default: '<h3>Artikel Terkait</h3>'
       folder:
