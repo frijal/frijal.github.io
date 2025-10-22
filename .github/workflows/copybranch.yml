@@ -14,6 +14,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # --- LANGKAH KUNCI: TUNDA PEKERJAAN DI AWAL ---
+      - name: Wait for 30 seconds before starting
+        run: sleep 30
+        shell: bash
+        
       # Checkout branch main (source)
       - name: Checkout source branch
         uses: actions/checkout@v4
