@@ -18,9 +18,9 @@
 [![Proses ArtikelX](https://github.com/frijal/frijal.github.io/actions/workflows/proses-artikelx.yml/badge.svg?branch=main)](https://github.com/frijal/frijal.github.io/actions/workflows/proses-artikelx.yml)
 [![Build and Generate Site Files](https://github.com/frijal/frijal.github.io/actions/workflows/generate-json-xml.yml/badge.svg?branch=main)](https://github.com/frijal/frijal.github.io/actions/workflows/generate-json-xml.yml)
 [![RSync to Site](https://github.com/frijal/frijal.github.io/actions/workflows/copybranch.yml/badge.svg?branch=main)](https://github.com/frijal/frijal.github.io/actions/workflows/copybranch.yml)
-![Artikel](https://img.shields.io/endpoint?url=https://frijal.github.io/mini/html_count_badge.json)
-![Cover](https://img.shields.io/endpoint?url=https://frijal.github.io/mini/webp_count_badge.json)
-![HTML/WebP](https://img.shields.io/endpoint?url=https://frijal.github.io/mini/html_webp_badge.json)
+![Artikel](https://img.shields.io/endpoint?url=/mini/html_count_badge.json)
+![Cover](https://img.shields.io/endpoint?url=/mini/webp_count_badge.json)
+![HTML/WebP](https://img.shields.io/endpoint?url=/mini/html_webp_badge.json)
 
 
 [![Google Drive](https://img.shields.io/badge/Google%20Drive-Available-34A853?logo=googledrive&logoColor=white)](#readme)
