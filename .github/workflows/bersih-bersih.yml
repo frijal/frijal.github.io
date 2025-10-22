@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       targetDir:
-        description: 'Folder target tempat file akan dihapus (contoh: mini, logs, cache)'
+        description: 'Folder target tempat file akan dihapus (contoh: mini, logss, cache)'
         required: true
         default: 'mini'
       extension:
