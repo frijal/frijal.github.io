@@ -10,7 +10,7 @@ on:
   # Memungkinkan Anda menjalankan workflow ini secara manual
   workflow_dispatch:
 
-# [PERBAIKAN] Tambahkan blok ini untuk memberikan izin push
+# Memberikan izin yang diperlukan untuk push ke branch lain
 permissions:
   contents: write
 
@@ -22,14 +22,42 @@ jobs:
       # Langkah 1: Checkout kode dari branch 'main'
       - name: Checkout source branch
         uses: actions/checkout@v4
+        # [PENTING] Kita butuh history untuk membandingkan perubahan
+        with:
+          fetch-depth: 0 
 
-      # Langkah 2: Buat direktori sementara yang bersih
-      - name: Create clean directory
+      # Langkah 2: Cek apakah ada perubahan pada file konten yang relevan
+      - name: Cek Perubahan File Konten
+        id: changed_files
+        uses: tj-actions/changed-files@v44 # Menggunakan versi spesifik untuk stabilitas
+        with:
+          # Daftar file dan folder yang akan dipantau perubahannya
+          # Sesuai dengan aturan rsync kamu
+          files: |
+            artikel/**
+            ext/**
+            img/**
+            artikel.json
+            _redirects
+            _headers
+            *.html
+            *.xml
+            *.txt
+            favicon.*
+            icon.*
+            logo.*
+            thumbnail.*
+            *.webmanifest
+
+      # Langkah-langkah berikutnya hanya berjalan JIKA ada perubahan terdeteksi
+      - name: Buat direktori sementara yang bersih
+        if: steps.changed_files.outputs.any_changed == 'true'
         run: mkdir deploy_dir
 
-      # Langkah 3: Salin hanya file dan folder yang diizinkan
-      - name: Sync allowed files to deploy directory
+      - name: Salin file yang diizinkan ke direktori deploy
+        if: steps.changed_files.outputs.any_changed == 'true'
         run: |
+          echo "✅ Perubahan terdeteksi. Memulai proses rsync..."
           rsync -av --delete \
             --include='artikel/***' \
             --include='ext/***' \
@@ -48,16 +76,19 @@ jobs:
             --exclude='.*' \
             --exclude='*' \
             ./ deploy_dir/
-      
-      # Langkah 4: Deploy isi direktori bersih ke branch 'site'
-      - name: Deploy to site branch
+
+      - name: Deploy isi direktori bersih ke branch 'site'
+        if: steps.changed_files.outputs.any_changed == 'true'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./deploy_dir
-          
           publish_branch: site
-          
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           force_orphan: true
+          
+      # Langkah ini berjalan JIKA TIDAK ada perubahan
+      - name: Lompati Deploy
+        if: steps.changed_files.outputs.any_changed != 'true'
+        run: echo "👌 Tidak ada perubahan pada file konten, proses deploy dilewati."
