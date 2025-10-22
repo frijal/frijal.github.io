@@ -3,7 +3,7 @@
 # ===================================================================
 # cari_blok_dinamis.sh (Skrip Diagnostik Versi Dinamis)
 #
-# Tujuan skrip ini adalah untuk MENEMUKAN blok HTML dengan membaca
+# Tujuan skrip ini adalah untuk MENEMUKhhAN blok HTML dengan membaca
 # pola pencarian langsung dari sebuah file (pola.txt).
 # ===================================================================
 
