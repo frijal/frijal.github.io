@@ -3,47 +3,63 @@ name: ⚠️ Build and Deploy to Clean Branch
 
 # Pemicu: Kapan workflow ini akan berjalan
 on:
-  # 1. Menunggu workflow lain selesai
-  workflow_run:
-    # GANTI NAMA INI: Sesuaikan dengan nama file .yml workflow yang harus selesai duluan.
-    workflows: ["generate-json-xml.yml", "generate-json-xml.yml", "generate-json-xml.yml", "generate-json-xml.yml", "baris-langsunghapus.yml", "baris-langsunghapus.yml", "baris-langsunghapus.yml", "hapushitung.yml","masukan-baris.yml", "pindah-file.yml"]
-    types:
-      - completed # Hanya berjalan setelah workflow tsb selesai
+  # 1. Berjalan setiap kali ada push ke branch 'main'
+  push:
     branches:
       - main
-
   # 2. Memungkinkan Anda menjalankan workflow ini secara manual
   workflow_dispatch:
 
-# Memberikan izin yang diperlukan untuk push ke branch lain
+# [PENTING] Mengatur konkurensi agar tidak ada tumpukan eksekusi
+concurrency:
+  # Grupkan eksekusi berdasarkan commit SHA, tapi untuk `main` saja
+  group: ${{ github.workflow }}-${{ github.ref == 'refs/heads/main' && github.sha || github.ref }}
+  cancel-in-progress: true
+
+# Memberikan izin yang diperlukan
 permissions:
   contents: write
+  # [TAMBAHAN] Izin untuk membaca status 'checks' dari workflow lain
+  actions: read
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    # [PENTING] Jalankan job ini HANYA JIKA:
-    # 1. Workflow pemicu ('workflow_run') selesai dengan SUKSES.
-    # ATAU
-    # 2. Workflow ini dijalankan secara MANUAL ('workflow_dispatch').
-    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
 
     steps:
-      # Langkah 1: Checkout kode dari commit yang benar
+      # Langkah 1: Checkout kode dari branch 'main'
+      # Kita tetap butuh ref dari push atau manual trigger
       - name: Checkout source branch
         uses: actions/checkout@v4
         with:
-          # Mengambil commit spesifik dari workflow pemicu, atau branch default jika manual
-          ref: ${{ github.event.workflow_run.head_sha || github.ref }}
-          # Kita tetap butuh history untuk membandingkan perubahan
           fetch-depth: 0
 
-      # Langkah 2: Cek apakah ada perubahan pada file konten yang relevan
+      # ----------------------------------------------------------------------------------
+      # LANGKAH KUNCI BARU: Tahan dan tunggu workflow lain selesai
+      # ----------------------------------------------------------------------------------
+      - name: Wait for other workflows to complete
+        # Hanya jalankan langkah ini jika pemicunya adalah 'push'
+        if: github.event_name == 'push'
+        uses: lewagon/wait-on-check-action@v1.3.3
+        with:
+          # [GANTI NAMA INI] Masukkan nama "check" dari workflow yang ingin ditunggu.
+          # Biasanya ini adalah NAMA JOB dari file .yml tersebut.
+          check-name: |
+            nama-job-dari-generate-json-xml
+            nama-job-dari-baris-langsunghapus
+            nama-job-dari-hapushitung
+            nama-job-dari-masukan-baris
+            nama-job-dari-pindah-file
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          # Waktu tunggu maksimal sebelum dianggap gagal (dalam detik)
+          wait-interval: 20
+      # ----------------------------------------------------------------------------------
+
+      # Langkah 3: Cek apakah ada perubahan pada file konten yang relevan
       - name: Cek Perubahan File Konten
         id: changed_files
         uses: tj-actions/changed-files@v44
         with:
-          # Daftar file dan folder yang akan dipantau perubahannya
           files: |
             artikel/**
             ext/**
@@ -99,8 +115,6 @@ jobs:
           user_email: 'github-actions[bot]@users.noreply.github.com'
           force_orphan: true
 
-      # Langkah ini berjalan JIKA TIDAK ada perubahan
       - name: Lompati Deploy
         if: steps.changed_files.outputs.any_changed != 'true'
         run: echo "👌 Tidak ada perubahan pada file konten, proses deploy dilewati."
-
