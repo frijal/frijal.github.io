@@ -47,9 +47,10 @@ jobs:
           check-name: |
             ☢️ Build and Generate Site Files
             🔄 Proses ArtikelX
+          ref: ${{ github.sha }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           # Waktu tunggu maksimal sebelum dianggap gagal (dalam detik)
-          wait-interval: 20
+          wait-interval: 10
       # ----------------------------------------------------------------------------------
 
       # Langkah 3: Cek apakah ada perubahan pada file konten yang relevan
