@@ -14,37 +14,19 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
-      # Langkah 3: Cek apakah ada perubahan pada file konten yang relevan
-      - name: Cek Perubahan File Konten
-        id: changed_files
-        uses: tj-actions/changed-files@v44
-        with:
-          files: |
-            artikel/**
-            ext/**
-            img/**
-            artikel.json
-            _redirects
-            _headers
-            *.html
-            *.xml
-            *.txt
-            favicon.*
-            icon.*
-            logo.*
-            thumbnail.*
-            *.webmanifest
+    steps:
+      # Langkah 1: Checkout kode dari branch 'main'
+      - name: Checkout source branch
+        uses: actions/checkout@v4
 
-      # Langkah-langkah berikutnya hanya berjalan JIKA ada perubahan terdeteksi
-      - name: Buat direktori sementara yang bersih
-        if: steps.changed_files.outputs.any_changed == 'true'
+      # Langkah 2: Buat direktori sementara yang bersih
+      - name: Create clean directory
         run: mkdir deploy_dir
 
-      - name: Salin file yang diizinkan ke direktori deploy
-        if: steps.changed_files.outputs.any_changed == 'true'
+      # Langkah 3: Salin hanya file dan folder yang diizinkan
+      - name: Sync allowed files to deploy directory
         run: |
-          echo "✅ Perubahan terdeteksi. Memulai proses rsync..."
-          rsync -av --delete \
+          rsync -a --delete \
             --include='artikel/***' \
             --include='ext/***' \
             --include='img/***' \
@@ -61,18 +43,17 @@ jobs:
             --include='*.webmanifest' \
             --exclude='*' \
             ./ deploy_dir/
-
-      - name: Deploy isi direktori bersih ke branch 'site'
-        if: steps.changed_files.outputs.any_changed == 'true'
+      
+      # Langkah 4: Deploy isi direktori bersih ke branch 'site'
+      - name: Deploy to site branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./deploy_dir
+          
+          # [DIUBAH] Nama branch tujuan sekarang adalah 'site'
           publish_branch: site
+          
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           force_orphan: true
-
-      - name: Lompati Deploy
-        if: steps.changed_files.outputs.any_changed != 'true'
-        run: echo "👌 Tidak ada perubahan pada file konten, proses deploy dilewati."
