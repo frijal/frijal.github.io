@@ -1,5 +1,3 @@
-# .github/workflows/indexnow.yml
-
 name: IndexNow Daily Submit
 
 on:
@@ -8,7 +6,6 @@ on:
     - cron: '0 11 * * *'
   workflow_dispatch:
 
-# --- PERUBAHAN 1: Tambahkan izin untuk menulis ke repo ---
 permissions:
   contents: write
 
@@ -30,15 +27,32 @@ jobs:
       - name: Submit to IndexNow
         run: |
           echo "Submitting URLs to IndexNow..."
+          # Gunakan fail-fast agar workflow berhenti jika curl gagal
           curl -X POST "https://bing.com/indexnow" \
           -H "Content-Type: application/json; charset=utf-8" \
-          --data-binary @mini/artikel-indexnow.json
+          --data-binary @mini/artikel-indexnow.json --fail
 
-      # --- PERUBAHAN 2: Tambahkan langkah untuk commit file ---
-      - name: Commit generated files
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: update indexnow files"
-          # Simpan semua file yang ada di dalam folder 'mini'
-          file_pattern: mini/*
-          skip_empty_commit: true
+      # --- PERBAIKAN: Mengganti action dengan script manual yang lebih aman ---
+      - name: Commit, Pull, and Push Changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          
+          # Tambahkan semua file yang dihasilkan ke staging
+          git add mini/*
+          
+          # Commit hanya jika ada perubahan yang terdeteksi
+          if ! git diff --staged --quiet; then
+            echo "📝 File IndexNow baru terdeteksi, membuat commit..."
+            git commit -m "chore: update indexnow files"
+            
+            # Ambil perubahan dari remote SEBELUM push untuk menghindari konflik
+            echo "🔄 Mengambil perubahan terbaru dari remote..."
+            git pull origin main --rebase
+            
+            # Dorong perubahan ke repository
+            echo "🚀 Mendorong perubahan ke repository..."
+            git push
+          else
+            echo "✅ Tidak ada file baru untuk di-commit."
+          fi
