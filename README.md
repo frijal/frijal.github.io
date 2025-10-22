@@ -15,7 +15,9 @@
 [![Proses ArtikelX](https://github.com/frijal/frijal.github.io/actions/workflows/proses-artikelx.yml/badge.svg?branch=main)](https://github.com/frijal/frijal.github.io/actions/workflows/proses-artikelx.yml)
 [![Build and Generate Site Files](https://github.com/frijal/frijal.github.io/actions/workflows/generate-json-xml.yml/badge.svg?branch=main)](https://github.com/frijal/frijal.github.io/actions/workflows/generate-json-xml.yml)
 [![RSync to Site](https://github.com/frijal/frijal.github.io/actions/workflows/copybranch.yml/badge.svg?branch=main)](https://github.com/frijal/frijal.github.io/actions/workflows/copybranch.yml)
-[![🔆 Pengecekan & Laporan Konten Harian](https://github.com/frijal/frijal.github.io/actions/workflows/hapushitung.yml/badge.svg)](https://github.com/frijal/frijal.github.io/actions/workflows/hapushitung.yml)
+[![Pengecekan & Laporan Konten Harian](https://github.com/frijal/frijal.github.io/actions/workflows/hapushitung.yml/badge.svg)](https://github.com/frijal/frijal.github.io/actions/workflows/hapushitung.yml)
+[![Ping Feeds](https://github.com/frijal/frijal.github.io/actions/workflows/rssping.yml/badge.svg)](https://github.com/frijal/frijal.github.io/actions/workflows/rssping.yml)
+[![IndexNow Daily Submit](https://github.com/frijal/frijal.github.io/actions/workflows/indexnow.yml/badge.svg)](https://github.com/frijal/frijal.github.io/actions/workflows/indexnow.yml)
 
 [![Google Drive](https://img.shields.io/badge/Google%20Drive-Available-34A853?logo=googledrive&logoColor=white)](#readme)
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Yes-blue?logo=github&logoColor=white)](#readme)
