@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       file_extension:
-        description: 'Jenis file yang ingin dipindahkan (contoh: mp3, jpg, txt)'
+        description: 'Jenis file yang ingiin dipindahkan (contoh: mp3, jpg, txt)'
         required: true
         default: 'mp3'
       source_folder:
