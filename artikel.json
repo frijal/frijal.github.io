@@ -4,14 +4,14 @@
       "Cara Mengecilkan Ukuran Repo Git Lokal (Bye Bye node_modules!)",
       "git-repo-size-reduction.html",
       "https://frijal.pages.dev/img/git-repo-size-reduction.webp",
-      "2025-10-22T09:26:57.340+00:00",
+      "2025-10-22T11:53:56.623+00:00",
       "Tutorial lengkap dan santai cara membuat ukuran repositori Git lokal menjadi kecil dengan mengabaikan dan membersihkan folder node_modules dari riwayat commit."
     ],
       [
       "Build and Deploy to Clean Branch — Alur Dibalik + Cek Perubahan Sebelum rsync ⚠️",
       "build-deploy-clean-branch.html",
       "https://frijal.pages.dev/img/build-deploy-clean-branch.webp",
-      "2025-10-22T09:26:57.330+00:00",
+      "2025-10-22T11:53:56.613+00:00",
       "Workflow GitHub Actions yang membalik alur: cek perubahan terlebih dulu di daftar file terizinkan, baru jalankan rsync dan deploy ke branch site. Dengan penjelasan santai, opsi logging, dan contoh YAML siap pakai."
     ],
       [
@@ -1289,7 +1289,7 @@
       "Ketika Ekonomi Cuma Pemicu — Rahmah, Adab, Dan Rasa",
       "rahmah-adab-dan-rasa.html",
       "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7yjmdxT5W_ra88nxMvA51yzbONIUGarPUax6CEbYEpd6NF64qkOICmmyZp2-Heiv_34oXMP3ho8DLBl-5jMwFEruWXOy6A6m1Ik7Z2lerBjz19LLiwz1elF49pclkSm5EXecO1XGKdXVLYW86qBk79-d0DGLSYsHawkOtgGcw0Eee6LUiF23OoXlD97I/s1600/kitabelilagi.webp",
-      "2025-10-22T09:26:57.362+00:00",
+      "2025-10-22T11:53:56.646+00:00",
       "Tulisan reflektif tentang rumah tangga: adab sebagai akar, ekonomi sebagai pemicu. Kekayaan membuat menatap, adab membuat menetap. Tentang suami sederhana, syukur, sabar, dan rahmah dalam pernikahan."
     ],
       [
@@ -2096,15 +2096,22 @@
       "Cara Membuat Orphan Branch di Git & GitHub | Frijal's Page",
       "membuat-git-orphan-branch.html",
       "https://frijal.pages.dev/assets/images/og-image-orphan-branch.png",
-      "2025-10-22T09:26:57.353+00:00",
+      "2025-10-22T11:53:56.636+00:00",
       "Tutorial lengkap dan santai cara membuat branch Git baru (orphan branch) yang tidak punya riwayat commit dari branch main. Cocok untuk halaman gh-pages atau proyek terpisah."
     ],
       [
       "Cara Agar Branch Tidak Minta Merge Otomatis ke Main | Frijal's Page",
       "git-prevent-auto-merge-request.html",
       "https://frijal.pages.dev/img/git-prevent-auto-merge-request.webp",
-      "2025-10-22T09:26:57.340+00:00",
+      "2025-10-22T11:53:56.623+00:00",
       "Tutorial santai cara kerja Git dan GitHub agar anak branch tidak"
+    ],
+      [
+      "Dari Boros ke Kilat: Evolusi Cerdas Workflow Deploy GitHub Actions",
+      "evolusi-workflow-deploy-github-actions.html",
+      "https://frijal.pages.dev/img/evolusi-workflow-deploy-github-actions.webp",
+      "2025-10-22T11:53:56.617+00:00",
+      "Tutorial lengkap cara mengoptimalkan workflow deploy GitHub Actions. Pelajari perbandingan rsync vs. git diff untuk mencegah deploy yang tidak perlu dan menghemat waktu."
     ],
       [
       "Pilih Merge, Squash, atau Rebase? Panduan Santai Git Pull Request",
@@ -3194,21 +3201,28 @@
       "Pengecekan & Laporan Konten Harian - Otomasi GitHub Actions 🔆",
       "pengecekan-dan-laporan-konten-harian.html",
       "https://frijal.pages.dev/img/pengecekan-dan-laporan-konten-harian.webp",
-      "2025-10-22T09:26:57.359+00:00",
+      "2025-10-22T11:53:56.642+00:00",
       "Workflow GitHub Actions otomatis untuk membersihkan gambar orphan, menghitung jumlah artikel dan cover WebP, serta membuat laporan konten harian di GitHub Pages."
     ],
       [
       "Pengecekan & Laporan Konten Harian — GitHub Actions 🔆",
       "pengecekan-laporan-konten-harian.html",
       "https://frijal.pages.dev/img/pengecekan-laporan-konten-harian.webp",
-      "2025-10-22T09:26:57.359+00:00",
+      "2025-10-22T11:53:56.642+00:00",
       "Workflow GitHub Actions untuk otomatis membersihkan gambar orphan dan membuat laporan konten harian di frijal.pages.dev. Dilengkapi penjelasan lengkap dan kode siap pakai."
+    ],
+      [
+      "Workflow Cerdas: Satu Job untuk Semua Tugas Perawatan Harian",
+      "optimasi-workflow-harian-github-actions.html",
+      "https://frijal.pages.dev/img/optimasi-workflow-harian-github-actions.webp",
+      "2025-10-22T11:53:56.641+00:00",
+      "Tutorial cara mengoptimalkan workflow GitHub Actions dengan menggabungkan beberapa job (screenshots, cleanup, reporting) menjadi satu job tunggal yang efisien dan atomik."
     ],
       [
       "Cara Kerja Git: Branch \"Pasif\" & Main Branch \"Memanggil\"",
       "git-passive-branch-merge.html",
       "https://frijal.pages.dev/img/git-passive-branch-merge.webp",
-      "2025-10-22T09:26:57.340+00:00",
+      "2025-10-22T11:53:56.622+00:00",
       "Tutorial Git santai tentang cara kerja branch pasif (anak branch) yang tidak minta merge, dan main branch yang aktif memanggil perubahan. Pahami alur kerja Git mendasar."
     ],
       [
