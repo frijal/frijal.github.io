@@ -6,7 +6,25 @@
     <description><![CDATA[Feed artikel terbaru untuk kategori 🐧 Linux & Open Source]]></description>
     <language>id-ID</language>
     <atom:link href="https://frijal.pages.dev/feed-linux-and-open-source.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Wed, 22 Oct 2025 09:05:58 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 22 Oct 2025 09:27:03 GMT</lastBuildDate>
+    <item>
+      <title><![CDATA[Cara Mengecilkan Ukuran Repo Git Lokal (Bye Bye node_modules!)]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/git-repo-size-reduction.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/git-repo-size-reduction.html]]></guid>
+      <pubDate>Wed, 22 Oct 2025 09:26:57 GMT</pubDate>
+      <description><![CDATA[Tutorial lengkap dan santai cara membuat ukuran repositori Git lokal menjadi kecil dengan mengabaikan dan membersihkan folder node_modules dari riwayat commit.]]></description>
+      <category><![CDATA[🐧 Linux & Open Source]]></category>
+<enclosure url="https://frijal.pages.dev/img/git-repo-size-reduction.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Build and Deploy to Clean Branch — Alur Dibalik + Cek Perubahan Sebelum rsync ⚠️]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/build-deploy-clean-branch.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/build-deploy-clean-branch.html]]></guid>
+      <pubDate>Wed, 22 Oct 2025 09:26:57 GMT</pubDate>
+      <description><![CDATA[Workflow GitHub Actions yang membalik alur: cek perubahan terlebih dulu di daftar file terizinkan, baru jalankan rsync dan deploy ke branch site. Dengan penjelasan santai, opsi logging, dan contoh YAML siap pakai.]]></description>
+      <category><![CDATA[🐧 Linux & Open Source]]></category>
+<enclosure url="https://frijal.pages.dev/img/build-deploy-clean-branch.webp" length="0" type="image/webp" />
+    </item>
     <item>
       <title><![CDATA[Sosialisasi Open Source Software di Kutai Kartanegara | Kementerian Riset dan Teknologi]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/sosialisasi-oss-kutai-kartanegara.html]]></link>

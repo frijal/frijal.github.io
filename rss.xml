@@ -6,15 +6,78 @@
     <description><![CDATA[Feed 30 artikel terbaru]]></description>
     <language>id-ID</language>
     <atom:link href="https://frijal.pages.dev/rss.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Wed, 22 Oct 2025 09:05:58 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 22 Oct 2025 09:27:03 GMT</lastBuildDate>
+    <item>
+      <title><![CDATA[Ketika Ekonomi Cuma Pemicu — Rahmah, Adab, Dan Rasa]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/rahmah-adab-dan-rasa.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/rahmah-adab-dan-rasa.html]]></guid>
+      <pubDate>Wed, 22 Oct 2025 09:26:57 GMT</pubDate>
+      <description><![CDATA[Tulisan reflektif tentang rumah tangga: adab sebagai akar, ekonomi sebagai pemicu. Kekayaan membuat menatap, adab membuat menetap. Tentang suami sederhana, syukur, sabar, dan rahmah dalam pernikahan.]]></description>
+      <category><![CDATA[📚 Sejarah & Religi]]></category>
+    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7yjmdxT5W_ra88nxMvA51yzbONIUGarPUax6CEbYEpd6NF64qkOICmmyZp2-Heiv_34oXMP3ho8DLBl-5jMwFEruWXOy6A6m1Ik7Z2lerBjz19LLiwz1elF49pclkSm5EXecO1XGKdXVLYW86qBk79-d0DGLSYsHawkOtgGcw0Eee6LUiF23OoXlD97I/s1600/kitabelilagi.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Pengecekan & Laporan Konten Harian - Otomasi GitHub Actions 🔆]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/pengecekan-dan-laporan-konten-harian.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/pengecekan-dan-laporan-konten-harian.html]]></guid>
+      <pubDate>Wed, 22 Oct 2025 09:26:57 GMT</pubDate>
+      <description><![CDATA[Workflow GitHub Actions otomatis untuk membersihkan gambar orphan, menghitung jumlah artikel dan cover WebP, serta membuat laporan konten harian di GitHub Pages.]]></description>
+      <category><![CDATA[📢 Catatan & Opini Sosial]]></category>
+    <enclosure url="https://frijal.pages.dev/img/pengecekan-dan-laporan-konten-harian.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Pengecekan & Laporan Konten Harian — GitHub Actions 🔆]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/pengecekan-laporan-konten-harian.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/pengecekan-laporan-konten-harian.html]]></guid>
+      <pubDate>Wed, 22 Oct 2025 09:26:57 GMT</pubDate>
+      <description><![CDATA[Workflow GitHub Actions untuk otomatis membersihkan gambar orphan dan membuat laporan konten harian di frijal.pages.dev. Dilengkapi penjelasan lengkap dan kode siap pakai.]]></description>
+      <category><![CDATA[📢 Catatan & Opini Sosial]]></category>
+    <enclosure url="https://frijal.pages.dev/img/pengecekan-laporan-konten-harian.webp" length="0" type="image/webp" />
+    </item>
     <item>
       <title><![CDATA[Cara Membuat Orphan Branch di Git & GitHub | Frijal's Page]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/membuat-git-orphan-branch.html]]></link>
       <guid><![CDATA[https://frijal.pages.dev/artikel/membuat-git-orphan-branch.html]]></guid>
-      <pubDate>Wed, 22 Oct 2025 03:49:38 GMT</pubDate>
+      <pubDate>Wed, 22 Oct 2025 09:26:57 GMT</pubDate>
       <description><![CDATA[Tutorial lengkap dan santai cara membuat branch Git baru (orphan branch) yang tidak punya riwayat commit dari branch main. Cocok untuk halaman gh-pages atau proyek terpisah.]]></description>
       <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
-    <enclosure url="https://frijal.pages.dev/img/membuat-git-orphan-branch.webp" length="0" type="image/webp" />
+    <enclosure url="https://frijal.pages.dev/assets/images/og-image-orphan-branch.png" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Cara Mengecilkan Ukuran Repo Git Lokal (Bye Bye node_modules!)]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/git-repo-size-reduction.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/git-repo-size-reduction.html]]></guid>
+      <pubDate>Wed, 22 Oct 2025 09:26:57 GMT</pubDate>
+      <description><![CDATA[Tutorial lengkap dan santai cara membuat ukuran repositori Git lokal menjadi kecil dengan mengabaikan dan membersihkan folder node_modules dari riwayat commit.]]></description>
+      <category><![CDATA[🐧 Linux & Open Source]]></category>
+    <enclosure url="https://frijal.pages.dev/img/git-repo-size-reduction.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Cara Agar Branch Tidak Minta Merge Otomatis ke Main | Frijal's Page]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/git-prevent-auto-merge-request.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/git-prevent-auto-merge-request.html]]></guid>
+      <pubDate>Wed, 22 Oct 2025 09:26:57 GMT</pubDate>
+      <description><![CDATA[Tutorial santai cara kerja Git dan GitHub agar anak branch tidak]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+    <enclosure url="https://frijal.pages.dev/img/git-prevent-auto-merge-request.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Cara Kerja Git: Branch "Pasif" & Main Branch "Memanggil"]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/git-passive-branch-merge.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/git-passive-branch-merge.html]]></guid>
+      <pubDate>Wed, 22 Oct 2025 09:26:57 GMT</pubDate>
+      <description><![CDATA[Tutorial Git santai tentang cara kerja branch pasif (anak branch) yang tidak minta merge, dan main branch yang aktif memanggil perubahan. Pahami alur kerja Git mendasar.]]></description>
+      <category><![CDATA[📢 Catatan & Opini Sosial]]></category>
+    <enclosure url="https://frijal.pages.dev/img/git-passive-branch-merge.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Build and Deploy to Clean Branch — Alur Dibalik + Cek Perubahan Sebelum rsync ⚠️]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/build-deploy-clean-branch.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/build-deploy-clean-branch.html]]></guid>
+      <pubDate>Wed, 22 Oct 2025 09:26:57 GMT</pubDate>
+      <description><![CDATA[Workflow GitHub Actions yang membalik alur: cek perubahan terlebih dulu di daftar file terizinkan, baru jalankan rsync dan deploy ke branch site. Dengan penjelasan santai, opsi logging, dan contoh YAML siap pakai.]]></description>
+      <category><![CDATA[🐧 Linux & Open Source]]></category>
+    <enclosure url="https://frijal.pages.dev/img/build-deploy-clean-branch.webp" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[Pilih Merge, Squash, atau Rebase? Panduan Santai Git Pull Request]]></title>
@@ -213,69 +276,6 @@
       <description><![CDATA[Panduan lengkap cara mengambil semua gambar dari file PDF menggunakan perintah pdfimages dengan paket poppler-utils.]]></description>
       <category><![CDATA[📸 Multimedia & Editing]]></category>
     <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPC5-T4Z4pAHpJgByhF62tTY6cdxdgYPrX9cGRumIFwoJmXckYNwWTXWCVBA_TxqI3Ru_fGfe-n_hE_gOWEso8xBrRnHYdkuRZKL6sT6ZfmnRFBDWwphIggyXkQd-Um4Wv4SDD8wCcdx98/s320/pdf.png" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Manfaat Memakan Kurma - Khasiat, Nutrisi, dan Cara Mengonsumsinya]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/manfaat-kurma.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/manfaat-kurma.html]]></guid>
-      <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
-      <description><![CDATA[Temukan manfaat kesehatan kurma: sumber energi, serat, vitamin & mineral, serta tips konsumsi yang tepat.]]></description>
-      <category><![CDATA[🍜 Kuliner, Gaya Hidup & Kesehatan]]></category>
-    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcpQejBp4qszEwvg64uNK2Wb2RqhkBiancJPZzrsIXLpHr6TV32rxlH2TTA9-uk0YAbSD67P8smApb50y6HRu2UN-W1vJUC8O4MXInMnRd1RE_nsya9xK_NKTie_g-s-7aPmBa8lrf6_hT7ttpgQTR4FhNWjhSjvkVPfHGqwzzL7TvC-MXT3oJqQqkAxo/s1600/20230608-20230607201414-1-pohon-kurma-2000-tahun-003-pandasurya-wijaya.jpg" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Osborne 1 - Laptop Pertama Dunia]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/laptop-pertama-osborne1.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/laptop-pertama-osborne1.html]]></guid>
-      <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
-      <description><![CDATA[Osborne 1, laptop pertama di dunia yang dibuat oleh Adam Osborne pada tahun 1981. Berat 10kg, harga $1795, sejarah lengkap & gambar.]]></description>
-      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
-    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8bFisLsDrynWzbNVXt5lJ0zBdvvL6nAXTn_0PrAPkmfENUerHby-6tBJDg0amBAzC1-cd5pEWO_bqC_WOrE-WI9uUHMfOgZerldszngkxRCOdgFdsSRR1z9bhth1FqGy5QTHSoJ-J9Thy1xkvi7gXP-2qk9g7JQKnHlCnFnZ6FltbOfxUHo3U_dhg1-8/s1600/xadam-osborne.png" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Kreativitas Satlantas Grobogan: Teguran Unik untuk Pengendara]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/kreativitas-satlantas-grobogan.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/kreativitas-satlantas-grobogan.html]]></guid>
-      <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
-      <description><![CDATA[Simak cara unik Satlantas Polres Grobogan dalam mengingatkan pengendara untuk berhati-hati di jalan raya. Sebuah pendekatan yang kreatif dan menarik perhatian.]]></description>
-      <category><![CDATA[📢 Catatan & Opini Sosial]]></category>
-    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjR__hBkM2oCvdPN6hm_8-zgrt_uMvEFzG5gsiJd-XNZvHO_32eyVAXdvLGCeYmVhfKrF9Udfk_g-BhyJK1HvWq-LGHlK3NEg5aGg1EE-jKBpOrL4ItGACnhjexfmsdSjT01gUoi52TKwzs/s1600/1779778_696607060361435_964018863_n.jpg" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Kisah Keluarga Sahabat: Air Mata Rasulullah Menetes — Abu Dujanah]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/kisah-keluarga-sahabat-abu-dujanah.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/kisah-keluarga-sahabat-abu-dujanah.html]]></guid>
-      <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
-      <description><![CDATA[Kisah menyentuh tentang Abu Dujanah yang menjaga keluarganya dari harta haram hingga Rasulullah meneteskan air mata. Pelajaran tentang integritas, amanah, dan kejujuran.]]></description>
-      <category><![CDATA[📚 Sejarah & Religi]]></category>
-    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBi4dcL751KtKRzFEhYHsDfOFGgTYX1eMdamUp1z-8fUA5LezsI_q5UqlMtrYCMjyY-RvEMr0l2VEOJeErFHADWzozhbnSidJ61C_v5TdMdBFw8Uu9uSvk65ojqhxlOsdc38uqqj3501c-NCvDpIhwD_ryMxSdPcicIVX3KKRTNHVozRWuXXdLAbQAakM/s1600/Dujanah.jpg" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Cara Konversi M4A ke OGG dengan FFmpeg + find]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/konversi-m4a-ke-ogg.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/konversi-m4a-ke-ogg.html]]></guid>
-      <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
-      <description><![CDATA[Panduan detail cara mengubah format audio M4A ke OGG menggunakan FFmpeg dan find di Linux/Unix. Disertai langkah-langkah praktis, perintah siap pakai, dan tips.]]></description>
-      <category><![CDATA[📸 Multimedia & Editing]]></category>
-    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpMCTehPaa8ACy9Bzba_HWHZm3V0pVASvdYpNf_eLOhH0jnh0mJ1oa4mx-d0B9a3-NPAFcfhyahb-K4sQ6kASpSU7kng_7JPaTzNfYgEeyGZuQIw-cX3Jn_YDQyhSZI-wTT7Q7EDnaN5Af/s400/ffmpeg-logo.png" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Kompres PDF Hasil Scan dengan Ghostscript di Linux: Cepat, Mudah, Efektif]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/kompres-pdf-ghostscript.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/kompres-pdf-ghostscript.html]]></guid>
-      <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
-      <description><![CDATA[Cara mengecilkan ukuran PDF hasil scan dari puluhan MB menjadi hanya beberapa MB menggunakan Ghostscript di GNU/Linux. Lengkap dengan contoh perintah, opsi kualitas, tips, dan solusi error.]]></description>
-      <category><![CDATA[📸 Multimedia & Editing]]></category>
-    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHzahydQn3VjRRz_RA6o7-ebiPiZr0VvcwxOplhpq6KcPwAQ0XvBq19SoIapkr0Jx0TTBa79YuG7XcjEeVlAMMY2o5Q1xF0O8U2kaClVMjL_c8HFbA_P_1jiWh4aR8xCPAQ39hOYCPUu-35G01-Y67AJJ6GDKSQiGdqmTbs0T9G0sVBEmR3T5nAJgBepE/s1600/photo-1510936111840-65e151ad71bb.jpg" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Kerupuk 'Tolak Miskin', Ternyata Beneran Ada!]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/kerupuk-tolak-miskin.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/kerupuk-tolak-miskin.html]]></guid>
-      <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
-      <description><![CDATA[Ternyata ada kerupuk yang dinamai]]></description>
-      <category><![CDATA[🍜 Kuliner, Gaya Hidup & Kesehatan]]></category>
-    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjW2EBdi-5c3Wt-1I7NoGdfqULTamPSbXYxkGDjVUbZhyn9ryyUHFMdDhwBrw42WitBnF7Sesd7cc-Ju4aJx-biCO7_LBccJDgi9sjcTBbP8h_B_dogtRk2Wm0ZCjAZs2b7iPT_b0iyGuc2JijXv5-WBfhTO9IrsNlt7yHn0EWNpKjIslv7Kcl3eESnqVg/s1600/tumblr_n1rcfu5xNk1qa5bf5o1_500.jpg" length="0" type="image/webp" />
     </item>
   </channel>
 </rss>

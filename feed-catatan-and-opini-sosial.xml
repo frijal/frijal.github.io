@@ -6,7 +6,34 @@
     <description><![CDATA[Feed artikel terbaru untuk kategori 📢 Catatan & Opini Sosial]]></description>
     <language>id-ID</language>
     <atom:link href="https://frijal.pages.dev/feed-catatan-and-opini-sosial.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Wed, 22 Oct 2025 09:05:58 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 22 Oct 2025 09:27:03 GMT</lastBuildDate>
+    <item>
+      <title><![CDATA[Pengecekan & Laporan Konten Harian - Otomasi GitHub Actions 🔆]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/pengecekan-dan-laporan-konten-harian.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/pengecekan-dan-laporan-konten-harian.html]]></guid>
+      <pubDate>Wed, 22 Oct 2025 09:26:57 GMT</pubDate>
+      <description><![CDATA[Workflow GitHub Actions otomatis untuk membersihkan gambar orphan, menghitung jumlah artikel dan cover WebP, serta membuat laporan konten harian di GitHub Pages.]]></description>
+      <category><![CDATA[📢 Catatan & Opini Sosial]]></category>
+<enclosure url="https://frijal.pages.dev/img/pengecekan-dan-laporan-konten-harian.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Pengecekan & Laporan Konten Harian — GitHub Actions 🔆]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/pengecekan-laporan-konten-harian.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/pengecekan-laporan-konten-harian.html]]></guid>
+      <pubDate>Wed, 22 Oct 2025 09:26:57 GMT</pubDate>
+      <description><![CDATA[Workflow GitHub Actions untuk otomatis membersihkan gambar orphan dan membuat laporan konten harian di frijal.pages.dev. Dilengkapi penjelasan lengkap dan kode siap pakai.]]></description>
+      <category><![CDATA[📢 Catatan & Opini Sosial]]></category>
+<enclosure url="https://frijal.pages.dev/img/pengecekan-laporan-konten-harian.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Cara Kerja Git: Branch "Pasif" & Main Branch "Memanggil"]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/git-passive-branch-merge.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/git-passive-branch-merge.html]]></guid>
+      <pubDate>Wed, 22 Oct 2025 09:26:57 GMT</pubDate>
+      <description><![CDATA[Tutorial Git santai tentang cara kerja branch pasif (anak branch) yang tidak minta merge, dan main branch yang aktif memanggil perubahan. Pahami alur kerja Git mendasar.]]></description>
+      <category><![CDATA[📢 Catatan & Opini Sosial]]></category>
+<enclosure url="https://frijal.pages.dev/img/git-passive-branch-merge.webp" length="0" type="image/webp" />
+    </item>
     <item>
       <title><![CDATA[Fenomena “kemiskinan mendadak” di PPDB — SKTM palsu dan jalan keluarnya]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/ppdb-sktm-palsu.html]]></link>

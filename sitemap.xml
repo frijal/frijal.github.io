@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap/image/1.1 http://www.google.com/schemas/sitemap/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://frijal.pages.dev/artikel/git-repo-size-reduction.html</loc>
+    <lastmod>2025-10-22T09:26:57.340+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://frijal.pages.dev/img/git-repo-size-reduction.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://frijal.pages.dev/artikel/build-deploy-clean-branch.html</loc>
+    <lastmod>2025-10-22T09:26:57.330+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://frijal.pages.dev/img/build-deploy-clean-branch.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://frijal.pages.dev/artikel/sosialisasi-oss-kutai-kartanegara.html</loc>
     <lastmod>2025-10-17T12:38:48.564+00:00</lastmod>
     <priority>0.6</priority>
@@ -1630,6 +1648,15 @@
     </image:image>
   </url>
   <url>
+    <loc>https://frijal.pages.dev/artikel/rahmah-adab-dan-rasa.html</loc>
+    <lastmod>2025-10-22T09:26:57.362+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7yjmdxT5W_ra88nxMvA51yzbONIUGarPUax6CEbYEpd6NF64qkOICmmyZp2-Heiv_34oXMP3ho8DLBl-5jMwFEruWXOy6A6m1Ik7Z2lerBjz19LLiwz1elF49pclkSm5EXecO1XGKdXVLYW86qBk79-d0DGLSYsHawkOtgGcw0Eee6LUiF23OoXlD97I/s1600/kitabelilagi.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://frijal.pages.dev/artikel/mudahnya-wanita-masuk-surga.html</loc>
     <lastmod>2025-10-18T00:31:19.956+00:00</lastmod>
     <priority>0.6</priority>
@@ -2657,11 +2684,20 @@
   </url>
   <url>
     <loc>https://frijal.pages.dev/artikel/membuat-git-orphan-branch.html</loc>
-    <lastmod>2025-10-22T03:49:38.060+00:00</lastmod>
+    <lastmod>2025-10-22T09:26:57.353+00:00</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
     <image:image>
-      <image:loc>https://frijal.pages.dev/img/membuat-git-orphan-branch.webp</image:loc>
+      <image:loc>https://frijal.pages.dev/assets/images/og-image-orphan-branch.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://frijal.pages.dev/artikel/git-prevent-auto-merge-request.html</loc>
+    <lastmod>2025-10-22T09:26:57.340+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://frijal.pages.dev/img/git-prevent-auto-merge-request.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -4048,6 +4084,33 @@
     <changefreq>monthly</changefreq>
     <image:image>
       <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8nO3GhF2Tj7qCBGEcgdMSgtTvRViXdT3-ISg37fsb6txt5VUDnzHj5sl268cUzWH3AIDmZ-W4OzrC_D0_r2bJGrEmXhSd8ixuAB3RMloloBWHhoFQ8FvOVQyETTTGgyerDy-01CCS91Gd/s1600/pelaksanaan-un.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://frijal.pages.dev/artikel/pengecekan-dan-laporan-konten-harian.html</loc>
+    <lastmod>2025-10-22T09:26:57.359+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://frijal.pages.dev/img/pengecekan-dan-laporan-konten-harian.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://frijal.pages.dev/artikel/pengecekan-laporan-konten-harian.html</loc>
+    <lastmod>2025-10-22T09:26:57.359+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://frijal.pages.dev/img/pengecekan-laporan-konten-harian.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://frijal.pages.dev/artikel/git-passive-branch-merge.html</loc>
+    <lastmod>2025-10-22T09:26:57.340+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://frijal.pages.dev/img/git-passive-branch-merge.webp</image:loc>
     </image:image>
   </url>
   <url>
