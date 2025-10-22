@@ -2,21 +2,21 @@
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Strict-Transport-Security: includeSubDomains; preload
   X-XSS-Protection: 1; mode=block
   X-Robots-Tag: all
 
 /img/*
   Access-Control-Allow-Origin: *
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, immutable
 
 /ext/*
   Access-Control-Allow-Origin: *
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, immutable
   
 /artikel/*
   Access-Control-Allow-Origin: *
-  Cache-Control: public, max-age=31536000, immutable  
+  Cache-Control: public, immutable  
 
 /favicon.ico
   Cache-Control: public, max-age=31536000, immutable
@@ -32,28 +32,6 @@
 
 /icon.png
   Cache-Control: public, max-age=31536000, immutable
-
-/thumbnail.*
-  Cache-Control: public, max-age=31536000, immutable
-
-# Folder internal dan tidak perlu diindeks
-/.git/*
-  X-Robots-Tag: noindex, nofollow, nosnippet
-
-/.github/*
-  X-Robots-Tag: noindex, nofollow, nosnippet
-
-/node_modules/*
-  X-Robots-Tag: noindex, nofollow, nosnippet
-
-/mini/*
-  X-Robots-Tag: noindex, nofollow, nosnippet
-
-/sementara/*
-  X-Robots-Tag: noindex, nofollow, nosnippet
-
-/artikelx/*
-  X-Robots-Tag: noindex, nofollow, nosnippet
 
 # ✅ Halaman publik (tetap bisa diindeks SEO)
 /index.html
