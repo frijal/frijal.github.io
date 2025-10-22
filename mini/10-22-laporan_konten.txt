@@ -1,12 +1,12 @@
 LAPORAN KONTEN: artikel & img (10-22)
 =================================
-Total File: 1018
-HTML=492, webp=492, PNG=20
+Total File: 1036
+HTML=494, webp=494, PNG=34
 
 Ringkasan per ekstensi:
-    492 webp
-    492 html
-     20 png
+    494 webp
+    494 html
+     34 png
       4 txt
       4 sh
       2 js
@@ -65,6 +65,7 @@ https://frijal.pages.dev/artikel/akidah-lima-alasan.html
 https://frijal.pages.dev/artikel/aku-cinta-indonesia.html
 https://frijal.pages.dev/artikel/alias-linux.html
 https://frijal.pages.dev/artikel/amr-bin-al-ash.html
+https://frijal.pages.dev/artikel/analisis-skrip-generator-konten-nodejs.html
 https://frijal.pages.dev/artikel/anas-bin-malik.html
 https://frijal.pages.dev/artikel/angkringan-jogja.html
 https://frijal.pages.dev/artikel/apa-itu-pkgbuild.html
@@ -360,6 +361,7 @@ https://frijal.pages.dev/artikel/open-document-converter.html
 https://frijal.pages.dev/artikel/open-source-indonesia.html
 https://frijal.pages.dev/artikel/open-source.html
 https://frijal.pages.dev/artikel/opensuse-mirror.html
+https://frijal.pages.dev/artikel/optimasi-workflow-harian-github-actions.html
 https://frijal.pages.dev/artikel/oss-di-sekolah.html
 https://frijal.pages.dev/artikel/oss-kutai.html
 https://frijal.pages.dev/artikel/oss-sekolah.html
