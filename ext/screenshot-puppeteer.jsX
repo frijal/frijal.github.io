@@ -5,7 +5,7 @@ import puppeteer from "puppeteer";
 const BASE_URL = "https://frijal.pages.dev/artikel/";
 const ARTIKEL_DIR = "artikel";
 const IMG_DIR = "img";
-const EXT = "webp"; // bisa ganti ke 'jpeg' jika mau
+const EXT = "webp"; // bisa ganti ke 'jpg' jika mau
 
 // Dimensi target untuk screenshot
 const TARGET_WIDTH = 1200;
