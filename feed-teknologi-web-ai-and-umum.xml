@@ -6,7 +6,7 @@
     <description><![CDATA[Feed artikel terbaru untuk kategori 🖥️ Teknologi Web, AI & Umum]]></description>
     <language>id-ID</language>
     <atom:link href="https://frijal.pages.dev/feed-teknologi-web-ai-and-umum.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Wed, 22 Oct 2025 12:24:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 22 Oct 2025 16:21:17 GMT</lastBuildDate>
     <item>
       <title><![CDATA[Bedah Skrip Generator Konten Cerdas (Node.js)]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/analisis-skrip-generator-konten-nodejs.html]]></link>
@@ -15,6 +15,33 @@
       <description><![CDATA[Bedah tuntas skrip Node.js canggih yang mengotomatiskan pembuatan artikel.json, sitemap.xml, dan halaman kategori, lengkap dengan fitur self-healing.]]></description>
       <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
 <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFck_UrHNNPuq7efqdzls4mrrPJv3ZRlKibwYD3w1FVCgAu0NlzQz2LDieWiUg2nsgJiFT_dr-oShXctQ3K1BckCglQ0rkOoxuYC9ceIYwSRIqt14efmNgMJDoYqBtyJalfWy3Eok6yKh-08bSSYmvyFfE7ZWpqqk9_hVC-sI8wUdjycBO22uAwFoCu-E/s1600/licensed-image.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Pengecekan & Laporan Konten Harian - Otomasi GitHub Actions 🔆]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/pengecekan-dan-laporan-konten-harian.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/pengecekan-dan-laporan-konten-harian.html]]></guid>
+      <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
+      <description><![CDATA[Workflow GitHub Actions otomatis untuk membersihkan gambar orphan, menghitung jumlah artikel dan cover WebP, serta membuat laporan konten harian di GitHub Pages.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+<enclosure url="https://frijal.pages.dev/img/pengecekan-dan-laporan-konten-harian.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Pengecekan & Laporan Konten Harian — GitHub Actions 🔆]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/pengecekan-laporan-konten-harian.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/pengecekan-laporan-konten-harian.html]]></guid>
+      <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
+      <description><![CDATA[Workflow GitHub Actions untuk otomatis membersihkan gambar orphan dan membuat laporan konten harian di frijal.pages.dev. Dilengkapi penjelasan lengkap dan kode siap pakai.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+<enclosure url="https://frijal.pages.dev/img/pengecekan-laporan-konten-harian.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Workflow Cerdas: Satu Job untuk Semua Tugas Perawatan Harian]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/optimasi-workflow-harian-github-actions.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/optimasi-workflow-harian-github-actions.html]]></guid>
+      <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
+      <description><![CDATA[Tutorial cara mengoptimalkan workflow GitHub Actions dengan menggabungkan beberapa job (screenshots, cleanup, reporting) menjadi satu job tunggal yang efisien dan atomik.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+<enclosure url="https://frijal.pages.dev/img/optimasi-workflow-harian-github-actions.webp" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[Cara Membuat Orphan Branch di Git & GitHub | Frijal's Page]]></title>
@@ -35,13 +62,31 @@
 <enclosure url="https://frijal.pages.dev/img/git-prevent-auto-merge-request.webp" length="0" type="image/webp" />
     </item>
     <item>
-      <title><![CDATA[Dari Boros ke Kilat: Evolusi Cerdas Workflow Deploy GitHub Actions]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/evolusi-workflow-deploy-github-actions.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/evolusi-workflow-deploy-github-actions.html]]></guid>
+      <title><![CDATA[Cara Mengecilkan Ukuran Repo Git Lokal (Bye Bye node_modules!)]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/git-repo-size-reduction.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/git-repo-size-reduction.html]]></guid>
       <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
-      <description><![CDATA[Tutorial lengkap cara mengoptimalkan workflow deploy GitHub Actions. Pelajari perbandingan rsync vs. git diff untuk mencegah deploy yang tidak perlu dan menghemat waktu.]]></description>
+      <description><![CDATA[Tutorial lengkap dan santai cara membuat ukuran repositori Git lokal menjadi kecil dengan mengabaikan dan membersihkan folder node_modules dari riwayat commit.]]></description>
       <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
-<enclosure url="https://frijal.pages.dev/img/evolusi-workflow-deploy-github-actions.webp" length="0" type="image/webp" />
+<enclosure url="https://frijal.pages.dev/img/git-repo-size-reduction.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Cara Kerja Git: Branch "Pasif" & Main Branch "Memanggil"]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/git-passive-branch-merge.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/git-passive-branch-merge.html]]></guid>
+      <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
+      <description><![CDATA[Tutorial Git santai tentang cara kerja branch pasif (anak branch) yang tidak minta merge, dan main branch yang aktif memanggil perubahan. Pahami alur kerja Git mendasar.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+<enclosure url="https://frijal.pages.dev/img/git-passive-branch-merge.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Build and Deploy to Clean Branch — Alur Dibalik + Cek Perubahan Sebelum rsync ⚠️]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/build-deploy-clean-branch.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/build-deploy-clean-branch.html]]></guid>
+      <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
+      <description><![CDATA[Workflow GitHub Actions yang membalik alur: cek perubahan terlebih dulu di daftar file terizinkan, baru jalankan rsync dan deploy ke branch site. Dengan penjelasan santai, opsi logging, dan contoh YAML siap pakai.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+<enclosure url="https://frijal.pages.dev/img/build-deploy-clean-branch.webp" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[Pilih Merge, Squash, atau Rebase? Panduan Santai Git Pull Request]]></title>

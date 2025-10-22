@@ -6,7 +6,7 @@
     <description><![CDATA[Feed 30 artikel terbaru]]></description>
     <language>id-ID</language>
     <atom:link href="https://frijal.pages.dev/rss.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Wed, 22 Oct 2025 12:24:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 22 Oct 2025 16:21:17 GMT</lastBuildDate>
     <item>
       <title><![CDATA[Bedah Skrip Generator Konten Cerdas (Node.js)]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/analisis-skrip-generator-konten-nodejs.html]]></link>
@@ -22,7 +22,7 @@
       <guid><![CDATA[https://frijal.pages.dev/artikel/rahmah-adab-dan-rasa.html]]></guid>
       <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
       <description><![CDATA[Tulisan reflektif tentang rumah tangga: adab sebagai akar, ekonomi sebagai pemicu. Kekayaan membuat menatap, adab membuat menetap. Tentang suami sederhana, syukur, sabar, dan rahmah dalam pernikahan.]]></description>
-      <category><![CDATA[📚 Sejarah & Religi]]></category>
+      <category><![CDATA[📢 Catatan & Opini Sosial]]></category>
     <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7yjmdxT5W_ra88nxMvA51yzbONIUGarPUax6CEbYEpd6NF64qkOICmmyZp2-Heiv_34oXMP3ho8DLBl-5jMwFEruWXOy6A6m1Ik7Z2lerBjz19LLiwz1elF49pclkSm5EXecO1XGKdXVLYW86qBk79-d0DGLSYsHawkOtgGcw0Eee6LUiF23OoXlD97I/s1600/kitabelilagi.webp" length="0" type="image/webp" />
     </item>
     <item>
@@ -31,7 +31,7 @@
       <guid><![CDATA[https://frijal.pages.dev/artikel/pengecekan-dan-laporan-konten-harian.html]]></guid>
       <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
       <description><![CDATA[Workflow GitHub Actions otomatis untuk membersihkan gambar orphan, menghitung jumlah artikel dan cover WebP, serta membuat laporan konten harian di GitHub Pages.]]></description>
-      <category><![CDATA[📢 Catatan & Opini Sosial]]></category>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
     <enclosure url="https://frijal.pages.dev/img/pengecekan-dan-laporan-konten-harian.webp" length="0" type="image/webp" />
     </item>
     <item>
@@ -40,7 +40,7 @@
       <guid><![CDATA[https://frijal.pages.dev/artikel/pengecekan-laporan-konten-harian.html]]></guid>
       <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
       <description><![CDATA[Workflow GitHub Actions untuk otomatis membersihkan gambar orphan dan membuat laporan konten harian di frijal.pages.dev. Dilengkapi penjelasan lengkap dan kode siap pakai.]]></description>
-      <category><![CDATA[📢 Catatan & Opini Sosial]]></category>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
     <enclosure url="https://frijal.pages.dev/img/pengecekan-laporan-konten-harian.webp" length="0" type="image/webp" />
     </item>
     <item>
@@ -49,7 +49,7 @@
       <guid><![CDATA[https://frijal.pages.dev/artikel/optimasi-workflow-harian-github-actions.html]]></guid>
       <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
       <description><![CDATA[Tutorial cara mengoptimalkan workflow GitHub Actions dengan menggabungkan beberapa job (screenshots, cleanup, reporting) menjadi satu job tunggal yang efisien dan atomik.]]></description>
-      <category><![CDATA[📢 Catatan & Opini Sosial]]></category>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
     <enclosure url="https://frijal.pages.dev/img/optimasi-workflow-harian-github-actions.webp" length="0" type="image/webp" />
     </item>
     <item>
@@ -62,15 +62,6 @@
     <enclosure url="https://frijal.pages.dev/assets/images/og-image-orphan-branch.png" length="0" type="image/webp" />
     </item>
     <item>
-      <title><![CDATA[Cara Mengecilkan Ukuran Repo Git Lokal (Bye Bye node_modules!)]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/git-repo-size-reduction.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/git-repo-size-reduction.html]]></guid>
-      <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
-      <description><![CDATA[Tutorial lengkap dan santai cara membuat ukuran repositori Git lokal menjadi kecil dengan mengabaikan dan membersihkan folder node_modules dari riwayat commit.]]></description>
-      <category><![CDATA[🐧 Linux & Open Source]]></category>
-    <enclosure url="https://frijal.pages.dev/img/git-repo-size-reduction.webp" length="0" type="image/webp" />
-    </item>
-    <item>
       <title><![CDATA[Cara Agar Branch Tidak Minta Merge Otomatis ke Main | Frijal's Page]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/git-prevent-auto-merge-request.html]]></link>
       <guid><![CDATA[https://frijal.pages.dev/artikel/git-prevent-auto-merge-request.html]]></guid>
@@ -80,22 +71,22 @@
     <enclosure url="https://frijal.pages.dev/img/git-prevent-auto-merge-request.webp" length="0" type="image/webp" />
     </item>
     <item>
+      <title><![CDATA[Cara Mengecilkan Ukuran Repo Git Lokal (Bye Bye node_modules!)]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/git-repo-size-reduction.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/git-repo-size-reduction.html]]></guid>
+      <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
+      <description><![CDATA[Tutorial lengkap dan santai cara membuat ukuran repositori Git lokal menjadi kecil dengan mengabaikan dan membersihkan folder node_modules dari riwayat commit.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+    <enclosure url="https://frijal.pages.dev/img/git-repo-size-reduction.webp" length="0" type="image/webp" />
+    </item>
+    <item>
       <title><![CDATA[Cara Kerja Git: Branch "Pasif" & Main Branch "Memanggil"]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/git-passive-branch-merge.html]]></link>
       <guid><![CDATA[https://frijal.pages.dev/artikel/git-passive-branch-merge.html]]></guid>
       <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
       <description><![CDATA[Tutorial Git santai tentang cara kerja branch pasif (anak branch) yang tidak minta merge, dan main branch yang aktif memanggil perubahan. Pahami alur kerja Git mendasar.]]></description>
-      <category><![CDATA[📢 Catatan & Opini Sosial]]></category>
-    <enclosure url="https://frijal.pages.dev/img/git-passive-branch-merge.webp" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Dari Boros ke Kilat: Evolusi Cerdas Workflow Deploy GitHub Actions]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/evolusi-workflow-deploy-github-actions.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/evolusi-workflow-deploy-github-actions.html]]></guid>
-      <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
-      <description><![CDATA[Tutorial lengkap cara mengoptimalkan workflow deploy GitHub Actions. Pelajari perbandingan rsync vs. git diff untuk mencegah deploy yang tidak perlu dan menghemat waktu.]]></description>
       <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
-    <enclosure url="https://frijal.pages.dev/img/evolusi-workflow-deploy-github-actions.webp" length="0" type="image/webp" />
+    <enclosure url="https://frijal.pages.dev/img/git-passive-branch-merge.webp" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[Build and Deploy to Clean Branch — Alur Dibalik + Cek Perubahan Sebelum rsync ⚠️]]></title>
@@ -103,7 +94,7 @@
       <guid><![CDATA[https://frijal.pages.dev/artikel/build-deploy-clean-branch.html]]></guid>
       <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
       <description><![CDATA[Workflow GitHub Actions yang membalik alur: cek perubahan terlebih dulu di daftar file terizinkan, baru jalankan rsync dan deploy ke branch site. Dengan penjelasan santai, opsi logging, dan contoh YAML siap pakai.]]></description>
-      <category><![CDATA[🐧 Linux & Open Source]]></category>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
     <enclosure url="https://frijal.pages.dev/img/build-deploy-clean-branch.webp" length="0" type="image/webp" />
     </item>
     <item>
@@ -197,6 +188,15 @@
     <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzswtddIeRYMjOfMQVFSH1xeExCjZzO2739dtTmDz_dR3L752lseXIEEw9gy-O9aU10vinbFb5Fo4nASYr7DNpTHxH79tFV5n4fhY4yQ72GQ9_bjDwb_GguPrQF9KsamzS9-0NLzx5Sxj43Lw9DAK-OjRqa3D0pu74r33tR4upx3yJOvxIzfiwg4u5bYE/s1600/sikat-gigi-aduk.jpg" length="0" type="image/webp" />
     </item>
     <item>
+      <title><![CDATA[Fenomena “kemiskinan mendadak” di PPDB — SKTM palsu dan jalan keluarnya]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/ppdb-sktm-palsu.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/ppdb-sktm-palsu.html]]></guid>
+      <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
+      <description><![CDATA[Di balik riuh PPDB, muncul fenomena ‘kemiskinan mendadak’: SKTM palsu demi lolos jalur afirmasi. Tonton video, pahami masalahnya, dan lihat solusi yang menyejukkan.]]></description>
+      <category><![CDATA[📢 Catatan & Opini Sosial]]></category>
+    <enclosure url="https://frijal.pages.dev/img/ppdb-sktm-palsu.webp" length="0" type="image/webp" />
+    </item>
+    <item>
       <title><![CDATA[Produk Dairy & Alternatif Non-Dairy untuk Kopi Susu]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/produk-dairy-dan-alternatif.html]]></link>
       <guid><![CDATA[https://frijal.pages.dev/artikel/produk-dairy-dan-alternatif.html]]></guid>
@@ -206,13 +206,13 @@
     <enclosure url="https://frijal.pages.dev/img/produk-dairy-dan-alternatif.webp" length="0" type="image/webp" />
     </item>
     <item>
-      <title><![CDATA[Fenomena “kemiskinan mendadak” di PPDB — SKTM palsu dan jalan keluarnya]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/ppdb-sktm-palsu.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/ppdb-sktm-palsu.html]]></guid>
+      <title><![CDATA[POAC dan perencanaan partisipatif: pondasi organisasi yang sehat]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/poac-perencanaan-partisipatif.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/poac-perencanaan-partisipatif.html]]></guid>
       <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
-      <description><![CDATA[Di balik riuh PPDB, muncul fenomena ‘kemiskinan mendadak’: SKTM palsu demi lolos jalur afirmasi. Tonton video, pahami masalahnya, dan lihat solusi yang menyejukkan.]]></description>
+      <description><![CDATA[Memahami POAC (Planning, Organizing, Actuating, Controlling) dengan fokus pada perencanaan partisipatif, kebersamaan, dan pengakuan kompetensi. Disertai contoh praktis, gallery, dan tampilan interaktif.]]></description>
       <category><![CDATA[📢 Catatan & Opini Sosial]]></category>
-    <enclosure url="https://frijal.pages.dev/img/ppdb-sktm-palsu.webp" length="0" type="image/webp" />
+    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi54eXubNn7ZUI1o_7_9rs0S5ZTo_gueeZ0ZZEb1gYZEqniNSG-lmwd7oag4M9p46c3ezIIQRN1Wgw8AuvXPJ0GJrE40BMVXGPC6UWtW_di8EIw6g2acUJMv6A90ev5bksibELLvcBl7Ulv/s320/swot-and-poac-18-638.jpg" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[Sakit Kepala? Jangan Buru-Buru Minum Obat, Coba Pijat Relaksasi Ini!]]></title>
@@ -233,15 +233,6 @@
     <enclosure url="https://frijal.pages.dev/img/pola-hidup-sehat-untuk-usus.webp" length="0" type="image/webp" />
     </item>
     <item>
-      <title><![CDATA[POAC dan perencanaan partisipatif: pondasi organisasi yang sehat]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/poac-perencanaan-partisipatif.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/poac-perencanaan-partisipatif.html]]></guid>
-      <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
-      <description><![CDATA[Memahami POAC (Planning, Organizing, Actuating, Controlling) dengan fokus pada perencanaan partisipatif, kebersamaan, dan pengakuan kompetensi. Disertai contoh praktis, gallery, dan tampilan interaktif.]]></description>
-      <category><![CDATA[📢 Catatan & Opini Sosial]]></category>
-    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi54eXubNn7ZUI1o_7_9rs0S5ZTo_gueeZ0ZZEb1gYZEqniNSG-lmwd7oag4M9p46c3ezIIQRN1Wgw8AuvXPJ0GJrE40BMVXGPC6UWtW_di8EIw6g2acUJMv6A90ev5bksibELLvcBl7Ulv/s320/swot-and-poac-18-638.jpg" length="0" type="image/webp" />
-    </item>
-    <item>
       <title><![CDATA[Momen Peresmian Bandara Sepinggan Balikpapan]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/peresmian-bandara-sepinggan.html]]></link>
       <guid><![CDATA[https://frijal.pages.dev/artikel/peresmian-bandara-sepinggan.html]]></guid>
@@ -260,6 +251,15 @@
     <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmTF0M6TQTCadeEeVq8CqaSE_AoZ4Vo3NJdpmhSfKjeVTQeMTZmlUMp4WCk2D2AlvbZuS0ysHaL2FKgOaVaejGnGUPGVp_B2veq14dffr9BH3gIKOERkinXGoqnBY3f3HhkQLyMO5_qIke/s1600/Info+Penerima+CPNS+Terbaru+2013.jpg" length="0" type="image/webp" />
     </item>
     <item>
+      <title><![CDATA[Mudahnya Wanita Masuk Surga]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/mudahnya-wanita-masuk-surga.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/mudahnya-wanita-masuk-surga.html]]></guid>
+      <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
+      <description><![CDATA[Hadits Rasulullah SAW memberikan kabar gembira bagi para wanita — jalan menuju surga begitu mudah, cukup dengan menjaga shalat, puasa, kehormatan diri, dan ketaatan kepada suami.]]></description>
+      <category><![CDATA[📚 Sejarah & Religi]]></category>
+    <enclosure url="https://frijal.pages.dev/img/mudahnya-wanita-masuk-surga.webp" length="0" type="image/webp" />
+    </item>
+    <item>
       <title><![CDATA[Minuman yang Membantu Melancarkan Pencernaan]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/minuman-bantu-pencernaan.html]]></link>
       <guid><![CDATA[https://frijal.pages.dev/artikel/minuman-bantu-pencernaan.html]]></guid>
@@ -269,13 +269,13 @@
     <enclosure url="https://frijal.pages.dev/img/minuman-bantu-pencernaan.webp" length="0" type="image/webp" />
     </item>
     <item>
-      <title><![CDATA[Mudahnya Wanita Masuk Surga]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/mudahnya-wanita-masuk-surga.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/mudahnya-wanita-masuk-surga.html]]></guid>
+      <title><![CDATA[Pentingnya Menjalankan Rencana di Era Digital: Strategi Prioritas dan Produktivitas]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/menjalankan-rencana.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/menjalankan-rencana.html]]></guid>
       <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
-      <description><![CDATA[Hadits Rasulullah SAW memberikan kabar gembira bagi para wanita — jalan menuju surga begitu mudah, cukup dengan menjaga shalat, puasa, kehormatan diri, dan ketaatan kepada suami.]]></description>
-      <category><![CDATA[📚 Sejarah & Religi]]></category>
-    <enclosure url="https://frijal.pages.dev/img/mudahnya-wanita-masuk-surga.webp" length="0" type="image/webp" />
+      <description><![CDATA[Pelajari pentingnya menjalankan rencana dengan baik di era digital yang serba cepat. Temukan strategi prioritas tugas dan tips untuk meningkatkan produktivitas Anda.]]></description>
+      <category><![CDATA[📢 Catatan & Opini Sosial]]></category>
+    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh49IbwTVMG3oKUQpzcWsqj0KoQv_kxfMBXfW1y82xwiDWNcxqKCabotR43t6GlWmjk8fpLHCwJUM8dQd489Iu-UE036k9srmw0OdhYoOiW2-Vrf9LUOF9-Rz4_MTmSUyW0zvyJhfNVhQE1/s1600/tumblr_mrerv3IRsz1qa5bf5o1_500.jpg" length="0" type="image/webp" />
     </item>
   </channel>
 </rss>

@@ -1,4 +1,4 @@
-import { IDX_FILENAME, IDX_DATE } from '/ext/indexhtml-util.js';
+import { IDX_FILENAME, IDX_DATE, getIconAndClass, categoryToId } from '/ext/indexhtml-util.js';
 import { createArticleCard, createQuickNav } from '/ext/indexhtml-render.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -10,9 +10,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!response.ok) throw new Error('Gagal memuat artikel.json');
     const data = await response.json();
 
-    const allCategories = Object.keys(data).sort();
+    // 🔹 Kumpulkan semua artikel untuk "Artikel Terbaru"
     let allArticles = [];
-
     for (const category in data) {
       data[category].forEach(item => {
         if (item[IDX_DATE]) {
@@ -20,12 +19,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
       });
     }
-
     allArticles.sort((a, b) => b.date.getTime() - a.date.getTime());
 
     const displayedInLatest = new Set();
 
-    // Artikel Terbaru
+    // 🔹 Artikel Terbaru
     if (allArticles.length > 0) {
       const latestSection = document.createElement('section');
       latestSection.className = 'category-section';
@@ -39,8 +37,17 @@ document.addEventListener('DOMContentLoaded', async () => {
       mainContainer.appendChild(latestSection);
     }
 
-    // Artikel per Kategori
-    allCategories.forEach(category => {
+    // 🔹 Urutkan kategori berdasarkan artikel terbaru
+    const categoryWithLatest = Object.keys(data).map(category => {
+      const latestDate = data[category]
+        .map(item => new Date(item[IDX_DATE] || 0))
+        .reduce((a, b) => (b > a ? b : a), new Date(0));
+      return { category, latestDate };
+    });
+    categoryWithLatest.sort((a, b) => b.latestDate - a.latestDate);
+
+    // 🔹 Artikel per Kategori (urut sesuai update terbaru)
+    categoryWithLatest.forEach(({ category }) => {
       const articlesToShow = data[category].filter(item => !displayedInLatest.has(item[IDX_FILENAME]));
       if (articlesToShow.length === 0) return;
 
@@ -48,8 +55,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       const section = document.createElement('section');
       section.className = 'category-section';
-      section.innerHTML = `<h2 id="${category.toLowerCase().replace(/\s+/g,'-')}">${category}</h2><div class="article-grid"></div>`;
-      
+
+      const icon = getIconAndClass(category).icon;
+      const categoryTitle = category.replace(/^[^\w\s]*/, '').trim();
+      section.innerHTML = `<h2 id="${categoryToId(category)}"><span>${icon}</span> ${categoryTitle}</h2><div class="article-grid"></div>`;
+
       const grid = section.querySelector('.article-grid');
       articlesToShow.forEach(item => {
         grid.appendChild(createArticleCard(item));
@@ -57,7 +67,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       mainContainer.appendChild(section);
     });
 
-    createQuickNav(allCategories);
+    // 🔹 Navigasi cepat mengikuti urutan kategori terbaru
+    createQuickNav(categoryWithLatest.map(c => c.category));
 
   } catch (error) {
     console.error('Ada kendala saat memuat artikel.json:', error);
