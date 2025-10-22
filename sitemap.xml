@@ -640,15 +640,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://frijal.pages.dev/artikel/biskuit-linux.html</loc>
-    <lastmod>2025-10-14T18:15:06.383+00:00</lastmod>
-    <priority>0.6</priority>
-    <changefreq>monthly</changefreq>
-    <image:image>
-      <image:loc>https://frijal.pages.dev/img/biskuit-linux.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://frijal.pages.dev/artikel/apa-itu-pkgbuild.html</loc>
     <lastmod>2025-10-14T18:15:06.380+00:00</lastmod>
     <priority>0.6</priority>

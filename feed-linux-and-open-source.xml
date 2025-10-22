@@ -6,7 +6,7 @@
     <description><![CDATA[Feed artikel terbaru untuk kategori 🐧 Linux & Open Source]]></description>
     <language>id-ID</language>
     <atom:link href="https://frijal.pages.dev/feed-linux-and-open-source.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Wed, 22 Oct 2025 05:29:25 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 22 Oct 2025 05:45:10 GMT</lastBuildDate>
     <item>
       <title><![CDATA[Sosialisasi Open Source Software di Kutai Kartanegara | Kementerian Riset dan Teknologi]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/sosialisasi-oss-kutai-kartanegara.html]]></link>
@@ -645,15 +645,6 @@
       <description><![CDATA[Baru update Fedora 15 dan modem USB gak konek? Ini cara santai tapi tuntas memperbaiki bug NetworkManager versi gnome-0.8.999.3.git20110526 di Fedora 15, lengkap dengan langkah terminal, tautan RPM, dan tips aman.]]></description>
       <category><![CDATA[🐧 Linux & Open Source]]></category>
 <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcZze1B8effjBgy9jbK3ucLENi40tQeX0NRovwwuTQ78TTDM5L1ai2IonB-N-Ms7W2t1ZCURYFCYa_u7kR1Ymotd6hhDPvK5R8dtwqBfqOYEaLrfqGq1GxERW-dSSn61DbmAhfORxhnGJp/s1600/instalasiselesai.png" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Biskuit Linux: Camilan Unik dengan Nama OS Populer]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/biskuit-linux.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/biskuit-linux.html]]></guid>
-      <pubDate>Tue, 14 Oct 2025 18:15:06 GMT</pubDate>
-      <description><![CDATA[Tahukah Anda ada camilan berupa biskuit dengan merek Linux? Simak ulasan unik dan menarik seputar biskuit ini beserta gambar-gambarnya.]]></description>
-      <category><![CDATA[🐧 Linux & Open Source]]></category>
-<enclosure url="https://frijal.pages.dev/img/biskuit-linux.webp" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[Apa Itu PKGBUILD? Memahami File Resep Rahasia di Arch Linux dan AUR]]></title>
