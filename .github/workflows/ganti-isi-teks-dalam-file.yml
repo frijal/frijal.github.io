@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       search:
-        description: 'Teks yang mau diganti (case-sensitive)'
+        description: 'Teks yang mau diiganti (case-sensitive)'
         required: true
         default: 'makan siang bersama'
       replace:
