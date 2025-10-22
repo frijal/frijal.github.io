@@ -3,11 +3,17 @@ name: ⚠️ Build and Deploy to Clean Branch
 
 # Pemicu: Kapan workflow ini akan berjalan
 on:
-  # Berjalan setiap kali ada push ke branch 'main'
-  push:
+  # 1. Menunggu workflow lain selesai
+  workflow_run:
+    # GANTI NAMA INI: Sesuaikan dengan nama file .yml workflow yang harus selesai duluan.
+    # Contoh: "build-and-test.yml"
+    workflows: ["proses-artikelx.yml", "generate-json-xml.yml", "generate-json-xml.yml", "generate-json-xml.yml", 'generate-json-xml.yml", "baris-langsunghapus.yml", "baris-langsunghapus.yml", "baris-langsunghapus.yml", "hapushitung.yml","masukan-baris.yml", "pindah-file.yml"]
+    types:
+      - completed # Hanya berjalan setelah workflow tsb selesai
     branches:
       - main
-  # Memungkinkan Anda menjalankan workflow ini secara manual
+
+  # 2. Memungkinkan Anda menjalankan workflow ini secara manual
   workflow_dispatch:
 
 # Memberikan izin yang diperlukan untuk push ke branch lain
@@ -17,22 +23,28 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    # [PENTING] Jalankan job ini HANYA JIKA:
+    # 1. Workflow pemicu ('workflow_run') selesai dengan SUKSES.
+    # ATAU
+    # 2. Workflow ini dijalankan secara MANUAL ('workflow_dispatch').
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
 
     steps:
-      # Langkah 1: Checkout kode dari branch 'main'
+      # Langkah 1: Checkout kode dari commit yang benar
       - name: Checkout source branch
         uses: actions/checkout@v4
-        # [PENTING] Kita butuh history untuk membandingkan perubahan
         with:
-          fetch-depth: 0 
+          # Mengambil commit spesifik dari workflow pemicu, atau branch default jika manual
+          ref: ${{ github.event.workflow_run.head_sha || github.ref }}
+          # Kita tetap butuh history untuk membandingkan perubahan
+          fetch-depth: 0
 
       # Langkah 2: Cek apakah ada perubahan pada file konten yang relevan
       - name: Cek Perubahan File Konten
         id: changed_files
-        uses: tj-actions/changed-files@v44 # Menggunakan versi spesifik untuk stabilitas
+        uses: tj-actions/changed-files@v44
         with:
           # Daftar file dan folder yang akan dipantau perubahannya
-          # Sesuai dengan aturan rsync kamu
           files: |
             artikel/**
             ext/**
@@ -87,8 +99,9 @@ jobs:
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           force_orphan: true
-          
+
       # Langkah ini berjalan JIKA TIDAK ada perubahan
       - name: Lompati Deploy
         if: steps.changed_files.outputs.any_changed != 'true'
         run: echo "👌 Tidak ada perubahan pada file konten, proses deploy dilewati."
+
