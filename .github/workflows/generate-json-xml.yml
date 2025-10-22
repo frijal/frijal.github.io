@@ -4,7 +4,7 @@ name: ☢️ Build and Generate Site Files
 on:
   push:
     branches: ['main']
-    # === Pemicu kembali ke struktur 'artikel/' ===
+    # === Pemicu kembali ke stuktur 'artikel/' ===
     paths:
       - 'artikel/*.html'
   workflow_dispatch:
