@@ -20,8 +20,7 @@
 [![RSync to Site](https://github.com/frijal/frijal.github.io/actions/workflows/copybranch.yml/badge.svg?branch=main)](https://github.com/frijal/frijal.github.io/actions/workflows/copybranch.yml)
 ![Artikel](https://img.shields.io/endpoint?url=/mini/html_count_badge.json)
 ![Cover](https://img.shields.io/endpoint?url=/mini/webp_count_badge.json)
-![HTML/WebP](https://img.shields.io/endpoint?url=/mini/html_webp_badge.json)
-
+![HTML/WebP](https://img.shields.io/endpoint?url=[/mini/html_webp_badge.json](https://github.com/frijal/frijal.github.io/blob/36511de493bac3deec1f7e8520fcbca34cd8a7e1/mini/html_webp_badge.json))
 
 [![Google Drive](https://img.shields.io/badge/Google%20Drive-Available-34A853?logo=googledrive&logoColor=white)](#readme)
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Yes-blue?logo=github&logoColor=white)](#readme)
