@@ -29,7 +29,7 @@
     <meta name="twitter:title" content="Repo Git Lokal Gendut Gara-gara node_modules? Ini Solusinya!">
     <meta name="twitter:description" content="Proses `git pull` jadi lambat? Mungkin karena `node_modules` ikut masuk ke repo. Pelajari cara mencegah dan membersihkannya dari riwayat Git.">
     <meta name="twitter:image" content="https://frijal.pages.dev/img/git-repo-size-reduction.webp"> <!-- GANTI DENGAN URL GAMBAR KAMU -->
-    <meta name="twitter:creator" content="@akun_twitter_kamu"> <!-- GANTI DENGAN USERNAME TWITTER KAMU -->
+    <meta name="twitter:creator" content="@frijal"> <!-- GANTI DENGAN USERNAME TWITTER KAMU -->
 
     <!-- CSS & Font -->
     <link rel="stylesheet" href="style.css">
@@ -238,12 +238,16 @@ footer a { color: var(--header-color); text-decoration: none; }
 }
 
 </style>
+<meta property="og:image:alt" content="Cara Mengecilkan Ukuran Repo Git Lokal (Bye Bye node_modules!)">
+  <meta itemprop="image" content="https://frijal.pages.dev/img/git-repo-size-reduction.webp">
+<link rel="stylesheet" href="/ext/marquee-url.css"><link rel="alternate" type="application/rss+xml" title="30 artikel baru bikin." href="https://frijal.pages.dev/rss.xml" />
 </head>
 <body>
 
     <div class="container">
         <header>
             <h1>Repo Lokal Gendut? Waktunya Diet `node_modules`! 🏋️‍♂️</h1>
+<div id="iposbrowser"></div>
             <p class="subtitle">Karena build di GitHub, kita gak perlu menarik `node_modules` ke komputer. Yuk, pelajari cara mencegah dan membersihkannya dari repositori Git.</p>
         </header>
 
@@ -432,6 +436,9 @@ git push origin --force --all</code></pre>
 });
 
 </script>
+<div class="search-floating-container"><input type="text" id="floatingSearchInput" placeholder="cari artikel..." autocomplete="off"><span id="floatingSearchClear" class="clear-button"></span><div id="floatingSearchResults" class="floating-results-container"></div></div>
+<section id="related-marquee-section"><div id="related-marquee-container"></div></section><script defer src="/ext/marquee-url.js"></script>
+<script defer src="/ext/iposbrowser.js"></script>
 </body>
 </html>
 

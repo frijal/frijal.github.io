@@ -39,32 +39,7 @@
   <meta name="twitter:creator" content="@frijal">
 
   <!-- Structured data (JSON-LD) untuk SEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "headline": "Build and Deploy to Clean Branch — Alur Dibalik + Cek Perubahan Sebelum rsync",
-    "description": "Workflow GitHub Actions yang membandingkan perubahan sebelum rsync dan deploy ke branch site, plus penjelasan dan YAML siap pakai.",
-    "author": {
-      "@type": "Person",
-      "name": "Fakhrul"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Frijal Docs",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://frijal.pages.dev/icon.png"
-      }
-    },
-    "datePublished": "2025-10-22",
-    "dateModified": "2025-10-22",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://frijal.pages.dev/artikel/build-deploy-clean-branch.html"
-    }
-  }
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Build and Deploy to Clean Branch — Alur Dibalik + Cek Perubahan Sebelum rsync","description":"Workflow GitHub Actions yang membandingkan perubahan sebelum rsync dan deploy ke branch site, plus penjelasan dan YAML siap pakai.","author":{"@type":"Person","name":"Fakhrul","image":"https://frijal.pages.dev/img/build-deploy-clean-branch.webp"},"publisher":{"@type":"Organization","name":"Frijal Docs","logo":{"@type":"ImageObject","url":"https://frijal.pages.dev/icon.png","image":"https://frijal.pages.dev/img/build-deploy-clean-branch.webp"},"image":"https://frijal.pages.dev/img/build-deploy-clean-branch.webp"},"datePublished":"2025-10-22","dateModified":"2025-10-22","mainEntityOfPage":{"@type":"WebPage","@id":"https://frijal.pages.dev/artikel/build-deploy-clean-branch.html","image":"https://frijal.pages.dev/img/build-deploy-clean-branch.webp"},"image":"https://frijal.pages.dev/img/build-deploy-clean-branch.webp"}</script>
 
   <!-- Widescreen + Mobile-friendly CSS -->
   <style>
@@ -289,6 +264,9 @@
       overflow: auto;
     }
   </style>
+<meta property="og:image:alt" content="Build and Deploy to Clean Branch — Alur Dibalik + Cek Perubahan Sebelum rsync ⚠️">
+  <meta itemprop="image" content="https://frijal.pages.dev/img/build-deploy-clean-branch.webp">
+<link rel="stylesheet" href="/ext/marquee-url.css"><link rel="alternate" type="application/rss+xml" title="30 artikel baru bikin." href="https://frijal.pages.dev/rss.xml" />
 </head>
 <body>
   <div class="wrap">
@@ -298,6 +276,7 @@
           <span class="badge">⚠️ Build and Deploy to Clean Branch</span>
           <span>Alur Dibalik: cek perubahan dulu, baru rsync + deploy</span>
 <h1></h1>
+<div id="iposbrowser"></div>
         </div>
         <p class="subtitle">
           Intinya: sebelum melakukan <span class="kbd">rsync</span> dan deploy, workflow ini membandingkan isi daftar file yang diizinkan dengan versi sebelumnya di branch <span class="kbd">site</span>. Kalau tidak ada perubahan, langkah <span class="kbd">rsync</span> dan deploy dilewati.
@@ -476,7 +455,7 @@ jobs:
           </a>
         </div>
         <div style="margin-top:10px;">
-          © 2025 Frijal Docs — Artikel DevOps. Canonical: <a href="https://frijal.pages.dev/artikel/build-deploy-clean-branch.html">frijal.pages.dev/artikel/build-deploy-clean-branch.html</a>
+          🄯 2025 Frijal Docs — Artikel DevOps. Canonical: <a href="https://frijal.pages.dev/artikel/build-deploy-clean-branch.html">frijal.pages.dev/artikel/build-deploy-clean-branch.html</a>
         </div>
       </footer>
     </main>
@@ -554,5 +533,8 @@ jobs:
       });
     })();
   </script>
+<div class="search-floating-container"><input type="text" id="floatingSearchInput" placeholder="cari artikel..." autocomplete="off"><span id="floatingSearchClear" class="clear-button"></span><div id="floatingSearchResults" class="floating-results-container"></div></div>
+<section id="related-marquee-section"><div id="related-marquee-container"></div></section><script defer src="/ext/marquee-url.js"></script>
+<script defer src="/ext/iposbrowser.js"></script>
 </body>
 </html>
