@@ -33,3 +33,11 @@ grid-*.svg
 *.draft.html
 *.preview.html
 *.snapshot.html
+
+# Abaikan folder hasil build
+/dist
+/build
+
+# Abaikan file log
+npm-debug.log
+yarn-error.log
