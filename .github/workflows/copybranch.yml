@@ -45,11 +45,8 @@ jobs:
           # [GANTI NAMA INI] Masukkan nama "check" dari workflow yang ingin ditunggu.
           # Biasanya ini adalah NAMA JOB dari file .yml tersebut.
           check-name: |
-            nama-job-dari-generate-json-xml
-            nama-job-dari-baris-langsunghapus
-            nama-job-dari-hapushitung
-            nama-job-dari-masukan-baris
-            nama-job-dari-pindah-file
+            ☢️ Build and Generate Site Files
+            🔄 Proses ArtikelX
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           # Waktu tunggu maksimal sebelum dianggap gagal (dalam detik)
           wait-interval: 20
