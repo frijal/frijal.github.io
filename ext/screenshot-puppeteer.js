@@ -12,7 +12,7 @@ const PORT = 3000;
 const BASE_URL = `http://localhost:${PORT}/artikel/`;
 
 const TARGET_WIDTH = 1200;
-const TARGET_HEIGHT = 675;
+const TARGET_HEIGHT = 630;
 
 function startServer() {
   return new Promise((resolve, reject) => {
