@@ -227,8 +227,8 @@ function initNavIcons(allArticlesData, currentFilename) {
             <a href="https://frijal.pages.dev" title="Home" class="btn-emoji">🏠</a>
             <a href="https://frijal.pages.dev/sitemap.html" title="Daftar Isi" class="btn-emoji">📄</a>            
             <a href="https://frijal.pages.dev/feed.html" title="Update harian" class="btn-emoji">📡</a>
-            <a id="next-article" title="Berikutnya" class="btn-emoji">▶️</a>
-            <a id="prev-article" title="Sebelumnya" class="btn-emoji">◀️</a>
+            <a id="next-article" title="Berikutnya" class="btn-emoji">⏩</a>
+            <a id="prev-article" title="Sebelumnya" class="btn-emoji">⏪</a>
         </div>
     `;
     document.body.appendChild(navContainer);
