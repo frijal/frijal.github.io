@@ -1,13 +1,9 @@
-# Nama workflow yang akan tampil di tab Actions GitHub
 name: ⚠️ Build and Deploy to Clean Branch
 
-# Pemicu: Kapan workflow ini akan berjalan
 on:
-  # Berjalan setiap kali ada push ke branch 'main'
   push:
     branches:
       - main
-  # Memungkinkan Anda menjalankan workflow ini secara manual
   workflow_dispatch:
 
 jobs:
@@ -15,15 +11,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Langkah 1: Checkout kode dari branch 'main'
+      # Checkout branch main (source)
       - name: Checkout source branch
         uses: actions/checkout@v4
+        with:
+          ref: main
+          path: source
 
-      # Langkah 2: Buat direktori sementara yang bersih
+      # Checkout branch site (target)
+      - name: Checkout site branch
+        uses: actions/checkout@v4
+        with:
+          ref: site
+          path: site
+
+      # Buat direktori sementara
       - name: Create clean directory
         run: mkdir deploy_dir
 
-      # Langkah 3: Salin hanya file dan folder yang diizinkan
+      # Salin hanya file yang diizinkan dari source
       - name: Sync allowed files to deploy directory
         run: |
           rsync -a --delete \
@@ -42,18 +48,27 @@ jobs:
             --include='thumbnail.*' \
             --include='*.webmanifest' \
             --exclude='*' \
-            ./ deploy_dir/
-      
-      # Langkah 4: Deploy isi direktori bersih ke branch 'site'
+            source/ deploy_dir/
+
+      # Bandingkan dengan branch site
+      - name: Check for changes
+        id: check_changes
+        run: |
+          rsync -a --dry-run --delete deploy_dir/ site/ > diff.log
+          if [ -s diff.log ]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      # Deploy hanya jika ada perubahan
       - name: Deploy to site branch
+        if: steps.check_changes.outputs.changed == 'true'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./deploy_dir
-          
-          # [DIUBAH] Nama branch tujuan sekarang adalah 'site'
           publish_branch: site
-          
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           force_orphan: true
