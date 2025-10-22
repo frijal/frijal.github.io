@@ -6,7 +6,16 @@
     <description><![CDATA[Feed 30 artikel terbaru]]></description>
     <language>id-ID</language>
     <atom:link href="https://frijal.pages.dev/rss.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Wed, 22 Oct 2025 11:54:10 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 22 Oct 2025 12:24:00 GMT</lastBuildDate>
+    <item>
+      <title><![CDATA[Bedah Skrip Generator Konten Cerdas (Node.js)]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/analisis-skrip-generator-konten-nodejs.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/analisis-skrip-generator-konten-nodejs.html]]></guid>
+      <pubDate>Wed, 22 Oct 2025 12:23:43 GMT</pubDate>
+      <description><![CDATA[Bedah tuntas skrip Node.js canggih yang mengotomatiskan pembuatan artikel.json, sitemap.xml, dan halaman kategori, lengkap dengan fitur self-healing.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFck_UrHNNPuq7efqdzls4mrrPJv3ZRlKibwYD3w1FVCgAu0NlzQz2LDieWiUg2nsgJiFT_dr-oShXctQ3K1BckCglQ0rkOoxuYC9ceIYwSRIqt14efmNgMJDoYqBtyJalfWy3Eok6yKh-08bSSYmvyFfE7ZWpqqk9_hVC-sI8wUdjycBO22uAwFoCu-E/s1600/licensed-image.webp" length="0" type="image/webp" />
+    </item>
     <item>
       <title><![CDATA[Ketika Ekonomi Cuma Pemicu — Rahmah, Adab, Dan Rasa]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/rahmah-adab-dan-rasa.html]]></link>
@@ -267,15 +276,6 @@
       <description><![CDATA[Hadits Rasulullah SAW memberikan kabar gembira bagi para wanita — jalan menuju surga begitu mudah, cukup dengan menjaga shalat, puasa, kehormatan diri, dan ketaatan kepada suami.]]></description>
       <category><![CDATA[📚 Sejarah & Religi]]></category>
     <enclosure url="https://frijal.pages.dev/img/mudahnya-wanita-masuk-surga.webp" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Metode Wanita]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/metode-wanita.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/metode-wanita.html]]></guid>
-      <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
-      <description><![CDATA[Panduan modern menghadapi perilaku wanita yang sulit, lengkap dengan metode praktis dan infografis ringkas.]]></description>
-      <category><![CDATA[🍜 Kuliner, Gaya Hidup & Kesehatan]]></category>
-    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqsGvA6h5GpXtlRm-xO3oNtemgYUU1_vnoBApmWIlok4aMkzOVMuRxCiyflHZdTfvrd9TAvXD2Xm0rIE98VrWMh_Y-9l_tMgfXO6lgH8doZSmPfrbpwmgJd25GqTpcMH909_GXRrGY7dCj/s800/aci.jpg" length="0" type="image/webp" />
     </item>
   </channel>
 </rss>
