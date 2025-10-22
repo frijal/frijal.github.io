@@ -2,8 +2,7 @@ name: 🔆 Pengecekan & Laporan Konten Harian
 
 on:
   schedule:
-    # Setiap hari pukul 06:00 WITA (UTC+8) → 22:00 UTC hari sebelumnya
-    - cron: '0 22 * * *'
+    - cron: '0 21 * * *'
   workflow_dispatch: # Bisa dijalankan manual
 
 jobs:
@@ -25,17 +24,11 @@ jobs:
           echo "🧹 Memulai proses pembersihan gambar orphan..."
           DELETED_COUNT=0
           DELETED_FILES=""
-
-          # Pastikan folder img ada
           mkdir -p img
-
-          # Loop semua .webp di folder img/
           shopt -s nullglob
           for webp_file in img/*.webp; do
             base_name=$(basename "$webp_file" .webp)
             html_file="artikel/${base_name}.html"
-
-            # Jika artikel tidak ada -> hapus gambar dari git
             if [ ! -f "$html_file" ]; then
               echo "-> Orphan: '$webp_file' tidak memiliki artikel '$html_file'. Menghapus..."
               git rm -f "$webp_file"
@@ -44,7 +37,6 @@ jobs:
             fi
           done
           shopt -u nullglob
-
           echo "🧹 Proses selesai. Total gambar orphan dihapus: $DELETED_COUNT"
           echo "deleted_count=$DELETED_COUNT" >> $GITHUB_OUTPUT
 
@@ -54,6 +46,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git commit -m "chore(cleanup): Hapus ${{ steps.cleanup_step.outputs.deleted_count }} gambar orphan .webp"
+          # Ambil perubahan terbaru sebelum push untuk menghindari konflik
+          git pull origin main --rebase
           git push
 
       - name: No Orphan Found
@@ -62,7 +56,6 @@ jobs:
 
   # JOB 2: Menghitung file dan membuat laporan
   reporting:
-    # Job ini akan menunggu job 'cleanup' selesai
     needs: cleanup
     runs-on: ubuntu-latest
     permissions:
@@ -101,7 +94,6 @@ jobs:
           DATE="${{ steps.vars.outputs.date }}"
           TARGETS="${{ steps.vars.outputs.targets }}"
           PREFIX_ARTIKEL="https://frijal.pages.dev/artikel/"
-          
           mkdir -p "$(dirname "$REPORT")"
           {
             echo "LAPORAN KONTEN: artikel & img ($DATE)"
@@ -115,7 +107,6 @@ jobs:
             echo "URL File HTML (dari folder 'artikel'):"
             find "artikel" -maxdepth 1 -type f -iname "*.html" | sed "s|^artikel/|$PREFIX_ARTIKEL|g" | sort
           } > "$REPORT"
-          
           echo "Laporan berhasil dibuat:"
           cat "$REPORT"
 
@@ -128,7 +119,6 @@ jobs:
           html=${{ steps.counts.outputs.html }}
           webp=${{ steps.counts.outputs.webp }}
           color=$(if (( html > webp )); then echo red; elif (( html < webp )); then echo green; else echo blue; fi)
-
           jq -n --arg m "$html" '{schemaVersion:1, label:"artikel", message:$m, color:"blue"}' > mini/html_count_badge.json
           jq -n --arg m "$webp" '{schemaVersion:1, label:"cover", message:$m, color:"green"}' > mini/webp_count_badge.json
           jq -n --arg mh "$html" --arg mj "$webp" --arg c "$color" '{schemaVersion:1, label:"html/webp", message:("\($mh) / \($mj)"), color:$c}' > mini/html_webp_badge.json
@@ -141,11 +131,27 @@ jobs:
             printf '%s\n' "${files[@]:7}" | xargs rm -f
           fi
 
-      - name: Pull latest changes from main
-        run: git pull origin main --rebase
-
-      - name: Commit Laporan & Badge
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: update laporan & badge konten"
-          file_pattern: mini/*
+      # --- LANGKAH PERBAIKAN ---
+      - name: Commit, Pull, and Push Changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          
+          # Tambahkan semua perubahan laporan dan badge ke staging
+          git add mini/*
+          
+          # Commit hanya jika ada perubahan yang terdeteksi
+          if ! git diff --staged --quiet; then
+            echo "📝 Menemukan perubahan, membuat commit..."
+            git commit -m "chore: update laporan & badge konten" --author="frijal <5477182+frijal@users.noreply.github.com>"
+            
+            # Ambil perubahan dari remote SEBELUM push untuk menghindari konflik
+            echo "🔄 Mengambil perubahan terbaru dari remote..."
+            git pull origin main --rebase
+            
+            # Dorong perubahan ke repository
+            echo "🚀 Mendorong perubahan ke repository..."
+            git push
+          else
+            echo "✅ Tidak ada perubahan baru untuk di-commit."
+          fi
