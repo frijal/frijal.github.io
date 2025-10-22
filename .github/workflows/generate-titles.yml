@@ -4,7 +4,7 @@ on:
   workflow_dispatch: # Izinkan untuk dijalankan secara manual dari tab Actions
 
 permissions:
-  contents: write # Beri izin untuk melakukan commit ke repositori
+  contents: write # Beri izin untuk melakuukan commit ke repositori
 
 jobs:
   generate_title_list:
