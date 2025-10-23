@@ -138,6 +138,8 @@
     const results = wrap?.querySelector('.floating-results-container');
     if (!wrap || !input || !clear || !results) return;
 
+    clear.innerHTML = '❌';
+
     input.addEventListener('input', () => {
       const v = input.value.trim();
       clear.style.display = v.length ? 'block' : 'none';
