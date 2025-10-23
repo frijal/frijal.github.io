@@ -1,10 +1,8 @@
-# Nama workflow di-update untuk mencerminkan semua tugasnya
 name: ☢️ Build and Generate Site Files
 
 on:
   push:
     branches: ['main']
-    # [PERBAIKAN] Pemicu dibuat lebih sensitif terhadap semua perubahan konten
     paths:
       - 'artikel/*.html'
 
