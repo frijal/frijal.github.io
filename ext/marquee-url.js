@@ -1,16 +1,16 @@
 /**
  * ===============================================================
- * SKRIP GABUNGAN v8.4 — Marquee, Floating Search, dan Navigasi
+ * SKRIP GABUNGAN v8.5 — Marquee, Floating Search, dan Navigasi
  * ===============================================================
  * ✅ Aman untuk Cloudflare Pages (Pretty URLs)
  * ✅ Fetch artikel.json hanya sekali + cache sessionStorage
- * ✅ Pencarian cepat, ringan, auto-hide
+ * ✅ Pencarian cepat, ringan, auto-hide + klik hasil = enter
  * ✅ Navigasi prev/next per kategori
  * ✅ Warna marquee adaptif (dark/light)
  * ===============================================================
  */
 
-(function() {
+(function () {
   'use strict';
 
   // ---------------------------
@@ -37,7 +37,7 @@
   function registerReadTracker() {
     const container = document.getElementById('related-marquee-container');
     if (!container) return;
-    container.addEventListener('click', e => {
+    container.addEventListener('click', (e) => {
       const link = e.target.closest('a');
       if (!link) return;
       const id = link.dataset.articleId;
@@ -62,7 +62,7 @@
       let list = [];
 
       for (const cat in allData) {
-        if (allData[cat].some(item => item[1] === currentFile)) {
+        if (allData[cat].some((item) => item[1] === currentFile)) {
           targetCat = cat;
           list = allData[cat];
           break;
@@ -71,9 +71,9 @@
 
       if (!targetCat) return;
 
-      const filtered = list.filter(i => i[1] !== currentFile);
+      const filtered = list.filter((i) => i[1] !== currentFile);
       const read = JSON.parse(localStorage.getItem('read_marquee_articles') || '[]');
-      const unread = filtered.filter(i => !read.includes(i[1]));
+      const unread = filtered.filter((i) => !read.includes(i[1]));
 
       if (unread.length === 0) {
         container.innerHTML = '<p class="marquee-message">Semua artikel terkait sudah dibaca. 😊</p>';
@@ -83,18 +83,20 @@
       unread.sort(() => 0.5 - Math.random());
       const sep = ' • ';
       const isMobile = isMobileDevice();
-      const html = unread.map(([title, id, , , desc]) => {
-        const url = `/artikel/${id}`;
-        const tip = isMobile ? title : (desc || title);
-        return `<a href="${url}" data-article-id="${id}" title="${tip}">${title}</a>${sep}`;
-      }).join('');
+      const html = unread
+        .map(([title, id, , , desc]) => {
+          const url = `/artikel/${id}`;
+          const tip = isMobile ? title : desc || title;
+          return `<a href="${url}" data-article-id="${id}" title="${tip}">${title}</a>${sep}`;
+        })
+        .join('');
 
       container.innerHTML = `<div class="marquee-content">${html.repeat(10)}</div>`;
       const mc = container.querySelector('.marquee-content');
       if (mc) {
         const w = mc.offsetWidth;
         const speed = isMobile ? 40 : 75;
-        mc.style.animationDuration = `${(w / 2) / speed}s`;
+        mc.style.animationDuration = `${w / 2 / speed}s`;
       }
       registerReadTracker();
     } catch (err) {
@@ -149,7 +151,7 @@
       input.focus();
     });
 
-    input.addEventListener('keydown', e => {
+    input.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         e.preventDefault();
         const q = input.value.trim();
@@ -159,7 +161,14 @@
       }
     });
 
-    document.addEventListener('click', e => {
+    results.addEventListener('click', () => {
+      const q = input.value.trim();
+      if (q.length >= 3) {
+        window.location.href = `https://frijal.pages.dev/search?q=${encodeURIComponent(q)}`;
+      }
+    });
+
+    document.addEventListener('click', (e) => {
       if (!wrap.contains(e.target)) results.style.display = 'none';
     });
   }
@@ -170,7 +179,8 @@
 
   function initNavIcons(data, currentFile) {
     function slugify(name) {
-      return name.replace(/^[^\w\s]*/, '')
+      return name
+        .replace(/^[^\w\s]*/, '')
         .trim()
         .toLowerCase()
         .replace(/ & /g, '-and-')
@@ -185,8 +195,13 @@
 
     for (const [cat, arts] of Object.entries(data)) {
       arts.sort((a, b) => new Date(b[3]) - new Date(a[3]));
-      const i = arts.findIndex(a => a[1] === currentFile);
-      if (i !== -1) { list = arts; idx = i; catName = cat; break; }
+      const i = arts.findIndex((a) => a[1] === currentFile);
+      if (i !== -1) {
+        list = arts;
+        idx = i;
+        catName = cat;
+        break;
+      }
     }
 
     const nav = document.createElement('div');
@@ -197,8 +212,8 @@
         <a href="https://frijal.pages.dev" title="Home" class="btn-emoji">🏠</a>
         <a href="https://frijal.pages.dev/sitemap.html" title="Daftar Isi" class="btn-emoji">📄</a>
         <a href="https://frijal.pages.dev/feed.html" title="Update harian" class="btn-emoji">📡</a>
-        <a id="next-article" title="Berikutnya" class="btn-emoji">⏩</a>
-        <a id="prev-article" title="Sebelumnya" class="btn-emoji">⏪</a>
+        <a id="next-article" class="btn-emoji">⏩</a>
+        <a id="prev-article" class="btn-emoji">⏪</a>
       </div>`;
     document.body.appendChild(nav);
 
@@ -206,7 +221,10 @@
     const prev = document.getElementById('prev-article');
     const next = document.getElementById('next-article');
 
-    if (idx === -1) { nav.style.display = 'none'; return; }
+    if (idx === -1) {
+      nav.style.display = 'none';
+      return;
+    }
 
     catLink.textContent = catName;
     catLink.href = `/artikel/-/${slugify(catName)}`;
@@ -253,7 +271,6 @@
       initNavIcons(data, current);
       adaptMarqueeTextColor();
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', adaptMarqueeTextColor);
-
     } catch (err) {
       console.error('Init Error:', err);
       const input = document.getElementById('floatingSearchInput');
