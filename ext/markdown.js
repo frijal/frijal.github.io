@@ -1,145 +1,100 @@
 /*!
-  simple-markdown.js — Markdown ringan + highlight.js otomatis (CDN)
-  Fitur:
-  ✅ Auto-load highlight.js jika belum tersedia
-  ✅ Highlight blok kode setelah disisipkan ke DOM
-  ✅ Callback onHighlighted() ketika highlight selesai
+  simple-markdown.js — Markdown ringan dengan highlight.js otomatis
+  ✅ Auto-load highlight.js dari CDN jika belum ada
+  ✅ Auto-highlight setelah konten dimasukkan ke DOM
+  ✅ Callback onHighlighted() saat selesai
 */
+
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) define([], factory);
   else if (typeof module === 'object' && module.exports) module.exports = factory();
   else root.simpleMarkdownToHtml = factory();
 }(typeof self !== 'undefined' ? self : this, function () {
 
-  // -------------------------------
-  // 🔸 Loader highlight.js (Promise)
-  // -------------------------------
-  let hljsReady;
-  (function ensureHljs() {
-    if (typeof window === 'undefined') {
-      hljsReady = Promise.resolve();
-      return;
-    }
-    if (typeof hljs !== 'undefined') {
-      hljsReady = Promise.resolve(hljs);
-      return;
+  // ==========================================================
+  // 🔹 Loader Highlight.js (hanya sekali)
+  // ==========================================================
+  let hljsReady = null;
+  function loadHighlightJs() {
+    if (hljsReady) return hljsReady;
+    if (typeof hljs !== "undefined") {
+      hljsReady = Promise.resolve(window.hljs);
+      return hljsReady;
     }
 
     hljsReady = new Promise((resolve) => {
-      try {
-        const script = document.createElement('script');
-        script.src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js";
-        script.async = true;
-        script.onload = () => {
-          if (typeof hljs !== 'undefined') {
-            hljs.configure?.({ ignoreUnescapedHTML: true });
-            console.log('✅ highlight.js loaded from CDN');
-          }
-          resolve(window.hljs);
-        };
-        script.onerror = (ev) => {
-          console.warn('⚠️ Gagal memuat highlight.js dari CDN', ev);
-          resolve(undefined);
-        };
-        document.head.appendChild(script);
-
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
+      const script = document.createElement("script");
+      script.src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js";
+      script.onload = () => {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
         link.href = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github-dark.min.css";
         document.head.appendChild(link);
-      } catch {
+        resolve(window.hljs);
+      };
+      script.onerror = () => {
+        console.warn("⚠️ highlight.js gagal dimuat dari CDN");
         resolve(undefined);
-      }
+      };
+      document.head.appendChild(script);
     });
-  })();
-
-  // -------------------------------
-  // 🔸 Util: ID unik per pemanggilan
-  // -------------------------------
-  function makeId() {
-    return 'sm' + Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+    return hljsReady;
   }
 
-  // ---------------------------------
+  // ==========================================================
   // 🔹 Fungsi utama: Markdown → HTML
-  // ---------------------------------
+  // ==========================================================
   function simpleMarkdownToHtml(text, options = {}) {
     const { onHighlighted } = options;
-    if (typeof text !== 'string') text = String(text || '');
-    const callId = makeId();
+    if (typeof text !== "string") text = String(text || "");
 
     let html = text
       // Heading
-      .replace(/^### (.*)$/gm, '<h3 class="text-lg font-bold mt-4 mb-2">$1</h3>')
-      .replace(/^## (.*)$/gm, '<h2 class="text-xl font-bold mt-5 mb-3">$1</h2>')
-      .replace(/^# (.*)$/gm, '<h1 class="text-2xl font-bold mt-6 mb-4">$1</h1>')
-
-      // Gambar
-      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="my-3 rounded-lg max-w-full">')
-
-      // Link
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-blue-600 hover:underline" target="_blank" rel="noopener">$1</a>')
-
-      // Bold / Italic / Inline Code
-      .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold">$1</strong>')
-      .replace(/(^|[^*])\*(.*?)\*(?!\*)/g, '$1<em>$2</em>')
-      .replace(/`([^`]+)`/g, '<code class="bg-gray-200 text-sm p-1 rounded">$1</code>')
-
+      .replace(/^### (.*)$/gm, '<h3>$1</h3>')
+      .replace(/^## (.*)$/gm, '<h2>$1</h2>')
+      .replace(/^# (.*)$/gm, '<h1>$1</h1>')
+      // Bold / Italic / Code
+      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+      .replace(/(^|[^*])\*(.*?)\*(?!\*)/g, "$1<em>$2</em>")
+      .replace(/`([^`]+)`/g, '<code class="inline">$1</code>')
+      // Link dan Gambar
+      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">')
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
       // Code block ```
-      .replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
-        const esc = code
-          .replace(/&/g, '&amp;')
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;");
-        return `<pre class="code-block bg-gray-900 text-white p-4 rounded-lg my-4 overflow-x-auto"><code data-smid="${callId}" class="language-${lang || 'text'}">${esc}</code></pre>`;
+      .replace(/```(\w+)?\n([\s\S]*?)```/g, (m, lang, code) => {
+        code = code.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        return `<pre><code class="language-${lang || 'text'}">${code}</code></pre>`;
       })
+      // Lists
+      .replace(/^\* (.*)$/gm, "<li>$1</li>")
+      .replace(/(<li>.*<\/li>)/gs, "<ul>$1</ul>");
 
-      // List item
-      .replace(/^\* (.*)$/gm, '<li class="ml-5 list-disc">$1</li>');
-
-    // Gabungkan list item jadi <ul>
-    html = html.replace(/(<li.*?<\/li>\s*)+/g, match => `<ul>${match}</ul>`);
-
-    // Jaga agar newline di luar <pre> menjadi <br>
+    // Ganti newline menjadi <br> (kecuali dalam <pre>)
     const parts = html.split(/(<pre[\s\S]*?<\/pre>)/);
     for (let i = 0; i < parts.length; i++) {
-      if (!parts[i].startsWith('<pre')) {
-        parts[i] = parts[i].replace(/\n/g, '<br>');
-      }
+      if (!parts[i].startsWith("<pre")) parts[i] = parts[i].replace(/\n/g, "<br>");
     }
-    const result = parts.join('');
+    html = parts.join("");
 
-    // ---------------------------------
-    // 🔸 Highlight setelah DOM update
-    // ---------------------------------
-    setTimeout(() => {
-      hljsReady.then((hljsObj) => {
-        if (!hljsObj) return onHighlighted?.(false);
+    // ==========================================================
+    // 🔹 Tunda highlight sampai DOM siap
+    // ==========================================================
+    setTimeout(async () => {
+      const hljsObj = await loadHighlightJs();
+      if (!hljsObj) {
+        onHighlighted?.(false);
+        return;
+      }
 
-        const els = document.querySelectorAll(`code[data-smid="${callId}"]`);
-        const highlightFn = (node) => {
-          try { hljsObj.highlightElement(node); } catch { }
-        };
+      document.querySelectorAll("pre code").forEach(el => {
+        try { hljsObj.highlightElement(el); } catch {}
+      });
 
-        if (els.length > 0) {
-          els.forEach(highlightFn);
-          onHighlighted?.(true);
-        } else {
-          // Jika HTML belum disisipkan ke DOM, coba lagi sedikit kemudian
-          setTimeout(() => {
-            const els2 = document.querySelectorAll(`code[data-smid="${callId}"]`);
-            els2.forEach(highlightFn);
-            onHighlighted?.(els2.length > 0);
-          }, 300);
-        }
-      }).catch(() => onHighlighted?.(false));
-    }, 30);
+      onHighlighted?.(true);
+    }, 100);
 
-    return result;
+    return html;
   }
 
-  // ---------------------------------
-  // Ekspor
-  // ---------------------------------
   return simpleMarkdownToHtml;
 }));
