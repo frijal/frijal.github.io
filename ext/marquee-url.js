@@ -158,42 +158,35 @@ function initCategoryMarquee(allData, currentFilename) {
   }
 }
 
-function initFloatingSearch(allArticlesData) {
+function initFloatingSearch() {
   const searchInput = document.getElementById('floatingSearchInput');
-  const resultsContainer = document.getElementById('floatingSearchResults');
   const clearButton = document.getElementById('floatingSearchClear');
-  if (!searchInput || !resultsContainer || !clearButton) return;
+  if (!searchInput || !clearButton) return;
 
-  searchInput.addEventListener('keyup', () => {
-    const query = searchInput.value;
-    clearButton.style.display = query.length > 0 ? 'block' : 'none';
-    const results = searchArticles(query, allArticlesData);
-    resultsContainer.innerHTML = '';
-    if (results.length > 0) {
-      results.slice(0, 20).forEach((item) => {
-        const link = document.createElement('a');
-        link.href = `/artikel/${item.url}`;
-        link.innerHTML = `${item.title} <small>${item.category}</small>`;
-        resultsContainer.appendChild(link);
-      });
-      resultsContainer.style.display = 'block';
-    } else {
-      resultsContainer.style.display = 'none';
-    }
-  });
+  // Tombol hapus input
   clearButton.addEventListener('click', () => {
     searchInput.value = '';
-    resultsContainer.style.display = 'none';
     clearButton.style.display = 'none';
     searchInput.focus();
   });
-  document.addEventListener('click', (event) => {
-    const searchContainer = document.querySelector('.search-floating-container');
-    if (searchContainer && !searchContainer.contains(event.target)) {
-      resultsContainer.style.display = 'none';
+
+  // Deteksi ketikan
+  searchInput.addEventListener('input', () => {
+    clearButton.style.display = searchInput.value.trim().length > 0 ? 'block' : 'none';
+  });
+
+  // Tekan Enter → buka halaman pencarian
+  searchInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      const query = searchInput.value.trim();
+      if (query.length > 0) {
+        window.location.href = `https://frijal.pages.dev/search?q=${encodeURIComponent(query)}`;
+      }
     }
   });
 }
+
 
 function initNavIcons(allArticlesData, currentFilename) {
     function generateCategoryUrl(name) {
