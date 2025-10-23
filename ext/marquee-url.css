@@ -1,8 +1,9 @@
 /* ==========================================================
-   FILE CSS GABUNGAN: MARQUEE, PENCARIAN & NAVIGASI
+   FILE: /ext/ui-enhancer.css
+   Versi Final — Marquee, Floating Search & Floating Nav
    ========================================================== */
 
-/* --- (1) GAYA UNTUK MARQUEE ARTIKEL TERKAIT --- */
+/* --- (1) MARQUEE ARTIKEL TERKAIT --- */
 #related-marquee-section {
   position: fixed;
   bottom: 0;
@@ -58,7 +59,7 @@
   100% { transform: translateX(-50%); }
 }
 
-/* --- (2) GAYA UNTUK KOLOM PENCARIAN MELAYANG --- */
+/* --- (2) FLOATING SEARCH BAR --- */
 .search-floating-container {
   position: fixed;
   top: 20px;
@@ -82,36 +83,34 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   box-sizing: border-box;
   outline: none;
-  background-color: rgba(255, 255, 255, 0.85);
-  color: #111;
+  background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(6px);
-  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23666' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E");
   background-position: 15px center;
   background-repeat: no-repeat;
+  transition: border-color 0.3s, background-color 0.3s;
+  color: #111;
 }
 
 #floatingSearchInput:focus {
   border-color: #007bff;
 }
 
-/* --- HASIL PENCARIAN MELAYANG --- */
 .floating-results-container {
   display: none;
   position: absolute;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
   left: 0;
   top: 100%;
   max-height: 400px;
   overflow-y: auto;
-  border-radius: 0 0 15px 15px;
-  border: 1px solid rgba(128, 128, 128, 0.2);
-  border-top: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
   z-index: 999;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  color: #222;
 }
 
 .floating-results-container a {
@@ -119,16 +118,19 @@
   padding: 12px 15px;
   color: #333;
   text-decoration: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #f0f0f0;
   font-size: 14px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  cursor: pointer;
+}
+
+.floating-results-container a:last-child {
+  border-bottom: none;
 }
 
 .floating-results-container a:hover {
-  background-color: rgba(0, 123, 255, 0.08);
+  background-color: #f5f5f5;
 }
 
 .floating-results-container a small {
@@ -137,11 +139,6 @@
   font-size: 12px;
 }
 
-.floating-results-container a:last-child {
-  border-bottom: none;
-}
-
-/* Tombol hapus input */
 .clear-button {
   display: none;
   position: absolute;
@@ -153,31 +150,31 @@
   color: #999;
   font-weight: bold;
   line-height: 1;
-  transition: color 0.3s;
 }
 
 .clear-button:hover {
   color: #333;
 }
 
-/* --- 🌙 MODE GELAP OTOMATIS --- */
+/* --- DARK MODE FIX --- */
 @media (prefers-color-scheme: dark) {
   #floatingSearchInput {
-    background-color: rgba(25, 25, 25, 0.85);
     border-color: rgba(255, 255, 255, 0.2);
-    color: #eee;
-    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.08);
+    background-color: rgba(30, 30, 30, 0.85);
+    color: #f5f5f5;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23bbb' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E");
+    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
   }
 
   .floating-results-container {
-    background: rgba(30, 30, 30, 0.9);
+    background: rgba(25, 25, 25, 0.95);
+    color: #f5f5f5;
     border-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   }
 
   .floating-results-container a {
-    color: #ddd;
+    color: #f5f5f5;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
@@ -186,7 +183,7 @@
   }
 
   .floating-results-container a small {
-    color: #aaa;
+    color: #bbb;
   }
 
   .clear-button {
@@ -196,9 +193,16 @@
   .clear-button:hover {
     color: #fff;
   }
+
+  .floating-results-container .no-results {
+    color: #ff6b6b;
+    text-align: center;
+    padding: 14px;
+    font-size: 14px;
+  }
 }
 
-/* --- (3) GAYA UNTUK NAVIGASI MELAYANG --- */
+/* --- (3) FLOATING NAV --- */
 .floating-nav {
   position: fixed;
   bottom: 45px;
@@ -223,6 +227,8 @@
 
 a.category-link {
   background-color: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
   color: inherit;
   padding: 8px 16px;
   border-radius: 20px;
@@ -239,10 +245,6 @@ a.category-link.visible {
   transform: translateY(0);
 }
 
-a.category-link:hover {
-  text-decoration: underline;
-}
-
 .btn-emoji {
   font-size: 2rem;
   text-decoration: none;
@@ -255,16 +257,22 @@ a.category-link:hover {
   transform: scale(1.2);
 }
 
-/* --- (4) PENYESUAIAN TEMA TERANG & MOBILE --- */
-@media (prefers-color-scheme: light) {
-  .marquee-message { color: #555; }
-  .btn-emoji { text-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-}
-
+/* --- (4) MOBILE --- */
 @media (max-width: 600px) {
-  .floating-nav { left: 10px; right: 10px; bottom: 40px; }
-  .nav-right { gap: 8px; }
-  .btn-emoji { font-size: 1.8rem; }
-  a.category-link { font-size: 12px; padding: 6px 12px; }
+  .floating-nav {
+    left: 10px;
+    right: 10px;
+    bottom: 40px;
+  }
+  .nav-right {
+    gap: 8px;
+  }
+  .btn-emoji {
+    font-size: 1.8rem;
+  }
+  a.category-link {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
 }
 
