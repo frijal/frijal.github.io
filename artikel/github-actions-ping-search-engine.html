@@ -4,30 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Workflow Otomatis Ping Sitemap & Feeds via GitHub Actions | f-Page</title>
-    <meta name="description" content="Panduan lengkap membuat workflow GitHub Actions untuk otomatis 'ping' sitemap.xml dan RSS feeds ke Google, Bing, dan Ping-o-Matic setiap hari atau saat ada perubahan.">
+    <title>Otomatis "Ping" Search Engine via GitHub Actions | f-Page</title>
+    <meta name="description" content="Cara otomatis memberitahu Google dan Bing setiap kali website Anda di-update menggunakan 'ping' sitemap di dalam workflow GitHub Actions. Percepat indexing konten baru!">
     
-    <link rel="canonical" href="https://frijal.pages.dev/artikel/github-actions-ping-feeds.html" id="canonical-link">
+    <link rel="canonical" href="https://frijal.pages.dev/artikel/github-actions-ping-search-engine.html" id="canonical-link">
 
     <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%232088FF' width='100' height='100' rx='10'/><text x='50' y='60' font-size='50' text-anchor='middle' fill='%23fff' font-family='Arial' font-weight='bold'>FP</text></svg>">
 
-    <meta property="og:title" content="Workflow Otomatis Ping Sitemap & Feeds via GitHub Actions | f-Page">
-    <meta property="og:description" content="Panduan lengkap membuat workflow GitHub Actions untuk otomatis 'ping' sitemap.xml dan RSS feeds ke Google, Bing, dan Ping-o-Matic.">
+    <meta property="og:title" content="Otomatis 'Ping' Search Engine dengan GitHub Actions | f-Page">
+    <meta property="og:description" content="Cara otomatis memberitahu Google dan Bing setiap kali website di-update menggunakan 'ping' sitemap di GitHub Actions.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://frijal.pages.dev/artikel/github-actions-ping-feeds.html">
+    <meta property="og:url" content="https://frijal.pages.dev/artikel/github-actions-ping-search-engine.html">
     <meta property="og:site_name" content="f-Page">
-    <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4lNIxMWMP__ww0ZixJ1USQo3JZxk__3Jfjf0CjIC3gV-zKgmFIRM8qUFiMQ4m2CO3DJ-iXqS7ePKv7Sv96NxsMz1Hv-oNxGrvw8Zo6R9kLEjpKKbw2V3YOwEkKhKz1nwRNG5BCOouq6GN1P7QTEzwpJo4rY0F5Y4oDLKgkilDoiQwIBVYOSfvh2YP90U/s1600/Screenshot%20From%202025-10-23%2014-08-19.png">
+    <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzuIOkm1EycgtACwmwIz97Q7EzyPD50mHfDS9Qy7DYFeLmMPRquYpeZ9xUt_aXM9hXwFzv1A5X7J904mWE1oIOyLT7HcftzfOFTNxmm7eHU9MCbLwDkQrEbyFrq_AYC9vsfmR2yxxkQ6ORLgwLJT-ZyFefizcEeV-vvkzrOKeyyOO1qelsgPxfY_olHuQ/s1600/Screenshot%20From%202025-10-23%2013-57-37.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Log sukses dari workflow GitHub Actions untuk ping sitemap dan feeds">
+    <meta property="og:image:alt" content="Contoh log GitHub Actions sedang melakukan ping ke Google dan Bing">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Workflow Otomatis Ping Sitemap & Feeds via GitHub Actions | f-Page">
-    <meta name="twitter:description" content="Panduan lengkap membuat workflow GitHub Actions untuk otomatis 'ping' sitemap.xml dan RSS feeds ke Google, Bing, dan Ping-o-Matic.">
+    <meta name="twitter:title" content="Otomatis 'Ping' Search Engine via GitHub Actions | f-Page">
+    <meta name="twitter:description" content="Cara otomatis memberitahu Google dan Bing setiap kali website di-update menggunakan 'ping' sitemap di GitHub Actions.">
     <meta name="twitter:site" content="@frijal">
     <meta name="twitter:creator" content="@frijal">
-    <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4lNIxMWMP__ww0ZixJ1USQo3JZxk__3Jfjf0CjIC3gV-zKgmFIRM8qUFiMQ4m2CO3DJ-iXqS7ePKv7Sv96NxsMz1Hv-oNxGrvw8Zo6R9kLEjpKKbw2V3YOwEkKhKz1nwRNG5BCOouq6GN1P7QTEzwpJo4rY0F5Y4oDLKgkilDoiQwIBVYOSfvh2YP90U/s1600/Screenshot%20From%202025-10-23%2014-08-19.png">
-    <meta name="twitter:image:alt" content="Log sukses dari workflow GitHub Actions untuk ping sitemap dan feeds">
+    <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzuIOkm1EycgtACwmwIz97Q7EzyPD50mHfDS9Qy7DYFeLmMPRquYpeZ9xUt_aXM9hXwFzv1A5X7J904mWE1oIOyLT7HcftzfOFTNxmm7eHU9MCbLwDkQrEbyFrq_AYC9vsfmR2yxxkQ6ORLgwLJT-ZyFefizcEeV-vvkzrOKeyyOO1qelsgPxfY_olHuQ/s1600/Screenshot%20From%202025-10-23%2013-57-37.png">
+    <meta name="twitter:image:alt" content="Contoh log GitHub Actions sedang melakukan ping ke Google dan Bing">
     
     <style>
         :root {
@@ -91,12 +91,6 @@
             padding-bottom: 0.5rem;
             border-bottom: 1px solid var(--border-color);
         }
-        article h3 {
-             font-size: 1.4rem;
-             font-weight: 600;
-             margin-top: 2rem;
-             margin-bottom: 1rem;
-        }
         article p, article ul {
             font-size: 1.1rem;
             margin-bottom: 1.5em;
@@ -108,6 +102,23 @@
             border-radius: 4px;
             font-family: "Consolas", "Menlo", monospace;
             font-size: 0.9em;
+        }
+
+        /* Ping URL Cards */
+        .ping-url-card {
+            background-color: #f3f4f6; /* gray-100 */
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-family: monospace;
+            word-break: break-all;
+        }
+        .ping-url-card strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: sans-serif;
+            color: var(--primary-color);
         }
 
         /* Gambar */
@@ -188,12 +199,15 @@
             article p, article ul { font-size: 1rem; }
         }
     </style>
+<meta itemprop="image" content="https://frijal.pages.dev/img/github-actions-ping-search-engine.webp">
+<link rel="stylesheet" href="/ext/marquee-url.css"><link rel="alternate" type="application/rss+xml" title="30 artikel baru bikin." href="https://frijal.pages.dev/rss.xml" />
 </head>
 
 <body>
     <header class="main-header">
         <div class="container">
-            <h1>Workflow Otomatis: Ping Sitemap & Feeds via GitHub Actions</h1>
+            <h1>Otomatis "Ping" Search Engine via GitHub Actions</h1>
+<div id="iposbrowser"></div>
             <p>Beri tahu Google & Bing setiap kali websitemu update, biar makin cepat diindeks!</p>
         </div>
     </header>
@@ -201,106 +215,60 @@
     <main class="content">
         <div class="container">
             <article>
-                <p>Setelah situs kita di-deploy, langkah selanjutnya yang tidak kalah penting adalah memberitahu *search engine* seperti Google dan Bing bahwa ada konten baru. Tujuannya? Tentu saja agar mereka lebih cepat datang dan meng-indeks halaman baru kita.</p>
-                <p>Daripada melakukannya manual, kita bisa membuat proses ini sepenuhnya otomatis menggunakan **GitHub Actions**. Ini adalah workflow yang sudah disempurnakan untuk melakukan "ping" ke berbagai layanan setiap hari.</p>
+                <p>Setelah membahas soal Webhooks, muncul ide: "bisakah kita pakai ini untuk mengirim file sitemap.xml atau rss.xml ke search engine?". Pemikiran ini sangat bagus dan konsepnya sudah tepat! Tapi, caranya sedikit berbeda.</p>
+                <p>Kita tidak bisa mengirimkan file XML-nya secara langsung. Namun, kita bisa melakukan sesuatu yang lebih simpel dan efektif, yaitu **memberi tahu** Google atau Bing bahwa file kita sudah di-update.</p>
                 
-                <h2>Kode Workflow Lengkap</h2>
-                <p>Ini adalah kode lengkap yang bisa kamu simpan di repositori GitHub kamu, misalnya di file <code>.github/workflows/ping-feeds.yml</code>.</p>
+                <h2>Cara Kerja yang Benar: "Ping", Bukan Mengirim File</h2>
+                <p>Search engine menyediakan sebuah alamat URL khusus yang bisa kita "colek" atau "ping" setiap kali ada pembaruan. Saat URL ini diakses, bot mereka akan tahu dan menjadwalkan kunjungan ulang ke sitemap kita untuk memeriksa konten baru.</p>
+                
+                <div class="ping-url-card">
+                    <strong>Google:</strong>
+                    <code>https://www.google.com/ping?sitemap=[URL_LENGKAP_SITEMAP]</code>
+                </div>
+                <div class="ping-url-card">
+                    <strong>Bing & Yandex:</strong>
+                    <code>https://www.bing.com/ping?sitemap=[URL_LENGKAP_SITEMAP]</code>
+                </div>
+                
+                <p>Kamu hanya perlu mengganti <code>[URL_LENGKAP_SITEMAP]</code> dengan alamat publik sitemap kamu, contohnya <code>https://frijal.pages.dev/sitemap.xml</code>.</p>
+                
+                <h2>Di Sinilah GitHub Actions Berperan 🚀</h2>
+                <p>Nah, di sinilah ide otomatisasi kamu jadi sangat berguna. Kita bisa membuat proses "ping" ini berjalan otomatis setiap kali kita selesai mempublikasikan konten baru. Cara terbaik dan termudah di GitHub adalah dengan **GitHub Actions**.</p>
+                <p>Alur kerjanya persis seperti yang kamu bayangkan:</p>
+                <ol>
+                    <li><strong>Kejadian:</strong> Kamu melakukan <code>push</code> ke branch <code>main</code> yang berisi artikel baru (yang juga memperbarui file <code>sitemap.xml</code> dan <code>rss.xml</code>).</li>
+                    <li><strong>Pemicu:</strong> Workflow GitHub Actions berjalan secara otomatis setelah proses *deploy* selesai.</li>
+                    <li><strong>Tindakan:</strong> Sebuah langkah khusus di dalam workflow akan menjalankan perintah <code>curl</code> untuk "memanggil" URL ping dari Google dan Bing.</li>
+                </ol>
+
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzuIOkm1EycgtACwmwIz97Q7EzyPD50mHfDS9Qy7DYFeLmMPRquYpeZ9xUt_aXM9hXwFzv1A5X7J904mWE1oIOyLT7HcftzfOFTNxmm7eHU9MCbLwDkQrEbyFrq_AYC9vsfmR2yxxkQ6ORLgwLJT-ZyFefizcEeV-vvkzrOKeyyOO1qelsgPxfY_olHuQ/s1600/Screenshot%20From%202025-10-23%2013-57-37.png" alt="Contoh log GitHub Actions sedang melakukan ping ke Google dan Bing" class="main-image">
+
+                <h2>Contoh Langkah di GitHub Actions</h2>
+                <p>Kamu bisa menambahkan langkah sederhana ini di akhir *job deploy* kamu. Langkah ini akan mengirimkan "ping" ke Google dan Bing untuk memberitahu bahwa <code>sitemap.xml</code> dan <code>rss.xml</code> kamu sudah diperbarui.</p>
 
                 <div class="code-block-wrapper">
                     <div class="code-block-header">
-                        <span>📄 .github/workflows/ping-feeds.yml</span>
+                        <span>📄 akhir-file-workflow.yml</span>
                         <button class="copy-code-btn" id="copy-code">Salin Kode</button>
                     </div>
                     <pre id="code-to-copy"><code>
-name: Ping Feeds & Sitemap
+      # ... langkah-langkah deploy Anda sebelumnya ...
 
-on:
-  workflow_dispatch:    # Bisa dijalankan manual
-  schedule:
-    - cron: "0 6 * * *"    # Otomatis tiap hari jam 06:00 UTC
-
-jobs:
-  ping:
-    runs-on: ubuntu-latest
-    steps:
-      - name: 🔔 Ping Feeds ke Ping-o-Matic
+      - name: 🔔 Ping Search Engines for Updates
         run: |
-          BASE_URL="https://frijal.pages.dev"
-          BLOG_TITLE="Frijal Pages"
-          FEEDS=(
-            "feed-catatan-and-opini-sosial.xml"
-            "feed-kuliner-gaya-hidup-and-kesehatan.xml"
-            "feed-lainnya.xml"
-            "feed-linux-and-open-source.xml"
-            "feed-multimedia-and-editing.xml"
-            "feed-sejarah-and-religi.xml"
-            "feed-teknologi-web-ai-and-umum.xml"
-            "rss.xml"
-          )
-          echo "--- Pinging Ping-o-Matic for ${#FEEDS[@]} feeds ---"
-          for feed_file in "${FEEDS[@]}"; do
-            FEED_URL="$BASE_URL/$feed_file"
-            echo "Pinging: $FEED_URL"
-            curl -s -o /dev/null -X POST \
-              --data-urlencode "title=$BLOG_TITLE" \
-              --data-urlencode "blogurl=$BASE_URL/" \
-              --data-urlencode "rssurl=$FEED_URL" \
-              https://pingomatic.com/ping/
-          done
-          echo "--- Ping-o-Matic Pings Sent ---"
-
-      - name: 📍 Ping Sitemap & Main RSS ke Google & Bing
-        run: |
-          BASE_URL="https://frijal.pages.dev"
-          SITEMAP_URL="$BASE_URL/sitemap.xml"
-          RSS_URL="$BASE_URL/rss.xml"
-
-          echo "--- Pinging Google ---"
-          echo "Pinging Sitemap: $SITEMAP_URL"
-          curl -s "https://www.google.com/ping?sitemap=$SITEMAP_URL"
-          echo "Pinging RSS Feed: $RSS_URL"
-          curl -s "https://www.google.com/ping?sitemap=$RSS_URL"
+          # Ping sitemap utama
+          curl -s "https://www.google.com/ping?sitemap=https://frijal.pages.dev/sitemap.xml"
+          curl -s "https://www.bing.com/ping?sitemap=https://frijal.pages.dev/sitemap.xml"
           
-          echo "--- Pinging Bing (+ Yandex) ---"
-          echo "Pinging Sitemap: $SITEMAP_URL"
-          curl -s "https://www.bing.com/ping?sitemap=$SITEMAP_URL"
-          echo "Pinging RSS Feed: $RSS_URL"
-          curl -s "https://www.bing.com/ping?sitemap=$RSS_URL"
-          
-          echo "--- Google & Bing Pings Sent ---"
-
+          # Ping RSS feed utama (opsional, tapi bagus)
+          curl -s "https://www.google.com/ping?sitemap=https://frijal.pages.dev/rss.xml"
+          curl -s "https://www.bing.com/ping?sitemap=https://frijal.pages.dev/rss.xml"
 </code></pre>
                 </div>
-                
-                <h2>Bedah Workflow Baris per Baris</h2>
-                <p>Mari kita pahami setiap bagian dari workflow di atas.</p>
+                <p><strong>Catatan kecil:</strong> Perintah <code>curl -s</code> menggunakan flag <code>-s</code> yang artinya "silent" (senyap), jadi log di GitHub Actions kamu tidak akan dipenuhi dengan output detail dari proses `curl`, membuatnya lebih bersih dan rapi.</p>
 
-                <h3>1. Pemicu (Triggers)</h3>
-                <p>Bagian <code>on:</code> menentukan kapan workflow ini akan berjalan.</p>
-                <ul>
-                    <li><code>workflow_dispatch:</code> Ini memungkinkan kita menjalankan workflow secara manual dari tab "Actions" di GitHub. Berguna untuk testing atau jika kita butuh melakukan ping di luar jadwal.</li>
-                    <li><code>schedule: - cron: "0 6 * * *"</code> Ini adalah pemicu utamanya. Workflow akan berjalan **otomatis setiap hari pada jam 06:00 UTC**. Kamu bisa sesuaikan waktunya sesuai kebutuhan.</li>
-                </ul>
-
-                <h3>2. Langkah 1: Ping ke Ping-o-Matic 🔔</h3>
-                <p>Langkah pertama ini bertujuan untuk jangkauan yang lebih luas. **Ping-o-Matic** adalah layanan gratis yang akan meneruskan "ping" kita ke berbagai layanan aggregator feed lainnya, bukan hanya search engine besar.</p>
-                <ul>
-                    <li>Skrip ini membuat daftar semua file feed per kategori (<code>FEEDS</code>).</li>
-                    <li>Kemudian ia melakukan *looping*, mengirimkan *request* <code>POST</code> ke Ping-o-Matic untuk setiap feed.</li>
-                    <li>Kita menggunakan <code>curl</code> untuk mengirim data seperti judul blog dan URL feed yang sedang diperbarui.</li>
-                </ul>
-                
-                <h3>3. Langkah 2: Ping ke Google & Bing 📍</h3>
-                <p>Ini adalah langkah yang paling penting. Kita memberitahu langsung dua search engine terbesar bahwa situs kita punya pembaruan.</p>
-                <ul>
-                    <li>Untuk efisiensi, kita hanya perlu me-ping file utama, yaitu <code>sitemap.xml</code> (yang berisi semua link halaman) dan <code>rss.xml</code> (feed utama). Google dan Bing cukup pintar untuk mengikuti link dari sana.</li>
-                    <li>Lagi-lagi kita menggunakan <code>curl -s</code> untuk mengirim *request* ke URL ping milik Google dan Bing, dengan parameter URL sitemap kita.</li>
-                </ul>
-
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4lNIxMWMP__ww0ZixJ1USQo3JZxk__3Jfjf0CjIC3gV-zKgmFIRM8qUFiMQ4m2CO3DJ-iXqS7ePKv7Sv96NxsMz1Hv-oNxGrvw8Zo6R9kLEjpKKbw2V3YOwEkKhKz1nwRNG5BCOouq6GN1P7QTEzwpJo4rY0F5Y4oDLKgkilDoiQwIBVYOSfvh2YP90U/s1600/Screenshot%20From%202025-10-23%2014-08-19.png" alt="Log sukses dari workflow GitHub Actions untuk ping sitemap dan feeds" class="main-image">
-                <p>Gambar di atas menunjukkan log dari GitHub Actions saat workflow ini berhasil dijalankan. Terlihat jelas setiap langkah dan URL mana saja yang berhasil di-"ping". Semuanya berjalan mulus dan otomatis!</p>
-
+                <h2>Kesimpulan</h2>
+                <p>Jadi, dengan menambahkan beberapa baris sederhana di workflow GitHub Actions, kamu bisa memastikan search engine besar langsung tahu setiap kali kamu punya konten baru. Ini cara yang sangat efektif untuk mempercepat proses *indexing* dan membuat artikelmu lebih cepat muncul di hasil pencarian!</p>
             </article>
         </div>
     </main>
@@ -377,5 +345,8 @@ jobs:
         });
     </script>
 
+<div class="search-floating-container"><input type="text" id="floatingSearchInput" placeholder="cari artikel..." autocomplete="off"><span id="floatingSearchClear" class="clear-button"></span><div id="floatingSearchResults" class="floating-results-container"></div></div>
+<section id="related-marquee-section"><div id="related-marquee-container"></div></section><script defer src="/ext/marquee-url.js"></script>
+<script defer src="/ext/iposbrowser.js"></script><script defer src="/ext/markdown.js"></script>
 </body>
 </html>
