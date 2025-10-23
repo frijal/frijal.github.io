@@ -292,7 +292,7 @@ async function initializeApp() {
 
     // Inisialisasi semua fitur
     initCategoryMarquee(allArticlesData, currentFilename);
-    initFloatingSearch(allArticlesData);
+    initFloatingSearch();
     initNavIcons(allArticlesData, currentFilename);
     adaptMarqueeTextColor(); // <-- DIPINDAHKAN KE SINI
 
@@ -304,9 +304,7 @@ async function initializeApp() {
       searchInput.disabled = true;
     }
   }
-} // <-- Kurung kurawal penutup untuk 'initializeApp'
-
-// Menjalankan semua fungsi saat dokumen siap
+} 
 document.addEventListener('DOMContentLoaded', initializeApp);
 
 // Kurung kurawal ekstra sudah dihapus
