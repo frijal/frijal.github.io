@@ -6,7 +6,16 @@
     <description><![CDATA[Feed artikel terbaru untuk kategori 🖥️ Teknologi Web, AI & Umum]]></description>
     <language>id-ID</language>
     <atom:link href="https://frijal.pages.dev/feed-teknologi-web-ai-and-umum.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Wed, 22 Oct 2025 21:18:30 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 23 Oct 2025 00:26:52 GMT</lastBuildDate>
+    <item>
+      <title><![CDATA[Ngoprek Workflow GitHub Actions | f-Page]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/analisis-workflow-github-actions.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/analisis-workflow-github-actions.html]]></guid>
+      <pubDate>Thu, 23 Oct 2025 00:26:40 GMT</pubDate>
+      <description><![CDATA[Penjelasan mendalam tentang workflow GitHub Actions untuk build dan deploy ke branch]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+<enclosure url="https://frijal.pages.dev/img/analisis-workflow-github-actions.webp" length="0" type="image/webp" />
+    </item>
     <item>
       <title><![CDATA[Bedah Skrip Generator Konten Cerdas (Node.js)]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/analisis-skrip-generator-konten-nodejs.html]]></link>
