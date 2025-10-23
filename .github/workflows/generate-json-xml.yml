@@ -1,18 +1,31 @@
 name: ☢️ Build and Generate Site Files
 
 on:
+  # ⬇️ Pemicu 1 Berjalan jika ada push ke main yang mengubah *.html di artikel/
   push:
     branches: ['main']
     paths:
-      - 'artikel/*.html'
+      - 'artikel/*.html' # Pemicu ini diaktifkan kembali
 
-  workflow_dispatch:
-  schedule:
-    - cron: '0 20 * * *'
+  # ⬇️ Pemicu 2 Berjalan setelah Workflow 'Proses ArtikelX' selesai
+  workflow_run:
+    workflows: ["🔄 Proses ArtikelX"] # Pastikan NAMA workflow pertama SAMA PERSIS
+    types:
+      - completed # Hanya berjalan jika workflow pertama SELESAI
+    branches: ['main'] # Hanya berjalan jika workflow pertama dijalankan di branch main
+
+  # ⬇️ Pemicu 3 & 4: Manual dan Terjadwal (tetap ada)
+  workflow_dispatch:  # Untuk menjalankan manual
+  schedule:           # Untuk menjalankan terjadwal
+    - cron: '0 20 * * *' 
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    # [PENTING] Kondisi 'if' ini memastikan job hanya berjalan jika:
+    # 1. Dipicu BUKAN oleh workflow_run (misal: push, schedule, dispatch), ATAU
+    # 2. Dipicu oleh workflow_run YANG BERHASIL ('success')
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     permissions:
       contents: write
 
@@ -20,7 +33,9 @@ jobs:
       - name: '1. Checkout Repository'
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          # Pastikan mengambil commit terbaru
+          ref: ${{ github.ref }} 
+          fetch-depth: 0 
 
       - name: '2. Setup Node.js'
         uses: actions/setup-node@v4
@@ -32,6 +47,7 @@ jobs:
 
       - name: '4. Generate artikel.json, sitemap.xml & RSS'
         run: |
+          echo "📝 Generating site files..."
           node ext/generator.js
           node ext/rss.js
         env:
@@ -39,48 +55,66 @@ jobs:
 
       - name: '5. Generate screenshots'
         run: |
-          npm install puppeteer --no-save
+          echo "📸 Generating screenshots (installing puppeteer)..."
+          # Gunakan cache npm jika memungkinkan untuk puppeteer
+          npm install puppeteer --no-save --cache .npm-cache --prefer-offline
+          echo "Running screenshot script..."
           node ext/screenshot-puppeteer.js
           
       - name: '6. Cleanup temporary files'
-        run: rm -rf tmp/ __pycache__/
+        run: |
+          echo "🧹 Cleaning up temporary files..."
+          rm -rf tmp/ __pycache__/ .npm-cache
 
-      # [PERBAIKAN] Semua proses commit digabungkan menjadi satu langkah
       - name: '7. Commit and Push All Generated Files'
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Tambahkan semua potensi perubahan (file json, xml, rss, dan gambar baru)
           git add .
 
-          # Cek apakah ada perubahan yang di-stage
           if git diff --staged --quiet; then
-            echo "✅ Tidak ada perubahan file, tidak perlu commit."
-            exit 0
+            echo "✅ Tidak ada perubahan file yang di-generate, tidak perlu commit."
+            # Jika dipicu oleh push, kita tidak ingin menghentikan workflow di sini
+            # karena mungkin langkah deploy selanjutnya perlu berjalan meskipun file generated tidak berubah.
+            # Jika dipicu oleh workflow_run/schedule/dispatch dan tidak ada perubahan, aman untuk keluar.
+            if [[ "${{ github.event_name }}" != "push" ]]; then
+              exit 0 
+            else
+              echo "Workflow dipicu oleh push, melanjutkan meskipun tidak ada file generated baru."
+            fi
           fi
 
-          echo "✅ Perubahan ditemukan. Melakukan satu commit..."
-          git commit -m "build: 🚀 Update generated site files (auto)"
+          # Hanya commit jika ada perubahan yang di-stage
+          if ! git diff --staged --quiet; then
+            echo "⏳ Perubahan ditemukan. Melakukan commit..."
+            git commit -m "build: 🚀 Update generated site files (auto)"
 
-          echo "🔃 Melakukan sinkronisasi dengan remote repository..."
-          git pull --rebase origin main
-
-          echo "🚀 Mendorong perubahan ke server..."
-          git push
+            echo "🔃 Melakukan sinkronisasi sebelum push..."
+            git pull --rebase origin main || { echo "⚠️ Gagal pull --rebase, mencoba push biasa"; git pull origin main; }
+            
+            echo "🚀 Mendorong perubahan ke server..."
+            git push origin main
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
       - name: '8. Show Published Links & Summary'
-        if: always()
+        if: always() 
         run: |
-          # ... (tidak ada perubahan di langkah ini) ...
-          echo "✅ File yang di-generate (seharusnya):"
+          echo "--- Summary ---"
+          echo "✅ File yang seharusnya di-generate:"
           echo "🔗 artikel.json: https://frijal.pages.dev/artikel.json"
           echo "🔗 sitemap.xml : https://frijal.pages.dev/sitemap.xml"
           echo "🔗 rss.xml     : https://frijal.pages.dev/rss.xml"
-          echo "📊 Jumlah total artikel dan cover saat ini:"
-          COUNTHTML=$(ls artikel/*.html 2>/dev/null | wc -l)
-          echo "➡️  $COUNTHTML artikel di folder artikel/"
-          COUNTWEBP=$(ls img/*.webp 2>/dev/null | wc -l)
-          echo "➡️  $COUNTWEBP cover di folder img/"
+          echo "📊 Jumlah konten saat ini:"
+          COUNTHTML=$(ls artikel/*.html 2>/dev/null | wc -l || echo 0)
+          echo "➡️  $COUNTHTML artikel (*.html) di folder artikel/"
+          COUNTWEBP=$(ls img/*.webp 2>/dev/null | wc -l || echo 0)
+          echo "➡️  $COUNTWEBP cover (*.webp) di folder img/"
+          # Tampilkan info pemicu
+          echo "Triggered by: ${{ github.event_name }}"
+          if [[ "${{ github.event_name }}" == "workflow_run" ]]; then
+            echo "Workflow run conclusion: ${{ github.event.workflow_run.conclusion }}"
+          fi
+
