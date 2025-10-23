@@ -6,15 +6,60 @@
     <description><![CDATA[Feed artikel terbaru untuk kategori 🖥️ Teknologi Web, AI & Umum]]></description>
     <language>id-ID</language>
     <atom:link href="https://frijal.pages.dev/feed-teknologi-web-ai-and-umum.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Thu, 23 Oct 2025 03:01:53 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 23 Oct 2025 07:04:06 GMT</lastBuildDate>
+    <item>
+      <title><![CDATA[Apa Gunanya Webhooks di GitHub? | f-Page]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/github-webhooks.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/github-webhooks.html]]></guid>
+      <pubDate>Thu, 23 Oct 2025 07:03:49 GMT</pubDate>
+      <description><![CDATA[Penjelasan santai tentang apa itu Webhooks di GitHub, cara kerjanya, dan contoh penggunaannya untuk otomatisasi CI/CD, notifikasi, dan manajemen proyek.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+<enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjy4PCR_XARv0s27pE0A7CzQWAhu8M4GqAJ2MYues2WLAbzj8CAlQYThHUj2TtHSTdZ_RefeA69l8u8AChS-rL4kYT1kbZB07p_VRCVgoN8HY8XaW4-CkNnR5-rklApesQESMC18ybQOtkfYEgnoPYvEX2vclOEGxIPauut-US-hVFfxpxGG5piiLjNhcU/s1600/Screenshot%20From%202025-10-23%2013-48-02.png" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Workflow 'Cari & Ganti' Otomatis via GitHub Actions | f-Page]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/github-actions-find-replace.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/github-actions-find-replace.html]]></guid>
+      <pubDate>Thu, 23 Oct 2025 07:03:49 GMT</pubDate>
+      <description><![CDATA[Panduan lengkap membuat workflow GitHub Actions untuk]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+<enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6ZjuV7rDnWY8JXp6Axz9_54HyIbv1nRy5SmNLZ-S-NVwvXs1gvV_JU96us0FLhcgLhU-z6RJyhbkI836PfPInDd6oJJlwcd3URDwxWh4_lwPv_FQyESDzdvG1LD87f7UYncLtgsQjPOaCAY9DtMAWEpEcF4JKCQBCLnyxA3piz4I1vVF4RUMJVn8Vuyg/s1600/Screenshot%20From%202025-10-23%2014-17-20.png" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Workflow Otomatis Ping Sitemap & Feeds via GitHub Actions | f-Page]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/github-actions-ping-feeds.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/github-actions-ping-feeds.html]]></guid>
+      <pubDate>Thu, 23 Oct 2025 07:03:49 GMT</pubDate>
+      <description><![CDATA[Panduan lengkap membuat workflow GitHub Actions untuk otomatis]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+<enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4lNIxMWMP__ww0ZixJ1USQo3JZxk__3Jfjf0CjIC3gV-zKgmFIRM8qUFiMQ4m2CO3DJ-iXqS7ePKv7Sv96NxsMz1Hv-oNxGrvw8Zo6R9kLEjpKKbw2V3YOwEkKhKz1nwRNG5BCOouq6GN1P7QTEzwpJo4rY0F5Y4oDLKgkilDoiQwIBVYOSfvh2YP90U/s1600/Screenshot%20From%202025-10-23%2014-08-19.png" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Deploy Checklist — Panduan Sebelum Mengirim ke Github dan Cloudflare Pages ✅]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/deploy-checklist.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/deploy-checklist.html]]></guid>
+      <pubDate>Thu, 23 Oct 2025 07:03:49 GMT</pubDate>
+      <description><![CDATA[Checklist cepat sebelum push ke GitHub dan deploy ke Cloudflare Pages. Pastikan semua file publik, konfigurasi, dan keamanan sudah siap sebelum online.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+<enclosure url="https://frijal.pages.dev/img/deploy-checklist.webp" length="0" type="image/webp" />
+    </item>
     <item>
       <title><![CDATA[Ngoprek Workflow GitHub Actions | f-Page]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/analisis-workflow-github-actions.html]]></link>
       <guid><![CDATA[https://frijal.pages.dev/artikel/analisis-workflow-github-actions.html]]></guid>
-      <pubDate>Thu, 23 Oct 2025 00:26:40 GMT</pubDate>
+      <pubDate>Thu, 23 Oct 2025 07:03:49 GMT</pubDate>
       <description><![CDATA[Penjelasan mendalam tentang workflow GitHub Actions untuk build dan deploy ke branch]]></description>
       <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
 <enclosure url="https://frijal.pages.dev/img/analisis-workflow-github-actions.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Cara Membuat Website dari Data .json | f-Page]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/website-dari-json.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/website-dari-json.html]]></guid>
+      <pubDate>Thu, 23 Oct 2025 04:30:00 GMT</pubDate>
+      <description><![CDATA[Penjelasan lengkap dan santai cara membuat website dinamis yang datanya ditarik langsung dari file .json. Pisahkan konten dari desain dengan JavaScript.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+<enclosure url="https://frijal.pages.dev/img/website-dari-json.webp" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[Bedah Skrip Generator Konten Cerdas (Node.js)]]></title>
