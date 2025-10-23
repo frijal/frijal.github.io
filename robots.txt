@@ -5,7 +5,7 @@
 # - artikel/  (artikel utama)
 # - ext/      (ekstensi publik)
 # - img/      (gambar publik)
-# =======================================
+# ======================================
 
 User-agent: *
 Allow: /

@@ -6,15 +6,69 @@
     <description><![CDATA[Feed 30 artikel terbaru]]></description>
     <language>id-ID</language>
     <atom:link href="https://frijal.pages.dev/rss.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Thu, 23 Oct 2025 03:01:53 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 23 Oct 2025 07:04:06 GMT</lastBuildDate>
+    <item>
+      <title><![CDATA[Apa Gunanya Webhooks di GitHub? | f-Page]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/github-webhooks.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/github-webhooks.html]]></guid>
+      <pubDate>Thu, 23 Oct 2025 07:03:49 GMT</pubDate>
+      <description><![CDATA[Penjelasan santai tentang apa itu Webhooks di GitHub, cara kerjanya, dan contoh penggunaannya untuk otomatisasi CI/CD, notifikasi, dan manajemen proyek.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjy4PCR_XARv0s27pE0A7CzQWAhu8M4GqAJ2MYues2WLAbzj8CAlQYThHUj2TtHSTdZ_RefeA69l8u8AChS-rL4kYT1kbZB07p_VRCVgoN8HY8XaW4-CkNnR5-rklApesQESMC18ybQOtkfYEgnoPYvEX2vclOEGxIPauut-US-hVFfxpxGG5piiLjNhcU/s1600/Screenshot%20From%202025-10-23%2013-48-02.png" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Workflow 'Cari & Ganti' Otomatis via GitHub Actions | f-Page]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/github-actions-find-replace.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/github-actions-find-replace.html]]></guid>
+      <pubDate>Thu, 23 Oct 2025 07:03:49 GMT</pubDate>
+      <description><![CDATA[Panduan lengkap membuat workflow GitHub Actions untuk]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6ZjuV7rDnWY8JXp6Axz9_54HyIbv1nRy5SmNLZ-S-NVwvXs1gvV_JU96us0FLhcgLhU-z6RJyhbkI836PfPInDd6oJJlwcd3URDwxWh4_lwPv_FQyESDzdvG1LD87f7UYncLtgsQjPOaCAY9DtMAWEpEcF4JKCQBCLnyxA3piz4I1vVF4RUMJVn8Vuyg/s1600/Screenshot%20From%202025-10-23%2014-17-20.png" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Workflow Otomatis Ping Sitemap & Feeds via GitHub Actions | f-Page]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/github-actions-ping-feeds.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/github-actions-ping-feeds.html]]></guid>
+      <pubDate>Thu, 23 Oct 2025 07:03:49 GMT</pubDate>
+      <description><![CDATA[Panduan lengkap membuat workflow GitHub Actions untuk otomatis]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4lNIxMWMP__ww0ZixJ1USQo3JZxk__3Jfjf0CjIC3gV-zKgmFIRM8qUFiMQ4m2CO3DJ-iXqS7ePKv7Sv96NxsMz1Hv-oNxGrvw8Zo6R9kLEjpKKbw2V3YOwEkKhKz1nwRNG5BCOouq6GN1P7QTEzwpJo4rY0F5Y4oDLKgkilDoiQwIBVYOSfvh2YP90U/s1600/Screenshot%20From%202025-10-23%2014-08-19.png" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Otomatis "Ping" Search Engine via GitHub Actions | f-Page]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/github-actions-ping-search-engine.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/github-actions-ping-search-engine.html]]></guid>
+      <pubDate>Thu, 23 Oct 2025 07:03:49 GMT</pubDate>
+      <description><![CDATA[Cara otomatis memberitahu Google dan Bing setiap kali website Anda di-update menggunakan]]></description>
+      <category><![CDATA[🐧 Linux & Open Source]]></category>
+    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzuIOkm1EycgtACwmwIz97Q7EzyPD50mHfDS9Qy7DYFeLmMPRquYpeZ9xUt_aXM9hXwFzv1A5X7J904mWE1oIOyLT7HcftzfOFTNxmm7eHU9MCbLwDkQrEbyFrq_AYC9vsfmR2yxxkQ6ORLgwLJT-ZyFefizcEeV-vvkzrOKeyyOO1qelsgPxfY_olHuQ/s1600/Screenshot%20From%202025-10-23%2013-57-37.png" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Deploy Checklist — Panduan Sebelum Mengirim ke Github dan Cloudflare Pages ✅]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/deploy-checklist.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/deploy-checklist.html]]></guid>
+      <pubDate>Thu, 23 Oct 2025 07:03:49 GMT</pubDate>
+      <description><![CDATA[Checklist cepat sebelum push ke GitHub dan deploy ke Cloudflare Pages. Pastikan semua file publik, konfigurasi, dan keamanan sudah siap sebelum online.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+    <enclosure url="https://frijal.pages.dev/img/deploy-checklist.webp" length="0" type="image/webp" />
+    </item>
     <item>
       <title><![CDATA[Ngoprek Workflow GitHub Actions | f-Page]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/analisis-workflow-github-actions.html]]></link>
       <guid><![CDATA[https://frijal.pages.dev/artikel/analisis-workflow-github-actions.html]]></guid>
-      <pubDate>Thu, 23 Oct 2025 00:26:40 GMT</pubDate>
+      <pubDate>Thu, 23 Oct 2025 07:03:49 GMT</pubDate>
       <description><![CDATA[Penjelasan mendalam tentang workflow GitHub Actions untuk build dan deploy ke branch]]></description>
       <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
     <enclosure url="https://frijal.pages.dev/img/analisis-workflow-github-actions.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Cara Membuat Website dari Data .json | f-Page]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/website-dari-json.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/website-dari-json.html]]></guid>
+      <pubDate>Thu, 23 Oct 2025 04:30:00 GMT</pubDate>
+      <description><![CDATA[Penjelasan lengkap dan santai cara membuat website dinamis yang datanya ditarik langsung dari file .json. Pisahkan konten dari desain dengan JavaScript.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+    <enclosure url="https://frijal.pages.dev/img/website-dari-json.webp" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[Bedah Skrip Generator Konten Cerdas (Node.js)]]></title>
@@ -222,60 +276,6 @@
       <description><![CDATA[Memahami POAC (Planning, Organizing, Actuating, Controlling) dengan fokus pada perencanaan partisipatif, kebersamaan, dan pengakuan kompetensi. Disertai contoh praktis, gallery, dan tampilan interaktif.]]></description>
       <category><![CDATA[📢 Catatan & Opini Sosial]]></category>
     <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi54eXubNn7ZUI1o_7_9rs0S5ZTo_gueeZ0ZZEb1gYZEqniNSG-lmwd7oag4M9p46c3ezIIQRN1Wgw8AuvXPJ0GJrE40BMVXGPC6UWtW_di8EIw6g2acUJMv6A90ev5bksibELLvcBl7Ulv/s320/swot-and-poac-18-638.jpg" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Sakit Kepala? Jangan Buru-Buru Minum Obat, Coba Pijat Relaksasi Ini!]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/pijat-sakit-kepala.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/pijat-sakit-kepala.html]]></guid>
-      <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
-      <description><![CDATA[Cara mudah dan efektif meredakan sakit kepala dan ketegangan dengan teknik pijat sederhana yang bisa kamu lakukan sambil duduk di depan komputer.]]></description>
-      <category><![CDATA[🍜 Kuliner, Gaya Hidup & Kesehatan]]></category>
-    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimOPCZ0reQuY_6QTC63V_fsSBK5psMYaH_A1kADCtULkoHermpGjvxhN_9R7i4UFQiUqgEexBDCJZ93nPvq5j0EoHNuCC_Cr4CVmH5JIBwSWkx83zPE8NUwMl47XOAOAMMkQGvt6C-ogmA/s1600/pijat1.jpg" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Pola Hidup Sehat untuk Usus yang Bahagia]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/pola-hidup-sehat-untuk-usus.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/pola-hidup-sehat-untuk-usus.html]]></guid>
-      <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
-      <description><![CDATA[Panduan gaya hidup sehat untuk menjaga usus tetap bahagia dan sistem pencernaan berfungsi optimal.]]></description>
-      <category><![CDATA[🍜 Kuliner, Gaya Hidup & Kesehatan]]></category>
-    <enclosure url="https://frijal.pages.dev/img/pola-hidup-sehat-untuk-usus.webp" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Momen Peresmian Bandara Sepinggan Balikpapan]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/peresmian-bandara-sepinggan.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/peresmian-bandara-sepinggan.html]]></guid>
-      <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
-      <description><![CDATA[Kumpulan foto-foto momen pertama setelah renovasi dan peresmian Bandara Sepinggan Balikpapan (sekarang Bandara Sultan Aji Muhammad Sulaiman).]]></description>
-      <category><![CDATA[📢 Catatan & Opini Sosial]]></category>
-    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFGm_9Yx6ChEH6Yg-4Vt6Dd8lP1abIafFKUARYg4yJOU2sIlXpK4FuFi3BVpS3oQfv3ee2xNrbvuZT2fY4jbWiz_QadlSPnGRQjdUnYhXYUl4aR-ciLV1Z1pCuZePQiK2bz4SSWbmceRIX/s1600/IMG_20140328_091940-722458.jpg" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Renungan Niat: Menjadi Pegawai Negeri atau Pengusaha?]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/niat-cpns.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/niat-cpns.html]]></guid>
-      <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
-      <description><![CDATA[Kisah inspiratif tentang seorang ayah yang membimbing anaknya untuk merenungkan niatnya sebelum menjadi pegawai negeri, mengajarkan arti pengabdian dan perjuangan.]]></description>
-      <category><![CDATA[🍜 Kuliner, Gaya Hidup & Kesehatan]]></category>
-    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmTF0M6TQTCadeEeVq8CqaSE_AoZ4Vo3NJdpmhSfKjeVTQeMTZmlUMp4WCk2D2AlvbZuS0ysHaL2FKgOaVaejGnGUPGVp_B2veq14dffr9BH3gIKOERkinXGoqnBY3f3HhkQLyMO5_qIke/s1600/Info+Penerima+CPNS+Terbaru+2013.jpg" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Mudahnya Wanita Masuk Surga]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/mudahnya-wanita-masuk-surga.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/mudahnya-wanita-masuk-surga.html]]></guid>
-      <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
-      <description><![CDATA[Hadits Rasulullah SAW memberikan kabar gembira bagi para wanita — jalan menuju surga begitu mudah, cukup dengan menjaga shalat, puasa, kehormatan diri, dan ketaatan kepada suami.]]></description>
-      <category><![CDATA[📚 Sejarah & Religi]]></category>
-    <enclosure url="https://frijal.pages.dev/img/mudahnya-wanita-masuk-surga.webp" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Minuman yang Membantu Melancarkan Pencernaan]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/minuman-bantu-pencernaan.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/minuman-bantu-pencernaan.html]]></guid>
-      <pubDate>Sat, 18 Oct 2025 00:31:19 GMT</pubDate>
-      <description><![CDATA[Daftar minuman alami yang membantu melancarkan pencernaan dan buang air besar, lengkap dengan manfaat dan tips konsumsi sehari-hari.]]></description>
-      <category><![CDATA[🍜 Kuliner, Gaya Hidup & Kesehatan]]></category>
-    <enclosure url="https://frijal.pages.dev/img/minuman-bantu-pencernaan.webp" length="0" type="image/webp" />
     </item>
   </channel>
 </rss>

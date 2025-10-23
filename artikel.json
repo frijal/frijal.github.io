@@ -1,11 +1,46 @@
 {
   "🖥️ Teknologi Web, AI & Umum": [
       [
+      "Apa Gunanya Webhooks di GitHub? | f-Page",
+      "github-webhooks.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjy4PCR_XARv0s27pE0A7CzQWAhu8M4GqAJ2MYues2WLAbzj8CAlQYThHUj2TtHSTdZ_RefeA69l8u8AChS-rL4kYT1kbZB07p_VRCVgoN8HY8XaW4-CkNnR5-rklApesQESMC18ybQOtkfYEgnoPYvEX2vclOEGxIPauut-US-hVFfxpxGG5piiLjNhcU/s1600/Screenshot%20From%202025-10-23%2013-48-02.png",
+      "2025-10-23T07:03:49.524+00:00",
+      "Penjelasan santai tentang apa itu Webhooks di GitHub, cara kerjanya, dan contoh penggunaannya untuk otomatisasi CI/CD, notifikasi, dan manajemen proyek."
+    ],
+      [
+      "Workflow 'Cari & Ganti' Otomatis via GitHub Actions | f-Page",
+      "github-actions-find-replace.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6ZjuV7rDnWY8JXp6Axz9_54HyIbv1nRy5SmNLZ-S-NVwvXs1gvV_JU96us0FLhcgLhU-z6RJyhbkI836PfPInDd6oJJlwcd3URDwxWh4_lwPv_FQyESDzdvG1LD87f7UYncLtgsQjPOaCAY9DtMAWEpEcF4JKCQBCLnyxA3piz4I1vVF4RUMJVn8Vuyg/s1600/Screenshot%20From%202025-10-23%2014-17-20.png",
+      "2025-10-23T07:03:49.523+00:00",
+      "Panduan lengkap membuat workflow GitHub Actions untuk"
+    ],
+      [
+      "Workflow Otomatis Ping Sitemap & Feeds via GitHub Actions | f-Page",
+      "github-actions-ping-feeds.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4lNIxMWMP__ww0ZixJ1USQo3JZxk__3Jfjf0CjIC3gV-zKgmFIRM8qUFiMQ4m2CO3DJ-iXqS7ePKv7Sv96NxsMz1Hv-oNxGrvw8Zo6R9kLEjpKKbw2V3YOwEkKhKz1nwRNG5BCOouq6GN1P7QTEzwpJo4rY0F5Y4oDLKgkilDoiQwIBVYOSfvh2YP90U/s1600/Screenshot%20From%202025-10-23%2014-08-19.png",
+      "2025-10-23T07:03:49.523+00:00",
+      "Panduan lengkap membuat workflow GitHub Actions untuk otomatis"
+    ],
+      [
+      "Deploy Checklist — Panduan Sebelum Mengirim ke Github dan Cloudflare Pages ✅",
+      "deploy-checklist.html",
+      "https://frijal.pages.dev/img/deploy-checklist.webp",
+      "2025-10-23T07:03:49.515+00:00",
+      "Checklist cepat sebelum push ke GitHub dan deploy ke Cloudflare Pages. Pastikan semua file publik, konfigurasi, dan keamanan sudah siap sebelum online."
+    ],
+      [
       "Ngoprek Workflow GitHub Actions | f-Page",
       "analisis-workflow-github-actions.html",
       "https://frijal.pages.dev/img/analisis-workflow-github-actions.webp",
-      "2025-10-23T00:26:40.127+00:00",
+      "2025-10-23T07:03:49.508+00:00",
       "Penjelasan mendalam tentang workflow GitHub Actions untuk build dan deploy ke branch"
+    ],
+      [
+      "Cara Membuat Website dari Data .json | f-Page",
+      "website-dari-json.html",
+      "https://frijal.pages.dev/img/website-dari-json.webp",
+      "2025-10-23T04:30:00.000+00:00",
+      "Penjelasan lengkap dan santai cara membuat website dinamis yang datanya ditarik langsung dari file .json. Pisahkan konten dari desain dengan JavaScript."
     ],
       [
       "Bedah Skrip Generator Konten Cerdas (Node.js)",
@@ -695,6 +730,13 @@
     ]
     ],
   "🐧 Linux & Open Source": [
+      [
+      "Otomatis \"Ping\" Search Engine via GitHub Actions | f-Page",
+      "github-actions-ping-search-engine.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzuIOkm1EycgtACwmwIz97Q7EzyPD50mHfDS9Qy7DYFeLmMPRquYpeZ9xUt_aXM9hXwFzv1A5X7J904mWE1oIOyLT7HcftzfOFTNxmm7eHU9MCbLwDkQrEbyFrq_AYC9vsfmR2yxxkQ6ORLgwLJT-ZyFefizcEeV-vvkzrOKeyyOO1qelsgPxfY_olHuQ/s1600/Screenshot%20From%202025-10-23%2013-57-37.png",
+      "2025-10-23T07:03:49.523+00:00",
+      "Cara otomatis memberitahu Google dan Bing setiap kali website Anda di-update menggunakan"
+    ],
       [
       "Sosialisasi Open Source Software di Kutai Kartanegara | Kementerian Riset dan Teknologi",
       "sosialisasi-oss-kutai-kartanegara.html",
