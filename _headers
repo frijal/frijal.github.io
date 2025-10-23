@@ -8,15 +8,15 @@
 
 /img/*
   Access-Control-Allow-Origin: *
-  Cache-Control: public, immutable
+  Cache-Control: public
 
 /ext/*
   Access-Control-Allow-Origin: *
-  Cache-Control: public, immutable
+  Cache-Control: public
   
 /artikel/*
   Access-Control-Allow-Origin: *
-  Cache-Control: public, immutable  
+  Cache-Control: public  
 
 /favicon.ico
   Cache-Control: public, max-age=31536000, immutable
