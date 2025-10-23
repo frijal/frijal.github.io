@@ -1,11 +1,11 @@
-LAPORAN KONTEN: artikel & img (10-22)
+LAPORAN KONTEN: artikel & img (10-23)
 =================================
-Total File: 1036
-HTML=494, webp=494, PNG=34
+Total File: 1050
+HTML=501, webp=501, PNG=34
 
 Ringkasan per ekstensi:
-    494 webp
-    494 html
+    501 webp
+    501 html
      34 png
       4 txt
       4 sh
@@ -66,6 +66,7 @@ https://frijal.pages.dev/artikel/aku-cinta-indonesia.html
 https://frijal.pages.dev/artikel/alias-linux.html
 https://frijal.pages.dev/artikel/amr-bin-al-ash.html
 https://frijal.pages.dev/artikel/analisis-skrip-generator-konten-nodejs.html
+https://frijal.pages.dev/artikel/analisis-workflow-github-actions.html
 https://frijal.pages.dev/artikel/anas-bin-malik.html
 https://frijal.pages.dev/artikel/angkringan-jogja.html
 https://frijal.pages.dev/artikel/apa-itu-pkgbuild.html
@@ -131,6 +132,7 @@ https://frijal.pages.dev/artikel/copy-ai-konten-otomatis.html
 https://frijal.pages.dev/artikel/daftar-alternatif-windows-linux.html
 https://frijal.pages.dev/artikel/dd-hdd-copy.html
 https://frijal.pages.dev/artikel/debian-mirror.html
+https://frijal.pages.dev/artikel/deploy-checklist.html
 https://frijal.pages.dev/artikel/desktop-blankon-compiz.html
 https://frijal.pages.dev/artikel/distribusi-os-linux-ringan.html
 https://frijal.pages.dev/artikel/dna-muhammadiyah.html
@@ -199,7 +201,10 @@ https://frijal.pages.dev/artikel/git-merge-squash-rebase.html
 https://frijal.pages.dev/artikel/git-passive-branch-merge.html
 https://frijal.pages.dev/artikel/git-prevent-auto-merge-request.html
 https://frijal.pages.dev/artikel/git-repo-size-reduction.html
+https://frijal.pages.dev/artikel/github-actions-find-replace.html
 https://frijal.pages.dev/artikel/github-actions-permissions-security.html
+https://frijal.pages.dev/artikel/github-actions-ping-feeds.html
+https://frijal.pages.dev/artikel/github-actions-ping-search-engine.html
 https://frijal.pages.dev/artikel/github-actions-workflow-permissions.html
 https://frijal.pages.dev/artikel/github-badges.html
 https://frijal.pages.dev/artikel/github-cli-force-merge.html
@@ -207,6 +212,7 @@ https://frijal.pages.dev/artikel/github-cli-guide.html
 https://frijal.pages.dev/artikel/github-cli-lengkap.html
 https://frijal.pages.dev/artikel/github-commit-sign-off-dco.html
 https://frijal.pages.dev/artikel/github-pr-workflow-settings.html
+https://frijal.pages.dev/artikel/github-webhooks.html
 https://frijal.pages.dev/artikel/gnome-49.html
 https://frijal.pages.dev/artikel/google-veo-ai.html
 https://frijal.pages.dev/artikel/gorilla-glass-s2.html
@@ -497,6 +503,7 @@ https://frijal.pages.dev/artikel/ventoy-install-linux.html
 https://frijal.pages.dev/artikel/vlc-rotate.html
 https://frijal.pages.dev/artikel/waspada-kejahatan-phishing.html
 https://frijal.pages.dev/artikel/watermark-imagemagick.html
+https://frijal.pages.dev/artikel/website-dari-json.html
 https://frijal.pages.dev/artikel/wifi-gratis-taman-bekapai-balikpapan.html
 https://frijal.pages.dev/artikel/wigo-balikpapan.html
 https://frijal.pages.dev/artikel/windows-vs-linux-kebiasaan.html
