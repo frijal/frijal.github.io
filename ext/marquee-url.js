@@ -117,7 +117,7 @@
     let hits = 0;
     for (const cat in data) {
       for (const item of data[cat]) {
-        const txt = [item[0], item[1], item[4]].filter(Boolean).join(' ');
+        const txt = [item[0], item[4]].filter(Boolean).join(' ');
         const m = txt.toLowerCase().match(new RegExp(q, 'g'));
         if (m) hits += m.length;
       }
