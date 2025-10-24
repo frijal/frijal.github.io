@@ -2,7 +2,9 @@
 module.exports = {
   // 🔍 Semua lokasi file tempat Tailwind mencari class
   content: [
-    "./*.{html,js,jsx,ts,tsx,vue,svelte,astro,md,mdx}",
+    "./*.{html}",
+    "./artikel/**/*.{html,js,jsx,ts,tsx,vue,svelte,astro,md,mdx}",
+    "./ext/**/*.{html,js,jsx,ts,tsx,vue,svelte,astro,md,mdx}",
     ],
 
   // 🌗 Mode gelap otomatis mengikuti sistem (media)
