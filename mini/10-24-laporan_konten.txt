@@ -1,18 +1,21 @@
-LAPORAN KONTEN: artikel & img (10-18)
+LAPORAN KONTEN: artikel & img (10-24)
 =================================
-Total File: 988
-HTML=484, webp=491, PNG=2
+Total File: 1050
+HTML=501, webp=501, PNG=34
 
-Ringkasan per ekstensi (di semua folder):
-    491 webp
-    484 html
+Ringkasan per ekstensi:
+    501 webp
+    501 html
+     34 png
       4 txt
       4 sh
-      2 png
       2 js
+      1 svg
+      1 json
       1 img/jurukunci
+      1 ico
 
-URL File HTML (dari folder 'artikel'):
+URL File HTML:
 https://frijal.pages.dev/artikel/10-kalimat-muslim.html
 https://frijal.pages.dev/artikel/100-perintah-allah-dalam-quran.html
 https://frijal.pages.dev/artikel/1011nabi-yaakub-yusuf.html
@@ -62,6 +65,8 @@ https://frijal.pages.dev/artikel/akidah-lima-alasan.html
 https://frijal.pages.dev/artikel/aku-cinta-indonesia.html
 https://frijal.pages.dev/artikel/alias-linux.html
 https://frijal.pages.dev/artikel/amr-bin-al-ash.html
+https://frijal.pages.dev/artikel/analisis-skrip-generator-konten-nodejs.html
+https://frijal.pages.dev/artikel/analisis-workflow-github-actions.html
 https://frijal.pages.dev/artikel/anas-bin-malik.html
 https://frijal.pages.dev/artikel/angkringan-jogja.html
 https://frijal.pages.dev/artikel/apa-itu-pkgbuild.html
@@ -78,7 +83,6 @@ https://frijal.pages.dev/artikel/aur_explained.html
 https://frijal.pages.dev/artikel/bacaan-dalam-shalat.html
 https://frijal.pages.dev/artikel/badui-kencing-di-masjid.html
 https://frijal.pages.dev/artikel/baghdad-kota-cahaya.html
-https://frijal.pages.dev/artikel/baghdad.html
 https://frijal.pages.dev/artikel/bahaya-ghibah.html
 https://frijal.pages.dev/artikel/bahtera-nuh-mukjizat.html
 https://frijal.pages.dev/artikel/balikpapan-1900-wajah-asli.html
@@ -89,12 +93,12 @@ https://frijal.pages.dev/artikel/berapa-banyak-disk-dan-partisi-ter-mount.html
 https://frijal.pages.dev/artikel/bersih-pip-cache.html
 https://frijal.pages.dev/artikel/bilal-bin-rabah-budak-bintang-iman.html
 https://frijal.pages.dev/artikel/biskuit-linux-itu-nyata.html
-https://frijal.pages.dev/artikel/biskuit-linux.html
 https://frijal.pages.dev/artikel/bootable-Linux-menggunakan-USB-Flash.html
 https://frijal.pages.dev/artikel/branches-di-github.html
 https://frijal.pages.dev/artikel/broadcom-wireless-fedora.html
 https://frijal.pages.dev/artikel/bsd-kisah-berkeley.html
 https://frijal.pages.dev/artikel/bug-tracker-islam.html
+https://frijal.pages.dev/artikel/build-deploy-clean-branch.html
 https://frijal.pages.dev/artikel/build-workflow.html
 https://frijal.pages.dev/artikel/bukalapak-berbagi-2017.html
 https://frijal.pages.dev/artikel/bumbu-pecel-kacang.html
@@ -128,6 +132,7 @@ https://frijal.pages.dev/artikel/copy-ai-konten-otomatis.html
 https://frijal.pages.dev/artikel/daftar-alternatif-windows-linux.html
 https://frijal.pages.dev/artikel/dd-hdd-copy.html
 https://frijal.pages.dev/artikel/debian-mirror.html
+https://frijal.pages.dev/artikel/deploy-checklist.html
 https://frijal.pages.dev/artikel/desktop-blankon-compiz.html
 https://frijal.pages.dev/artikel/distribusi-os-linux-ringan.html
 https://frijal.pages.dev/artikel/dna-muhammadiyah.html
@@ -141,6 +146,7 @@ https://frijal.pages.dev/artikel/eula-guide.html
 https://frijal.pages.dev/artikel/evolusi-browser-engine.html
 https://frijal.pages.dev/artikel/evolusi-mesin-browser.html
 https://frijal.pages.dev/artikel/faq-ai-umkm.html
+https://frijal.pages.dev/artikel/fckgw-windows-xp.html
 https://frijal.pages.dev/artikel/fedora-gnome-tutup-aplikasi.html
 https://frijal.pages.dev/artikel/fedora-mirror.html
 https://frijal.pages.dev/artikel/fedora-multimedia-codec.html
@@ -191,10 +197,22 @@ https://frijal.pages.dev/artikel/git-cek-branch-merged.html
 https://frijal.pages.dev/artikel/git-clean-merged-branches.html
 https://frijal.pages.dev/artikel/git-fetch-vs-pull.html
 https://frijal.pages.dev/artikel/git-merge-conflict.html
+https://frijal.pages.dev/artikel/git-merge-squash-rebase.html
+https://frijal.pages.dev/artikel/git-passive-branch-merge.html
+https://frijal.pages.dev/artikel/git-prevent-auto-merge-request.html
+https://frijal.pages.dev/artikel/git-repo-size-reduction.html
+https://frijal.pages.dev/artikel/github-actions-find-replace.html
+https://frijal.pages.dev/artikel/github-actions-permissions-security.html
+https://frijal.pages.dev/artikel/github-actions-ping-feeds.html
+https://frijal.pages.dev/artikel/github-actions-ping-search-engine.html
+https://frijal.pages.dev/artikel/github-actions-workflow-permissions.html
 https://frijal.pages.dev/artikel/github-badges.html
 https://frijal.pages.dev/artikel/github-cli-force-merge.html
 https://frijal.pages.dev/artikel/github-cli-guide.html
 https://frijal.pages.dev/artikel/github-cli-lengkap.html
+https://frijal.pages.dev/artikel/github-commit-sign-off-dco.html
+https://frijal.pages.dev/artikel/github-pr-workflow-settings.html
+https://frijal.pages.dev/artikel/github-webhooks.html
 https://frijal.pages.dev/artikel/gnome-49.html
 https://frijal.pages.dev/artikel/google-veo-ai.html
 https://frijal.pages.dev/artikel/gorilla-glass-s2.html
@@ -207,7 +225,6 @@ https://frijal.pages.dev/artikel/hak-kekayaan-intelektual-dalam-islam.html
 https://frijal.pages.dev/artikel/haki-dalam-islam.html
 https://frijal.pages.dev/artikel/handbrake-preset-custom.html
 https://frijal.pages.dev/artikel/hapus-os-ilegal-aman.html
-https://frijal.pages.dev/artikel/head-vs-header.html
 https://frijal.pages.dev/artikel/hidup-bahagia.html
 https://frijal.pages.dev/artikel/hidup-bukan-sekedar-eksistensi-tapi-pengabdian.html
 https://frijal.pages.dev/artikel/hijab-yang-berkeadaban.html
@@ -252,7 +269,6 @@ https://frijal.pages.dev/artikel/keunggulan-dan-kekurangan-Desktop-KDE.html
 https://frijal.pages.dev/artikel/keutamaan-membela-kehormatan-saudara.html
 https://frijal.pages.dev/artikel/keutamaan-salam.html
 https://frijal.pages.dev/artikel/keyring.html
-https://frijal.pages.dev/artikel/khwarizmi.html
 https://frijal.pages.dev/artikel/kisah-al-khwarizmi.html
 https://frijal.pages.dev/artikel/kisah-keluarga-sahabat-abu-dujanah.html
 https://frijal.pages.dev/artikel/kisah-migrasi-oss-kutai.html
@@ -260,7 +276,6 @@ https://frijal.pages.dev/artikel/kisah-sebarubuntu-2014.html
 https://frijal.pages.dev/artikel/kompres-pdf-ghostscript.html
 https://frijal.pages.dev/artikel/konfigurasi-git-email-noreply.html
 https://frijal.pages.dev/artikel/konversi-m4a-ke-ogg.html
-https://frijal.pages.dev/artikel/kopdar-bukber-bukalapak-balikpapan-2017.html
 https://frijal.pages.dev/artikel/kpli-balikpapan-rilis-party-ubuntu-1604.html
 https://frijal.pages.dev/artikel/kpli-balikpapan.html
 https://frijal.pages.dev/artikel/kreativitas-satlantas-grobogan.html
@@ -277,7 +292,6 @@ https://frijal.pages.dev/artikel/linux-mirrors-all.html
 https://frijal.pages.dev/artikel/linux-package-manager-formal.html
 https://frijal.pages.dev/artikel/linux-package-manager.html
 https://frijal.pages.dev/artikel/linux-repo-guide.html
-https://frijal.pages.dev/artikel/linux-sl-steam-locomotive.html
 https://frijal.pages.dev/artikel/linux-tanpa-terminal.html
 https://frijal.pages.dev/artikel/linux-vs-windows-updates.html
 https://frijal.pages.dev/artikel/lirik-pulang-nostalgia.html
@@ -304,6 +318,7 @@ https://frijal.pages.dev/artikel/memahami-rating-distro-linux.html
 https://frijal.pages.dev/artikel/membagikan-aplikasi-debian-dengan-dpkg-repack.html
 https://frijal.pages.dev/artikel/membedah-hasil-apt-audit-lengkap.html
 https://frijal.pages.dev/artikel/membedah-hasil-apt-audit.html
+https://frijal.pages.dev/artikel/membuat-git-orphan-branch.html
 https://frijal.pages.dev/artikel/memeriksa-kondisi-baterai-di-Linux-menggunakan-command-line.html
 https://frijal.pages.dev/artikel/memilih-desktop-environment.html
 https://frijal.pages.dev/artikel/memilih-distro-linux.html
@@ -352,6 +367,7 @@ https://frijal.pages.dev/artikel/open-document-converter.html
 https://frijal.pages.dev/artikel/open-source-indonesia.html
 https://frijal.pages.dev/artikel/open-source.html
 https://frijal.pages.dev/artikel/opensuse-mirror.html
+https://frijal.pages.dev/artikel/optimasi-workflow-harian-github-actions.html
 https://frijal.pages.dev/artikel/oss-di-sekolah.html
 https://frijal.pages.dev/artikel/oss-kutai.html
 https://frijal.pages.dev/artikel/oss-sekolah.html
@@ -366,6 +382,8 @@ https://frijal.pages.dev/artikel/pasang-ubuntu-aspire-2930z.html
 https://frijal.pages.dev/artikel/pembaruan-otomatis-fedora.html
 https://frijal.pages.dev/artikel/penaklukan-mesir.html
 https://frijal.pages.dev/artikel/pengalaman-kde-linux.html
+https://frijal.pages.dev/artikel/pengecekan-dan-laporan-konten-harian.html
+https://frijal.pages.dev/artikel/pengecekan-laporan-konten-harian.html
 https://frijal.pages.dev/artikel/penjelasan-lengkap-tentang-sahabat.html
 https://frijal.pages.dev/artikel/penyebaran-islam-india.html
 https://frijal.pages.dev/artikel/peramban-ringan-linux-terbaik.html
@@ -396,6 +414,7 @@ https://frijal.pages.dev/artikel/qordoba-kilau-peradaban-andalusia.html
 https://frijal.pages.dev/artikel/queen-annes-revenge.html
 https://frijal.pages.dev/artikel/quickbooks-ai-keuangan-umkm.html
 https://frijal.pages.dev/artikel/qunut-atau-tidak-qunut.html
+https://frijal.pages.dev/artikel/rahmah-adab-dan-rasa.html
 https://frijal.pages.dev/artikel/rangkuman-akhir-pencernaan-sehat.html
 https://frijal.pages.dev/artikel/rating-distro-linux.html
 https://frijal.pages.dev/artikel/realtek-rtl8723be.html
@@ -484,6 +503,7 @@ https://frijal.pages.dev/artikel/ventoy-install-linux.html
 https://frijal.pages.dev/artikel/vlc-rotate.html
 https://frijal.pages.dev/artikel/waspada-kejahatan-phishing.html
 https://frijal.pages.dev/artikel/watermark-imagemagick.html
+https://frijal.pages.dev/artikel/website-dari-json.html
 https://frijal.pages.dev/artikel/wifi-gratis-taman-bekapai-balikpapan.html
 https://frijal.pages.dev/artikel/wigo-balikpapan.html
 https://frijal.pages.dev/artikel/windows-vs-linux-kebiasaan.html
