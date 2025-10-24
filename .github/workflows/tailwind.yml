@@ -50,7 +50,7 @@ jobs:
           rsync -avR . ./_site \
             --include="*/" \
             --include="*.html" \            
-            --include="ext/tailwind.css" \
+       #     --include="ext/tailwind.css" \
             --exclude="*"
 
       - name: 📂 Upload Pages artifact
