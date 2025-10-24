@@ -1,11 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./artikel/**/*.{html,js,jsx,ts,tsx,vue,svelte,astro,md,mdx}",
-    "./ext/**/*.{html,js,jsx,ts,tsx,vue,svelte}",
+    "./*.{html,js,jsx,ts,tsx,vue,svelte,astro,md,mdx}",
+    "./src/**/*.{html,js,jsx,ts,tsx,vue,svelte,astro,md,mdx}",
+    "./components/**/*.{html,js,jsx,ts,tsx,vue,svelte}",
+    "./pages/**/*.{html,js,jsx,ts,tsx,vue,svelte,html}",
+    "./public/**/*.html",
   ],
 
-  darkMode: "media", // 🌗 mengikuti tema sistem otomatis
+  // 🌗 Mode gelap otomatis mengikuti sistem
+  darkMode: "media",
+
+  // 🧱 Matikan preflight agar Tailwind tidak menyentuh gaya bawaan browser (termasuk SVG)
+  corePlugins: {
+    preflight: false,
+  },
 
   theme: {
     container: {
@@ -17,7 +26,7 @@ module.exports = {
     },
 
     extend: {
-      /* 🎨 Warna adaptif menggunakan CSS Variable */
+      // 🎨 Warna adaptif menggunakan CSS Variable (aman & ringan)
       colors: {
         background: "rgb(var(--color-bg) / <alpha-value>)",
         surface: "rgb(var(--color-surface) / <alpha-value>)",
@@ -52,6 +61,5 @@ module.exports = {
     },
   },
 
-  /* ⚙️ Plugin dinonaktifkan untuk menjaga tampilan lama */
-  plugins: [],
+  plugins: [], // Tidak pakai plugin agar aman dan ringan
 };
