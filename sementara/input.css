@@ -1,0 +1,22 @@
+/* ----------------------------------------------------
+   🌀 INPUT CSS UNTUK TAILWIND CLI
+   Semua utilitas Tailwind diimpor dari sini
+---------------------------------------------------- */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ✨ Kamu bisa menambah CSS global sendiri di bawah ini */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 💡 Dark mode kustom (optional override) */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #0f172a; /* slate-900 */
+    color: #e2e8f0;           /* slate-200 */
+  }
+}

@@ -2,6 +2,7 @@
 # │  DEPENDENCIES & BUILD       │
 # └─────────────────────────────┘
 node_modules/
+.sementara/
 
 # ┌─────────────────────────────┐
 # │  SYSTEM & IDE ARTIFACTS     │
@@ -41,3 +42,4 @@ grid-*.svg
 # Abaikan file log
 npm-debug.log
 yarn-error.log
+
