@@ -1,17 +1,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 🌈 Warna adaptif berbasis CSS variable */
-@layer base {
-  :root {
-    --color-bg: 255 255 255;
-    --color-surface: 249 250 251;
-    --color-text: 17 24 39;
-    --color-primary: 14 165 233;
-    --color-secondary: 245 158 11;
-  }
-
-  @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
     :root {
       --color-bg: 15 23 42;
       --color-surface: 30 41 59;
