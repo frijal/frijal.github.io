@@ -3,7 +3,7 @@ name: 🚀 Build & Deploy Tailwind CSS
 # Menjalankan setiap 2 minggu sekali, jam 3 WITA
 on:
   schedule:
-    - cron: '0 19 */14 * *' # 19:00 UTC = 3:00 WITA, setiap 14 hari
+    - cron: '0 19 */14 * *' # 19:00 UTC = 3:00 WITA
   workflow_dispatch: # Bisa dijalankan manual
 
 permissions:
@@ -14,6 +14,9 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ github.workspace }} # pastikan root repo
     steps:
       - name: 📦 Checkout repository
         uses: actions/checkout@v4
@@ -27,18 +30,27 @@ jobs:
         run: npm install
 
       - name: 🎨 Build Tailwind CSS
-        run: npm run build
+        run: npx tailwindcss -c ./sementara/tailwind.config.js -i ./sementara/input.css -o ./ext/tailwind.css
 
       - name: 📂 Upload Pages artifact (exclude heavy folders)
         uses: actions/upload-pages-artifact@v3
         with:
-          path: |
-            ./**/*.html
-            ./ext/tailwind.css            
-          exclude: |
-            ./img/**
-            ./ext/**  # folder lain yang tidak perlu selain tailwind.css
-            ./sementara/**
-            ./artikelx/**
-            ./mini/**
-            ./node_modules/**
+          path:
+            - '**/*.html'
+            - 'ext/tailwind.css'
+          exclude:
+            - 'img/**'
+            - 'ext/**'   # selain tailwind.css
+            - 'sementara/**'
+            - 'mini/**'
+            - 'node_modules/**'
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
