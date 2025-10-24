@@ -29,6 +29,7 @@
     "prettier": "^3.6.2"
   },
   "dependencies": {
+    "@picocss/pico": "^2.1.1",
     "@xmldom/xmldom": "^0.8.11",
     "express": "^5.1.0",
     "puppeteer": "^24.26.1",
