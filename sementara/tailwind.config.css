@@ -1,22 +1,29 @@
-/* ----------------------------------------------------
-   🌀 INPUT CSS UNTUK TAILWIND CLI
-   Semua utilitas Tailwind diimpor dari sini
----------------------------------------------------- */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ✨ Kamu bisa menambah CSS global sendiri di bawah ini */
+/* 🌈 Warna adaptif berbasis CSS variable */
+@layer base {
+  :root {
+    --color-bg: 255 255 255;
+    --color-surface: 249 250 251;
+    --color-text: 17 24 39;
+    --color-primary: 14 165 233;
+    --color-secondary: 245 158 11;
+  }
 
-/* html {
-  scroll-behavior: smooth;
-}
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg: 15 23 42;
+      --color-surface: 30 41 59;
+      --color-text: 249 250 251;
+      --color-primary: 56 189 248;
+      --color-secondary: 251 191 36;
+    }
+  }
 
-/* 💡 Dark mode kustom (optional override) */
-/* @media (prefers-color-scheme: dark) {
   body {
-    background-color: #0f172a; /* slate-900 */
-/*    color: #e2e8f0;           /* slate-200 */
-/*  }
-} */
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-text));
+  }
+}
