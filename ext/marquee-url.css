@@ -235,8 +235,6 @@ a.category-link {
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
-  opacity: 0;
-  transform: translateY(10px);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
