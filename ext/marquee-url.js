@@ -223,15 +223,18 @@
     const prev = document.getElementById('prev-article');
     const next = document.getElementById('next-article');
 
-    if (idx === -1) {
-      nav.style.display = 'none';
-      return;
-    }
-
+    // Ganti bagian di atas dengan ini:
+    if (catLink && catName) {
     catLink.textContent = catName;
     catLink.href = `/artikel/-/${slugify(catName)}`;
     catLink.title = `Kategori: ${catName}`;
-
+    // Anda bahkan bisa menambahkan efek animasi di sini jika mau
+    // setTimeout(() => catLink.classList.add('visible'), 100);
+    } else if (catLink) {
+    catLink.style.display = 'none'; // Sembunyikan jika kategori tidak ada
+    }
+    // Ganti bagian di atas dengan ini:
+    
     const total = list.length;
     if (total <= 1) {
       prev.style.display = 'none';
