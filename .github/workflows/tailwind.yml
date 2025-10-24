@@ -3,7 +3,7 @@ name: 🚀 Build & Deploy Tailwind CSS
 # Menjalankan setiap 2 minggu sekali, jam 3 WITA
 on:
   schedule:
-    - cron: '0 19 */14 * *' # 19:00 UTC = 3:00 WITA
+    - cron: '0 19 */14 * *' # 19:00 UTC = 03:00 WITA (keesokan harinya)
   workflow_dispatch: # Bisa dijalankan manual
 
 permissions:
@@ -32,24 +32,21 @@ jobs:
       - name: 🎨 Build Tailwind CSS
         run: npx tailwindcss -c ./sementara/tailwind.config.js -i ./sementara/input.css -o ./ext/tailwind.css
 
-      - name: 📂 Upload Pages artifact (exclude heavy folders)
+      - name: 📂 Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path:
-            - '**/*.html'
-            - 'ext/tailwind.css'
-          exclude:
-            - 'img/**'
-            - 'ext/**'   # selain tailwind.css
-            - 'sementara/**'
-            - 'mini/**'
-            - 'node_modules/**'
+          # Cukup tentukan file yang ingin di-upload.
+          # Blok 'exclude' tidak diperlukan karena 'path' sudah spesifik.
+          path: |
+            **/*.html
+            ext/tailwind.css
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }} # Menambahkan output URL
     steps:
       - name: 🚀 Deploy to GitHub Pages
         id: deployment
