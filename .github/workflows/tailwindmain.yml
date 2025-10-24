@@ -41,7 +41,7 @@ jobs:
       - name: 🏗️ Build TailwindCSS to ext/tailwind.css
         run: |
           mkdir -p ext
-          npx tailwindcss -i ./sementara/tailwind.config.css -o ./ext/tailwind.css --minify
+          npx tailwindcss -i ./sementara/tailwind.config.css -o ./ext/tailwind.css
           echo "✅ File CSS berhasil dibuat di ext/tailwind.css"
 
       - name: 🗂️ Prepare GitHub Pages artifact
