@@ -1,4 +1,4 @@
-name: ⚠️ Build and Deploy to Clean Branch
+name: ⚠️ Copy ke Branch Site Cloudflare
 
 on:
   push:
