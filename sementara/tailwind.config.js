@@ -1,13 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  // 🔍 Semua lokasi file tempat Tailwind mencari class
   content: [
     "./artikel/**/*.{html,js,jsx,ts,tsx,vue,svelte,astro,md,mdx}",
-    "./ext/**/*.{html,js,jsx,ts,tsx,vue,svelte,astro,md,mdx}",
-    ],
+    "./ext/**/*.{js,jsx,ts,tsx,vue,svelte}",
+  ],
 
-  // 🌗 Mode gelap otomatis mengikuti sistem (media)
-  // 👉 Ubah ke "class" jika ingin pakai toggle manual
+  // 🌗 Mode gelap otomatis mengikuti preferensi sistem
   darkMode: "media",
 
   theme: {
@@ -25,48 +23,25 @@ module.exports = {
     },
 
     extend: {
-      // 🎨 Warna adaptif (otomatis berubah di mode gelap)
+      // 🎨 Warna adaptif pakai CSS Variable (aman & valid)
       colors: {
-        // Warna utama (otomatis menyesuaikan sistem)
-        primary: {
-          DEFAULT: "#0ea5e9", // terang
-          dark: "#38bdf8",    // untuk dark mode
-        },
-        secondary: {
-          DEFAULT: "#f59e0b",
-          dark: "#fbbf24",
-        },
-        neutral: {
-          light: "#f3f4f6",
-          DEFAULT: "#9ca3af",
-          dark: "#1f2937",
-        },
-        background: {
-          light: "#ffffff",
-          dark: "#0f172a",
-        },
-        surface: {
-          light: "#f9fafb",
-          dark: "#1e293b",
-        },
-        text: {
-          light: "#111827",
-          dark: "#f9fafb",
-        },
+        background: "rgb(var(--color-bg) / <alpha-value>)",
+        surface: "rgb(var(--color-surface) / <alpha-value>)",
+        text: "rgb(var(--color-text) / <alpha-value>)",
+        primary: "rgb(var(--color-primary) / <alpha-value>)",
+        secondary: "rgb(var(--color-secondary) / <alpha-value>)",
         success: "#22c55e",
         danger: "#ef4444",
         warning: "#eab308",
         info: "#3b82f6",
       },
 
-      // 🧬 Font modern
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
         serif: ["Merriweather", "ui-serif", "serif"],
         mono: ["Fira Code", "ui-monospace", "monospace"],
       },
 
-      // 🌸 Radius dan shadow lembut
       borderRadius: {
         xl: "1rem",
         "2xl": "1.5rem",
@@ -77,13 +52,11 @@ module.exports = {
         strong: "0 4px 20px rgba(0,0,0,0.15)",
       },
 
-      // 📏 Spacing tambahan
       spacing: {
         128: "32rem",
         144: "36rem",
       },
 
-      // 🎞️ Animasi halus
       keyframes: {
         fadeIn: {
           "0%": { opacity: 0 },
@@ -101,7 +74,6 @@ module.exports = {
     },
   },
 
-  // 🔌 Plugin Tailwind resmi
   plugins: [
     require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),
