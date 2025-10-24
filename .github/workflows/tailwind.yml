@@ -30,6 +30,9 @@ jobs:
 
       - name: 🎨 Build Tailwind CSS
         run: npx tailwindcss -c ./sementara/tailwind.config.js -i ./sementara/input.css -o ./ext/tailwind.css
+      
+      - name:  đảm bảo Salinan/Timpa Tailwind CSS di folder ext
+        run: cp ./ext/tailwind.css ./ext/tailwind.css
 
       # --- PERBAIKAN DIMULAI DI SINI ---
 
@@ -40,7 +43,7 @@ jobs:
           # Ini hanya akan menyalin file yang kita tentukan secara eksplisit
           rsync -avR . ./_site \
             --include="*/" \
-            --include="*.html" \
+            --include="*.html" \            
             --include="ext/tailwind.css" \
             --exclude="*"
 
