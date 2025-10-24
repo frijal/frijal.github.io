@@ -34,10 +34,10 @@ jobs:
       - name: 📥 Install dependencies
         run: npm install
 
-      - name: 📦 Install TailwindCSS & Plugins
-        run:
+    #  - name: 📦 Install TailwindCSS & Plugins
+    #    run:
         #   npm install -D tailwindcss
-           npm install @tailwindcss/forms @tailwindcss/typography @tailwindcss/aspect-ratio @tailwindcss/container-queries
+     #      npm install @tailwindcss/forms @tailwindcss/typography @tailwindcss/aspect-ratio @tailwindcss/container-queries
              
      
       - name: 🎨 Build Tailwind CSS (Koki Memasak Soto)
