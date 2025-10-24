@@ -1,13 +1,12 @@
-/* 1. Definisi Variabel Global (Custom Properties) */
+buat agar bisa mengikuti user mode, dark atau light: /* 1. Definisi Variabel Global (Custom Properties) */
 :root {
-    /* Palet Warna Terang (Default) */
+    /* Palet Warna Terang */
     --color-bg: #f7fafc;          /* gray-100 */
     --color-border: #e2e8f0;      /* gray-200 */
     --color-primary: #4299e1;     /* blue-500 */
     --color-highlight-bg: #faf089;/* yellow-200 */
     --color-placeholder-bg: #f1f5f9; /* slate-100 */
     --color-fallback-text: #a0aec0;/* gray-400 */
-    --color-mark-text: #1a202c; /* Teks hitam untuk highlight terang */
 
     /* Properti Lain */
     --font-primary: Inter, sans-serif;
@@ -15,40 +14,38 @@
     --transition-fast: 0.2s ease-in-out;
 }
 
-/* 2. Dukungan Mode Gelap (DIUBAH) */
-/* CSS ini akan aktif HANYA jika <html> memiliki class="dark" */
-html.dark {
-    --color-bg: #1a202c;          /* gray-900 */
-    --color-border: #4a5568;      /* gray-700 */
-    --color-primary: #63b3ed;     /* blue-400 */
-    --color-highlight-bg: #f6e05e;/* yellow-400 */
-    --color-placeholder-bg: #2d3748; /* gray-800 */
-    --color-fallback-text: #718096;/* gray-500 */
-    --color-mark-text: #1a202c; /* Teks tetap hitam agar kontras di kuning */
+/* 2. Dukungan Mode Gelap (Dark Mode) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-bg: #1a202c;          /* gray-900 */
+        --color-border: #4a5568;      /* gray-700 */
+        --color-primary: #63b3ed;     /* blue-400 */
+        --color-highlight-bg: #f6e05e;/* yellow-400 */
+        --color-placeholder-bg: #2d3748; /* gray-800 */
+        --color-fallback-text: #718096;/* gray-500 */
+    }
 }
 
 /* 3. Gaya Dasar & Tata Letak Utama (Sticky Footer) */
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh; /* FIX: Diubah dari 200vh agar tidak ada scrollbar paksa */
     font-family: var(--font-primary);
     background-color: var(--color-bg);
     padding-top: 68px; /* Offset untuk fixed header */
     transition: padding-top 0.2s ease-out;
     margin: 0;
-    /* Tambahkan transisi warna agar perpindahan mode terlihat mulus */
-    transition: background-color 0.3s ease; 
 }
 
 main {
-    flex-grow: 1; 
+    flex-grow: 1; /* Membuat konten utama mengisi sisa ruang */
 }
 
 /* 4. Komponen UI */
 .result-card {
     border: 1px solid var(--color-border);
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color 0.3s ease;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .result-card:hover {
@@ -62,7 +59,6 @@ main {
     background-color: var(--color-placeholder-bg);
     width: 100%;
     display: block;
-    transition: background-color 0.3s ease;
 }
 
 .fallback-img {
@@ -76,15 +72,13 @@ main {
     color: var(--color-fallback-text);
     font-size: 0.875rem;
     border: 1px dashed var(--color-border);
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 mark { /* Styling untuk highlight hasil pencarian */
     background-color: var(--color-highlight-bg);
     padding: 0 2px;
     border-radius: 2px;
-    color: var(--color-mark-text); /* Menggunakan variabel */
-    transition: background-color 0.3s ease;
+    color: #1a202c; /* Teks hitam agar kontras */
 }
 
 /* 5. Animasi Loading */
@@ -96,7 +90,6 @@ mark { /* Styling untuk highlight hasil pencarian */
     border-top-color: var(--color-primary);
     border-radius: 50%;
     animation: spin 1s linear infinite;
-    transition: border-color 0.3s ease;
 }
 
 @keyframes spin {
