@@ -34,11 +34,11 @@ jobs:
         with:
           path: |
             ./**/*.html
-            ./ext/tailwind.css
-            ./sementara/**
+            ./ext/tailwind.css            
           exclude: |
             ./img/**
             ./ext/**  # folder lain yang tidak perlu selain tailwind.css
+            ./sementara/**
             ./artikelx/**
             ./mini/**
             ./node_modules/**
