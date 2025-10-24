@@ -41,15 +41,7 @@ jobs:
         with:
           path: |
             '**/*.html'
-            'ext/tailwind.css'
-          exclude: |
-            'img/**'
-            'ext/**'      # selain tailwind.css
-            'sementara/**'
-            'mini/**'
-            '.git/**'
-            '.github/**'
-            'node_modules/**'
+            'ext/tailwind.css'          
 
       # 6️⃣ Deploy ke GitHub Pages
       - name: 🚀 Deploy to GitHub Pages
