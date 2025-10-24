@@ -1,19 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./*.{html,js}",
-    "./src/**/*.{html,js}",
-    "./components/**/*.{html,js}",
+    "./artikel/**/*.{html,js}",
+    "./ext/**/*.{html,js}",
   ],
+
   darkMode: "media",
 
-  // ❌ Matikan preflight agar CSS kamu tetap utuh
   corePlugins: {
-    preflight: false,
+    preflight: false, // ❌ jangan reset CSS global kamu
   },
 
   theme: {
     extend: {},
   },
+
   plugins: [],
 };
