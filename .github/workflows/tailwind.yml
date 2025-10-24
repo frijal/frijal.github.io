@@ -35,9 +35,10 @@ jobs:
         run: npm install
 
       - name: 📦 Install TailwindCSS & Plugins
-        run: 
-        #  npm uninstall @tailwindcss/forms @tailwindcss/typography @tailwindcss/aspect-ratio @tailwindcss/container-queries
-             npm install -D tailwindcss
+        run: |
+           npm install -D tailwindcss
+           npm uninstall @tailwindcss/forms @tailwindcss/typography @tailwindcss/aspect-ratio @tailwindcss/container-queries
+             
      
       - name: 🎨 Build Tailwind CSS (Koki Memasak Soto)
         run: npx tailwindcss -c sementara/tailwind.config.js -i sementara/tailwind.config.css -o ext/tailwind.css
