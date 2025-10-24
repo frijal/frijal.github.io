@@ -18,7 +18,7 @@ jobs:
           echo "Mencari <meta property=\"og:image\" content= di artikel/*.html..."
           > mini/hasil.txt
           find artikel/ -type f -name "*.html" | while read file; do
-            grep -F '<meta property="og:image" content=' "$file" | while read line; do
+            grep -F 'stylesheet' "$file" | while read line; do
               nama=$(basename "$file")
               echo "$line [$nama]" >> mini/hasil.txt
             done
