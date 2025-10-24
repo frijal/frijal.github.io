@@ -1,0 +1,44 @@
+name: 🚀 Build & Deploy Tailwind CSS
+
+# Menjalankan setiap 2 minggu sekali, jam 3 WITA
+on:
+  schedule:
+    - cron: '0 19 */14 * *' # 19:00 UTC = 3:00 WITA, setiap 14 hari
+  workflow_dispatch: # Bisa dijalankan manual
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📦 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 📥 Install dependencies
+        run: npm install
+
+      - name: 🎨 Build Tailwind CSS
+        run: npm run build
+
+      - name: 📂 Upload Pages artifact (exclude heavy folders)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: |
+            ./**/*.html
+            ./ext/tailwind.css
+          exclude: |
+            ./img/**
+            ./ext/**  # folder lain yang tidak perlu selain tailwind.css
+            ./sementara/**
+            ./artikelx/**
+            ./mini/**
+            ./node_modules/**
