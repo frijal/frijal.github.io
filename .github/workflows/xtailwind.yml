@@ -1,0 +1,57 @@
+name: 🚀 Auto Build & Deploy Tailwind CSS
+
+# Jalan setiap commit + jadwal 2 minggu sekali jam 3 WITA
+on:
+  push:
+    branches: ["main"]
+  schedule:
+    - cron: '0 21 */14 * *' # 3:00 WITA = 21:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1️⃣ Checkout repository
+      - name: 📦 Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Setup Node.js
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 3️⃣ Install dependencies
+      - name: 📥 Install Node.js packages
+        run: npm install
+
+      # 4️⃣ Build Tailwind CSS
+      - name: 🎨 Build Tailwind CSS
+        run: npx tailwindcss -c ./sementara/tailwind.config.js -i ./sementara/input.css -o ./ext/tailwind.css
+
+      # 5️⃣ Upload artifact untuk Pages
+      - name: 📂 Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: |
+            '**/*.html'
+            'ext/tailwind.css'
+          exclude: |
+            'img/**'
+            'ext/**'      # selain tailwind.css
+            'sementara/**'
+            'mini/**'
+            '.git/**'
+            '.github/**'
+            'node_modules/**'
+
+      # 6️⃣ Deploy ke GitHub Pages
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
