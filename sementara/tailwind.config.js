@@ -2,7 +2,6 @@
 module.exports = {
   // 🔍 Semua lokasi file tempat Tailwind mencari class
   content: [
-    "./*.{html}",
     "./artikel/**/*.{html,js,jsx,ts,tsx,vue,svelte,astro,md,mdx}",
     "./ext/**/*.{html,js,jsx,ts,tsx,vue,svelte,astro,md,mdx}",
     ],
