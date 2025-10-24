@@ -1,4 +1,4 @@
-name: 🚀 Build & Deploy Tailwind CSS
+name: 🚀 Build, Commit, & Deploy Tailwind CSS
 
 on:
   schedule:
@@ -6,7 +6,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  # DIUBAH: Harus 'write' agar bisa commit kembali ke repo
+  contents: write
   pages: write
   id-token: write
 
@@ -31,16 +32,21 @@ jobs:
       - name: 🎨 Build Tailwind CSS
         run: npx tailwindcss -c ./sementara/tailwind.config.js -i ./sementara/input.css -o ./ext/tailwind.css
       
-      - name:  đảm bảo Salinan/Timpa Tailwind CSS di folder ext
-        run: cp ./ext/tailwind.css ./ext/tailwind.css
+      # --- LANGKAH BARU DITAMBAHKAN DI SINI ---
+      - name: 💾 Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          # Pesan commit yang akan muncul di riwayat repo Anda
+          commit_message: 🤖 Bot: Build and update tailwind.css
+          # Beri tahu action file mana yang harus di-commit
+          file_pattern: ext/tailwind.css
+          # Anda bisa menambahkan branch target jika perlu, misal: 'main'
+          # push_options: --force
 
-      # --- PERBAIKAN DIMULAI DI SINI ---
-
+      # --- Sisa alur kerja Anda tetap sama ---
       - name: 🏗️ Prepare staging directory
         run: |
           mkdir -p ./_site
-          # Gunakan rsync dengan pola "whitelist" (termasuk)
-          # Ini hanya akan menyalin file yang kita tentukan secara eksplisit
           rsync -avR . ./_site \
             --include="*/" \
             --include="*.html" \            
@@ -50,11 +56,8 @@ jobs:
       - name: 📂 Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Berikan SATU folder yang sudah berisi semua file Anda
           path: ./_site
           
-      # --- PERBAIKAN SELESAI ---
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
