@@ -35,8 +35,8 @@ jobs:
         run: npm install
 
       - name: 📦 Install TailwindCSS & Plugins
-        run: |
-           npm install -D tailwindcss
+        run:
+        #   npm install -D tailwindcss
            npm install @tailwindcss/forms @tailwindcss/typography @tailwindcss/aspect-ratio @tailwindcss/container-queries
              
      
