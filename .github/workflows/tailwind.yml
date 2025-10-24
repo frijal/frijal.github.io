@@ -41,7 +41,6 @@ jobs:
           rsync -avR . ./_site \
             --include="*/" \
             --include="*.html" \
-            --include="**/*.js" \
             --include="ext/tailwind.css" \
             --exclude="*"
 
