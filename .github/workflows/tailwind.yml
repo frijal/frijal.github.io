@@ -1,4 +1,4 @@
-name: 🚀 Build & Commit Tailwind CSS
+name: 🚀 Build & Update Tailwind CSS
 
 on:
   schedule:
@@ -28,7 +28,7 @@ jobs:
         run: npm install
 
       - name: 🎨 Build Tailwind CSS (Koki Memasak Soto)
-        run: npx tailwindcss -c ./sementara/tailwind.config.js -i ./sementara/input.css -o ./ext/tailwind.css
+        run: npx tailwindcss -c ./sementara/tailwind.config.js -i ./sementara/tailwind.config.css -o ./ext/tailwind.css
       
       - name: 💾 Commit and push changes (Koki Menyimpan Soto ke Dapur)
         uses: stefanzweifel/git-auto-commit-action@v5
