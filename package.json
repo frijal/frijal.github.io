@@ -8,8 +8,8 @@
     "start": "node ext/rss.js",
     "screenshot": "node ext/screenshot-puppeteer.js",
     "check-tailwind": "npm outdated tailwindcss || echo '✅ Tailwind sudah versi terbaru'",
-    "build": "npx tailwindcss -c ./sementara/tailwind.config.js -i ./sementara/input.css -o ./ext/tailwind.css",
-    "watch": "npx tailwindcss -c ./sementara/tailwind.config.js -i ./sementara/input.css -o ./ext/tailwind.css --watch"
+    "build": "npx tailwindcss -c ./sementara/tailwind.config.js -i ./sementara/tailwind.config.css -o ./ext/tailwind.css",
+    "watch": "npx tailwindcss -c ./sementara/tailwind.config.js -i ./sementara/tailwind.config.css -o ./ext/tailwind.css --watch"
   },
   "repository": {
     "type": "git",
