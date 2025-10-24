@@ -37,12 +37,12 @@ jobs:
       - name: 📦 Install TailwindCSS & Plugins
         run: |
            npm install -D tailwindcss
-           npm uninstall @tailwindcss/forms @tailwindcss/typography @tailwindcss/aspect-ratio @tailwindcss/container-queries
+           npm install @tailwindcss/forms @tailwindcss/typography @tailwindcss/aspect-ratio @tailwindcss/container-queries
              
      
       - name: 🎨 Build Tailwind CSS (Koki Memasak Soto)
-        run: npx tailwindcss -c sementara/tailwind.config.js -i sementara/tailwind.config.css -o ext/tailwind.css
-       # run: npx tailwindcss -i sementara/tailwind.config.css -o ext/tailwind.css
+      #  run:  npx tailwindcss -c sementara/tailwind.config.js -i sementara/tailwind.config.css -o ext/tailwind.css
+        run: npx tailwindcss -i sementara/tailwind.config.css -o ext/tailwind.css
       
       - name: 💾 Commit and push changes (Koki Menyimpan Soto ke Dapur)
         uses: stefanzweifel/git-auto-commit-action@v5
@@ -51,6 +51,3 @@ jobs:
           commit_message: 🤖 Bot Build and update tailwind.css
           # Beri tahu action file mana yang harus di-commit
           file_pattern: ext/tailwind.css
-
-      # --- SEMUA LANGKAH DEPLOY DAN RSYNC SUDAH DIHAPUS ---
-
