@@ -25,5 +25,18 @@
   body {
     background-color: rgb(var(--color-bg));
     color: rgb(var(--color-text));
+    font-family: theme("fontFamily.sans");
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* 🧱 Contoh class tambahan opsional */
+@layer components {
+  .card {
+    @apply bg-surface rounded-xl shadow-soft p-4 animate-fadeIn;
+  }
+
+  .btn {
+    @apply bg-primary text-white font-semibold px-4 py-2 rounded-xl hover:opacity-90 transition;
   }
 }
