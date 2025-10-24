@@ -1,11 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./*.{html,js,jsx,ts,tsx,vue,svelte,astro,md,mdx}",
-    "./src/**/*.{html,js,jsx,ts,tsx,vue,svelte,astro,md,mdx}",
-    "./components/**/*.{html,js,jsx,ts,tsx,vue,svelte}",
-    "./pages/**/*.{html,js,jsx,ts,tsx,vue,svelte,html}",
-    "./public/**/*.html",
+    "./artikel/**/*.{html,js,jsx,ts,tsx,vue,svelte,astro,md,mdx}",
   ],
 
   // 🌗 Mode gelap otomatis mengikuti sistem
