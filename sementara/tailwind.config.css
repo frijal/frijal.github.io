@@ -1,42 +1,21 @@
-@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* 🌈 Warna adaptif berbasis CSS Variable */
-@layer base {
-  :root {
-    --color-bg: 255 255 255;
-    --color-surface: 249 250 251;
-    --color-text: 17 24 39;
-    --color-primary: 14 165 233;
-    --color-secondary: 245 158 11;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --color-bg: 15 23 42;
-      --color-surface: 30 41 59;
-      --color-text: 249 250 251;
-      --color-primary: 56 189 248;
-      --color-secondary: 251 191 36;
-    }
-  }
-
-  body {
-    background-color: rgb(var(--color-bg));
-    color: rgb(var(--color-text));
-    font-family: theme("fontFamily.sans");
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  /* 🖼️ SVG tidak diubah sama sekali */
-  svg {
-    all: unset; /* hapus semua reset dari Tailwind atau browser modern */
-    display: inline-block;
-  }
+/* 🎨 Warna dasar (bisa disesuaikan) */
+body {
+  background-color: #fff;
+  color: #111827;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
 }
 
-/* ✨ Komponen opsional */
+/* 🖼️ SVG tidak diubah, tetap seperti aslinya */
+svg {
+  all: unset;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* ✨ Komponen tambahan (opsional) */
 @layer components {
   .card {
     @apply bg-surface rounded-xl shadow-soft p-4 animate-fadeIn;

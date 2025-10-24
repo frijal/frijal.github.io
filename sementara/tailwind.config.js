@@ -1,13 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./artikel/**/*.{html,js,jsx,ts,tsx,vue,svelte,astro,md,mdx}",
+    "./*.{html,js,jsx,ts,tsx,vue,svelte,astro,md,mdx}",
+    "./src/**/*.{html,js,jsx,ts,tsx,vue,svelte,astro,md,mdx}",
+    "./components/**/*.{html,js,jsx,ts,tsx,vue,svelte}",
+    "./pages/**/*.{html,js,jsx,ts,tsx,vue,svelte,html}",
+    "./public/**/*.html",
   ],
 
-  // 🌗 Mode gelap otomatis mengikuti sistem
-  darkMode: "media",
+  darkMode: "media", // otomatis ikut sistem (light/dark)
 
-  // 🧱 Matikan preflight agar Tailwind tidak menyentuh gaya bawaan browser (termasuk SVG)
+  // ⚙️ Nonaktifkan preflight agar CSS lama tidak di-reset
   corePlugins: {
     preflight: false,
   },
@@ -22,13 +25,13 @@ module.exports = {
     },
 
     extend: {
-      // 🎨 Warna adaptif menggunakan CSS Variable (aman & ringan)
       colors: {
-        background: "rgb(var(--color-bg) / <alpha-value>)",
-        surface: "rgb(var(--color-surface) / <alpha-value>)",
-        text: "rgb(var(--color-text) / <alpha-value>)",
-        primary: "rgb(var(--color-primary) / <alpha-value>)",
-        secondary: "rgb(var(--color-secondary) / <alpha-value>)",
+        primary: "#0ea5e9",
+        secondary: "#f59e0b",
+        neutral: "#9ca3af",
+        background: "#ffffff",
+        surface: "#f9fafb",
+        text: "#111827",
       },
 
       fontFamily: {
@@ -57,5 +60,5 @@ module.exports = {
     },
   },
 
-  plugins: [], // Tidak pakai plugin agar aman dan ringan
+  plugins: [], // tidak ada plugin untuk menjaga tampilan lama tetap aman
 };
