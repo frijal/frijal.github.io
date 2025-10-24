@@ -1,11 +1,12 @@
-name: Auto-Upgrade Tailwind CSS
+name: Auto-Upgrade All NPM Packages
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 3 1 * *' 
+    - cron: '0 2 1 * *'
+
 jobs:
-  upgrade-tailwind:
+  upgrade-dependencies:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,17 +20,19 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install latest Tailwind CSS
-        run: npm install tailwindcss@latest --save-dev
+      - name: Upgrade all packages
+        run: |
+          npm install -g npm-check-updates
+          ncu -u
+          npm install
 
-      - name: Check for changes
+      - name: Commit and push if changes detected
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add package.json package-lock.json
           if ! git diff --cached --quiet; then
-            git commit -m "chore: upgrade Tailwind CSS to latest version"
+            git commit -m "chore: upgrade all npm packages to latest versions"
             git push
           else
-            echo "No Tailwind upgrade detected. Skipping commit."
-          fi
+            echo "No dependency upgrades detected. Skipping commit."
