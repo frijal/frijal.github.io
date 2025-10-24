@@ -35,24 +35,21 @@ jobs:
 
       - name: 🏗️ Prepare staging directory
         run: |
-          mkdir -p ./_tailwind
-          # Gunakan rsync untuk menyalin semua file, kecuali yang tidak perlu
-          # Ini akan menyalin .html, .js, dan ext/tailwind.css Anda
-          rsync -avR . ./_tailwind \
-            --exclude ".git" \
-            --exclude ".github" \
-            --exclude "node_modules" \
-            --exclude "sementara" \
-            --exclude "mini" \
-            --exclude "img" \
-            --exclude "package.json" \
-            --exclude "package-lock.json"
+          mkdir -p ./_site
+          # Gunakan rsync dengan pola "whitelist" (termasuk)
+          # Ini hanya akan menyalin file yang kita tentukan secara eksplisit
+          rsync -avR . ./_site \
+            --include="*/" \
+            --include="*.html" \
+            --include="**/*.js" \
+            --include="ext/tailwind.css" \
+            --exclude="*"
 
       - name: 📂 Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Berikan SATU folder yang sudah berisi semua file Anda
-          path: ./_tailwind
+          path: ./_site
           
       # --- PERBAIKAN SELESAI ---
 
