@@ -1,10 +1,9 @@
 name: 🚀 Build & Deploy Tailwind CSS
 
-# Menjalankan setiap 2 minggu sekali, jam 3 WITA
 on:
   schedule:
     - cron: '0 19 */14 * *' # 19:00 UTC = 03:00 WITA (keesokan harinya)
-  workflow_dispatch: # Bisa dijalankan manual
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -16,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ${{ github.workspace }} # pastikan root repo
+        working-directory: ${{ github.workspace }}
     steps:
       - name: 📦 Checkout repository
         uses: actions/checkout@v4
@@ -32,23 +31,39 @@ jobs:
       - name: 🎨 Build Tailwind CSS
         run: npx tailwindcss -c ./sementara/tailwind.config.js -i ./sementara/input.css -o ./ext/tailwind.css
 
+      # --- PERBAIKAN DIMULAI DI SINI ---
+
+      - name: 🏗️ Prepare staging directory
+        run: |
+          mkdir -p ./_tailwind
+          # Gunakan rsync untuk menyalin semua file, kecuali yang tidak perlu
+          # Ini akan menyalin .html, .js, dan ext/tailwind.css Anda
+          rsync -avR . ./_tailwind \
+            --exclude ".git" \
+            --exclude ".github" \
+            --exclude "node_modules" \
+            --exclude "sementara" \
+            --exclude "mini" \
+            --exclude "img" \
+            --exclude "package.json" \
+            --exclude "package-lock.json"
+
       - name: 📂 Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Cukup tentukan file yang ingin di-upload.
-          # Blok 'exclude' tidak diperlukan karena 'path' sudah spesifik.
-          path: |
-            **/*.html
-            **/*.js
-            ext/tailwind.css
+          # Berikan SATU folder yang sudah berisi semua file Anda
+          path: ./_tailwind
+          
+      # --- PERBAIKAN SELESAI ---
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }} # Menambahkan output URL
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: 🚀 Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
