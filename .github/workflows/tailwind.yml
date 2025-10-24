@@ -39,6 +39,7 @@ jobs:
           # Blok 'exclude' tidak diperlukan karena 'path' sudah spesifik.
           path: |
             **/*.html
+            **/*.js
             ext/tailwind.css
 
   deploy:
