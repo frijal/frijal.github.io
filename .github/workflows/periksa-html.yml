@@ -1,4 +1,4 @@
-name: 📋 Validasi SEO & Struktur HTML (Hanya yang Gagal)
+name: 📋 Validasi SEO & Struktur HTML Lengkap
 
 on:
   push:
@@ -27,7 +27,7 @@ jobs:
       - name: Buat folder mini/
         run: mkdir -p mini
 
-      - name: Validasi HTML & SEO (laporan hanya jika gagal)
+      - name: Validasi HTML & SEO (hanya yang gagal)
         run: |
           TANGGAL=$(date +%Y%m%d)
           LAPORAN="mini/laporan-validasi-$TANGGAL.txt"
@@ -71,7 +71,7 @@ jobs:
               TEMP+="⚠️ Urutan heading mungkin melompat: $HEADINGS\n"; GAGAL=1
             fi
 
-            # Jika ada kegagalan, tulis ke laporan
+            # Jika gagal, tulis ke laporan
             if [ "$GAGAL" -eq 1 ]; then
               echo "➡️ File: $file" >> $LAPORAN
               echo -e "$TEMP" >> $LAPORAN
@@ -79,17 +79,65 @@ jobs:
             fi
           done
 
-      - name: Linting HTML (hanya jika gagal)
+      - name: Linting HTML
         run: |
           TANGGAL=$(date +%Y%m%d)
           LAPORAN="mini/laporan-validasi-$TANGGAL.txt"
           echo "🧼 Linting HTML dengan HTMLHint..." >> $LAPORAN
           htmlhint "**/*.html" >> $LAPORAN || echo "⚠️ Ada peringatan dari HTMLHint." >> $LAPORAN
-        
-      - name: Commit dan push laporan ke repo      
+
+      - name: Konversi laporan TXT ke HTML interaktif
+        run: |
+          TANGGAL=$(date +%Y%m%d)
+          INPUT="mini/laporan-validasi-$TANGGAL.txt"
+          OUTPUT="mini/laporan-validasi-$TANGGAL.html"
+
+          echo "<!DOCTYPE html>
+          <html lang=\"id\">
+          <head>
+            <meta charset=\"UTF-8\">
+            <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+            <title>Laporan Validasi HTML & SEO - $TANGGAL</title>
+            <style>
+              body { font-family: sans-serif; background: #f9f9f9; padding: 2rem; line-height: 1.6; }
+              h1 { color: #1e293b; }
+              .file { margin-top: 2rem; padding: 1rem; background: #fff; border-left: 4px solid #e11d48; box-shadow: 0 0 4px rgba(0,0,0,0.1); }
+              .ok { color: green; }
+              .warn { color: orange; }
+              .fail { color: red; }
+              pre { white-space: pre-wrap; word-wrap: break-word; }
+            </style>
+          </head>
+          <body>
+          <h1>📋 Laporan Validasi HTML & SEO</h1>
+          <p>Tanggal: $(date)</p>
+          <hr>" > "$OUTPUT"
+
+          awk '
+            BEGIN { inside=0; file="" }
+            /^➡️ File:/ {
+              if (inside) print "</pre></div>" >> "'"$OUTPUT"'"
+              file = substr($0, index($0, ":") + 2)
+              print "<div class=\"file\"><strong>File:</strong> " file "<pre>" >> "'"$OUTPUT"'"
+              inside=1
+              next
+            }
+            /^❌/ { print "<span class=\"fail\">" $0 "</span>" >> "'"$OUTPUT"'" ; next }
+            /^⚠️/ { print "<span class=\"warn\">" $0 "</span>" >> "'"$OUTPUT"'" ; next }
+            /^✅/ { print "<span class=\"ok\">" $0 "</span>" >> "'"$OUTPUT"'" ; next }
+            /^📈/ { print "<strong>" $0 "</strong>" >> "'"$OUTPUT"'" ; next }
+            /^📊/ { print "<strong>" $0 "</strong>" >> "'"$OUTPUT"'" ; next }
+            /^---/ { print "" >> "'"$OUTPUT"'" ; next }
+            { print $0 >> "'"$OUTPUT"'" }
+            END { if (inside) print "</pre></div>" >> "'"$OUTPUT"'" }
+          ' "$INPUT"
+
+          echo "</body></html>" >> "$OUTPUT"
+
+      - name: Commit dan push laporan ke repo
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add mini/
-          git commit -m "📋 Update laporan validasi $(date +'%Y-%m-%d')"
+          git commit -m "📝 Update laporan validasi HTML & SEO $(date +'%Y-%m-%d')" || echo "Tidak ada perubahan untuk commit."
           git push origin HEAD
