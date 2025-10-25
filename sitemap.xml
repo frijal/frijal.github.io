@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap/image/1.1 http://www.google.com/schemas/sitemap/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://frijal.pages.dev/artikel/pengaturan-posisi-json.html</loc>
+    <lastmod>2025-10-25T05:51:04.761+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://frijal.pages.dev/img/pengaturan-posisi-json.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://frijal.pages.dev/artikel/bikin-edit-json-komposisi-kategori-elemen.html</loc>
+    <lastmod>2025-10-25T05:51:04.726+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://frijal.pages.dev/img/bikin-edit-json-komposisi-kategori-elemen.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://frijal.pages.dev/artikel/github-webhooks.html</loc>
     <lastmod>2025-10-23T07:03:49.524+00:00</lastmod>
     <priority>0.6</priority>
@@ -2347,6 +2365,15 @@
     <changefreq>monthly</changefreq>
     <image:image>
       <image:loc>https://frijal.pages.dev/img/solve-WiFi-Realtek-di-Linux-yang-sinyal-lemah.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://frijal.pages.dev/artikel/marie-muhammad-mr-clean.html</loc>
+    <lastmod>2025-10-25T05:51:04.752+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlAyR__FSNx0lWVhuJAroI-UfmbirLvpXsEfhOu-bMVlbpawaCK5QIm6hO-Vui4Y3z5osfvSsig42pgOiQJNcHVCfn5yovzjSoPOBR_m_XXOlrpV98HvPWqnOavx0CouzxDO7vZ75gNSZXKhseJtzKOuFW1rcSE4E2heugzJdgKS4Ns0NIsEoByTT2sRg/s1600/hasil_horizontal_1.webp</image:loc>
     </image:image>
   </url>
   <url>

@@ -6,7 +6,25 @@
     <description><![CDATA[Feed artikel terbaru untuk kategori 🖥️ Teknologi Web, AI & Umum]]></description>
     <language>id-ID</language>
     <atom:link href="https://frijal.pages.dev/feed-teknologi-web-ai-and-umum.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Sat, 25 Oct 2025 02:31:23 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 25 Oct 2025 05:51:18 GMT</lastBuildDate>
+    <item>
+      <title><![CDATA[Pengaturan Posisi JSON - Fungsi dan Manfaatnya dalam Web & Aplikasi]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/pengaturan-posisi-json.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/pengaturan-posisi-json.html]]></guid>
+      <pubDate>Sat, 25 Oct 2025 05:51:04 GMT</pubDate>
+      <description><![CDATA[Fungsi .json adalah untuk menyimpan dan mengirimkan data dalam format JSON (JavaScript Object Notation). JSON adalah format data ringan yang mudah dibaca dan ditulis oleh manusia, serta mudah diurai dan dihasilkan oleh mesin. Format ini sering digunakan dalam pengembangan web dan aplikasi untuk pertukaran data antara server dan klien.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+<enclosure url="https://frijal.pages.dev/img/pengaturan-posisi-json.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Buat Edit JSON Komposisi Blok Kategori & Elemen]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/bikin-edit-json-komposisi-kategori-elemen.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/bikin-edit-json-komposisi-kategori-elemen.html]]></guid>
+      <pubDate>Sat, 25 Oct 2025 05:51:04 GMT</pubDate>
+      <description><![CDATA[Edit dan buat file JSON untuk komposisi blok kategori dan elemen secara mudah. Solusi pengelolaan data yang efisien, praktis, dan terpadu.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+<enclosure url="https://frijal.pages.dev/img/bikin-edit-json-komposisi-kategori-elemen.webp" length="0" type="image/webp" />
+    </item>
     <item>
       <title><![CDATA[Apa Gunanya Webhooks di GitHub? | f-Page]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/github-webhooks.html]]></link>
