@@ -21,10 +21,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    # [PENTING] Kondisi 'if' ini memastikan job hanya berjalan jika:
-    # 1. Dipicu BUKAN oleh workflow_run (misal: push, schedule, dispatch), ATAU
-    # 2. Dipicu oleh workflow_run YANG BERHASIL ('success')
+    runs-on: ubuntu-latest    
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     permissions:
       contents: write
@@ -59,14 +56,9 @@ jobs:
           # Gunakan cache npm jika memungkinkan untuk puppeteer
           npm install puppeteer --no-save --cache .npm-cache --prefer-offline
           echo "Running screenshot script..."
-          node ext/screenshot-puppeteer.js
-          
-      - name: '6. Cleanup temporary files'
-        run: |
-          echo "🧹 Cleaning up temporary files..."
-          rm -rf tmp/ __pycache__/ .npm-cache
-
-      - name: '7. Commit and Push All Generated Files'
+          node ext/screenshot-puppeteer.js         
+      
+      - name: '6. Commit and Push All Generated Files'
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
@@ -99,7 +91,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
-      - name: '8. Show Published Links & Summary'
+      - name: '7. Show Published Links & Summary'
         if: always() 
         run: |
           echo "--- Summary ---"
@@ -117,4 +109,3 @@ jobs:
           if [[ "${{ github.event_name }}" == "workflow_run" ]]; then
             echo "Workflow run conclusion: ${{ github.event.workflow_run.conclusion }}"
           fi
-
