@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - '*/**.html'
+      - 'artikel/*.html'
   workflow_dispatch:
 
 jobs:
