@@ -1,0 +1,84 @@
+name: 📋 Validasi SEO, Heading & Struktur HTML
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.html'
+      - '_headers'
+      - '_redirects'
+      - '*.webmanifest'
+  workflow_dispatch:
+
+jobs:
+  validasi:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout kode
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install HTMLHint
+        run: npm install -g htmlhint
+
+      - name: Buat folder mini/
+        run: mkdir -p mini
+
+      - name: Validasi HTML & SEO Lengkap
+        run: |
+          TANGGAL=$(date +%Y%m%d)
+          LAPORAN="mini/laporan-validasi-$TANGGAL.txt"
+          echo "📋 Laporan Validasi HTML & SEO" > $LAPORAN
+          echo "Tanggal: $(date)" >> $LAPORAN
+          echo "----------------------------------------" >> $LAPORAN
+
+          for file in $(find . -name "*.html"); do
+            echo "➡️ File: $file" >> $LAPORAN
+
+            # Metadata SEO
+            grep -q '<meta name="description"' "$file" && echo "✅ description OK" >> $LAPORAN || echo "❌ description MISSING" >> $LAPORAN
+            grep -q '<meta property="og:title"' "$file" && echo "✅ og:title OK" >> $LAPORAN || echo "❌ og:title MISSING" >> $LAPORAN
+            grep -q '<meta property="og:image"' "$file" && echo "✅ og:image OK" >> $LAPORAN || echo "❌ og:image MISSING" >> $LAPORAN
+            grep -q '<meta property="og:description"' "$file" && echo "✅ og:description OK" >> $LAPORAN || echo "❌ og:description MISSING" >> $LAPORAN
+            grep -q '<meta name="twitter:title"' "$file" && echo "✅ twitter:title OK" >> $LAPORAN || echo "❌ twitter:title MISSING" >> $LAPORAN
+            grep -q '<meta name="twitter:image"' "$file" && echo "✅ twitter:image OK" >> $LAPORAN || echo "❌ twitter:image MISSING" >> $LAPORAN
+            grep -q '<meta name="twitter:description"' "$file" && echo "✅ twitter:description OK" >> $LAPORAN || echo "❌ twitter:description MISSING" >> $LAPORAN
+            grep -q '<link rel="canonical"' "$file" && echo "✅ Canonical URL OK" >> $LAPORAN || echo "❌ Canonical URL MISSING" >> $LAPORAN
+
+            # Struktur Umum
+            grep -q '<title>' "$file" && echo "✅ <title> OK" >> $LAPORAN || echo "❌ <title> MISSING" >> $LAPORAN
+            grep -q '<html lang=' "$file" && echo "✅ <html lang> OK" >> $LAPORAN || echo "❌ <html lang> MISSING" >> $LAPORAN
+            grep -q '<meta charset=' "$file" && echo "✅ <meta charset> OK" >> $LAPORAN || echo "❌ <meta charset> MISSING" >> $LAPORAN
+            grep -q '<head>' "$file" && echo "✅ <head> OK" >> $LAPORAN || echo "❌ <head> MISSING" >> $LAPORAN
+            grep -q '<body>' "$file" && echo "✅ <body> OK" >> $LAPORAN || echo "❌ <body> MISSING" >> $LAPORAN
+
+            # Struktur Heading
+            H1_COUNT=$(grep -o '<h1>' "$file" | wc -l)
+            if [ "$H1_COUNT" -eq 1 ]; then
+              echo "✅ Satu <h1> ditemukan" >> $LAPORAN
+            elif [ "$H1_COUNT" -gt 1 ]; then
+              echo "⚠️ Duplikat <h1> ditemukan ($H1_COUNT)" >> $LAPORAN
+            else
+              echo "❌ <h1> tidak ditemukan" >> $LAPORAN
+            fi
+
+            # Urutan heading
+            HEADINGS=$(grep -o '<h[1-6]>' "$file" | sed 's/<h\([1-6]\)>/\1/' | paste -sd " " -)
+            echo "📊 Urutan heading: $HEADINGS" >> $LAPORAN
+
+            echo "----------------------------------------" >> $LAPORAN
+          done
+
+      - name: Linting HTML
+        run: |
+          TANGGAL=$(date +%Y%m%d)
+          LAPORAN="mini/laporan-validasi-$TANGGAL.txt"
+          echo "🧼 Linting HTML dengan HTMLHint..." >> $LAPORAN
+          htmlhint "**/*.html" >> $LAPORAN || echo "⚠️ Ada peringatan dari HTMLHint." >> $LAPORAN
+          echo "✅ Linting selesai." >> $LAPORAN
