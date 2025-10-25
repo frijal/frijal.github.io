@@ -21,9 +21,6 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install HTMLHint
-        run: npm install -g htmlhint
-
       - name: Buat folder mini/
         run: mkdir -p mini
 
