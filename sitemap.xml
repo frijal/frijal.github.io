@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap/image/1.1 http://www.google.com/schemas/sitemap/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://frijal.pages.dev/artikel/recursive-http-album-viewer-json.html</loc>
+    <lastmod>2025-10-25T13:28:45.354+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://frijal.pages.dev/img/recursive-http-album-viewer-json.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://frijal.pages.dev/artikel/matikan-ai-firefox.html</loc>
+    <lastmod>2025-10-25T13:28:45.342+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjijjQF89t7cD2TV-622C7jFkeu2nv5YElBfUpvnlvGbRUXJKKbaOKK3Z4cwMt1gmeTcUoRhp4rEKH1wZR2jhpdnCtmUun1SE8576771QFOrVySF55AsVTuABrk21iStU5FR_j_Qhb65qDCW-KmFwm4GVdi33QZhXaueb2mHigCCr0ldAyH8yAr98RsUZ4/s1600/5687360.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://frijal.pages.dev/artikel/auto-upgrade-all-npm-packages.html</loc>
+    <lastmod>2025-10-25T13:28:45.315+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://frijal.pages.dev/img/auto-upgrade-all-npm-packages.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://frijal.pages.dev/artikel/album-thumbnail-json-generator.html</loc>
+    <lastmod>2025-10-25T13:28:45.311+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://frijal.pages.dev/img/album-thumbnail-json-generator.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://frijal.pages.dev/artikel/pengaturan-posisi-json.html</loc>
     <lastmod>2025-10-25T05:51:04.761+00:00</lastmod>
     <priority>0.6</priority>
@@ -952,6 +988,15 @@
     <changefreq>monthly</changefreq>
     <image:image>
       <image:loc>https://img.youtube.com/vi/1QW72jFLkis/hqdefault.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://frijal.pages.dev/artikel/history-of-linux-project.html</loc>
+    <lastmod>2025-10-25T13:28:45.332+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhksg7KmVc58-RjdFbQm-BBT_PO4ucCLx_sVRaESJqgCNZHSiFYELV53qvM9pQuHKduRssKTTX5paPoD9_WLEBR01Qv5yPJssrnpnwHRVJshFWCSqYof7rYlPILi6bp5P_Va6lW1linK2cDlU7pxoMwLMZWoee4H2FHnDY3jVXz-DXfuCg6zxZHxzooRh4/s320/linux-history.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -2368,6 +2413,33 @@
     </image:image>
   </url>
   <url>
+    <loc>https://frijal.pages.dev/artikel/whoosh-vs-saudi-land-bridge.html</loc>
+    <lastmod>2025-10-25T13:28:45.362+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://frijal.pages.dev/img/whoosh-vs-saudi-land-bridge.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://frijal.pages.dev/artikel/saudi-whoosh-kereta-cepat.html</loc>
+    <lastmod>2025-10-25T13:28:45.356+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://frijal.pages.dev/img/saudi-whoosh-kereta-cepat.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://frijal.pages.dev/artikel/recursive-image-album-viewer.html</loc>
+    <lastmod>2025-10-25T13:28:45.354+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://frijal.pages.dev/img/recursive-image-album-viewer.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://frijal.pages.dev/artikel/marie-muhammad-mr-clean.html</loc>
     <lastmod>2025-10-25T05:51:04.752+00:00</lastmod>
     <priority>0.6</priority>
@@ -2509,6 +2581,15 @@
     <changefreq>monthly</changefreq>
     <image:image>
       <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMHz0gnXIjqKR6RAKHzI8Ms1ftSYMwWgo6m1dRSpPfv4XeXoDC0nS8bRXpvPEwg-mlUGbUi7TMOObAG36VJpPVYrEhMhKzpt3OX32cMMfL-EfcPu5D_YNhBQyQp9LPB8HBa5olZOElHtHDpCPJrKaaFuThU3pkx13FfBEfsvE4Ck7V37JfO0Esw0tpeI0/s1024/Gemini_Generated_Image_5xj3u75xj3u75xj3.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://frijal.pages.dev/artikel/apa-itu-tajdid.html</loc>
+    <lastmod>2025-10-25T13:28:45.312+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEioxcx11fwWs0hp42CqU3ZstSufbEFE-57QqR_A2Tkz0N0SCgwHI89OXbpfkUOpzf4BSUywuoQaGYEU4h3OtmNUdvf9CUJWwG4I2ra4m65KrV5zU0laJsfYVlsa2aoENH4ZAK41l6ufLwzhZRKgIMQu12qk1Zwg7u6IvXcJwsOSxKtktjicii05l3kDpSU/s1600/hasil_horizontal_0.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -3535,6 +3616,15 @@
     <changefreq>monthly</changefreq>
     <image:image>
       <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh-mjzkKPNidknfqZPUIUU1Arvp5aUgQqC8cBGb8jEa6MhfbRzLxCCvjHkP-ihHcpjU6LD7RnsjU6kUiZoRopc_BVFDp9oGuJzmb7FPzs9YwRHpKPnwmQFhiVlBnAQzNlJsHo7RuS_artTEHiaAXrRbzJGm6h_8qhPWUadG4toidZPt5QpDiZG-omlIbVg/s1600/belajar.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://frijal.pages.dev/artikel/membuat-album-json.html</loc>
+    <lastmod>2025-10-25T13:28:45.344+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://frijal.pages.dev/thumbnail.webp</image:loc>
     </image:image>
   </url>
   <url>
