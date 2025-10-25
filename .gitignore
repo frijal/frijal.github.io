@@ -1,44 +1,57 @@
-# ┌─────────────────────────────┐
-# │  DEPENDENCIES & BUILD       │
-# └─────────────────────────────┘
-node_modules/
-
-# ┌─────────────────────────────┐
-# │  SYSTEM & IDE ARTIFACTS     │
-# └─────────────────────────────┘
-.DS_Store
-Thumbs.db
-.vscode/
-.idea/
-
-# ┌─────────────────────────────┐
-# │  ENV & CONFIG FILES         │
-# └─────────────────────────────┘
-.env
-*.log
-*.local.json
-*.config.js
-
-# ┌─────────────────────────────┐
-# │  SVG ORNAMENTATION          │
-# └─────────────────────────────┘
-ornament-*.svg
-pattern-*.svg
-grid-*.svg
-
-# ┌─────────────────────────────┐
-# │  INTERACTIVE HTML PAGES     │
-# └─────────────────────────────┘
 *.bak.html
-*.draft.html
-*.preview.html
-*.snapshot.html
-
-# Abaikan folder hasil build
-/dist
 /build
-
-# Abaikan file log
+build/
+.cache/
+*.config.js
+coverage/
+/dist
+dist/
+*.draft.html
+.DS_Store
+.env
+.env.*.local
+.env.local
+.env.production
+.env.test
+grid-*.svg
+.idea/
+*.lcov
+lerna-debug.log*
+*.local.json
+*.log
+.next/
+node_modules/
+.npm/
+.npm-cache/
 npm-debug.log
+npm-debug.log*
+.nyc_output/
+ornament-*.svg
+out/
+pattern-*.svg
+*.pid
+*.pid.lock
+pids
+.pnp.*
+.pnp.js
+.pnpm-debug.log*
+pnpm-lock.yaml
+*.preview.html
+*.seed
+*.snapshot.html
+*.swm
+*.swn
+*.swo
+*.swp
+temp/
+Thumbs.db
+.tmp/
+tmp/
+.vscode/
+.yarn-cache/
+yarn-debug.log*
 yarn-error.log
-
+yarn-error.log*
+.yarn-integrity
+# yarn.lock
+.yarnrc.yml
