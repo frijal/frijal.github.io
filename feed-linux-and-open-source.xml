@@ -6,7 +6,7 @@
     <description><![CDATA[Feed artikel terbaru untuk kategori 🐧 Linux & Open Source]]></description>
     <language>id-ID</language>
     <atom:link href="https://frijal.pages.dev/feed-linux-and-open-source.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Sat, 25 Oct 2025 13:29:04 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 25 Oct 2025 20:12:34 GMT</lastBuildDate>
     <item>
       <title><![CDATA[History of Linux Project (HOLP) – Sejarah Kernel Linux dari Awal Sampai Sekarang]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/history-of-linux-project.html]]></link>
@@ -15,15 +15,6 @@
       <description><![CDATA[Story behind how the Linux kernel was born, berkembang, hingga jadi open-source utama dunia, lengkap dengan timeline dan cara berkontribusi!]]></description>
       <category><![CDATA[🐧 Linux & Open Source]]></category>
 <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhksg7KmVc58-RjdFbQm-BBT_PO4ucCLx_sVRaESJqgCNZHSiFYELV53qvM9pQuHKduRssKTTX5paPoD9_WLEBR01Qv5yPJssrnpnwHRVJshFWCSqYof7rYlPILi6bp5P_Va6lW1linK2cDlU7pxoMwLMZWoee4H2FHnDY3jVXz-DXfuCg6zxZHxzooRh4/s320/linux-history.webp" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Otomatis "Ping" Search Engine via GitHub Actions | f-Page]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/github-actions-ping-search-engine.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/github-actions-ping-search-engine.html]]></guid>
-      <pubDate>Thu, 23 Oct 2025 07:03:49 GMT</pubDate>
-      <description><![CDATA[Cara otomatis memberitahu Google dan Bing setiap kali website Anda di-update menggunakan]]></description>
-      <category><![CDATA[🐧 Linux & Open Source]]></category>
-<enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzuIOkm1EycgtACwmwIz97Q7EzyPD50mHfDS9Qy7DYFeLmMPRquYpeZ9xUt_aXM9hXwFzv1A5X7J904mWE1oIOyLT7HcftzfOFTNxmm7eHU9MCbLwDkQrEbyFrq_AYC9vsfmR2yxxkQ6ORLgwLJT-ZyFefizcEeV-vvkzrOKeyyOO1qelsgPxfY_olHuQ/s1600/Screenshot%20From%202025-10-23%2013-57-37.png" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[Sosialisasi Open Source Software di Kutai Kartanegara | Kementerian Riset dan Teknologi]]></title>

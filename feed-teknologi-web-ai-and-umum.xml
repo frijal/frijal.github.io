@@ -6,7 +6,7 @@
     <description><![CDATA[Feed artikel terbaru untuk kategori 🖥️ Teknologi Web, AI & Umum]]></description>
     <language>id-ID</language>
     <atom:link href="https://frijal.pages.dev/feed-teknologi-web-ai-and-umum.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Sat, 25 Oct 2025 13:29:04 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 25 Oct 2025 20:12:34 GMT</lastBuildDate>
     <item>
       <title><![CDATA[Recursive HTTP Album Viewer (via JSON)]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/recursive-http-album-viewer-json.html]]></link>
@@ -87,6 +87,15 @@
       <description><![CDATA[Panduan lengkap membuat workflow GitHub Actions untuk otomatis]]></description>
       <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
 <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4lNIxMWMP__ww0ZixJ1USQo3JZxk__3Jfjf0CjIC3gV-zKgmFIRM8qUFiMQ4m2CO3DJ-iXqS7ePKv7Sv96NxsMz1Hv-oNxGrvw8Zo6R9kLEjpKKbw2V3YOwEkKhKz1nwRNG5BCOouq6GN1P7QTEzwpJo4rY0F5Y4oDLKgkilDoiQwIBVYOSfvh2YP90U/s1600/Screenshot%20From%202025-10-23%2014-08-19.png" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Otomatis "Ping" Search Engine via GitHub Actions | f-Page]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/github-actions-ping-search-engine.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/github-actions-ping-search-engine.html]]></guid>
+      <pubDate>Thu, 23 Oct 2025 07:03:49 GMT</pubDate>
+      <description><![CDATA[Cara otomatis memberitahu Google dan Bing setiap kali website Anda di-update menggunakan]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+<enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzuIOkm1EycgtACwmwIz97Q7EzyPD50mHfDS9Qy7DYFeLmMPRquYpeZ9xUt_aXM9hXwFzv1A5X7J904mWE1oIOyLT7HcftzfOFTNxmm7eHU9MCbLwDkQrEbyFrq_AYC9vsfmR2yxxkQ6ORLgwLJT-ZyFefizcEeV-vvkzrOKeyyOO1qelsgPxfY_olHuQ/s1600/Screenshot%20From%202025-10-23%2013-57-37.png" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[Deploy Checklist — Panduan Sebelum Mengirim ke Github dan Cloudflare Pages ✅]]></title>
