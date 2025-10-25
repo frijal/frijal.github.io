@@ -1,12 +1,12 @@
 name: ⚠️ Copy ke Branch Site Cloudflare
 
 on:
+  schedule:
+    - cron: '0 17 * * *'
   push:
     branches:
       - main
     # ⬇️ Tambahkan filter paths di sini
-  schedule:
-  - cron: '0 11 * * *'
     paths:
       - 'artikel.json'      # File spesifik di root
       - '_redirects'        # File spesifik di root
