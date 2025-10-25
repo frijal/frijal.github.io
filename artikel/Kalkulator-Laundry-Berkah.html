@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kalkulator Laundry Berkah</title>
 
-  <meta name="description" content="Hitung biaya laundry kiloan atau satuan dengan cepat dan akurat. Kalkulator Laundry Berkah mempermudah manajemen pesanan dan memberikan total harga secara instan.">
-  <meta name="keywords" content="kalkulator laundry, harga laundry kiloan, laundry satuan, manajemen laundry, aplikasi kasir laundry, berkah laundry, hitung biaya laundry">
-  <meta name="author" content="Berkah Laundry">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://frijal.pages.dev/artikel/Kalkulator-Laundry-Berkah.html">
+  <meta name="description" content="Hitung biaya laundry kiloan atau satuan dengan cepat dan akurat. Kalkulator Laundry Berkah mempermudah manajemen pesanan dan memberikan total harga secara instan." />
+  <meta name="keywords" content="kalkulator laundry, harga laundry kiloan, laundry satuan, manajemen laundry, aplikasi kasir laundry, berkah laundry, hitung biaya laundry" />
+  <meta name="author" content="Berkah Laundry" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://frijal.pages.dev/artikel/Kalkulator-Laundry-Berkah.html" />
 
-  <meta property="og:title" content="Kalkulator Laundry Berkah - Hitung Cepat & Akurat">
-  <meta property="og:description" content="Hitung biaya laundry kiloan atau satuan dengan cepat dan akurat. Kalkulator Laundry Berkah mempermudah manajemen pesanan dan memberikan total harga secara instan.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://frijal.pages.dev/artikel/Kalkulator-Laundry-Berkah.html">
-  <meta property="og:image" content="https://frijal.pages.dev/img/Kalkulator-Laundry-Berkah.webp">
-  <meta property="og:image:alt" content="Tampilan antarmuka Kalkulator Laundry Berkah">
-  <meta property="og:site_name" content="Kalkulator Laundry Berkah">
+  <meta property="og:title" content="Kalkulator Laundry Berkah - Hitung Cepat & Akurat" />
+  <meta property="og:description" content="Hitung biaya laundry kiloan atau satuan dengan cepat dan akurat. Kalkulator Laundry Berkah mempermudah manajemen pesanan dan memberikan total harga secara instan." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://frijal.pages.dev/artikel/Kalkulator-Laundry-Berkah.html" />
+  <meta property="og:image" content="https://frijal.pages.dev/img/Kalkulator-Laundry-Berkah.webp" />
+  <meta property="og:image:alt" content="Tampilan antarmuka Kalkulator Laundry Berkah" />
+  <meta property="og:site_name" content="Kalkulator Laundry Berkah" />
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Kalkulator Laundry Berkah - Hitung Cepat & Akurat">
-  <meta name="twitter:description" content="Hitung biaya laundry kiloan atau satuan dengan cepat dan akurat. Kalkulator Laundry Berkah mempermudah manajemen pesanan dan memberikan total harga secara instan.">
-  <meta name="twitter:image" content="https://frijal.pages.dev/img/Kalkulator-Laundry-Berkah.webp">
-  <meta name="twitter:image:alt" content="Tampilan antarmuka Kalkulator Laundry Berkah">
-  <meta name="twitter:site" content="@frijal">
-  <meta name="twitter:creator" content="@frijal">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <meta name="theme-color" content="#3498db">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kalkulator Laundry Berkah - Hitung Cepat & Akurat" />
+  <meta name="twitter:description" content="Hitung biaya laundry kiloan atau satuan dengan cepat dan akurat. Kalkulator Laundry Berkah mempermudah manajemen pesanan dan memberikan total harga secara instan." />
+  <meta name="twitter:image" content="https://frijal.pages.dev/img/Kalkulator-Laundry-Berkah.webp" />
+  <meta name="twitter:image:alt" content="Tampilan antarmuka Kalkulator Laundry Berkah" />
+  <meta name="twitter:site" content="@frijal" />
+  <meta name="twitter:creator" content="@frijal" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <meta name="theme-color" content="#3498db" />
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
   <style>
@@ -88,9 +88,9 @@
   <h2>Kalkulator Laundry Berkah 🧾</h2>
   <div class="konsumen-box">
     <label for="namaKonsumen">Nama Konsumen:</label>
-    <input type="text" id="namaKonsumen" placeholder="siapa nama konsumen?" required>
+    <input type="text" id="namaKonsumen" placeholder="siapa nama konsumen?" required />
   </div>
-  <label><input type="checkbox" id="toggleDiskon" onchange="toggleKolomDiskon()"> Gunakan Diskon</label>
+  <label><input type="checkbox" id="toggleDiskon" onchange="toggleKolomDiskon()" /> Gunakan Diskon</label>
   <table id="tabel-belanja">
     <thead>
       <tr id="header-row">
@@ -155,8 +155,8 @@ function tambahBaris(data = {}) {
   tr.innerHTML = `
     <td>${nomor}</td>
     <td><input type="text" value="${data.nama || ''}" placeholder="Nama Barang" required></td>
-    <td><input type="text" class="jumlah" value="${data.jumlah || ''}" placeholder="Berat, Kilogram" required></td>
-    <td><input type="text" class="harga" value="${data.harga || ''}" placeholder="Harga" required></td>
+    <td><input type="text" inputmode="decimal" class="jumlah" value="${data.jumlah || ''}" placeholder="Berat, Kilogram" required></td>
+    <td><input type="text" inputmode="decimal" class="harga" value="${data.harga || ''}" placeholder="Harga" required></td>
     <td class="kolom-diskon"><input type="text" class="diskon" value="${data.diskon || ''}" placeholder="Diskon (%)"></td>
     <td>Rp <output class="subtotal">${data.subtotal || '0'}</output></td>
     <td><button onclick="hapusBaris(this)">❌</button></td>`;
@@ -180,10 +180,34 @@ function updateNomor() {
 
 function tambahEventListener() {
   document.querySelectorAll(".harga, .jumlah, .diskon").forEach(el => {
+    el.setAttribute("inputmode", "decimal"); // agar keyboard angka muncul di mobile
+
+    el.addEventListener("keydown", e => {
+      // Daftar tombol yang diperbolehkan
+      const allowedKeys = [
+        "Backspace", "Tab", "Enter", "Delete", "ArrowLeft", "ArrowRight", "Home", "End",
+        ".", ","
+      ];
+      // Jika bukan angka dan bukan tombol diperbolehkan, prevent input
+      if (
+        !allowedKeys.includes(e.key) &&
+        !(e.key >= "0" && e.key <= "9")
+      ) {
+        e.preventDefault();
+      }
+      // Cegah lebih dari satu koma/titik
+      if ((e.key === "." || e.key === ",") && (el.value.includes(".") || el.value.includes(","))) {
+        e.preventDefault();
+      }
+    });
+
     el.addEventListener("input", e => {
+      // Hanya biarkan angka, titik, dan koma
+      e.target.value = e.target.value.replace(/[^0-9.,]/g, "");
       formatRealtime(e.target);
       hitungTotal();
     });
+
     el.addEventListener("blur", () => formatRealtime(el));
   });
 }
@@ -318,6 +342,5 @@ function resetForm() {
 
 window.addEventListener("load", muatDariLocalStorage);
 </script>
-
 </body>
 </html>
