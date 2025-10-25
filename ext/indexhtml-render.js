@@ -40,9 +40,6 @@ export function createQuickNav(categories) {
       const { icon } = getIconAndClass(categoryName);
       return { name: categoryName, icon, url: `#${categoryToId(categoryName)}` };
     }),
-    { name: 'Daftar Isi', icon: '⛔', url: 'sitemap.html' },
-    { name: 'RSS Feed', icon: '📡', url: 'feed.html' },
-    { name: 'Cover Artikel', icon: '❌', url: 'img.html' },
     { name: 'Ke Atas', icon: '⚠️', url: '#top' },
   ];
 
