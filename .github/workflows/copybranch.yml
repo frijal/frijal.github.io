@@ -1,11 +1,11 @@
 name: ⚠️ Copy ke Branch Site Cloudflare
 
-on:
-  schedule:
-    - cron: '0 17 * * *'
+on:  
   push:
     branches:
       - main
+schedule:
+  - cron: '0 17 * * *'
     # ⬇️ Tambahkan filter paths di sini
     paths:
       - 'artikel.json'      # File spesifik di root
