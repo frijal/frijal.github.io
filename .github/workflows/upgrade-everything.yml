@@ -1,4 +1,4 @@
-name: Auto-Upgrade (Minor/Patch) for NPM
+name: 😉 Upgrade (Minor/Patch) for NPM
 on:
   workflow_dispatch:
   schedule:
