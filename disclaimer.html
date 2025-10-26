@@ -27,13 +27,147 @@
     <meta name="twitter:image" content="https://frijal.pages.dev/thumbnail.webp"> 
     <meta name="twitter:image:alt" content="Disclaimer">
     <meta name="robots" content="noindex, follow">
-    </head>
-<body>
-  <div id="header-placeholder"></div>
+  <style>
+    /* Reset dan dasar */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<script src="https://gist.github.com/frijal/9905b28a592b40a18c54878410058c93.js"></script>
-    </main>
-</script><script defer src="ext/header.js"></script>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      transition: background 0.3s, color 0.3s;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      width: 100%;
+      background-color: #ffffff;
+      border-bottom: 1px solid #ddd;
+      padding: 15px 20px;
+    }
+
+    header .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+    }
+
+    header nav {
+      display: flex;
+      gap: 15px;
+    }
+
+    header nav a {
+      text-decoration: none;
+      color: #007BFF;
+      font-weight: 500;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    details {
+      margin-top: 1em;
+    }
+
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 0.5em;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1em;
+    }
+
+    th, td {
+      padding: 8px;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+    }
+
+    /* Dark mode auto detect */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #121212;
+        color: #e0e0e0;
+      }
+
+      header {
+        background-color: #1e1e1e;
+        border-bottom: 1px solid #444;
+      }
+
+      header h1 {
+        color: #ffffff;
+      }
+
+      header nav a {
+        color: #90caf9;
+      }
+
+      main {
+        background-color: #1e1e1e;
+        box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+      }
+
+      th, td {
+        border-color: #444;
+      }
+    }
+
+    /* Responsif untuk mobile */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+
+      main {
+        padding: 15px;
+        border-radius: 8px;
+      }
+
+      header .container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      header nav {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+        <div id="header-placeholder"></div>
+  </header>
+  <main>
+   <script src="https://gist.github.com/frijal/9905b28a592b40a18c54878410058c93.js"></script>
+  </main>
+  <script defer src="ext/header.js"></script>
 </body>
 </html>
 
