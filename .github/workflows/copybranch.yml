@@ -3,9 +3,7 @@ name: ⚠️ Copy ke Branch Site Cloudflare
 on:  
   push:
     branches:
-      - main
-schedule:
-  - cron: '0 17 * * *'
+      - main  
     # ⬇️ Tambahkan filter paths di sini
     paths:
       - 'artikel.json'      # File spesifik di root
