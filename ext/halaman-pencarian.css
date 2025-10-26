@@ -40,6 +40,7 @@ body {
 
 main {
     flex-grow: 1; /* Membuat konten utama mengisi sisa ruang */
+    min-width: 0;
 }
 
 /* 4. Komponen UI */
