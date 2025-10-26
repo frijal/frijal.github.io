@@ -1,7 +1,13 @@
-/* File ini berisi SEMUA CSS yang dibutuhkan oleh header.html
+/* =====================================
+  STYLE HEADER (Mandiri / Plug-and-Play)
+  =====================================
+  Dibuat agar 100% aman dari konflik:
+  1. Variabel CSS menggunakan bahasa Indonesia (--warna-...).
+  2. Nama Class CSS menggunakan bahasa Indonesia (.area-header-...).
+  3. TIDAK ADA global reset (* {...}).
 */
 
-/* Variabel Warna (Root) */
+/* Variabel Warna Khusus Header */
 :root {
   --warna-latar: #121212;
   --warna-latar-transparan: rgba(18, 18, 18, 0.85);
@@ -27,21 +33,33 @@
 }
 
 /* =====================================
-  CSS INTI UNTUK HEADER
-  Semua class di bawah ini sudah unik 
-  dan tidak akan bentrok.
+  PERUBAHAN PENTING ADA DI SINI:
   =====================================
+  Skrip header.js akan menambahkan class ini 
+  ke tag <body> secara otomatis.
+  Ini untuk memberi ruang bagi header fixed Anda.
+*/
+body.header-dimuat {
+  /* DIUBAH: Konten Anda mungkin akan tertutup oleh header */
+  padding-top: 1rem;
+}
+
+/* =====================================
+   CSS INTI UNTUK HEADER
+   =====================================
 */
 .area-header-atas {
+  /* Menggunakan transparan (sesuai permintaan sebelumnya) */
   background-color: transparent;
   border-bottom: none;
+  box-shadow: none;
+
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
   z-index: 50;
-  box-shadow: none;
 }
 
 .area-header-pembungkus {
@@ -57,15 +75,13 @@
 
 .area-header-baris-bawah {
   display: flex;
+  /* Diubah ke center agar kotak pencarian di tengah (karena <h1> dihapus) */
   justify-content: center;
   align-items: center;
   width: 100%;
   gap: 1rem;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Agar rapi di mobile */
 }
-
-/* ... (semua style header lainnya seperti .area-header-kiri, .area-pencarian, dll) ... */
-/* Saya singkat agar tidak terlalu panjang, tapi semua style lama Anda tetap ada di sini */
 
 .area-header-kiri {
   display: flex;
@@ -73,18 +89,22 @@
   gap: 1rem;
   min-width: 0;
 }
+
+/* Style untuk <h1> (jika ada) */
 .area-header-atas h1 {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
   color: var(--warna-aksen);
-  font-size: 1.25rem;
+  font-size: 1.25rem; /* Lebih kecil agar pas di header */
   margin: 0;
   font-weight: 600;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* Style untuk Tautan RSS (jika ada) */
 .area-header-atas .tautan-rss {
   color: var(--warna-aksen);
   text-decoration: none;
@@ -96,14 +116,18 @@
 .area-header-atas .tautan-rss:hover {
   color: orange;
 }
+
 .logo-pembungkus {
-  display: none;
+  display: none; /* Sembunyi di mobile */
   align-items: center;
 }
+
 .logo-gambar {
   height: 1.5rem;
   width: auto;
 }
+
+/* Memastikan link logo tidak berwarna biru/ungu */
 .logo-pembungkus a,
 .logo-pembungkus a:link,
 .logo-pembungkus a:visited,
@@ -115,12 +139,15 @@
   display: inline-block;
   line-height: 1;
 }
+
+/* --- CSS UNTUK PENCARIAN --- */
 .area-pencarian {
   position: relative;
   width: 100%;
   max-width: 350px;
   min-width: 0;
 }
+
 .input-pencarian {
   font-family: 'Poppins', sans-serif;
   width: 100%;
@@ -128,10 +155,12 @@
   border: 1px solid var(--warna-garis);
   border-radius: 8px;
   font-size: 0.9rem;
+  /* Ganti ke warna permukaan jika ingin kontras dengan latar transparan */
   background-color: var(--warna-permukaan);
   color: var(--warna-teks-utama);
   transition: border-color 0.2s, box-shadow 0.2s;
 }
+
 .input-pencarian::placeholder {
   color: var(--warna-teks-sekunder);
 }
@@ -141,35 +170,28 @@
   border-color: var(--warna-aksen);
   box-shadow: 0 0 0 2px var(--warna-aksen);
 }
+
 .ikon-pencarian {
   position: absolute;
   top: 50%;
   left: 0.75rem;
   transform: translateY(-50%);
-  color: var(--secondary-text-color);
+  color: var(--warna-teks-sekunder);
   font-size: 1rem;
   pointer-events: none;
 }
+
+/* --- Media Query untuk Responsif --- */
 @media (min-width: 640px) {
   .logo-pembungkus {
     display: flex;
     align-items: center;
     margin-bottom: 0.5rem;
   }
-  .area-header-atas h1 {
-    font-size: 1.75rem;
-  }
-}
 
-/* =====================================
-  PERUBAHAN PENTING ADA DI SINI:
-  =====================================
-  Skrip header.js akan menambahkan class ini 
-  ke tag <body> secara otomatis.
-  Ini untuk memberi ruang bagi header fixed Anda.
-*/
-body.header-dimuat {
-  padding-top: 8rem;
+  .area-header-atas h1 {
+    font-size: 1.75rem; /* Kembalikan ukuran di desktop */
+  }
 }
 
 
