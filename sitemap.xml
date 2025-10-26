@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap/image/1.1 http://www.google.com/schemas/sitemap/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://frijal.pages.dev/artikel/recursive-http-album-viewer-json.html</loc>
+    <lastmod>2025-10-25T13:28:45.354+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://frijal.pages.dev/img/recursive-http-album-viewer-json.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://frijal.pages.dev/artikel/matikan-ai-firefox.html</loc>
+    <lastmod>2025-10-25T13:28:45.342+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjijjQF89t7cD2TV-622C7jFkeu2nv5YElBfUpvnlvGbRUXJKKbaOKK3Z4cwMt1gmeTcUoRhp4rEKH1wZR2jhpdnCtmUun1SE8576771QFOrVySF55AsVTuABrk21iStU5FR_j_Qhb65qDCW-KmFwm4GVdi33QZhXaueb2mHigCCr0ldAyH8yAr98RsUZ4/s1600/5687360.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://frijal.pages.dev/artikel/auto-upgrade-all-npm-packages.html</loc>
+    <lastmod>2025-10-25T13:28:45.315+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://frijal.pages.dev/img/auto-upgrade-all-npm-packages.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://frijal.pages.dev/artikel/album-thumbnail-json-generator.html</loc>
+    <lastmod>2025-10-25T13:28:45.311+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://frijal.pages.dev/img/album-thumbnail-json-generator.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://frijal.pages.dev/artikel/pengaturan-posisi-json.html</loc>
     <lastmod>2025-10-25T05:51:04.761+00:00</lastmod>
     <priority>0.6</priority>
@@ -16,42 +52,6 @@
     <changefreq>monthly</changefreq>
     <image:image>
       <image:loc>https://frijal.pages.dev/img/bikin-edit-json-komposisi-kategori-elemen.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://frijal.pages.dev/artikel/recursive-http-album-viewer-json.html</loc>
-    <lastmod>2025-10-25T13:28:45.354+08:00</lastmod>
-    <priority>0.6</priority>
-    <changefreq>monthly</changefreq>
-    <image:image>
-      <image:loc>https://frijal.pages.dev/img/recursive-http-album-viewer-json.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://frijal.pages.dev/artikel/matikan-ai-firefox.html</loc>
-    <lastmod>2025-10-25T13:28:45.342+08:00</lastmod>
-    <priority>0.6</priority>
-    <changefreq>monthly</changefreq>
-    <image:image>
-      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjijjQF89t7cD2TV-622C7jFkeu2nv5YElBfUpvnlvGbRUXJKKbaOKK3Z4cwMt1gmeTcUoRhp4rEKH1wZR2jhpdnCtmUun1SE8576771QFOrVySF55AsVTuABrk21iStU5FR_j_Qhb65qDCW-KmFwm4GVdi33QZhXaueb2mHigCCr0ldAyH8yAr98RsUZ4/s1600/5687360.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://frijal.pages.dev/artikel/auto-upgrade-all-npm-packages.html</loc>
-    <lastmod>2025-10-25T13:28:45.315+08:00</lastmod>
-    <priority>0.6</priority>
-    <changefreq>monthly</changefreq>
-    <image:image>
-      <image:loc>https://frijal.pages.dev/img/auto-upgrade-all-npm-packages.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://frijal.pages.dev/artikel/album-thumbnail-json-generator.html</loc>
-    <lastmod>2025-10-25T13:28:45.311+08:00</lastmod>
-    <priority>0.6</priority>
-    <changefreq>monthly</changefreq>
-    <image:image>
-      <image:loc>https://frijal.pages.dev/img/album-thumbnail-json-generator.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -1334,7 +1334,7 @@
   </url>
   <url>
     <loc>https://frijal.pages.dev/artikel/apa-itu-tajdid.html</loc>
-    <lastmod>2025-10-25T13:28:45.312+08:00</lastmod>
+    <lastmod>2025-10-25T13:28:45.312+00:00</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
     <image:image>
@@ -2369,7 +2369,7 @@
   </url>
   <url>
     <loc>https://frijal.pages.dev/artikel/whoosh-vs-saudi-land-bridge.html</loc>
-    <lastmod>2025-10-25T13:28:45.362+08:00</lastmod>
+    <lastmod>2025-10-25T13:28:45.362+00:00</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
     <image:image>
@@ -2378,7 +2378,7 @@
   </url>
   <url>
     <loc>https://frijal.pages.dev/artikel/saudi-whoosh-kereta-cepat.html</loc>
-    <lastmod>2025-10-25T13:28:45.356+08:00</lastmod>
+    <lastmod>2025-10-25T13:28:45.356+00:00</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
     <image:image>
@@ -2387,7 +2387,7 @@
   </url>
   <url>
     <loc>https://frijal.pages.dev/artikel/recursive-image-album-viewer.html</loc>
-    <lastmod>2025-10-25T13:28:45.354+08:00</lastmod>
+    <lastmod>2025-10-25T13:28:45.354+00:00</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
     <image:image>
@@ -2531,7 +2531,7 @@
   </url>
   <url>
     <loc>https://frijal.pages.dev/artikel/membuat-album-json.html</loc>
-    <lastmod>2025-10-25T13:28:45.344+08:00</lastmod>
+    <lastmod>2025-10-25T13:28:45.344+00:00</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
     <image:image>
@@ -2990,7 +2990,7 @@
   </url>
   <url>
     <loc>https://frijal.pages.dev/artikel/history-of-linux-project.html</loc>
-    <lastmod>2025-10-25T13:28:45.332+08:00</lastmod>
+    <lastmod>2025-10-25T13:28:45.332+00:00</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
     <image:image>
