@@ -45,13 +45,13 @@ injectLink(
 
 // 4. Muat file header.css Anda
 //    Pastikan file ini ada di folder yang sama!
-injectLink('etc/header.css', 'stylesheet');
+injectLink('ext/header.css', 'stylesheet');
 
 // --- BAGIAN 2: INJEKSI HTML & CLASS BODY ---
 // (Ini menunggu DOM siap)
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Ambil file header.html
-  fetch('etc/header.html')
+  fetch('ext/header.html')
     .then((response) => {
       if (!response.ok) {
         // Jika file tidak ditemukan (error 404) atau error server
