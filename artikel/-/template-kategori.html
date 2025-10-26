@@ -182,7 +182,8 @@
 
       .header-search {
         position: relative;
-        flex-shrink: 0; /* Mencegah form menyusut */
+	flex-grow: 1;       /* DITAMBAHKAN: Ini membuat elemen mengisi sisa ruang */
+        min-width: 0;       /* DITAMBAHKAN: Ini memungkinkan penyusutan yang aman */
       }
 
       .search-input {
