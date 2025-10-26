@@ -1,6 +1,34 @@
 {
   "🖥️ Teknologi Web, AI & Umum": [
       [
+      "Recursive HTTP Album Viewer (via JSON)",
+      "recursive-http-album-viewer-json.html",
+      "https://frijal.pages.dev/img/recursive-http-album-viewer-json.webp",
+      "2025-10-25T13:28:45.354+00:00",
+      "Recursive HTTP Album Viewer (via JSON) memungkinkan penjelajahan album gambar langsung dari server HTTP dengan data JSON. Mendukung navigasi folder, thumbnail, dan tampilan responsif."
+    ],
+      [
+      "Matikan Fitur AI Chat di Browser Firefox! Begini Caranya yang Gampang & Santai 🍥",
+      "matikan-ai-firefox.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjijjQF89t7cD2TV-622C7jFkeu2nv5YElBfUpvnlvGbRUXJKKbaOKK3Z4cwMt1gmeTcUoRhp4rEKH1wZR2jhpdnCtmUun1SE8576771QFOrVySF55AsVTuABrk21iStU5FR_j_Qhb65qDCW-KmFwm4GVdi33QZhXaueb2mHigCCr0ldAyH8yAr98RsUZ4/s1600/5687360.webp",
+      "2025-10-25T13:28:45.342+00:00",
+      "Bosan dengan fitur AI di Firefox? Gini caranya disable AI chat yang bikin browser jadi makin berat. Tanpa ribet langsung beres!"
+    ],
+      [
+      "Auto-Upgrade All NPM Packages — Workflow GitHub Actions (Analisis, perbaikan, dan template)",
+      "auto-upgrade-all-npm-packages.html",
+      "https://frijal.pages.dev/img/auto-upgrade-all-npm-packages.webp",
+      "2025-10-25T13:28:45.315+00:00",
+      "Analisis lengkap workflow GitHub Actions untuk meng-upgrade semua paket NPM secara otomatis. Termasuk risiko, perbaikan aman, dan template siap pakai dengan PR, pengujian, dan update minor/patch."
+    ],
+      [
+      "Album Thumbnail Viewer & JSON Generator",
+      "album-thumbnail-json-generator.html",
+      "https://frijal.pages.dev/img/album-thumbnail-json-generator.webp",
+      "2025-10-25T13:28:45.311+00:00",
+      "Alat untuk melihat thumbnail album gambar lokal secara rekursif dan sekaligus menghasilkan file manifest"
+    ],
+      [
       "Pengaturan Posisi JSON - Fungsi dan Manfaatnya dalam Web & Aplikasi",
       "pengaturan-posisi-json.html",
       "https://frijal.pages.dev/img/pengaturan-posisi-json.webp",
@@ -13,34 +41,6 @@
       "https://frijal.pages.dev/img/bikin-edit-json-komposisi-kategori-elemen.webp",
       "2025-10-25T05:51:04.726+00:00",
       "Edit dan buat file JSON untuk komposisi blok kategori dan elemen secara mudah. Solusi pengelolaan data yang efisien, praktis, dan terpadu."
-    ],
-      [
-      "Recursive HTTP Album Viewer (via JSON)",
-      "recursive-http-album-viewer-json.html",
-      "https://frijal.pages.dev/img/recursive-http-album-viewer-json.webp",
-      "2025-10-25T13:28:45.354+08:00",
-      "Recursive HTTP Album Viewer (via JSON) memungkinkan penjelajahan album gambar langsung dari server HTTP dengan data JSON. Mendukung navigasi folder, thumbnail, dan tampilan responsif."
-    ],
-      [
-      "Matikan Fitur AI Chat di Browser Firefox! Begini Caranya yang Gampang & Santai 🍥",
-      "matikan-ai-firefox.html",
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjijjQF89t7cD2TV-622C7jFkeu2nv5YElBfUpvnlvGbRUXJKKbaOKK3Z4cwMt1gmeTcUoRhp4rEKH1wZR2jhpdnCtmUun1SE8576771QFOrVySF55AsVTuABrk21iStU5FR_j_Qhb65qDCW-KmFwm4GVdi33QZhXaueb2mHigCCr0ldAyH8yAr98RsUZ4/s1600/5687360.webp",
-      "2025-10-25T13:28:45.342+08:00",
-      "Bosan dengan fitur AI di Firefox? Gini caranya disable AI chat yang bikin browser jadi makin berat. Tanpa ribet langsung beres!"
-    ],
-      [
-      "Auto-Upgrade All NPM Packages — Workflow GitHub Actions (Analisis, perbaikan, dan template)",
-      "auto-upgrade-all-npm-packages.html",
-      "https://frijal.pages.dev/img/auto-upgrade-all-npm-packages.webp",
-      "2025-10-25T13:28:45.315+08:00",
-      "Analisis lengkap workflow GitHub Actions untuk meng-upgrade semua paket NPM secara otomatis. Termasuk risiko, perbaikan aman, dan template siap pakai dengan PR, pengujian, dan update minor/patch."
-    ],
-      [
-      "Album Thumbnail Viewer & JSON Generator",
-      "album-thumbnail-json-generator.html",
-      "https://frijal.pages.dev/img/album-thumbnail-json-generator.webp",
-      "2025-10-25T13:28:45.311+08:00",
-      "Alat untuk melihat thumbnail album gambar lokal secara rekursif dan sekaligus menghasilkan file manifest"
     ],
       [
       "Apa Gunanya Webhooks di GitHub? | f-Page",
@@ -1044,7 +1044,7 @@
       "Apa Itu Tajdid? Memurnikan Ajaran & Memajukan Peradaban (Islam Berkemajuan)",
       "apa-itu-tajdid.html",
       "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEioxcx11fwWs0hp42CqU3ZstSufbEFE-57QqR_A2Tkz0N0SCgwHI89OXbpfkUOpzf4BSUywuoQaGYEU4h3OtmNUdvf9CUJWwG4I2ra4m65KrV5zU0laJsfYVlsa2aoENH4ZAK41l6ufLwzhZRKgIMQu12qk1Zwg7u6IvXcJwsOSxKtktjicii05l3kDpSU/s1600/hasil_horizontal_0.webp",
-      "2025-10-25T13:28:45.312+08:00",
+      "2025-10-25T13:28:45.312+00:00",
       "Sering dengar Muhammadiyah sebagai gerakan tajdid? Pahami makna tajdid sebenarnya: bukan cuma pembaruan, tapi memurnikan spiritual & memajukan peradaban."
     ],
       [
@@ -1851,21 +1851,21 @@
       "Whoosh vs Saudi Land Bridge: Biaya Sama 11x Beda Jarak? Ini Penjelasannya",
       "whoosh-vs-saudi-land-bridge.html",
       "https://frijal.pages.dev/img/whoosh-vs-saudi-land-bridge.webp",
-      "2025-10-25T13:28:45.362+08:00",
+      "2025-10-25T13:28:45.362+00:00",
       "Viral perbandingan biaya Whoosh (142 km) vs Saudi Land Bridge (1500 km) yang sama. Ternyata ini beda teknologi, medan, dan tujuannya. Simak debunk lengkapnya."
     ],
       [
       "SAUDI vs WHOOSH: Proyek Kereta Cepat, Kok Biayanya Mirip Padahal Jarak Berbeda?",
       "saudi-whoosh-kereta-cepat.html",
       "https://frijal.pages.dev/img/saudi-whoosh-kereta-cepat.webp",
-      "2025-10-25T13:28:45.356+08:00",
+      "2025-10-25T13:28:45.356+00:00",
       "Viral di media sosial: biaya pembangunan Saudi Land Bridge 1.500 km dan Kereta Cepat Whoosh Indonesia 142 km hampir sama! Kok bisa? Ini pembahasan lengkap mulai teknologi, medan, dan sumber dana."
     ],
       [
       "Recursive Image Album Viewer",
       "recursive-image-album-viewer.html",
       "https://frijal.pages.dev/img/recursive-image-album-viewer.webp",
-      "2025-10-25T13:28:45.354+08:00",
+      "2025-10-25T13:28:45.354+00:00",
       "Recursive Image Album Viewer adalah alat untuk menampilkan album gambar secara hierarkis dan interaktif. Mendukung navigasi folder, thumbnail, dan tampilan responsif."
     ],
       [
@@ -1979,7 +1979,7 @@
       "Cara Membuat File album.json untuk Galeri Gambar (Python & Node.js)",
       "membuat-album-json.html",
       "https://frijal.pages.dev/thumbnail.webp",
-      "2025-10-25T13:28:45.344+08:00",
+      "2025-10-25T13:28:45.344+00:00",
       "Punya folder gambar online? Buatkan file manifest album.json secara otomatis pakai script Python atau Node.js ini. Script ini memindai folder rekursif."
     ],
       [
@@ -2338,7 +2338,7 @@
       "History of Linux Project (HOLP) – Sejarah Kernel Linux dari Awal Sampai Sekarang",
       "history-of-linux-project.html",
       "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhksg7KmVc58-RjdFbQm-BBT_PO4ucCLx_sVRaESJqgCNZHSiFYELV53qvM9pQuHKduRssKTTX5paPoD9_WLEBR01Qv5yPJssrnpnwHRVJshFWCSqYof7rYlPILi6bp5P_Va6lW1linK2cDlU7pxoMwLMZWoee4H2FHnDY3jVXz-DXfuCg6zxZHxzooRh4/s320/linux-history.webp",
-      "2025-10-25T13:28:45.332+08:00",
+      "2025-10-25T13:28:45.332+00:00",
       "Story behind how the Linux kernel was born, berkembang, hingga jadi open-source utama dunia, lengkap dengan timeline dan cara berkontribusi!"
     ],
       [
