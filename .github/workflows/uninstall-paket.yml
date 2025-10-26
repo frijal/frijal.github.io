@@ -1,0 +1,136 @@
+name: Uninstall all packages and caches
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/uninstall-packages.yml"
+
+jobs:
+  uninstall:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Show environment info
+        run: |
+          uname -a
+          node -v || true
+          npm -v || true
+          pnpm -v || true
+          yarn -v || true
+          python3 --version || true
+          pip --version || true
+          pipx --version || true
+          ruby --version || true
+          bundle --version || true
+          go version || true
+          rustc --version || true
+          cargo --version || true
+          php --version || true
+          composer --version || true
+
+      # Node.js and JS package managers
+      - name: Node.js uninstall (npm)
+        if: ${{ hashFiles('**/package.json') != '' }}
+        run: |
+          npm ls --depth=0 || true
+          npm prune --production || true
+          npm uninstall $(jq -r '.dependencies | keys | @sh' package.json | tr -d \') || true
+          npm uninstall $(jq -r '.devDependencies | keys | @sh' package.json | tr -d \') || true
+          rm -rf node_modules package-lock.json
+        shell: bash
+
+      - name: Node.js uninstall (pnpm)
+        if: ${{ hashFiles('**/pnpm-lock.yaml') != '' }}
+        run: |
+          pnpm store prune || true
+          rm -rf node_modules pnpm-lock.yaml .pnpm-store
+        shell: bash
+
+      - name: Node.js uninstall (yarn)
+        if: ${{ hashFiles('**/yarn.lock') != '' }}
+        run: |
+          yarn cache clean || true
+          rm -rf node_modules yarn.lock
+        shell: bash
+
+      # Python
+      - name: Python uninstall (pip from requirements.txt)
+        if: ${{ hashFiles('**/requirements.txt') != '' }}
+        run: |
+          pip install -r requirements.txt || true
+          pip freeze | xargs -r pip uninstall -y || true
+          rm -rf .venv venv __pycache__ .pytest_cache .tox .mypy_cache
+        shell: bash
+
+      - name: Python uninstall (pipx apps)
+        run: |
+          pipx list || true
+          pipx list | awk '/package/{print $2}' | xargs -r -I{} pipx uninstall {} || true
+        shell: bash
+
+      # Ruby
+      - name: Ruby uninstall (bundler)
+        if: ${{ hashFiles('**/Gemfile.lock') != '' || hashFiles('**/Gemfile') != '' }}
+        run: |
+          bundle config set path 'vendor/bundle' || true
+          bundle list || true
+          rm -rf vendor/bundle Gemfile.lock
+        shell: bash
+
+      # Go
+      - name: Go cleanup (modules)
+        if: ${{ hashFiles('**/go.mod') != '' }}
+        run: |
+          go clean -modcache || true
+          rm -rf $(go env GOPATH)/pkg/mod || true
+        shell: bash
+
+      # Rust
+      - name: Rust uninstall (cargo)
+        if: ${{ hashFiles('**/Cargo.toml') != '' }}
+        run: |
+          cargo clean || true
+          rm -rf ~/.cargo/registry ~/.cargo/git || true
+        shell: bash
+
+      # PHP
+      - name: PHP uninstall (composer)
+        if: ${{ hashFiles('**/composer.json') != '' }}
+        run: |
+          composer install || true
+          composer show || true
+          rm -rf vendor composer.lock
+        shell: bash
+
+      # General caches and build artifacts
+      - name: Remove common caches and artifacts
+        run: |
+          rm -rf \
+            node_modules \
+            dist build out .next .nuxt .vite .parcel-cache \
+            .cache cache .gradle .mvn \
+            coverage .nyc_output .sass-cache \
+            .DS_Store
+        shell: bash
+
+      # GitHub Actions caches invalidation hint (manual)
+      - name: Print cache invalidation guidance
+        run: |
+          echo "If you use actions/cache, update cache keys to invalidate old caches."
+          echo "Example key change: cache-node-${{ github.run_id }}"
+
+      # Optional: Commit removal of lockfiles (disabled by default)
+      - name: Commit changes removing lockfiles (optional)
+        if: ${{ false }} # set to true if you want to commit deletions
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git rm -f package-lock.json yarn.lock pnpm-lock.yaml composer.lock Gemfile.lock || true
+          git add -A
+          git commit -m "chore: remove dependency lockfiles and vendor directories"
+          git push
