@@ -1,6 +1,20 @@
 {
   "🖥️ Teknologi Web, AI & Umum": [
       [
+      "⚙️ Workflow GitHub Actions: Copy ke Branch Site Cloudflare",
+      "workflow-cloudflare.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhA31C78nMTd9AcKc8Totzjmzm3ubTA1MClmmh4eyrl1mHIjwPfZWu6rrCCL-tQj2UJ2jZprqwp1ao4eeEiwAUnIAkz6DaypVnSrCpxYsPY6olObBpqVM_FRgTOEgV_lvITMnyJw_j83lmuV7Mdga5fCZa_j97935APX33_uY4bMq2OZrqgCdcnlQTN0Vg/s1600/Screenshot_20251025_234149.webp",
+      "2025-10-26T04:42:20.917+00:00",
+      "Penjelasan lengkap dan santai tentang workflow GitHub Actions untuk sinkronisasi branch ke Cloudflare Site. Cocok untuk developer yang ingin deploy otomatis dan efisien."
+    ],
+      [
+      "Laporan Validasi HTML & SEO",
+      "laporan-validasi-html-seo.html",
+      "https://frijal.pages.dev/img/laporan-validasi-html-seo.webp",
+      "2025-10-25T16:00:00.000+00:00",
+      "Laporan Validasi HTML & SEO ini menampilkan hasil pemeriksaan struktur HTML, aksesibilitas, dan optimasi mesin pencari untuk meningkatkan kinerja situs web Anda."
+    ],
+      [
       "Pengaturan Posisi JSON - Fungsi dan Manfaatnya dalam Web & Aplikasi",
       "pengaturan-posisi-json.html",
       "https://frijal.pages.dev/img/pengaturan-posisi-json.webp",
@@ -1848,6 +1862,13 @@
     ],
   "🔆 Lainnya": [
       [
+      "KDRT: Lebih dari Sekadar Luka Lebam (Memahami Kekerasan dalam Rumah Tangga)",
+      "memahami-kdrt-lebih-dalam.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhlW9VSkHRkDISLrrLhdIAk5dXDOiOrOHM1g-XOfmFjI1VajJmrSn3FXLTYF2ElV-vUpesTpjI5F5NAqVJYdNleXnB2FQ4Ti-L1gLxcIi7RDX0l2hsNDlazzqSDUZSTxdV6JWobjNwUgmiONmKJD5xM_VLIj-4h6iyUNEx97DrOt8wd6ZQ0OPjMYzk7WyA/s1600/kdrt.webp",
+      "2025-10-26T04:42:20.898+00:00",
+      "KDRT bukan hanya pukulan, tapi juga hinaan, kontrol, dan manipulasi. Pahami bentuk KDRT non-fisik, dampaknya pada anak, dan akar masalahnya di masyarakat."
+    ],
+      [
       "Whoosh vs Saudi Land Bridge: Biaya Sama 11x Beda Jarak? Ini Penjelasannya",
       "whoosh-vs-saudi-land-bridge.html",
       "https://frijal.pages.dev/img/whoosh-vs-saudi-land-bridge.webp",
@@ -2334,6 +2355,27 @@
     ]
     ],
   "🐧 Linux & Open Source": [
+      [
+      "Kenapa Ada Folder .npm-cache/_cacache di Repo? Penyebab & Solusinya",
+      "kenapa-ada-folder-npm-cache.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPvc5iFksppupuzAM-DFSDIXZ53mOZlJz8Bk6Ahq9F1GkWyhmPeggodkc5UVPgl3Bh8_0PekKMkesLseMaSJQJAD5oEq3qQrII8siwwrUwmkuS3RaqUpIKO0G0ILiPyp7jhjnVy4cOC5t-lvp-F3KJ8GTfuDM6LTwPWDQoslyk-6cKqwZywBQQzI2DR64/s1600/Screenshot%20From%202025-10-25%2021-56-54.png",
+      "2025-10-26T04:42:20.890+00:00",
+      "Penjelasan kenapa folder .npm-cache/_cacache muncul di repo Git kamu saat pakai npm install, terutama di GitHub Actions. Plus solusi cara mengabaikannya atau pakai cache Actions."
+    ],
+      [
+      "Inti Sari KDRT: Dari Definisi Hingga Dampak Antargenerasi",
+      "inti-sari-kdrt.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgX2fRi8v0fLfVvrDhfGzF0Bdr9Tu5K0Aq_rt5LYf4iiWt4Aa0GwOd0-RI8MyKHfi5k9KEneN4jT0LID2ZpmAXze1wLTWTju6FKTMZEokIbwGbyJ2IWzxEyjPQyxeJBMEoV4_bG4tj1QswSXYzKwJZlDPAtqDW2c6JivEMwyaM-P7Z7Mnk7G_gWIXhqyA0/s1600/18136944799511350148.jpeg",
+      "2025-10-26T04:42:20.888+00:00",
+      "Ringkasan poin-poin penting tentang KDRT: definisi, bentuk non-fisik, pemicu (stres, peran), dampak pada anak, normalisasi budaya, trauma intergenerasional, dan solusi."
+    ],
+      [
+      "Contoh .gitignore Lengkap untuk Project Node.js (Anti .npm-cache & node_modules Masuk Repo)",
+      "gitignore-nodejs-standar.html",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggEd6y8jYtsawTRfw4nMvRaF-L1woiyx2pZEj0K1ctLQXT_NE5xrrRHxCwuNCaS4DBlXsbKvUpn6E_Gg224iGqlhldTIKW3E3LfuaxKNB7G9cFES9OKYO8w9d4hb6kjXaY4WJyo3WiI1fBqsQU1wRU6Qwo_Pp_CrZeq4B12w5CsZ1oBP84it5onRmhHU0/s1600/Screenshot%20From%202025-10-25%2022-10-28.png",
+      "2025-10-26T04:42:20.884+00:00",
+      "Gunakan template .gitignore standar ini untuk project Node.js agar folder seperti node_modules, .npm-cache, file log, dan .env tidak ikut ter-commit ke Git."
+    ],
       [
       "History of Linux Project (HOLP) – Sejarah Kernel Linux dari Awal Sampai Sekarang",
       "history-of-linux-project.html",

@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap/image/1.1 http://www.google.com/schemas/sitemap/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://frijal.pages.dev/artikel/workflow-cloudflare.html</loc>
+    <lastmod>2025-10-26T04:42:20.917+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhA31C78nMTd9AcKc8Totzjmzm3ubTA1MClmmh4eyrl1mHIjwPfZWu6rrCCL-tQj2UJ2jZprqwp1ao4eeEiwAUnIAkz6DaypVnSrCpxYsPY6olObBpqVM_FRgTOEgV_lvITMnyJw_j83lmuV7Mdga5fCZa_j97935APX33_uY4bMq2OZrqgCdcnlQTN0Vg/s1600/Screenshot_20251025_234149.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://frijal.pages.dev/artikel/laporan-validasi-html-seo.html</loc>
+    <lastmod>2025-10-25T16:00:00.000+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://frijal.pages.dev/img/laporan-validasi-html-seo.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://frijal.pages.dev/artikel/pengaturan-posisi-json.html</loc>
     <lastmod>2025-10-25T05:51:04.761+00:00</lastmod>
     <priority>0.6</priority>
@@ -2368,6 +2386,15 @@
     </image:image>
   </url>
   <url>
+    <loc>https://frijal.pages.dev/artikel/memahami-kdrt-lebih-dalam.html</loc>
+    <lastmod>2025-10-26T04:42:20.898+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhlW9VSkHRkDISLrrLhdIAk5dXDOiOrOHM1g-XOfmFjI1VajJmrSn3FXLTYF2ElV-vUpesTpjI5F5NAqVJYdNleXnB2FQ4Ti-L1gLxcIi7RDX0l2hsNDlazzqSDUZSTxdV6JWobjNwUgmiONmKJD5xM_VLIj-4h6iyUNEx97DrOt8wd6ZQ0OPjMYzk7WyA/s1600/kdrt.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://frijal.pages.dev/artikel/whoosh-vs-saudi-land-bridge.html</loc>
     <lastmod>2025-10-25T13:28:45.362+08:00</lastmod>
     <priority>0.6</priority>
@@ -2986,6 +3013,33 @@
     <changefreq>monthly</changefreq>
     <image:image>
       <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8nO3GhF2Tj7qCBGEcgdMSgtTvRViXdT3-ISg37fsb6txt5VUDnzHj5sl268cUzWH3AIDmZ-W4OzrC_D0_r2bJGrEmXhSd8ixuAB3RMloloBWHhoFQ8FvOVQyETTTGgyerDy-01CCS91Gd/s1600/pelaksanaan-un.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://frijal.pages.dev/artikel/kenapa-ada-folder-npm-cache.html</loc>
+    <lastmod>2025-10-26T04:42:20.890+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPvc5iFksppupuzAM-DFSDIXZ53mOZlJz8Bk6Ahq9F1GkWyhmPeggodkc5UVPgl3Bh8_0PekKMkesLseMaSJQJAD5oEq3qQrII8siwwrUwmkuS3RaqUpIKO0G0ILiPyp7jhjnVy4cOC5t-lvp-F3KJ8GTfuDM6LTwPWDQoslyk-6cKqwZywBQQzI2DR64/s1600/Screenshot%20From%202025-10-25%2021-56-54.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://frijal.pages.dev/artikel/inti-sari-kdrt.html</loc>
+    <lastmod>2025-10-26T04:42:20.888+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgX2fRi8v0fLfVvrDhfGzF0Bdr9Tu5K0Aq_rt5LYf4iiWt4Aa0GwOd0-RI8MyKHfi5k9KEneN4jT0LID2ZpmAXze1wLTWTju6FKTMZEokIbwGbyJ2IWzxEyjPQyxeJBMEoV4_bG4tj1QswSXYzKwJZlDPAtqDW2c6JivEMwyaM-P7Z7Mnk7G_gWIXhqyA0/s1600/18136944799511350148.jpeg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://frijal.pages.dev/artikel/gitignore-nodejs-standar.html</loc>
+    <lastmod>2025-10-26T04:42:20.884+00:00</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggEd6y8jYtsawTRfw4nMvRaF-L1woiyx2pZEj0K1ctLQXT_NE5xrrRHxCwuNCaS4DBlXsbKvUpn6E_Gg224iGqlhldTIKW3E3LfuaxKNB7G9cFES9OKYO8w9d4hb6kjXaY4WJyo3WiI1fBqsQU1wRU6Qwo_Pp_CrZeq4B12w5CsZ1oBP84it5onRmhHU0/s1600/Screenshot%20From%202025-10-25%2022-10-28.png</image:loc>
     </image:image>
   </url>
   <url>

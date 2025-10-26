@@ -6,7 +6,61 @@
     <description><![CDATA[Feed 30 artikel terbaru]]></description>
     <language>id-ID</language>
     <atom:link href="https://frijal.pages.dev/rss.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Sun, 26 Oct 2025 04:30:14 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 26 Oct 2025 04:42:38 GMT</lastBuildDate>
+    <item>
+      <title><![CDATA[⚙️ Workflow GitHub Actions: Copy ke Branch Site Cloudflare]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/workflow-cloudflare.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/workflow-cloudflare.html]]></guid>
+      <pubDate>Sun, 26 Oct 2025 04:42:20 GMT</pubDate>
+      <description><![CDATA[Penjelasan lengkap dan santai tentang workflow GitHub Actions untuk sinkronisasi branch ke Cloudflare Site. Cocok untuk developer yang ingin deploy otomatis dan efisien.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhA31C78nMTd9AcKc8Totzjmzm3ubTA1MClmmh4eyrl1mHIjwPfZWu6rrCCL-tQj2UJ2jZprqwp1ao4eeEiwAUnIAkz6DaypVnSrCpxYsPY6olObBpqVM_FRgTOEgV_lvITMnyJw_j83lmuV7Mdga5fCZa_j97935APX33_uY4bMq2OZrqgCdcnlQTN0Vg/s1600/Screenshot_20251025_234149.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[KDRT: Lebih dari Sekadar Luka Lebam (Memahami Kekerasan dalam Rumah Tangga)]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/memahami-kdrt-lebih-dalam.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/memahami-kdrt-lebih-dalam.html]]></guid>
+      <pubDate>Sun, 26 Oct 2025 04:42:20 GMT</pubDate>
+      <description><![CDATA[KDRT bukan hanya pukulan, tapi juga hinaan, kontrol, dan manipulasi. Pahami bentuk KDRT non-fisik, dampaknya pada anak, dan akar masalahnya di masyarakat.]]></description>
+      <category><![CDATA[🔆 Lainnya]]></category>
+    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhlW9VSkHRkDISLrrLhdIAk5dXDOiOrOHM1g-XOfmFjI1VajJmrSn3FXLTYF2ElV-vUpesTpjI5F5NAqVJYdNleXnB2FQ4Ti-L1gLxcIi7RDX0l2hsNDlazzqSDUZSTxdV6JWobjNwUgmiONmKJD5xM_VLIj-4h6iyUNEx97DrOt8wd6ZQ0OPjMYzk7WyA/s1600/kdrt.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Kenapa Ada Folder .npm-cache/_cacache di Repo? Penyebab & Solusinya]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/kenapa-ada-folder-npm-cache.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/kenapa-ada-folder-npm-cache.html]]></guid>
+      <pubDate>Sun, 26 Oct 2025 04:42:20 GMT</pubDate>
+      <description><![CDATA[Penjelasan kenapa folder .npm-cache/_cacache muncul di repo Git kamu saat pakai npm install, terutama di GitHub Actions. Plus solusi cara mengabaikannya atau pakai cache Actions.]]></description>
+      <category><![CDATA[🐧 Linux & Open Source]]></category>
+    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPvc5iFksppupuzAM-DFSDIXZ53mOZlJz8Bk6Ahq9F1GkWyhmPeggodkc5UVPgl3Bh8_0PekKMkesLseMaSJQJAD5oEq3qQrII8siwwrUwmkuS3RaqUpIKO0G0ILiPyp7jhjnVy4cOC5t-lvp-F3KJ8GTfuDM6LTwPWDQoslyk-6cKqwZywBQQzI2DR64/s1600/Screenshot%20From%202025-10-25%2021-56-54.png" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Inti Sari KDRT: Dari Definisi Hingga Dampak Antargenerasi]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/inti-sari-kdrt.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/inti-sari-kdrt.html]]></guid>
+      <pubDate>Sun, 26 Oct 2025 04:42:20 GMT</pubDate>
+      <description><![CDATA[Ringkasan poin-poin penting tentang KDRT: definisi, bentuk non-fisik, pemicu (stres, peran), dampak pada anak, normalisasi budaya, trauma intergenerasional, dan solusi.]]></description>
+      <category><![CDATA[🐧 Linux & Open Source]]></category>
+    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgX2fRi8v0fLfVvrDhfGzF0Bdr9Tu5K0Aq_rt5LYf4iiWt4Aa0GwOd0-RI8MyKHfi5k9KEneN4jT0LID2ZpmAXze1wLTWTju6FKTMZEokIbwGbyJ2IWzxEyjPQyxeJBMEoV4_bG4tj1QswSXYzKwJZlDPAtqDW2c6JivEMwyaM-P7Z7Mnk7G_gWIXhqyA0/s1600/18136944799511350148.jpeg" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Contoh .gitignore Lengkap untuk Project Node.js (Anti .npm-cache & node_modules Masuk Repo)]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/gitignore-nodejs-standar.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/gitignore-nodejs-standar.html]]></guid>
+      <pubDate>Sun, 26 Oct 2025 04:42:20 GMT</pubDate>
+      <description><![CDATA[Gunakan template .gitignore standar ini untuk project Node.js agar folder seperti node_modules, .npm-cache, file log, dan .env tidak ikut ter-commit ke Git.]]></description>
+      <category><![CDATA[🐧 Linux & Open Source]]></category>
+    <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggEd6y8jYtsawTRfw4nMvRaF-L1woiyx2pZEj0K1ctLQXT_NE5xrrRHxCwuNCaS4DBlXsbKvUpn6E_Gg224iGqlhldTIKW3E3LfuaxKNB7G9cFES9OKYO8w9d4hb6kjXaY4WJyo3WiI1fBqsQU1wRU6Qwo_Pp_CrZeq4B12w5CsZ1oBP84it5onRmhHU0/s1600/Screenshot%20From%202025-10-25%2022-10-28.png" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Laporan Validasi HTML & SEO]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/laporan-validasi-html-seo.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/laporan-validasi-html-seo.html]]></guid>
+      <pubDate>Sat, 25 Oct 2025 16:00:00 GMT</pubDate>
+      <description><![CDATA[Laporan Validasi HTML & SEO ini menampilkan hasil pemeriksaan struktur HTML, aksesibilitas, dan optimasi mesin pencari untuk meningkatkan kinerja situs web Anda.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+    <enclosure url="https://frijal.pages.dev/img/laporan-validasi-html-seo.webp" length="0" type="image/webp" />
+    </item>
     <item>
       <title><![CDATA[Pengaturan Posisi JSON - Fungsi dan Manfaatnya dalam Web & Aplikasi]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/pengaturan-posisi-json.html]]></link>
@@ -222,60 +276,6 @@
       <description><![CDATA[Workflow GitHub Actions untuk otomatis membersihkan gambar orphan dan membuat laporan konten harian di frijal.pages.dev. Dilengkapi penjelasan lengkap dan kode siap pakai.]]></description>
       <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
     <enclosure url="https://frijal.pages.dev/img/pengecekan-laporan-konten-harian.webp" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Workflow Cerdas: Satu Job untuk Semua Tugas Perawatan Harian]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/optimasi-workflow-harian-github-actions.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/optimasi-workflow-harian-github-actions.html]]></guid>
-      <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
-      <description><![CDATA[Tutorial cara mengoptimalkan workflow GitHub Actions dengan menggabungkan beberapa job (screenshots, cleanup, reporting) menjadi satu job tunggal yang efisien dan atomik.]]></description>
-      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
-    <enclosure url="https://frijal.pages.dev/img/optimasi-workflow-harian-github-actions.webp" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Cara Membuat Orphan Branch di Git & GitHub | Frijal's Page]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/membuat-git-orphan-branch.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/membuat-git-orphan-branch.html]]></guid>
-      <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
-      <description><![CDATA[Tutorial lengkap dan santai cara membuat branch Git baru (orphan branch) yang tidak punya riwayat commit dari branch main. Cocok untuk halaman gh-pages atau proyek terpisah.]]></description>
-      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
-    <enclosure url="https://frijal.pages.dev/assets/images/og-image-orphan-branch.png" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Cara Agar Branch Tidak Minta Merge Otomatis ke Main | Frijal's Page]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/git-prevent-auto-merge-request.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/git-prevent-auto-merge-request.html]]></guid>
-      <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
-      <description><![CDATA[Tutorial santai cara kerja Git dan GitHub agar anak branch tidak]]></description>
-      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
-    <enclosure url="https://frijal.pages.dev/img/git-prevent-auto-merge-request.webp" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Cara Mengecilkan Ukuran Repo Git Lokal (Bye Bye node_modules!)]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/git-repo-size-reduction.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/git-repo-size-reduction.html]]></guid>
-      <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
-      <description><![CDATA[Tutorial lengkap dan santai cara membuat ukuran repositori Git lokal menjadi kecil dengan mengabaikan dan membersihkan folder node_modules dari riwayat commit.]]></description>
-      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
-    <enclosure url="https://frijal.pages.dev/img/git-repo-size-reduction.webp" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Cara Kerja Git: Branch "Pasif" & Main Branch "Memanggil"]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/git-passive-branch-merge.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/git-passive-branch-merge.html]]></guid>
-      <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
-      <description><![CDATA[Tutorial Git santai tentang cara kerja branch pasif (anak branch) yang tidak minta merge, dan main branch yang aktif memanggil perubahan. Pahami alur kerja Git mendasar.]]></description>
-      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
-    <enclosure url="https://frijal.pages.dev/img/git-passive-branch-merge.webp" length="0" type="image/webp" />
-    </item>
-    <item>
-      <title><![CDATA[Build and Deploy to Clean Branch — Alur Dibalik + Cek Perubahan Sebelum rsync ⚠️]]></title>
-      <link><![CDATA[https://frijal.pages.dev/artikel/build-deploy-clean-branch.html]]></link>
-      <guid><![CDATA[https://frijal.pages.dev/artikel/build-deploy-clean-branch.html]]></guid>
-      <pubDate>Wed, 22 Oct 2025 11:53:56 GMT</pubDate>
-      <description><![CDATA[Workflow GitHub Actions yang membalik alur: cek perubahan terlebih dulu di daftar file terizinkan, baru jalankan rsync dan deploy ke branch site. Dengan penjelasan santai, opsi logging, dan contoh YAML siap pakai.]]></description>
-      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
-    <enclosure url="https://frijal.pages.dev/img/build-deploy-clean-branch.webp" length="0" type="image/webp" />
     </item>
   </channel>
 </rss>
