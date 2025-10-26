@@ -6,7 +6,7 @@
     <description><![CDATA[Feed artikel terbaru untuk kategori 🖥️ Teknologi Web, AI & Umum]]></description>
     <language>id-ID</language>
     <atom:link href="https://frijal.pages.dev/feed-teknologi-web-ai-and-umum.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Sun, 26 Oct 2025 05:22:11 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 26 Oct 2025 05:57:38 GMT</lastBuildDate>
     <item>
       <title><![CDATA[⚙️ Workflow GitHub Actions: Copy ke Branch Site Cloudflare]]></title>
       <link><![CDATA[https://frijal.pages.dev/artikel/workflow-cloudflare.html]]></link>
@@ -15,6 +15,24 @@
       <description><![CDATA[Penjelasan lengkap dan santai tentang workflow GitHub Actions untuk sinkronisasi branch ke Cloudflare Site. Cocok untuk developer yang ingin deploy otomatis dan efisien.]]></description>
       <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
 <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhA31C78nMTd9AcKc8Totzjmzm3ubTA1MClmmh4eyrl1mHIjwPfZWu6rrCCL-tQj2UJ2jZprqwp1ao4eeEiwAUnIAkz6DaypVnSrCpxYsPY6olObBpqVM_FRgTOEgV_lvITMnyJw_j83lmuV7Mdga5fCZa_j97935APX33_uY4bMq2OZrqgCdcnlQTN0Vg/s1600/Screenshot_20251025_234149.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Kenapa Ada Folder .npm-cache/_cacache di Repo? Penyebab & Solusinya]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/kenapa-ada-folder-npm-cache.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/kenapa-ada-folder-npm-cache.html]]></guid>
+      <pubDate>Sun, 26 Oct 2025 04:42:20 GMT</pubDate>
+      <description><![CDATA[Penjelasan kenapa folder .npm-cache/_cacache muncul di repo Git kamu saat pakai npm install, terutama di GitHub Actions. Plus solusi cara mengabaikannya atau pakai cache Actions.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+<enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPvc5iFksppupuzAM-DFSDIXZ53mOZlJz8Bk6Ahq9F1GkWyhmPeggodkc5UVPgl3Bh8_0PekKMkesLseMaSJQJAD5oEq3qQrII8siwwrUwmkuS3RaqUpIKO0G0ILiPyp7jhjnVy4cOC5t-lvp-F3KJ8GTfuDM6LTwPWDQoslyk-6cKqwZywBQQzI2DR64/s1600/Screenshot%20From%202025-10-25%2021-56-54.png" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Contoh .gitignore Lengkap untuk Project Node.js (Anti .npm-cache & node_modules Masuk Repo)]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/gitignore-nodejs-standar.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/gitignore-nodejs-standar.html]]></guid>
+      <pubDate>Sun, 26 Oct 2025 04:42:20 GMT</pubDate>
+      <description><![CDATA[Gunakan template .gitignore standar ini untuk project Node.js agar folder seperti node_modules, .npm-cache, file log, dan .env tidak ikut ter-commit ke Git.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+<enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggEd6y8jYtsawTRfw4nMvRaF-L1woiyx2pZEj0K1ctLQXT_NE5xrrRHxCwuNCaS4DBlXsbKvUpn6E_Gg224iGqlhldTIKW3E3LfuaxKNB7G9cFES9OKYO8w9d4hb6kjXaY4WJyo3WiI1fBqsQU1wRU6Qwo_Pp_CrZeq4B12w5CsZ1oBP84it5onRmhHU0/s1600/Screenshot%20From%202025-10-25%2022-10-28.png" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[Laporan Validasi HTML & SEO]]></title>
@@ -51,6 +69,15 @@
       <description><![CDATA[Recursive HTTP Album Viewer (via JSON) memungkinkan penjelajahan album gambar langsung dari server HTTP dengan data JSON. Mendukung navigasi folder, thumbnail, dan tampilan responsif.]]></description>
       <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
 <enclosure url="https://frijal.pages.dev/img/recursive-http-album-viewer-json.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Recursive Image Album Viewer]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/recursive-image-album-viewer.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/recursive-image-album-viewer.html]]></guid>
+      <pubDate>Sat, 25 Oct 2025 05:28:45 GMT</pubDate>
+      <description><![CDATA[Recursive Image Album Viewer adalah alat untuk menampilkan album gambar secara hierarkis dan interaktif. Mendukung navigasi folder, thumbnail, dan tampilan responsif.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+<enclosure url="https://frijal.pages.dev/img/recursive-image-album-viewer.webp" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[Matikan Fitur AI Chat di Browser Firefox! Begini Caranya yang Gampang & Santai 🍥]]></title>
@@ -402,6 +429,15 @@
       <description><![CDATA[Bingung cara membuat file robots.txt yang benar agar blog dikenali Google? Pelajari contoh, sintaks, dan kesalahan umum dalam panduan santai dan lengkap ini.]]></description>
       <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
 <enclosure url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQHqOUt1g5wam4v8EVGW93C7Hr_XDCp305phr2WUKomkd5KQsr8GN9VaGZa-mPXmeWWntAyBcFAp3z9DIKJa4L_sJZS6HYn8Yx4yKx-2bMLmBlRkdRxoIzH8jvnz8aDwUiOstE-dGiU8S_Ay5AtkG1WJLkpaAZgIKesTHnm0JtsRCPy8dCaNFclvQCICk/s1600/robotstxtx.png" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Gunakan Perangkat Lunak Bebas Terbuka di Sekolah | frijal.pages.dev]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/oss-sekolah.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/oss-sekolah.html]]></guid>
+      <pubDate>Thu, 16 Oct 2025 23:20:38 GMT</pubDate>
+      <description><![CDATA[Ajaklah semua orang untuk menggunakan perangkat lunak bebas terbuka di sekolah. Alternatif gratis seperti Linux, LibreOffice, GIMP, dan GNUCash bisa menghemat biaya pendidikan.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+<enclosure url="https://frijal.pages.dev/img/oss-sekolah.webp" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[Apa Itu rel=noreferrer dalam HTML?]]></title>
@@ -834,6 +870,15 @@
       <description><![CDATA[Kewalahan antara tugas kuliah dan bisnis? Kenali Notion AI, partner cerdas yang menggabungkan catatan, manajemen proyek, dan AI writer dalam satu aplikasi.]]></description>
       <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
 <enclosure url="https://frijal.pages.dev/img/notion-ai-productivity-partner.webp" length="0" type="image/webp" />
+    </item>
+    <item>
+      <title><![CDATA[Masa Depan Milik Mereka yang Melek Teknologi]]></title>
+      <link><![CDATA[https://frijal.pages.dev/artikel/kesimpulan-ai-umkm.html]]></link>
+      <guid><![CDATA[https://frijal.pages.dev/artikel/kesimpulan-ai-umkm.html]]></guid>
+      <pubDate>Sat, 04 Oct 2025 15:37:18 GMT</pubDate>
+      <description><![CDATA[Dunia bisnis berubah cepat. AI bukan lagi sekadar alat, tapi kunci sukses. Baik untuk pelajar maupun UMKM, inilah saatnya memanfaatkan teknologi untuk bertumbuh.]]></description>
+      <category><![CDATA[🖥️ Teknologi Web, AI & Umum]]></category>
+<enclosure url="https://frijal.pages.dev/img/kesimpulan-ai-umkm.webp" length="0" type="image/webp" />
     </item>
     <item>
       <title><![CDATA[Jasper AI: Mesin Penulis Konten Super Cepat]]></title>
