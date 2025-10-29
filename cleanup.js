@@ -6,7 +6,7 @@
  * Cocok untuk workflow GitHub Actions
  * ===================================================================
  */
-import { execSync } from 'node:child_process';
+/* import { execSync } from 'node:child_process'; */
 import depcheck from 'depcheck';
 import fs from 'node:fs';
 
