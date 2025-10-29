@@ -45,7 +45,7 @@ jobs:
       - name: 2. Cleanup unused packages
         run: |
           echo "Menjalankan skrip cleanup..."
-          cleanup.js # Skrip ini akan uninstall DAN npm install ulang
+          node cleanup.js # Skrip ini akan uninstall DAN npm install ulang
 
       # --- BAGIAN 3: GABUNGAN UNTUK MEMBUAT PR ---
       
