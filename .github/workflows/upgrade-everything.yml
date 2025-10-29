@@ -6,7 +6,7 @@ on:
   
   # 2. Dijalankan otomatis setiap bulan, tanggal 1, jam 2 UTC
   schedule:
-    - cron: '0 2 1 * *'
+    - cron: '0 8 1 * *'
 permissions:
   contents: write  # Diperlukan jika action juga push commit sebelum buat PR
   pull-requests: write # Izin PENTING untuk membuat PR
@@ -31,10 +31,7 @@ jobs:
       - name: Install dependencies (untuk tools)
         run: npm install # Install ncu dan depcheck dari devDependencies
 
-      - name: Make script executable
-        run: chmod +x cleanup.js # Pastikan skrip cleanup bisa dijalankan
-
-      # --- BAGIAN 1: DARI WORKFLOW 'UPGRADE' ---
+    # --- BAGIAN 1: DARI WORKFLOW 'UPGRADE' ---
       - name: 1. Upgrade dependencies (minor & patch)
         run: |
           npm install -g npm-check-updates # Install ncu di runner
@@ -45,7 +42,7 @@ jobs:
       - name: 2. Cleanup unused packages
         run: |
           echo "Menjalankan skrip cleanup..."
-          node cleanup.js # Skrip ini akan uninstall DAN npm install ulang
+          node cleanup.js
 
       # --- BAGIAN 3: GABUNGAN UNTUK MEMBUAT PR ---
       
