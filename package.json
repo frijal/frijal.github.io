@@ -1,5 +1,5 @@
 {
-  "name": "LayarKosong",
+  "name": "frijal.github.io",
   "version": "1.0.0",
   "type": "module",
   "description": "[](https://frijal.github.io/index.html)",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frijal/LayarKosong.git"
+    "url": "git+https://github.com/frijal/frijal.github.io.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/frijal/LayarKosong/issues"
+    "url": "https://github.com/frijal/frijal.github.io/issues"
   },
-  "homepage": "https://github.com/frijal/LayarKosong#readme",
+  "homepage": "https://github.com/frijal/frijal.github.io#readme",
   "devDependencies": {
     "depcheck": "^1.4.7"
   },
