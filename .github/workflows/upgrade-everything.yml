@@ -29,6 +29,9 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies (untuk tools)
+        run: npm install depcheck # Install ncu dan depcheck dari devDependencies
+
+      - name: Install dependencies (untuk tools)
         run: npm install # Install ncu dan depcheck dari devDependencies
 
       - name: Make script executable
