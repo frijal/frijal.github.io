@@ -1,1 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ Frijal.js - Koleksi Utilitas JavaScript Ringan</title>
+    
+    <meta name="description" content="Frijal.js adalah koleksi utilitas JavaScript ringan, fokus pada validasi string dan manipulasi data sederhana. Dibuat untuk developers.">
+    <meta name="keywords" content="javascript, js.org, utility, npm, development, js, library">
+    <link rel="canonical" href="https://rijal.js.org/">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Variabel Warna untuk Tema Otomatis */
+        :root {
+            --light-bg: #f5f8fa;
+            --light-text: #2c3e50;
+            --light-accent: #f39c12; /* Warna khas JS */
+            --light-code-bg: #ecf0f1;
+        }
+
+        /* Gaya Tema Gelap */
+        body.dark-theme {
+            --light-bg: #1a202c;
+            --light-text: #e2e8f0;
+            --light-accent: #ffc107;
+            --light-code-bg: #2d3748;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: var(--light-bg);
+            color: var(--light-text);
+            transition: background-color 0.3s, color 0.3s;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 3px solid var(--light-accent);
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-family: 'Roboto Mono', monospace;
+            color: var(--light-text);
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        .tagline {
+            color: #777;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .install-code {
+            background-color: var(--light-code-bg);
+            color: var(--light-text);
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9em;
+            margin: 20px 0;
+            border: 1px solid #ccc;
+        }
+        
+        body.dark-theme .install-code {
+            border: 1px solid var(--light-accent);
+        }
+
+        h2 {
+            color: var(--light-accent);
+            border-bottom: 2px solid var(--light-code-bg);
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        code {
+            background-color: var(--light-code-bg);
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .button-link {
+            display: inline-block;
+            background-color: var(--light-accent);
+            color: var(--light-text);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: opacity 0.3s;
+        }
+
+        .button-link:hover {
+            opacity: 0.8;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 0.85em;
+            color: #777;
+            border-top: 1px solid #ccc;
+        }
+
+        /* Skrip untuk Tema Otomatis */
+        body.dark-theme h1, body.dark-theme .tagline {
+            color: var(--light-text);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-bolt" style="color: var(--light-accent);"></i> Frijal.js</h1>
+        <p class="tagline">Minimalist, Light-weight JavaScript Utility Library</p>
+    </header>
+
+    <div class="container">
+        <p>Frijal.js adalah koleksi utilitas JavaScript yang sangat ringan dan mudah digunakan, dirancang untuk menyederhanakan tugas-tugas pengembangan umum seperti validasi data, manipulasi *array* sederhana, dan format *string*.</p>
+
+        <h2>Instalasi</h2>
+        <p>Pasang melalui NPM (Node Package Manager) atau Yarn:</p>
+        <div class="install-code">
+            npm install frijal.js
+        </div>
+
+        <h2>Fitur Utama</h2>
+        <ul>
+            <li><i class="fas fa-check-circle"></i> **<code>isEmail()</code>**: Validasi email cepat.</li>
+            <li><i class="fas fa-check-circle"></i> **<code>safeTrim()</code>**: Menghapus spasi tanpa error jika input null.</li>
+            <li><i class="fas fa-check-circle"></i> **<code>formatCurrency()</code>**: Format angka menjadi mata uang dengan opsi kustom.</li>
+        </ul>
+
+        <h2>Contoh Penggunaan</h2>
+        <p>Coba fitur `safeTrim()` di konsol browser Anda:</p>
+        
+        <pre class="install-code">
+// Input string dengan spasi berlebih
+let input = "  Hello World!  ";
+
+// Menggunakan Frijal.js (asumsi sudah di-import)
+// let safeTrimmed = Frijal.safeTrim(input); 
+
+// Dalam konteks sederhana ini, kita hanya pakai fungsi vanilla JS
+let safeTrimmed = input.trim(); 
+
+console.log(safeTrimmed); 
+// Output: "Hello World!"</pre>
+        <p>
+            <a href="https://github.com/frijal/frijal.js" target="_blank" class="button-link"><i class="fab fa-github"></i> Lihat di GitHub</a>
+        </p>
+        
+    </div>
+
+    <footer>
+        <p>Frijal.js | Dibuat dengan <i class="fas fa-heart" style="color: var(--light-accent);"></i> untuk komunitas JavaScript.</p>
+    </footer>
+
+    <script>
+        // Fungsi untuk mendeteksi dan mengatur tema sistem
+        function detectAndSetTheme() {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark-theme');
+            } else {
+                document.body.classList.remove('dark-theme');
+            }
+        }
+
+        // Jalankan saat halaman dimuat
+        detectAndSetTheme();
+
+        // Dengarkan perubahan tema sistem secara real-time
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.body.classList.add('dark-theme');
+            } else {
+                document.body.classList.remove('dark-theme');
+            }
+        });
+    </script>
+</body>
+</html>
