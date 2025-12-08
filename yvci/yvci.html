@@ -94,7 +94,7 @@
     }
 
     var chart;
-    d3.csv('https://frijal.github.io/tamb/yvci-org.csv').then((dataFlattened) => {
+    d3.csv('https://frijal.github.io/yvci/yvci-org.csv').then((dataFlattened) => {
       chart = new d3.OrgChart()
         .container('.chart-container')
         .data(dataFlattened)
