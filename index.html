@@ -1,10 +1,363 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="id">
 <head>
-    <title>Halaman Sederhana</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Frijal Hub</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+
+<style>
+/* ===========================================================
+   VARIABEL TEMA PREMIUM (Super Soft Glassmorphism)
+=========================================================== */
+:root {
+    --bg: #060b1a;
+    --text: #e8f0ff;
+    --muted: #9db0c8;
+    --accent: #5eead4;
+
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glass-radius: 28px;
+    --glass-blur: 14px;
+
+    --shadow-soft: 0 6px 32px rgba(0, 0, 0, 0.35);
+    --shadow-card: 0 4px 22px rgba(0, 0, 0, 0.3);
+
+    font-family: "Inter", system-ui, sans-serif;
+}
+
+/* -----------------------------------------
+   SOCIAL BRAND COLORS (untuk Hover)
+----------------------------------------- */
+.twitter-color { --brand-color: #1DA1F2; }
+.telegram-color { --brand-color: #0088cc; }
+.github-color { --brand-color: #6e5494; }
+.linkedin-color { --brand-color: #0a66c2; }
+.threads-color { --brand-color: #000000; }
+.reddit-color { --brand-color: #ff4500; }
+.youtube-color { --brand-color: #ff0000; }
+.tiktok-color { --brand-color: #69c9d0; }
+.flickr-color { --brand-color: #ff0084; }
+.tumblr-color { --brand-color: #36465d; }
+.mastodon-color { --brand-color: #6364ff; }
+.paypal-color { --brand-color: #003087; }
+.facebook-color { --brand-color: #1877F2; }
+/* Gravatar menggunakan accent default jika tidak ada warna brand */
+
+
+/* Background gradient */
+body {
+    margin: 0;
+    padding-top: 60px;
+    background: radial-gradient(circle at 20% 20%, #0c1a36, #050812 80%);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    padding: 28px;
+}
+
+/* ===========================================================
+   LAYOUT UTAMA — FIXED PANEL KIRI + SCROLL KANAN
+=========================================================== */
+.wrapper {
+    width: 100%;
+    max-width: 1280px;
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 32px;
+}
+
+/* ===========================================================
+   PANEL BIO KIRI — FIXED / STICKY
+=========================================================== */
+.bio-panel {
+    position: sticky;
+    top: 60px;
+    height: fit-content;
+
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--glass-radius);
+    backdrop-filter: blur(var(--glass-blur));
+    padding: 32px;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+}
+
+/* Foto profil premium */
+.bio-panel img {
+    width: 140px;
+    height: 140px;
+    border-radius: 28px;
+    object-fit: cover;
+    margin-bottom: 18px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+/* Nama */
+.bio-panel h2 {
+    margin: 0;
+    margin-bottom: 4px;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+/* Bio text */
+.bio-panel p {
+    margin: 0;
+    margin-bottom: 18px;
+    color: var(--muted);
+    line-height: 1.55;
+    font-size: 15px;
+}
+
+/* ===========================================================
+   KOLOM KANAN — SCROLL AREA (grid tombol)
+=========================================================== */
+.right-content {
+    overflow-y: auto;
+    padding-right: 4px;
+    margin-top: 32px;
+}
+
+/* Grid tombol premium */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+/* Card tombol premium */
+.card {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--glass-radius);
+    padding: 18px;
+    text-decoration: none;
+    color: var(--text);
+
+    backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--shadow-card);
+
+    transition: 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+    border-color: rgba(94,234,212,0.25);
+}
+
+/* Icon */
+.card i {
+    font-size: 26px;
+    color: var(--accent);
+}
+
+/* Text */
+.meta .title {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.meta .desc {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* ===========================================================
+   SOCIAL ICONS & HOVER BRANDED COLORS
+=========================================================== */
+.social-section {
+    margin-bottom: 30px; /* Jarak sebelum grid utama */
+}
+
+.social-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 16px;
+    padding-left: 20px;
+}
+
+.bio-social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 0 20px 20px;
+}
+
+.bio-social a {
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    color: var(--muted);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.09);
+    backdrop-filter: blur(6px);
+    transition: 0.2s ease;
+}
+
+/* Hapus hover default agar hanya warna brand yang berlaku */
+/* .bio-social a:hover { ... } */
+
+/* Hover Warna Brand Dinamis */
+.bio-social a:hover {
+    color: var(--brand-color);
+    transform: translateY(-3px);
+    /* Gunakan variabel brand color untuk border dan shadow */
+    border-color: var(--brand-color);
+    box-shadow: 0 6px 22px color-mix(in srgb, var(--brand-color) 40%, transparent);
+}
+
+/* Khusus untuk Threads (Warna Hitam), pakai shadow yang lebih gelap */
+.bio-social a[href*="threads"]:hover {
+    color: var(--text);
+    border-color: var(--text);
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.4);
+}
+
+/* Khusus untuk Gravatar (Warna Accent default) */
+.bio-social a[href*="gravatar"]:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 6px 22px color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+
+/* ===========================================================
+   RESPONSIVE — MOBILE = SATU KOLOM
+=========================================================== */
+@media (max-width: 860px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+    }
+    .bio-panel {
+        position: relative;
+        top: 0;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    .right-content {
+        margin-top: 0;
+    }
+    body {
+        padding-top: 28px;
+    }
+
+    /* Social di mobile menjadi full-width */
+    .bio-social {
+        flex-direction: column;
+        padding: 0 10px 10px;
+    }
+    .bio-social a {
+        width: 90%;
+        justify-content: center;
+        transform: none !important;
+    }
+    .bio-social a:hover {
+        transform: none !important;
+    }
+    .social-title {
+        text-align: center;
+        padding-left: 0;
+    }
+}
+</style>
 </head>
+
 <body>
-    <h1>Selamat Datang di Halaman Saya!</h1>
-    <p>Ini adalah contoh halaman sederhana di GitHub Pages.</p>
+
+<div class="wrapper">
+
+    <aside class="bio-panel">
+        <img src="https://2.gravatar.com/avatar/96cd56d694ea4b7a03c7df1b3e45a03b8b653155b8a2e0f57c27e1a5b8ae13ac?size=256&d=initials" alt="Foto Profil">
+
+        <h2>Fakhrul Rijal</h2>
+            <p>Penggemar kopi susu dan pengguna GNU/Linux. Bisa dipanggil kapan saja. Social Media Agency, Biro Periklanan, Human Resources Generalized.</p>
+       <p>Masih di <b>Balikpapan</b> sambil ngoprek, ngurus keluarga, dan jagain komunitas.
+    Ngetik kalau lagi <em>kumat</em>, ngopi biar semangat, tidur kalau ngantuk.</p>
+
+    </aside>
+
+    <div class="right-content">
+
+        <div class="social-section">
+            <h3 class="social-title">Connect & Support</h3>
+            <div class="bio-social">
+                <a href="https://t.me/frijal" class="telegram-color" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i>Telegram</a>
+                <a href="https://github.com/frijal" class="github-color" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>GitHub</a>
+                <a href="https://www.linkedin.com/in/frijal" class="linkedin-color" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+                <a href="https://threads.net/frijal" class="threads-color" target="_blank" rel="noopener"><i class="fa-brands fa-threads"></i>Threads</a>
+                <a href="https://www.reddit.com/user/Fearless_Economics69" class="reddit-color" target="_blank" rel="noopener"><i class="fa-brands fa-reddit"></i>Reddit</a>
+                <a href="https://www.youtube.com/channel/UCpbp2o6qE3u_D24rFz48Vxg" class="youtube-color" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i>YouTube</a>
+                <a href="https://tiktok.com/@gibah.dilarang" class="tiktok-color" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i>TikTok</a>
+                <a href="https://flickr.com/people/12894758@N03" class="flickr-color" target="_blank" rel="noopener"><i class="fa-brands fa-flickr"></i>Flickr</a>
+                <a href="https://tumblr.com/frijal" class="tumblr-color" target="_blank" rel="noopener"><i class="fa-brands fa-tumblr"></i>Tumblr</a>
+                <a href="https://mastodon.social/@frijal" class="mastodon-color" target="_blank" rel="noopener"><i class="fa-brands fa-mastodon"></i>Mastodon</a>
+                <a href="https://gravatar.com/pelankiri" target="_blank" rel="noopener"><i class="fa-solid fa-id-badge"></i>Gravatar</a>
+                <a href="https://twitter.com/frijal" class="twitter-color" target="_blank" rel="noopener"><i class="fa-brands fa-twitter"></i>Twitter</a>
+                <a href="https://facebook.com/frijal" class="facebook-color" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i>Facebook</a>
+				<a href="https://paypal.me/FakhrulRijal" class="paypal-color" target="_blank" rel="noopener"><i class="fa-brands fa-paypal"></i>PayPal</a>
+
+            </div>
+        </div>
+
+        <div class="grid">
+
+            <a class="card" href="https://dalam.web.id" target="_blank" rel="noopener">
+                <i class="fa-solid fa-feather-pointed"></i>
+                <div class="meta">
+                    <span class="title">Layar Kosong</span>
+                    <span class="desc">Blog & Cerita</span>
+                </div>
+            </a>
+
+            <a class="card" href="https://yvci.or.id" target="_blank" rel="noopener">
+                <i class="fa-solid fa-motorcycle"></i>
+                <div class="meta">
+                    <span class="title">YVCI.or.id</span>
+                    <span class="desc">Yamaha V-ixion Club Indonesia</span>
+                </div>
+            </a>
+
+            <a class="card" href="https://mentari-group.com" target="_blank" rel="noopener">
+                <i class="fa-solid fa-briefcase"></i>
+                <div class="meta">
+                    <span class="title">Mentari Group</span>
+                    <span class="desc">Bisnis & Proyek</span>
+                </div>
+            </a>
+
+            <a class="card" href="https://portalbalikpapan.com" target="_blank" rel="noopener">
+                <i class="fa-solid fa-city"></i>
+                <div class="meta">
+                    <span class="title">Portal Balikpapan</span>
+                    <span class="desc">Berita & Info Umum</span>
+                </div>
+            </a>
+
+        </div>
+
+        <footer style="color: var(--muted); font-size: 13px; text-align: center; margin-top: 30px; padding-bottom: 20px;">
+            Dibuat dengan semangat dari Balikpapan.
+        </footer>
+    </div>
+</div>
+
 </body>
 </html>
