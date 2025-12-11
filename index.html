@@ -1,31 +1,76 @@
 <!doctype html>
 <html lang="id">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Frijal Hub</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+    <title>Frijal Identity Card</title>
+    <meta name="description" content="Frijal Identity Card — Kartu nama digital Frijal. pecinta teknologi open source dari Indonesia." />
+    <link rel="canonical" href="https://frijal.github.io/" />
 
-<style>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://frijal.github.io/" />
+    <meta property="og:title" content="Frijal Identity Card" />
+    <meta property="og:description" content="Kartu nama digital." />
+    <meta property="og:image" content="https://frijal.github.io/thumbnail.webp" />
+    <meta property="og:image:alt" content="Frijal Identity Card - Kartu Nama Digital," />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content="Frijal Identity Card" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://frijal.github.io/" />
+    <meta name="twitter:title" content="Frijal Identity Card" />
+    <meta name="twitter:description" content="Kartu nama digital." />
+    <meta name="twitter:image" content="https://frijal.github.io/thumbnail.webp" />
+    <meta name="twitter:image:alt" content="Frijal Identity Card" />
+    <meta name="twitter:creator" content="@frijal" />
+
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Frijal" />
+    <meta name="theme-color" content="#0ea5e9" />
+    <meta name="keywords" content="frijal, portfolio, kartu nama digital, ui/ux, github pages" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Frijal",
+      "url": "https://frijal.github.io/",
+      "image": "https://frijal.github.io/thumbnail.webp",
+      "sameAs": [
+        "https://github.com/frijal",
+        "https://twitter.com/frijal",
+        "https://linkedin.com/in/frijal"
+      ],
+      "jobTitle": "Social Media Agency",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance / Independent"
+      }
+    }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous">
+    <style>
 /* ===========================================================
-   VARIABEL TEMA PREMIUM (Super Soft Glassmorphism)
+   VARIABEL TEMA LIGHT MINIMAL (FONT SOCIAL BESAR, BIO NORMAL)
 =========================================================== */
 :root {
-    --bg: #060b1a;
-    --text: #e8f0ff;
-    --muted: #9db0c8;
-    --accent: #5eead4;
-
-    --glass-bg: rgba(255, 255, 255, 0.06);
-    --glass-border: rgba(255, 255, 255, 0.12);
-    --glass-radius: 28px;
-    --glass-blur: 14px;
-
-    --shadow-soft: 0 6px 32px rgba(0, 0, 0, 0.35);
-    --shadow-card: 0 4px 22px rgba(0, 0, 0, 0.3);
-
+    /* Warna Dasar Minimal Light Theme */
+    --bg: #ffffff;
+    --panel-bg: #f9f9fa;
+    --text: #1d2b36;
+    --muted: #6b7a8d;
+    --accent: #007bff;
+    --border-color: #e0e0e0;
+    --radius: 16px;
+    --shadow-card: 0 3px 10px rgba(0, 0, 0, 0.07);
     font-family: "Inter", system-ui, sans-serif;
+    /* Font Base (tetap di setelan standar browser) */
+    font-size: 16px;
 }
 
 /* -----------------------------------------
@@ -33,25 +78,23 @@
 ----------------------------------------- */
 .twitter-color { --brand-color: #1DA1F2; }
 .telegram-color { --brand-color: #0088cc; }
-.github-color { --brand-color: #6e5494; }
+.github-color { --brand-color: #333; }
 .linkedin-color { --brand-color: #0a66c2; }
 .threads-color { --brand-color: #000000; }
 .reddit-color { --brand-color: #ff4500; }
 .youtube-color { --brand-color: #ff0000; }
-.tiktok-color { --brand-color: #69c9d0; }
+.tiktok-color { --brand-color: #000000; }
 .flickr-color { --brand-color: #ff0084; }
 .tumblr-color { --brand-color: #36465d; }
 .mastodon-color { --brand-color: #6364ff; }
 .paypal-color { --brand-color: #003087; }
 .facebook-color { --brand-color: #1877F2; }
-/* Gravatar menggunakan accent default jika tidak ada warna brand */
 
-
-/* Background gradient */
+/* Background Solid */
 body {
     margin: 0;
     padding-top: 60px;
-    background: radial-gradient(circle at 20% 20%, #0c1a36, #050812 80%);
+    background: var(--bg);
     color: var(--text);
     display: flex;
     justify-content: center;
@@ -59,41 +102,38 @@ body {
 }
 
 /* ===========================================================
-   LAYOUT UTAMA — FIXED PANEL KIRI + SCROLL KANAN
+   LAYOUT UTAMA
 =========================================================== */
 .wrapper {
     width: 100%;
-    max-width: 1280px;
+    max-width: 1060px;
     display: grid;
-    grid-template-columns: 340px 1fr;
-    gap: 32px;
+    grid-template-columns: 360px 1fr;
+    gap: 30px;
 }
 
 /* ===========================================================
-   PANEL BIO KIRI — FIXED / STICKY
+   PANEL BIO KIRI — DEFAULT STICKY (Untuk Desktop)
 =========================================================== */
 .bio-panel {
     position: sticky;
-    top: 60px;
+    top: 80px;
     height: fit-content;
-
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--glass-radius);
-    backdrop-filter: blur(var(--glass-blur));
-    padding: 32px;
-    box-shadow: var(--shadow-soft);
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 25px;
+    box-shadow: var(--shadow-card);
     text-align: center;
 }
 
-/* Foto profil premium */
+/* Foto profil */
 .bio-panel img {
-    width: 140px;
-    height: 140px;
-    border-radius: 28px;
-    object-fit: cover;
-    margin-bottom: 18px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    width: 130px;
+    height: 130px;
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 /* Nama */
@@ -107,22 +147,23 @@ body {
 /* Bio text */
 .bio-panel p {
     margin: 0;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     color: var(--muted);
-    line-height: 1.55;
+    line-height: 1.5;
     font-size: 15px;
 }
 
+
 /* ===========================================================
-   KOLOM KANAN — SCROLL AREA (grid tombol)
+   KOLOM KANAN
 =========================================================== */
 .right-content {
     overflow-y: auto;
     padding-right: 4px;
-    margin-top: 32px;
+    margin-top: 30px;
 }
 
-/* Grid tombol premium */
+/* Grid tombol */
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -130,233 +171,198 @@ body {
     margin-bottom: 30px;
 }
 
-/* Card tombol premium */
+/* Card tombol Minimal */
 .card {
     display: flex;
-    gap: 16px;
+    gap: 18px;
     align-items: center;
-
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--glass-radius);
-    padding: 18px;
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 20px;
     text-decoration: none;
     color: var(--text);
-
-    backdrop-filter: blur(var(--glass-blur));
     box-shadow: var(--shadow-card);
-
-    transition: 0.2s ease;
+    transition: 0.15s ease;
 }
 
+/* Hover Minimal */
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.45);
-    border-color: rgba(94,234,212,0.25);
+    border-color: var(--accent);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
 }
 
 /* Icon */
 .card i {
-    font-size: 26px;
+    font-size: 30px;
     color: var(--accent);
 }
 
 /* Text */
 .meta .title {
     font-weight: 700;
-    font-size: 16px;
+    font-size: 18px;
 }
-
 .meta .desc {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--muted);
 }
 
 /* ===========================================================
-   SOCIAL ICONS & HOVER BRANDED COLORS
+   SOCIAL ICONS - BACKGROUND PUTIH SAAT HOVER
 =========================================================== */
-.social-section {
-    margin-bottom: 30px; /* Jarak sebelum grid utama */
-}
-
+.social-section { margin-bottom: 30px; }
 .social-title {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     color: var(--accent);
     margin-bottom: 16px;
-    padding-left: 20px;
+    padding-left: 15px;
 }
-
 .bio-social {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: 10px;
-    padding: 0 20px 20px;
+    padding: 0 15px 15px;
 }
-
 .bio-social a {
-    padding: 8px 12px;
-    border-radius: 12px;
-    font-size: 14px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 17px;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-
+    gap: 8px;
     color: var(--muted);
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.09);
-    backdrop-filter: blur(6px);
-    transition: 0.2s ease;
+    background: #f0f0f0;
+    border: 1px solid var(--border-color);
+    transition: 0.15s ease;
 }
 
-/* Hapus hover default agar hanya warna brand yang berlaku */
-/* .bio-social a:hover { ... } */
-
-/* Hover Warna Brand Dinamis */
+/* Hover Warna Brand Minimal: Background Putih & Warna Teks/Ikon Ikut Brand */
 .bio-social a:hover {
-    color: var(--brand-color);
-    transform: translateY(-3px);
-    /* Gunakan variabel brand color untuk border dan shadow */
+    color: var(--brand-color); /* Warna Teks/Ikon mengikuti warna brand */
+    background-color: var(--bg); /* BACKGROUND DIJADIKAN PUTIH MURNI */
     border-color: var(--brand-color);
-    box-shadow: 0 6px 22px color-mix(in srgb, var(--brand-color) 40%, transparent);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow lebih menonjol */
 }
 
-/* Khusus untuk Threads (Warna Hitam), pakai shadow yang lebih gelap */
-.bio-social a[href*="threads"]:hover {
-    color: var(--text);
-    border-color: var(--text);
-    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.4);
-}
-
-/* Khusus untuk Gravatar (Warna Accent default) */
-.bio-social a[href*="gravatar"]:hover {
-    color: var(--accent);
-    border-color: var(--accent);
-    box-shadow: 0 6px 22px color-mix(in srgb, var(--accent) 40%, transparent);
+/* Footer diperbesar */
+footer {
+    font-size: 14px !important;
+    margin-top: 30px !important;
 }
 
 
-/* ===========================================================
-   RESPONSIVE — MOBILE = SATU KOLOM
-=========================================================== */
 @media (max-width: 860px) {
     .wrapper {
         grid-template-columns: 1fr;
+        gap: 25px;
     }
+
     .bio-panel {
         position: relative;
         top: 0;
+        padding: 25px;
+    }
+
+    .bio-panel h2 {
+        font-size: 24px;
+    }
+    .bio-panel p {
+        font-size: 15px;
     }
     .grid {
         grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .card i {
+        font-size: 28px;
+    }
+    .meta .title {
+        font-size: 17px;
+    }
+    .meta .desc {
+        font-size: 13px;
+    }
+    .bio-social a {
+        font-size: 16px;
+        width: 95%;
+        justify-content: center;
     }
     .right-content {
         margin-top: 0;
     }
     body {
-        padding-top: 28px;
-    }
-
-    /* Social di mobile menjadi full-width */
-    .bio-social {
-        flex-direction: column;
-        padding: 0 10px 10px;
-    }
-    .bio-social a {
-        width: 90%;
-        justify-content: center;
-        transform: none !important;
-    }
-    .bio-social a:hover {
-        transform: none !important;
+        padding-top: 20px;
     }
     .social-title {
-        text-align: center;
-        padding-left: 0;
+        font-size: 18px;
     }
 }
-</style>
+    </style>
 </head>
-
 <body>
-
-<div class="wrapper">
-
-    <aside class="bio-panel">
-        <img src="https://2.gravatar.com/avatar/96cd56d694ea4b7a03c7df1b3e45a03b8b653155b8a2e0f57c27e1a5b8ae13ac?size=256&d=initials" alt="Foto Profil">
-
-        <h2>Fakhrul Rijal</h2>
+    <div class="wrapper">
+        <aside class="bio-panel">
+            <img src="https://2.gravatar.com/avatar/96cd56d694ea4b7a03c7df1b3e45a03b8b653155b8a2e0f57c27e1a5b8ae13ac?size=256&d=initials" alt="Foto Profil">
+            <h2>Fakhrul Rijal</h2>
             <p>Penggemar kopi susu dan pengguna GNU/Linux. Bisa dipanggil kapan saja. Social Media Agency, Biro Periklanan, Human Resources Generalized.</p>
-       <p>Masih di <b>Balikpapan</b> sambil ngoprek, ngurus keluarga, dan jagain komunitas.
-    Ngetik kalau lagi <em>kumat</em>, ngopi biar semangat, tidur kalau ngantuk.</p>
-
-    </aside>
-
-    <div class="right-content">
-
-        <div class="social-section">
-            <h3 class="social-title">Connect & Support</h3>
-            <div class="bio-social">
-                <a href="https://t.me/frijal" class="telegram-color" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i>Telegram</a>
-                <a href="https://github.com/frijal" class="github-color" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>GitHub</a>
-                <a href="https://www.linkedin.com/in/frijal" class="linkedin-color" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
-                <a href="https://threads.net/frijal" class="threads-color" target="_blank" rel="noopener"><i class="fa-brands fa-threads"></i>Threads</a>
-                <a href="https://www.reddit.com/user/Fearless_Economics69" class="reddit-color" target="_blank" rel="noopener"><i class="fa-brands fa-reddit"></i>Reddit</a>
-                <a href="https://www.youtube.com/channel/UCpbp2o6qE3u_D24rFz48Vxg" class="youtube-color" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i>YouTube</a>
-                <a href="https://tiktok.com/@gibah.dilarang" class="tiktok-color" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i>TikTok</a>
-                <a href="https://tumblr.com/frijal" class="tumblr-color" target="_blank" rel="noopener"><i class="fa-brands fa-tumblr"></i>Tumblr</a>
-                <a href="https://mastodon.social/@frijal" class="mastodon-color" target="_blank" rel="noopener"><i class="fa-brands fa-mastodon"></i>Mastodon</a>
-                <a href="https://gravatar.com/pelankiri" target="_blank" rel="noopener"><i class="fa-solid fa-id-badge"></i>Gravatar</a>
-                <a href="https://twitter.com/frijal" class="twitter-color" target="_blank" rel="noopener"><i class="fa-brands fa-twitter"></i>Twitter</a>
-                <a href="https://facebook.com/frijal" class="facebook-color" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i>Facebook</a>
-				<a href="https://paypal.me/FakhrulRijal" class="paypal-color" target="_blank" rel="noopener"><i class="fa-brands fa-paypal"></i>PayPal</a>
-
+            <p>Masih di <b>Balikpapan</b> sambil ngoprek, ngurus keluarga, dan jagain komunitas. Ngetik kalau lagi <em>kumat</em>, ngopi biar semangat, tidur kalau ngantuk.</p>
+        </aside>
+        <div class="right-content">
+            <div class="social-section">
+                <h3 class="social-title">Connect & Support:</h3>
+                <div class="bio-social">
+                    <a href="https://t.me/frijal" class="telegram-color" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i>Telegram</a>
+                    <a href="https://github.com/frijal" class="github-color" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>GitHub</a>
+                    <a href="https://www.linkedin.com/in/frijal" class="linkedin-color" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+                    <a href="https://threads.net/frijal" class="threads-color" target="_blank" rel="noopener"><i class="fa-brands fa-threads"></i>Threads</a>
+                    <a href="https://www.reddit.com/user/Fearless_Economics69" class="reddit-color" target="_blank" rel="noopener"><i class="fa-brands fa-reddit"></i>Reddit</a>
+                    <a href="https://www.youtube.com/channel/UCpbp2o6qE3u_D24rFz48Vxg" class="youtube-color" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i>YouTube</a>
+                    <a href="https://tiktok.com/@gibah.dilarang" class="tiktok-color" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i>TikTok</a>
+                    <a href="https://tumblr.com/frijal" class="tumblr-color" target="_blank" rel="noopener"><i class="fa-brands fa-tumblr"></i>Tumblr</a>
+                    <a href="https://mastodon.social/@frijal" class="mastodon-color" target="_blank" rel="noopener"><i class="fa-brands fa-mastodon"></i>Mastodon</a>
+                    <a href="https://gravatar.com/pelankiri" target="_blank" rel="noopener"><i class="fa-solid fa-id-badge"></i>Gravatar</a>
+                    <a href="https://twitter.com/frijal" class="twitter-color" target="_blank" rel="noopener"><i class="fa-brands fa-twitter"></i>Twitter</a>
+                    <a href="https://facebook.com/frijal" class="facebook-color" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i>Facebook</a>
+                    <a href="https://paypal.me/FakhrulRijal" class="paypal-color" target="_blank" rel="noopener"><i class="fa-brands fa-paypal"></i>PayPal</a>
+                </div>
             </div>
+            <div class="grid">
+                <a class="card" href="https://dalam.web.id" target="_blank" rel="noopener">
+                    <i class="fa-solid fa-feather-pointed"></i>
+                    <div class="meta">
+                        <span class="title">Layar Kosong</span>
+                        <span class="desc">Blog & Cerita</span>
+                    </div>
+                </a>
+                <a class="card" href="https://yvci.or.id" target="_blank" rel="noopener">
+                    <i class="fa-solid fa-motorcycle"></i>
+                    <div class="meta">
+                        <span class="title">YVCI.or.id</span>
+                        <span class="desc">Yamaha V-ixion Club Indonesia</span>
+                    </div>
+                </a>
+                <a class="card" href="https://mentari-group.com" target="_blank" rel="noopener">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <div class="meta">
+                        <span class="title">Mentari Group</span>
+                        <span class="desc">Bisnis & Proyek</span>
+                    </div>
+                </a>
+                <a class="card" href="https://portalbalikpapan.com" target="_blank" rel="noopener">
+                    <i class="fa-solid fa-city"></i>
+                    <div class="meta">
+                        <span class="title">Portal Balikpapan</span>
+                        <span class="desc">Berita & Info Umum</span>
+                    </div>
+                </a>
+            </div>
+            <footer style="color: var(--muted); font-size: 14px; text-align: center; margin-top: 30px; padding-bottom: 20px;">
+Tidak diperlukan izin untuk menyalin, atau memodifikasi halaman ini. Silakan lakukan secara Bebas.</footer>
         </div>
-
-        <div class="grid">
-
-            <a class="card" href="https://dalam.web.id" target="_blank" rel="noopener">
-                <i class="fa-solid fa-feather-pointed"></i>
-                <div class="meta">
-                    <span class="title">Layar Kosong</span>
-                    <span class="desc">Blog & Cerita</span>
-                </div>
-            </a>
-
-            <a class="card" href="https://yvci.or.id" target="_blank" rel="noopener">
-                <i class="fa-solid fa-motorcycle"></i>
-                <div class="meta">
-                    <span class="title">YVCI.or.id</span>
-                    <span class="desc">Yamaha V-ixion Club Indonesia</span>
-                </div>
-            </a>
-
-            <a class="card" href="https://mentari-group.com" target="_blank" rel="noopener">
-                <i class="fa-solid fa-briefcase"></i>
-                <div class="meta">
-                    <span class="title">Mentari Group</span>
-                    <span class="desc">Bisnis & Proyek</span>
-                </div>
-            </a>
-
-            <a class="card" href="https://portalbalikpapan.com" target="_blank" rel="noopener">
-                <i class="fa-solid fa-city"></i>
-                <div class="meta">
-                    <span class="title">Portal Balikpapan</span>
-                    <span class="desc">Berita & Info Umum</span>
-                </div>
-            </a>
-
-        </div>
-
-        <footer style="color: var(--muted); font-size: 13px; text-align: center; margin-top: 30px; padding-bottom: 20px;">
-            Dibuat dengan semangat dari Balikpapan.
-        </footer>
     </div>
-</div>
-
 </body>
 </html>
