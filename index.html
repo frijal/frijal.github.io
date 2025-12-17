@@ -157,18 +157,17 @@ body {
 .lang-switcher {
     display: flex;
     gap: 8px;
-    justify-content: center;
-    margin-top: 30px;
+    justify-content: left;
+    margin-top: 12px;
 }
 .lang-btn {
     background: var(--bg);
-    border: 2px solid var(--border-color);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
-    padding: 6px 12px;
-    font-size: 14px;
+    padding: 4px 4px;
+    font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
-    text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 5px;
@@ -368,7 +367,7 @@ footer {
         gap: 8px;
     }
     .lang-switcher {
-        justify-content: flex-end;
+       justify-content: flex-end;
         width: 100%;
     }
     .card:hover {
@@ -400,22 +399,22 @@ footer {
         </aside>
         <div class="right-content">
             <div class="social-section">
-                <div class="title-wrapper">
-                    <!-- JUDUL BAHASA INDONESIA -->
-                    <h3 class="social-title lang-content active" id="social-title-id">🇮🇩 Dukungan & Terhubung:</h3>
-                    <!-- JUDUL BAHASA ENGLISH -->
-                    <h3 class="social-title lang-content" id="social-title-en">🇬🇧 Connect & Support:</h3>
-                    <!-- TOMBOL BENDERA - DIPINDAH KE SEBELAH BENDERA/JUDUL -->
-                    <div class="lang-switcher">
+            <div class="lang-switcher">
                         <button class="lang-btn active" id="btn-id" onclick="switchLang('id')">
-                            id
+                            id 🇮🇩
                         </button>
                         <button class="lang-btn" id="btn-en" onclick="switchLang('en')">
-                            en
+                            en 🇬🇧
                         </button>
                     </div>
+                <div class="title-wrapper">
+                    <!-- JUDUL BAHASA INDONESIA -->
+                    <h3 class="social-title lang-content active" id="social-title-id">Dukungan & Terhubung:</h3>
+                    <!-- JUDUL BAHASA ENGLISH -->
+                    <h3 class="social-title lang-content" id="social-title-en">Connect & Support:</h3>
+                    <!-- TOMBOL BENDERA - DIPINDAH KE SEBELAH BENDERA/JUDUL -->
                 </div>
-                <div class="bio-social">
+                                <div class="bio-social">
                     <a href="https://t.me/frijal" class="telegram-color" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i>Telegram</a>
                     <a href="https://github.com/frijal" class="github-color" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>GitHub</a>
                     <a href="https://www.linkedin.com/in/frijal" class="linkedin-color" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
