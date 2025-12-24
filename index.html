@@ -1,49 +1,81 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Layar Kosong - Berita dan Artikel Terbaru dari Balikpapan</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portal Berita</title>
   <link rel="stylesheet" href="assets/css/homepage.css">
+  <style>
+    header{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+    .brand{ font-weight:800; font-size:1.25rem; color:var(--text); }
+    .top-actions{ display:flex; gap:8px; align-items:center; }
+    .toggle-theme{ cursor:pointer; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:var(--text); }
+    body, html { height:100%; margin:0; }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Layar Kosong: Berita Santai, Inspiratif, dan Tech dari Balikpapan!</h1>
-  </header>
-  <div id="sort-controls">
-    <select id="sort-category">
-      <option value="">Pilih Kategori</option>
-      <!-- JS isi options -->
-    </select>
-    <select id="sort-year">
-      <option value="">Pilih Tahun</option>
-      <!-- JS isi -->
-    </select>
-    <select id="sort-month">
-      <option value="">Pilih Bulan</option>
-      <!-- JS isi -->
-    </select>
-  </div>
-  <div class="container">
-    <aside id="left-sidebar">
-      <h3>Recent di 🔆 Lainnya</h3>
-      <!-- JS render thumbnails -->
-    </aside>
-    <main id="main-grid">
-      <!-- JS render cards -->
+  <div class="container" role="main" aria-label="Portal Berita">
+    <main class="main-card" id="main">
+      <header>
+        <div class="brand">Portal Berita</div>
+        <div class="top-actions">
+          <div id="results-count" aria-live="polite">0 artikel</div>
+          <button id="theme-toggle" class="toggle-theme" aria-pressed="false" aria-label="Toggle tema">Toggle Theme</button>
+        </div>
+      </header>
+
+      <section class="filters" aria-label="Filter artikel">
+        <select id="filter-category" aria-label="Filter kategori"></select>
+        <select id="filter-year" aria-label="Filter tahun"></select>
+        <select id="filter-month" aria-label="Filter bulan">
+          <option value="">Semua Bulan</option>
+        </select>
+        <select id="sort-select" aria-label="Sortir">
+          <option value="newest">Terbaru</option>
+          <option value="oldest">Terlama</option>
+          <option value="title-asc">Judul A→Z</option>
+          <option value="title-desc">Judul Z→A</option>
+        </select>
+        <input id="search-box" type="search" placeholder="Cari judul atau kategori..." aria-label="Cari artikel" />
+      </section>
+
+      <div id="articles-grid" aria-live="polite" class="articles-grid"></div>
+
+      <div id="pagination" class="pagination" role="navigation" aria-label="Pagination"></div>
     </main>
-    <aside id="right-sidebar">
-      <h3>Artikel Populer Lainnya</h3>
-      <!-- JS render thumbnails -->
+
+    <aside class="sidebar" aria-label="Sidebar">
+      <div class="panel" aria-labelledby="latest-heading">
+        <h4 id="latest-heading">Terbaru</h4>
+        <div id="sidebar-thumbs" aria-live="polite"></div>
+      </div>
+
+      <div class="panel" aria-labelledby="archive-heading">
+        <h4 id="archive-heading">Arsip</h4>
+        <div id="archive"></div>
+      </div>
+
+      <div class="panel" aria-labelledby="about-heading">
+        <h4 id="about-heading">Tentang</h4>
+        <p style="color:var(--muted);font-size:0.95rem">Gunakan filter di atas untuk menyaring berdasarkan kategori, tahun, atau bulan. Klik arsip untuk melihat posting pada periode tertentu.</p>
+      </div>
     </aside>
   </div>
-  <div id="archive">
-    <h3>Archive Artikel</h3>
-    <!-- JS render links -->
-  </div>
-  <div id="pagination">
-    <!-- JS render buttons -->
-  </div>
+
+  <!-- Script gabungan homepage + articles -->
   <script src="assets/js/homepage.js"></script>
+
+  <script>
+    // Jika ingin override jsonPath (opsional). Karena artikel.json ada di folder yang sama,
+    // tidak perlu memanggil init. Jika ingin eksplisit, uncomment baris berikut:
+    // if (window.AppArticles && typeof window.AppArticles.init === 'function') {
+    //   window.AppArticles.init({ jsonPath: './artikel.json' });
+    // }
+    document.addEventListener('DOMContentLoaded', function () {
+      if (!window.AppArticles) {
+        console.error('AppArticles tidak tersedia. Pastikan assets/js/homepage.js dimuat tanpa error.');
+      }
+    });
+  </script>
 </body>
 </html>
