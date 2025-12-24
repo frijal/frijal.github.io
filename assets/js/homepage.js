@@ -3,7 +3,7 @@
  */
 (function (global) {
   const CONFIG = {
-    jsonPath: 'artikel.json',
+    jsonPath: './artikel.json',
     pageSize: 12,
     thumbnailSidebarCount: 12
   };
