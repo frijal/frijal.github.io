@@ -1,73 +1,80 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layar Kosong | Portal Berita</title>
-    <link rel="stylesheet" href="assets/css/homepage.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layar Kosong | Portal Berita</title>
+
+  <link rel="stylesheet" href="assets/css/homepage.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header>
-    <div class="container">
-        <h1 style="margin:0">Layar Kosong 📰</h1>
+  <div class="container">
+    <h1 style="margin:0">Layar Kosong 📰</h1>
 
-        <div class="filter-bar">
-            <div class="search-nav-group">
-                <input type="text" id="search-box" placeholder="Cari artikel...">
-                <div id="pagination" class="pagination header-pagination"></div>
-            </div>
+    <div class="filter-bar">
+      <div class="search-nav-group">
+        <input type="text" id="search-box" placeholder="Cari artikel...">
+        <div id="pagination" class="pagination header-pagination"></div>
+      </div>
 
-            <div class="filter-controls">
-                <button id="mobile-filter-toggle" class="mobile-only">
-                    <span>🔍 Filter & Arsip</span>
-                    <span class="chevron">▼</span>
-                </button>
+      <!-- FILTER: versi details/summary (tanpa JS) -->
+      <div class="filter-controls">
 
-                <div class="select-group" id="filter-content">
-                    <select id="filter-year"><option value="">Tahun</option></select>
-                    <select id="filter-month" disabled style="opacity:0.5;"><option value="">Bulan</option></select>
-                    <select id="filter-category"><option value="">Kategori</option></select>
-                    <button id="btn-reset" title="Bersihkan Filter">🔄 Reset</button>
-                </div>
-            </div>
-        </div>
+        <details class="mobile-filter">
+          <summary class="filter-summary">
+            🔍 Filter & Arsip
+          </summary>
+
+          <div class="select-group" id="filter-content">
+            <select id="filter-year">
+              <option value="">Tahun</option>
+            </select>
+
+            <select id="filter-month" disabled>
+              <option value="">Bulan</option>
+            </select>
+
+            <select id="filter-category">
+              <option value="">Kategori</option>
+            </select>
+
+            <button id="btn-reset" title="Bersihkan Filter">
+              🔄 Reset
+            </button>
+          </div>
+        </details>
+
+      </div>
     </div>
+  </div>
 </header>
 
 <div class="container">
-    <div class="layout">
-        <main>
-            <div id="results-count" style="margin-bottom:15px; font-weight:bold; opacity:0.7"></div>
-            <div id="main-feed">Memuat data artikel...</div>
-        </main>
+  <div class="layout">
+    <main>
+      <div id="results-count"
+           style="margin-bottom:15px;font-weight:bold;opacity:.7">
+      </div>
 
-        <aside class="sidebar">
-            <h2>Rekomendasi</h2>
-            <div id="sidebar-list"></div>
-        </aside>
-    </div>
+      <div id="main-feed">
+        Memuat data artikel...
+      </div>
+    </main>
+
+    <aside class="sidebar">
+      <h2>Rekomendasi</h2>
+      <div id="sidebar-list"></div>
+    </aside>
+  </div>
 </div>
 
+<!-- JS utama tetap -->
 <script src="assets/js/homepage.js"></script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const toggleBtn = document.getElementById('mobile-filter-toggle');
-        const filterContent = document.getElementById('filter-content');
-
-        if (toggleBtn && filterContent) {
-            toggleBtn.addEventListener('click', () => {
-                const isShown = filterContent.classList.toggle('show');
-                const chevron = toggleBtn.querySelector('.chevron');
-                if (chevron) {
-                    chevron.textContent = isShown ? '▲' : '▼';
-                }
-            });
-        }
-    });
-</script>
+<!-- TIDAK ADA LAGI script toggle manual -->
 
 </body>
 </html>
