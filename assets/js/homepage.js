@@ -2,7 +2,7 @@
   let allArticles = [];
   let filteredArticles = [];
   let currentPage = 1;
-  const itemsPerPage = 9;
+  const itemsPerPage = 10;
 
   // --- INITIALIZATION ---
   document.addEventListener('DOMContentLoaded', () => {
