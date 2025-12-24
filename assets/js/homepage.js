@@ -171,18 +171,51 @@
   }
 
   function renderPagination() {
-    const total = Math.ceil(FILTERED.length / CONFIG.pageSize);
+    const totalPages = Math.ceil(FILTERED.length / CONFIG.pageSize);
     const el = qs('#pagination');
     el.innerHTML = '';
-    if(total <= 1) return;
 
-    for(let i=1; i<=total; i++) {
-      const btn = document.createElement('button');
-      btn.innerText = i;
-      if(i === CURRENT_PAGE) btn.className = 'active';
-      btn.onclick = () => { renderArticlesPage(i); window.scrollTo({top:0, behavior:'smooth'}); };
-      el.appendChild(btn);
+    if (totalPages <= 1) return;
+
+    // --- Tombol SEBELUMNYA ---
+    const prevBtn = document.createElement('button');
+    prevBtn.innerHTML = '&laquo;';
+    prevBtn.disabled = CURRENT_PAGE === 1;
+    prevBtn.className = 'page-nav-btn';
+    prevBtn.onclick = () => goToPage(CURRENT_PAGE - 1);
+    el.appendChild(prevBtn);
+
+    // --- Logika Angka Dinamis (Maks 4-5 angka) ---
+    let startPage = Math.max(1, CURRENT_PAGE - 2);
+    let endPage = Math.min(totalPages, startPage + 3);
+
+    // Koreksi jika di akhir halaman agar tetap tampil 4 angka
+    if (endPage - startPage < 3) {
+      startPage = Math.max(1, endPage - 3);
     }
+
+    for (let i = startPage; i <= endPage; i++) {
+      const numBtn = document.createElement('button');
+      numBtn.innerText = i;
+      numBtn.className = `page-num-btn ${i === CURRENT_PAGE ? 'active' : ''}`;
+      numBtn.onclick = () => goToPage(i);
+      el.appendChild(numBtn);
+    }
+
+    // --- Tombol SESUDAHNYA ---
+    const nextBtn = document.createElement('button');
+    nextBtn.innerHTML = '&raquo;';
+    nextBtn.disabled = CURRENT_PAGE === totalPages;
+    nextBtn.className = 'page-nav-btn';
+    nextBtn.onclick = () => goToPage(CURRENT_PAGE + 1);
+    el.appendChild(nextBtn);
+  }
+
+  // Helper agar tidak duplikasi code scroll
+  function goToPage(p) {
+    renderArticlesPage(p);
+    renderPagination();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function debounce(f, ms) {

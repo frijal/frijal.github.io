@@ -41,9 +41,61 @@ input, select { padding: 10px; border: 1px solid var(--border); border-radius: 6
 .side-item h4 { font-size: 0.85rem; margin: 0; line-height: 1.2; }
 .side-item a { text-decoration: none; color: inherit; }
 
-.pagination { display: flex; justify-content: center; gap: 5px; padding: 20px 0; }
-.pagination button { padding: 8px 14px; border: 1px solid var(--border); background: var(--card); color: var(--text); cursor: pointer; border-radius: 4px; }
-.pagination button.active { background: var(--accent); color: white; border-color: var(--accent); }
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 40px 0;
+}
+
+/* Tombol Navigasi (Panah) */
+.page-nav-btn {
+  padding: 8px 15px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/* Tombol Angka */
+.page-num-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.page-num-btn.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(211, 47, 47, 0.3); /* Shadow warna accent */
+}
+
+.page-num-btn:hover:not(.active),
+.page-nav-btn:hover:not(:disabled) {
+  background: var(--border);
+  transform: translateY(-2px);
+}
+
+.page-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .page-num-btn { width: 35px; height: 35px; font-size: 0.8rem; }
+}
 
 @media (max-width: 850px) {
   .layout { grid-template-columns: 1fr; }
