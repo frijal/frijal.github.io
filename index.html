@@ -80,14 +80,7 @@
           themeToggle.setAttribute('aria-pressed', String(isLight));
         });
       }
-
-      // Panggil loader dari scripts/articles.js
-      if (window.AppArticles && typeof window.AppArticles.loadArticles === 'function') {
-        window.AppArticles.loadArticles();
-      } else {
-        console.error('AppArticles tidak tersedia. Pastikan scripts/articles.js dimuat dan path benar.');
-      }
-    });
+         });
   </script>
 </body>
 </html>
