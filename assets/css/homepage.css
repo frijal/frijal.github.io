@@ -259,3 +259,53 @@ border-color: var(--accent);
   .page-num-btn { width: 34px; height: 34px; font-size: 0.8rem; }
   .page-nav-btn { padding: 0 12px; height: 34px; }
 }
+
+/* Sembunyikan tombol toggle di Desktop */
+.mobile-only {
+  display: none;
+}
+
+/* Style Tombol Toggle Mobile */
+#mobile-filter-toggle {
+width: 100%;
+padding: 12px;
+background: var(--accent);
+color: white;
+border: none;
+border-radius: 8px;
+font-weight: bold;
+display: flex;
+justify-content: space-between;
+align-items: center;
+cursor: pointer;
+margin-bottom: 10px;
+}
+
+@media (max-width: 650px) {
+  .mobile-only {
+    display: flex;
+  }
+
+  /* Sembunyikan select-group secara default di Mobile */
+  .select-group {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    gap: 10px;
+    background: var(--card);
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+
+  /* Class untuk menampilkan (dipicu JS) */
+  .select-group.show {
+    display: flex;
+    animation: slideDown 0.3s ease-out;
+  }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -269,6 +269,21 @@
   document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     loadArticles();
+    // Tambahkan di dalam document.addEventListener('DOMContentLoaded', ...
+    const filterToggle = document.getElementById('mobile-filter-toggle');
+    const filterContent = document.getElementById('filter-content');
+
+    if (filterToggle && filterContent) {
+      filterToggle.addEventListener('click', () => {
+        const isVisible = filterContent.classList.toggle('show');
+
+        // Opsional: Ubah arah panah chevron
+        const chevron = filterToggle.querySelector('.chevron');
+        if (chevron) {
+          chevron.textContent = isVisible ? '▲' : '▼';
+        }
+      });
+    }
   });
 
 })(window);

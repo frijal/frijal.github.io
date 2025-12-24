@@ -18,7 +18,19 @@
                 <input type="text" id="search-box" placeholder="Cari artikel...">
                 <div id="pagination" class="pagination header-pagination"></div>
             </div>
+<div class="filter-controls">
+    <button id="mobile-filter-toggle" class="mobile-only">
+        <span>🔍 Filter & Arsip</span>
+        <span class="chevron">▼</span>
+    </button>
 
+    <div class="select-group" id="filter-content">
+        <select id="filter-year"><option value="">Tahun</option></select>
+        <select id="filter-month"><option value="">Bulan</option></select>
+        <select id="filter-category"><option value="">Kategori</option></select>
+        <button id="btn-reset" title="Bersihkan Filter">🔄 Reset</button>
+    </div>
+</div>
             <div class="select-group">
     <select id="filter-year"><option value="">Tahun</option></select>
     <select id="filter-month"><option value="">Bulan</option></select>
