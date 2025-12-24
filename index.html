@@ -240,13 +240,26 @@
         }
 
         /* --- SIDEBAR --- */
-        .sidebar-section {
-            background: var(--bg-card);
-            padding: 1.5rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            margin-bottom: 2rem;
-        }
+        /* --- SIDEBAR --- */
+aside {
+    /* Membuat sidebar tetap melayang */
+    position: -webkit-sticky; /* Untuk Safari */
+    position: sticky;
+    top: 90px; /* Jarak dari header (sesuaikan dengan tinggi header Anda) */
+
+    /* Penting: Agar sidebar tidak memanjang mengikuti tinggi konten utama */
+    height: fit-content;
+    align-self: start;
+}
+
+.sidebar-section {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
         .sidebar-title {
             font-size: 1.2rem;
             margin-bottom: 1rem;
@@ -388,11 +401,16 @@
             </main>
 
             <aside>
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title">Trending & Terbaru</h3>
-                    <div id="sidebarList">
-                        </div>
-                </div>
+            <div class="sidebar-section">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h3 class="sidebar-title" style="margin-bottom: 0;">Rekomendasi</h3>
+        <button onclick="renderSidebar()" style="background: none; border: none; cursor: pointer; color: var(--primary); font-size: 0.8rem;">
+            ↻ Acak
+        </button>
+    </div>
+    <div id="sidebarList">
+        </div>
+</div>
 
                 <div class="sidebar-section">
                     <h3 class="sidebar-title">Tags</h3>
@@ -403,6 +421,8 @@
                         <span class="pill">Opini</span>
                     </div>
                 </div>
+
+
             </aside>
         </div>
 
@@ -672,24 +692,31 @@
             monthSelect.addEventListener('change', handleArchiveFilter);
         }
 
-        // --- RENDER SIDEBAR (LATEST) ---
-        function renderSidebar() {
-            const container = document.getElementById('sidebarList');
-            const latest5 = allArticles.slice(0, 5);
+// --- RENDER SIDEBAR (RANDOM / TRENDING) ---
+function renderSidebar() {
+    const container = document.getElementById('sidebarList');
+    container.innerHTML = ''; // Bersihkan konten lama jika ada
 
-            latest5.forEach(art => {
-                const div = document.createElement('div');
-                div.className = 'mini-card';
-                div.innerHTML = `
-                    <img src="${art.thumbnail}" class="mini-thumb" alt="thumb">
-                    <div class="mini-info">
-                        <h4><a href="${art.link}">${art.title.substring(0, 40)}...</a></h4>
-                        <span>${art.date.toLocaleDateString('id-ID', { month: 'short', day: 'numeric' })}</span>
-                    </div>
-                `;
-                container.appendChild(div);
-            });
-        }
+    // 1. Buat salinan array (agar urutan asli di allArticles tidak berantakan)
+    // 2. Acak urutannya
+    // 3. Ambil 5 item pertama
+    const randomArticles = [...allArticles]
+        .sort(() => 0.10 - Math.random())
+        .slice(0, 10);
+
+    randomArticles.forEach(art => {
+        const div = document.createElement('div');
+        div.className = 'mini-card';
+        div.innerHTML = `
+            <img src="${art.thumbnail}" class="mini-thumb" alt="thumb" loading="lazy">
+            <div class="mini-info">
+                <h4><a href="${art.link}">${art.title.substring(0, 45)}...</a></h4>
+                <span>${art.date.toLocaleDateString('id-ID', { month: 'short', day: 'numeric' })}</span>
+            </div>
+        `;
+        container.appendChild(div);
+    });
+}
     </script>
 </body>
 </html>
