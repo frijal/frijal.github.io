@@ -1,42 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Berita — Halaman Utama</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layar Kosong - Berita dan Artikel Terbaru dari Balikpapan</title>
   <link rel="stylesheet" href="assets/css/homepage.css">
 </head>
 <body>
-  <header class="site-header">
-    <h1>Portal Berita</h1>
-    <div class="controls">
-      <input id="search-box" placeholder="Cari artikel..." />
-      <select id="filter-category"></select>
-      <select id="filter-year"></select>
-      <select id="filter-month"></select>
-      <select id="sort-select">
-        <option value="newest">Terbaru</option>
-        <option value="oldest">Terlama</option>
-        <option value="title-asc">Judul A→Z</option>
-        <option value="title-desc">Judul Z→A</option>
-      </select>
-      <button id="theme-toggle" aria-pressed="false">Tema</button>
-    </div>
+  <header>
+    <h1>Layar Kosong: Berita Santai, Inspiratif, dan Tech dari Balikpapan!</h1>
   </header>
-
-  <main id="main" class="layout">
-    <section id="content">
-      <div id="results-count" class="results-count"></div>
-      <div id="articles-grid" class="grid"></div>
-      <div id="pagination" class="pagination"></div>
-    </section>
-
-    <aside id="sidebar" class="sidebar">
-      <div id="sidebar-thumbs" class="thumbs"></div>
-      <div id="archive" class="archive"></div>
+  <div id="sort-controls">
+    <select id="sort-category">
+      <option value="">Pilih Kategori</option>
+      <!-- JS isi options -->
+    </select>
+    <select id="sort-year">
+      <option value="">Pilih Tahun</option>
+      <!-- JS isi -->
+    </select>
+    <select id="sort-month">
+      <option value="">Pilih Bulan</option>
+      <!-- JS isi -->
+    </select>
+  </div>
+  <div class="container">
+    <aside id="left-sidebar">
+      <h3>Recent di 🔆 Lainnya</h3>
+      <!-- JS render thumbnails -->
     </aside>
-  </main>
-
+    <main id="main-grid">
+      <!-- JS render cards -->
+    </main>
+    <aside id="right-sidebar">
+      <h3>Artikel Populer Lainnya</h3>
+      <!-- JS render thumbnails -->
+    </aside>
+  </div>
+  <div id="archive">
+    <h3>Archive Artikel</h3>
+    <!-- JS render links -->
+  </div>
+  <div id="pagination">
+    <!-- JS render buttons -->
+  </div>
   <script src="assets/js/homepage.js"></script>
 </body>
 </html>
