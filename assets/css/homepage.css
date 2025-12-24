@@ -173,7 +173,7 @@ border-color: var(--accent);
   display: flex;
   background: var(--card);
   border-radius: 12px;
-  margin-bottom: 20px;
+/*  margin-bottom: 20px; */
   overflow: hidden;
   border: 1px solid var(--border);
   transition: transform 0.2s ease;
