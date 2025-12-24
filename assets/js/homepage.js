@@ -1,196 +1,184 @@
-/**
- * script.js - Light Version
- * Tanpa IndexedDB, fokus pada kecepatan render data JSON.
- */
+// app.js
 
-const CONFIG = {
-  jsonUrl: 'artikel.json',
-  itemsPerPage: 9
-};
+document.addEventListener('DOMContentLoaded', async () => {
+  // Step 1: Fetch and parse artikel.json
+  const response = await fetch('artikel.json');
+  const data = await response.json();
 
-let state = {
-  articles: [],
-  filteredArticles: [],
-  currentPage: 1,
-  categories: new Set(),
-  archives: new Set()
-};
-
-// --- DATA PROCESSING ---
-
-function flattenData(jsonData) {
-  let flatList = [];
-  state.categories = new Set();
-  state.archives = new Set();
-
-  for (const [category, items] of Object.entries(jsonData)) {
-    state.categories.add(category);
-    items.forEach(item => {
-      if (!item[0]) return; // Skip jika data rusak
-
-      const dateObj = new Date(item[3]);
-      const yearMonth = !isNaN(dateObj)
-      ? `${dateObj.getFullYear()}-${String(dateObj.getMonth() + 1).padStart(2, '0')}`
-      : 'Uncategorized';
-
-      if(yearMonth !== 'Uncategorized') state.archives.add(yearMonth);
-
-      flatList.push({
-        category: category,
-        title: item[0],
-        url: item[1],
-        image: item[2] || 'https://via.placeholder.com/400x200?text=No+Image',
-        date: item[3],
-        desc: item[4],
-        timestamp: !isNaN(dateObj) ? dateObj.getTime() : 0,
-                    yearMonth: yearMonth
+  // Step 2: Process data - Gabung semua artikel menjadi satu array flat dengan tambah kategori
+  let allArticles = [];
+  Object.keys(data).forEach(category => {
+    data[category].forEach(article => {
+      allArticles.push({
+        title: article[0],
+        slug: article[1],
+        imageUrl: article[2],
+        date: article[3], // Format: "YYYY-MM-DDTHH:MM:SS.sss+00:00"
+        summary: article[4],
+        category: category
       });
     });
-  }
-  return flatList.sort((a, b) => b.timestamp - a.timestamp);
-}
-
-async function initApp() {
-  const loader = document.getElementById('loader');
-  const grid = document.getElementById('article-grid');
-
-  loader.classList.remove('hidden');
-  grid.style.opacity = '0.3';
-
-  try {
-    const response = await fetch(CONFIG.jsonUrl);
-    if (!response.ok) throw new Error('Gagal mengambil file JSON');
-
-    const jsonData = await response.json();
-    state.articles = flattenData(jsonData);
-    state.filteredArticles = [...state.articles];
-
-    populateFilters();
-    renderPage(1);
-
-  } catch (error) {
-    console.error("Error:", error);
-    grid.innerHTML = `<p class="error">Gagal memuat artikel: ${error.message}</p>`;
-  } finally {
-    loader.classList.add('hidden');
-    grid.style.opacity = '1';
-  }
-}
-
-// --- UI RENDERING ---
-
-function populateFilters() {
-  const archiveSelect = document.getElementById('filter-archive');
-  const categorySelect = document.getElementById('filter-category');
-
-  archiveSelect.innerHTML = '<option value="">Semua Waktu</option>';
-  categorySelect.innerHTML = '<option value="">Semua Kategori</option>';
-
-  const sortedArchives = Array.from(state.archives).sort().reverse();
-  sortedArchives.forEach(ym => {
-    const [year, month] = ym.split('-');
-    const monthName = new Date(year, month - 1).toLocaleString('id-ID', { month: 'long' });
-    const option = document.createElement('option');
-    option.value = ym;
-    option.textContent = `${monthName} ${year}`;
-    archiveSelect.appendChild(option);
   });
 
-  Array.from(state.categories).sort().forEach(cat => {
-    const option = document.createElement('option');
-    option.value = cat;
-    option.textContent = cat;
-    categorySelect.appendChild(option);
-  });
-}
+  // Sort allArticles descending by date
+  allArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-function renderArticleCard(article) {
-  const dateFormatted = new Date(article.date).toLocaleDateString('id-ID', {
-    day: 'numeric', month: 'long', year: 'numeric'
+  // Extract unique years and months for archive
+  const years = [...new Set(allArticles.map(a => new Date(a.date).getFullYear()))].sort((a, b) => b - a);
+  const monthsByYear = {};
+  years.forEach(year => {
+    monthsByYear[year] = [...new Set(allArticles.filter(a => new Date(a.date).getFullYear() === year).map(a => new Date(a.date).getMonth() + 1))].sort((a, b) => b - a);
   });
 
-  return `
-  <article class="card">
-  <div class="card-image-wrapper">
-  <img src="${article.image}" alt="${article.title}" loading="lazy">
-  <span class="category-tag">${article.category}</span>
-  </div>
-  <div class="card-content">
-  <div class="card-meta">📅 ${dateFormatted}</div>
-  <h2 class="card-title"><a href="${article.url}">${article.title}</a></h2>
-  <p class="card-desc">${article.desc}</p>
-  <a href="${article.url}" class="read-more">Baca Selengkapnya →</a>
-  </div>
-  </article>
-  `;
-}
+  // Categories unique
+  const categories = Object.keys(data);
 
-function renderPage(pageNumber) {
-  state.currentPage = pageNumber;
-  const container = document.getElementById('article-grid');
-  const resultCount = document.getElementById('result-count');
+  // Pagination setup
+  let currentPage = 1;
+  const articlesPerPage = 10;
+  let filteredArticles = [...allArticles]; // Default: all
 
-  const start = (pageNumber - 1) * CONFIG.itemsPerPage;
-  const end = start + CONFIG.itemsPerPage;
-  const paginatedItems = state.filteredArticles.slice(start, end);
+  // Render functions
+  const renderArticles = (articles, page = 1) => {
+    const start = (page - 1) * articlesPerPage;
+    const end = start + articlesPerPage;
+    const paginated = articles.slice(start, end);
 
-  container.innerHTML = paginatedItems.map(renderArticleCard).join('');
-  resultCount.innerHTML = `Menampilkan <b>${state.filteredArticles.length}</b> artikel`;
+    const mainGrid = document.getElementById('main-grid');
+    mainGrid.innerHTML = '';
+    paginated.forEach(article => {
+      const card = document.createElement('div');
+      card.className = 'article-card';
+      card.innerHTML = `
+      <img src="${article.imageUrl}" alt="${article.title}" onerror="this.src='https://via.placeholder.com/300x200?text=No+Image';">
+      <h3>${article.title}</h3>
+      <p>${article.summary.substring(0, 100)}...</p>
+      <span>${new Date(article.date).toLocaleDateString('id-ID')}</span>
+      <span class="category">${article.category}</span>
+      `;
+      card.addEventListener('click', () => alert(`Buka artikel: ${article.slug}`)); // Simulasi detail
+      mainGrid.appendChild(card);
+    });
 
-  renderPagination();
-}
-
-function renderPagination() {
-  const totalPages = Math.ceil(state.filteredArticles.length / CONFIG.itemsPerPage);
-  const container = document.getElementById('pagination');
-  container.innerHTML = '';
-
-  if (totalPages <= 1) return;
-
-  for (let i = 1; i <= totalPages; i++) {
-    // Hanya tampilkan beberapa tombol jika halaman terlalu banyak
-    if (i === 1 || i === totalPages || (i >= state.currentPage - 1 && i <= state.currentPage + 1)) {
+    // Pagination controls
+    const totalPages = Math.ceil(articles.length / articlesPerPage);
+    const pagination = document.getElementById('pagination');
+    pagination.innerHTML = '';
+    for (let i = 1; i <= totalPages; i++) {
       const btn = document.createElement('button');
       btn.textContent = i;
-      if (i === state.currentPage) btn.classList.add('active');
-      btn.onclick = () => {
-        renderPage(i);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      };
-      container.appendChild(btn);
+      btn.className = i === page ? 'active' : '';
+      btn.addEventListener('click', () => {
+        currentPage = i;
+        renderArticles(filteredArticles, currentPage);
+      });
+      pagination.appendChild(btn);
     }
-  }
-}
-
-// --- SEARCH & FILTER ---
-
-const handleSearchAndFilter = () => {
-  const searchVal = document.getElementById('search-input').value.toLowerCase();
-  const archiveVal = document.getElementById('filter-archive').value;
-  const categoryVal = document.getElementById('filter-category').value;
-
-  state.filteredArticles = state.articles.filter(article => {
-    const matchesSearch = !searchVal || article.title.toLowerCase().includes(searchVal) || article.desc.toLowerCase().includes(searchVal);
-    const matchesArchive = !archiveVal || article.yearMonth === archiveVal;
-    const matchesCategory = !categoryVal || article.category === categoryVal;
-    return matchesSearch && matchesArchive && matchesCategory;
-  });
-
-  state.currentPage = 1;
-  renderPage(1);
-};
-
-function debounce(func, wait) {
-  let timeout;
-  return (...args) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func.apply(this, args), wait);
   };
-}
 
-document.addEventListener('DOMContentLoaded', () => {
-  initApp();
-  document.getElementById('search-input').addEventListener('input', debounce(handleSearchAndFilter, 300));
-  document.getElementById('filter-archive').addEventListener('change', handleSearchAndFilter);
-  document.getElementById('filter-category').addEventListener('change', handleSearchAndFilter);
+  const renderSidebar = (id, articles, max = 5) => {
+    const sidebar = document.getElementById(id);
+    sidebar.innerHTML = '';
+    articles.slice(0, max).forEach(article => {
+      const thumb = document.createElement('div');
+      thumb.className = 'thumbnail';
+      thumb.innerHTML = `
+      <img src="${article.imageUrl}" alt="${article.title}" onerror="this.src='https://via.placeholder.com/100x100?text=No+Image';">
+      <p>${article.title.substring(0, 50)}...</p>
+      `;
+      thumb.addEventListener('click', () => alert(`Buka: ${article.slug}`));
+      sidebar.appendChild(thumb);
+    });
+  };
+
+  const renderArchive = () => {
+    const archive = document.getElementById('archive');
+    archive.innerHTML = '';
+    years.forEach(year => {
+      const yearDiv = document.createElement('div');
+      yearDiv.innerHTML = `<h4>${year}</h4>`;
+      monthsByYear[year].forEach(month => {
+        const link = document.createElement('a');
+        link.textContent = `Bulan ${month}`;
+        link.href = '#';
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          filterArticles({ year, month });
+        });
+        yearDiv.appendChild(link);
+      });
+      archive.appendChild(yearDiv);
+    });
+  };
+
+  const renderSortControls = () => {
+    const categorySelect = document.getElementById('sort-category');
+    categories.forEach(cat => {
+      const opt = document.createElement('option');
+      opt.value = cat;
+      opt.textContent = cat;
+      categorySelect.appendChild(opt);
+    });
+
+    categorySelect.addEventListener('change', (e) => {
+      const selectedCat = e.target.value;
+      const yearSelect = document.getElementById('sort-year');
+      yearSelect.innerHTML = '<option value="">Pilih Tahun</option>';
+      if (selectedCat) {
+        const catArticles = allArticles.filter(a => a.category === selectedCat);
+        const catYears = [...new Set(catArticles.map(a => new Date(a.date).getFullYear()))].sort((a, b) => b - a);
+        catYears.forEach(y => {
+          const opt = document.createElement('option');
+          opt.value = y;
+          opt.textContent = y;
+          yearSelect.appendChild(opt);
+        });
+      }
+    });
+
+    const yearSelect = document.getElementById('sort-year');
+    yearSelect.addEventListener('change', (e) => {
+      const selectedYear = e.target.value;
+      const monthSelect = document.getElementById('sort-month');
+      monthSelect.innerHTML = '<option value="">Pilih Bulan</option>';
+      if (selectedYear) {
+        const cat = document.getElementById('sort-category').value;
+        const yearArticles = allArticles.filter(a => (cat ? a.category === cat : true) && new Date(a.date).getFullYear() === parseInt(selectedYear));
+        const months = [...new Set(yearArticles.map(a => new Date(a.date).getMonth() + 1))].sort((a, b) => b - a);
+        months.forEach(m => {
+          const opt = document.createElement('option');
+          opt.value = m;
+          opt.textContent = m;
+          monthSelect.appendChild(opt);
+        });
+      }
+    });
+
+    document.getElementById('sort-month').addEventListener('change', (e) => {
+      const selectedMonth = e.target.value;
+      if (selectedMonth) {
+        const cat = document.getElementById('sort-category').value;
+        const year = document.getElementById('sort-year').value;
+        filterArticles({ category: cat, year: parseInt(year), month: parseInt(selectedMonth) });
+      }
+    });
+  };
+
+  const filterArticles = ({ category = '', year = '', month = '' }) => {
+    filteredArticles = allArticles.filter(a => {
+      const aDate = new Date(a.date);
+      return (category ? a.category === category : true) &&
+      (year ? aDate.getFullYear() === year : true) &&
+      (month ? aDate.getMonth() + 1 === month : true);
+    });
+    currentPage = 1;
+    renderArticles(filteredArticles, currentPage);
+  };
+
+  // Initial render
+  renderArticles(allArticles);
+  renderSidebar('left-sidebar', allArticles.filter(a => a.category === '🔆 Lainnya'));
+  renderSidebar('right-sidebar', allArticles.filter(a => a.category !== '🔆 Lainnya'));
+  renderArchive();
+  renderSortControls();
 });
