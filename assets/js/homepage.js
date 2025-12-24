@@ -7,7 +7,7 @@
 
   /* ---------- Konfigurasi ---------- */
   const CONFIG = {
-    jsonPath: 'artikel.json', // ubah jika lokasi berbeda
+    jsonPath: './artikel.json', // ubah jika lokasi berbeda
     pageSize: 12,
     thumbnailSidebarCount: 12,
     placeholderImage: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240"><rect width="100%" height="100%" fill="%230b1220"/><text x="50%" y="50%" fill="%23ffffff" font-size="18" font-family="Arial" dominant-baseline="middle" text-anchor="middle">No Image</text></svg>'
