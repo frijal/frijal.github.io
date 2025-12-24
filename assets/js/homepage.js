@@ -3,7 +3,7 @@
 // Pastikan file artikel.json berada di folder yang sama dengan index.html atau sesuaikan path fetch.
 
 const CONFIG = {
-  jsonPath: './artikel.json',
+  jsonPath: 'artikel.json',
   pageSize: 12,
   thumbnailSidebarCount: 12
 };
