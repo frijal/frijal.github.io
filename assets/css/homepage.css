@@ -97,6 +97,21 @@ input, select { padding: 10px; border: 1px solid var(--border); border-radius: 6
   .page-num-btn { width: 35px; height: 35px; font-size: 0.8rem; }
 }
 
+/* Tambahkan ini di style.css kamu */
+.header-pagination {
+  margin-top: 15px; /* Memberi jarak dari filter bar */
+  margin-bottom: 5px;
+  justify-content: flex-start; /* Agar tombol rata kiri mengikuti kolom pencarian */
+}
+
+/* Supaya di mobile tetap rapi */
+@media (max-width: 600px) {
+  .header-pagination {
+    justify-content: center; /* Di HP lebih bagus di tengah */
+    gap: 5px;
+  }
+}
+
 @media (max-width: 850px) {
   .layout { grid-template-columns: 1fr; }
   .sidebar { position: static; }

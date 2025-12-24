@@ -41,23 +41,35 @@
 
   function normalizeAndInit(data) {
     ALL_ARTICLES = [];
-    // Perbaikan untuk struktur data Kategori: [[Array Artikel]]
+    const seenTitles = new Set(); // Tempat menyimpan judul unik
+
     for (const category in data) {
       if (Array.isArray(data[category])) {
         data[category].forEach(item => {
-          ALL_ARTICLES.push({
-            title: item[0] || 'Untitled',
-            url: item[1] || '#',
-            image: item[2] || CONFIG.placeholderImage,
-            datetime: item[3] || '',
-            desc: item[4] || '',
-            category: category,
-            timestamp: new Date(item[3]).getTime() || 0
-          });
+          const title = item[0] || 'Untitled';
+
+          // --- CEK DUPLIKAT ---
+          // Kita bersihkan whitespace dan ubah ke lowercase agar pengecekan lebih akurat
+          const titleKey = title.trim().toLowerCase();
+
+          if (!seenTitles.has(titleKey)) {
+            seenTitles.add(titleKey); // Tandai judul sudah ada
+
+            ALL_ARTICLES.push({
+              title: title,
+              url: item[1] || '#',
+              image: item[2] || CONFIG.placeholderImage,
+              datetime: item[3] || '',
+              desc: item[4] || '',
+              category: category,
+              timestamp: new Date(item[3]).getTime() || 0
+            });
+          }
         });
       }
     }
 
+    // Urutkan terbaru
     ALL_ARTICLES.sort((a, b) => b.timestamp - a.timestamp);
     FILTERED = [...ALL_ARTICLES];
     buildArchiveData();
