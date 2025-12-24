@@ -1,33 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Beranda</title>
-
-  <link rel="stylesheet" href="/assets/css/homepage.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portal Berita - Halaman Utama</title>
+  <link rel="stylesheet" href="assets/css/homepage.css">
+  <style>
+    /* Minimal inline styles for layout wrapper (keperluan cepat) */
+    header{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+    .brand{ font-weight:800; font-size:1.25rem; color:var(--text); }
+    .top-actions{ display:flex; gap:8px; align-items:center; }
+    .toggle-theme{ cursor:pointer; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:var(--text); }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <main class="main-card">
+      <header>
+        <div class="brand">Portal Berita</div>
+        <div class="top-actions">
+          <div id="results-count">0 artikel</div>
+          <button id="theme-toggle" class="toggle-theme" aria-pressed="false">Toggle Theme</button>
+        </div>
+      </header>
 
-  <!-- FILTER -->
-  <div class="filters">
-    <select id="categorySelect">
-      <option value="">Semua Kategori</option>
-    </select>
-    <select id="monthSelect">
-      <option value="">Semua Arsip</option>
-    </select>
+      <section class="filters">
+        <select id="filter-category" aria-label="Filter kategori"></select>
+        <select id="filter-year" aria-label="Filter tahun"></select>
+        <select id="filter-month" aria-label="Filter bulan">
+          <option value="">Semua Bulan</option>
+        </select>
+        <select id="sort-select" aria-label="Sortir">
+          <option value="newest">Terbaru</option>
+          <option value="oldest">Terlama</option>
+          <option value="title-asc">Judul A→Z</option>
+          <option value="title-desc">Judul Z→A</option>
+        </select>
+        <input id="search-box" type="search" placeholder="Cari judul atau kategori..." />
+      </section>
+
+      <div id="articles-grid" aria-live="polite"></div>
+
+      <div id="pagination" class="pagination"></div>
+    </main>
+
+    <aside class="sidebar">
+      <div class="panel">
+        <h4>Terbaru</h4>
+        <div id="sidebar-thumbs"></div>
+      </div>
+
+      <div class="panel">
+        <h4>Arsip</h4>
+        <div id="archive"></div>
+      </div>
+
+      <div class="panel">
+        <h4>Tentang</h4>
+        <p style="color:var(--muted);font-size:0.95rem">Gunakan filter di atas untuk menyaring berdasarkan kategori, tahun, atau bulan. Klik arsip untuk melihat posting pada periode tertentu.</p>
+      </div>
+    </aside>
   </div>
 
-  <!-- CONTENT -->
-  <div class="layout">
-    <main id="main"></main>
-    <aside id="sidebar" class="sidebar"></aside>
-  </div>
+  <!-- Script dipanggil via src -->
+  <script type="module">
+    import { loadArticles, renderAll } from 'assets/js/homepage.js';
 
-  <!-- PAGINATION -->
-  <nav id="pagination" class="pagination"></nav>
+    // Theme toggle: toggles .light-mode on <html>
+    const themeToggle = document.getElementById('theme-toggle');
+    const htmlEl = document.documentElement;
+    // remember preference in localStorage
+    const saved = localStorage.getItem('theme-mode');
+    if (saved === 'light') htmlEl.classList.add('light-mode');
 
-  <script src="/assets/js/homepage.js"></script>
+    themeToggle.addEventListener('click', () => {
+      const isLight = htmlEl.classList.toggle('light-mode');
+      localStorage.setItem('theme-mode', isLight ? 'light' : 'dark');
+      themeToggle.setAttribute('aria-pressed', String(isLight));
+    });
+
+    // Initialize
+    loadArticles();
+  </script>
 </body>
 </html>
