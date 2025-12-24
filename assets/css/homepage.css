@@ -315,24 +315,87 @@ input, textarea {
   color: var(--text-main);
 }
 
-/* --- FOOTER --- */
-footer {
-  background: #111;
-  color: #fff;
-  padding: 3rem 0;
-  margin-top: 4rem;
+/* =================================================
+ *  7. FOOTER
+ *  ================================================= */
+.page-footer {
+  /* Background dihapus agar transparan/menyatu */
+  padding: 4rem 1.5rem 2rem;
+  margin-top: 5rem;
+  color: var(--text-primary);
 }
+
 .footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* Ubah menjadi 3 kolom agar teks keamanan, link, dan sosmed berjajar rapi */
+  grid-template-columns: 1fr 2fr 1fr;
   gap: 2rem;
+  align-items: center; /* Menjaga semua elemen sejajar di tengah secara vertikal */
 }
+
+.footer-section h3 {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px; /* Lebih renggang agar elegan */
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+.footer-section p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* Link Mendatar & Tanpa Garis Bawah */
+.footer-links {
+  justify-content: center;
+}
+
+.footer-links a {
+  text-decoration: none !important;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--text-secondary);
+}
+
+/* Media Sosial */
+.footer-social {
+  justify-content: flex-end;
+}
+
+.footer-social a {
+  color: var(--text-muted);
+  font-size: 1.3rem;
+  text-decoration: none !important;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: var(--text-secondary);
+  transform: translateY(-3px);
+}
+
+/* Garis Tipis Pemisah Copyright */
 .footer-bottom {
-  text-align: center;
-  margin-top: 2rem;
+  max-width: 1200px;
+  margin: 4rem auto 0;
   padding-top: 2rem;
-  border-top: 1px solid #333;
-  color: #888;
+  border-top: 1px solid var(--border-color); /* Hanya garis tipis di bawah */
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  opacity: 0.7;
 }
 
 /* --- RESPONSIVE --- */

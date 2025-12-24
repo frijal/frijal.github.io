@@ -61,23 +61,24 @@
   function normalizeData(data) {
     for (const [category, articles] of Object.entries(data)) {
       articles.forEach(item => {
+        const originalLink = item[1] || '';
+
         allArticles.push({
           category: category,
           title: item[0],
-          link: item[1],
-          thumbnail: item[2],
-          date: new Date(item[3]),
+          link: `/artikel/${originalLink.replace(/^\/+/, '')}`,
+                         thumbnail: item[2],
+                         date: new Date(item[3]),
                          dateStr: item[3],
                          summary: item[4]
         });
       });
     }
-    // Sort by Date Descending (Terbaru ke Terlama)
+
+    // Sort by Date Descending
     allArticles.sort((a, b) => b.date - a.date);
     filteredArticles = [...allArticles];
   }
-
-
 
   // --- RENDER HERO SECTION (FEATURED) ---
   function renderHero() {
@@ -85,7 +86,7 @@
     const featured = allArticles[0]; // Pick newest as featured
 
     // Remove skeleton class
-    hero.classList.remove('skeleton');
+    hero.classList.remove('skeleton');art.thumbnail
     hero.style.backgroundImage = `url('${featured.thumbnail}')`;
 
     hero.innerHTML = `
