@@ -1,37 +1,41 @@
 /* assets/css/homepage.css - Layar Kosong Portal */
 
 :root {
-  /* Mode Terang */
-  --bg: #f8f9fa;
+  /* Mode Terang - Biru yang Nyaman */
+  --bg: #f4f7f9;           /* Abu-abu kebiruan sangat muda agar mata tidak cepat lelah */
   --header-bg: #ffffff;
   --card: #ffffff;
-  --text: #212529;
-  --text-muted: #666666;
-  --accent: #d32f2f;
-  --border: #e0e0e0;
+  --text: #1a202c;         /* Hitam pekat kebiruan */
+  --text-muted: #4a5568;
+  --accent: #2b6cb0;       /* Biru utama (Steel Blue) - Tegas tapi tenang */
+  --accent-hover: #2c5282; /* Biru yang lebih gelap untuk efek hover */
+  --border: #e2e8f0;
   --shadow: rgba(0, 0, 0, 0.05);
 }
 
 /* Mode Gelap Otomatis */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #121212;
-    --header-bg: #1a1a1a;
-    --card: #1e1e1e;
-    --text: #e0e0e0;
-    --text-muted: #aaaaaa;
-    --border: #333333;
+    --bg: #1a202c;         /* Biru dongker gelap (Midnight Blue) */
+    --header-bg: #171923;
+    --card: #2d3748;
+    --text: #edf2f7;       /* Putih tulang agar tidak terlalu kontras */
+    --text-muted: #a0aec0;
+    --accent: #63b3ed;     /* Biru langit cerah untuk aksen di mode gelap */
+    --border: #4a5568;
     --shadow: rgba(0, 0, 0, 0.3);
   }
 }
 
+/* Class Manual Dark Mode (tetap sinkron) */
 .dark-mode {
-  --bg: #121212;
-  --header-bg: #1a1a1a;
-  --card: #1e1e1e;
-  --text: #e0e0e0;
-  --text-muted: #aaaaaa;
-  --border: #333333;
+  --bg: #1a202c;
+  --header-bg: #171923;
+  --card: #2d3748;
+  --text: #edf2f7;
+  --text-muted: #a0aec0;
+  --border: #4a5568;
+  --accent: #63b3ed;
 }
 
 /* Base Styles */
@@ -87,11 +91,21 @@ outline: none;
 
 #search-box:focus { border-color: var(--accent); }
 
-/* Baris Bawah: Select Group + Reset Button */
+/* Membuat semua filter dan tombol reset dalam 1 baris */
 .select-group {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 0.6fr; /* Menambahkan ruang untuk tombol reset */
+  display: flex; /* Menggunakan flexbox agar lebih fleksibel */
   gap: 10px;
+  width: 100%;
+}
+
+/* Mengatur proporsi lebar masing-masing elemen */
+#filter-year { flex: 1; }     /* Tahun agak kecil */
+#filter-month { flex: 1.5; }  /* Bulan butuh ruang lebih untuk nama bulan yang panjang */
+#filter-category { flex: 2; } /* Kategori biasanya paling panjang teksnya */
+#btn-reset {
+flex: 0.8;
+white-space: nowrap; /* Mencegah teks reset turun ke bawah */
+min-width: fit-content;
 }
 
 select {
@@ -263,8 +277,13 @@ border-color: var(--accent);
 @media (max-width: 600px) {
   .search-nav-group { flex-direction: column; align-items: stretch; }
   .header-pagination { justify-content: center; }
-  .select-group { grid-template-columns: 1fr; }
+  .select-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Di HP jadi 2 kolom agar tidak kekecilan */
+  }
   .page-num-btn { width: 36px; height: 36px; font-size: 0.8rem; }
   header h1 { font-size: 1.5rem; }
-  #btn-reset { height: 42px; }
+  #btn-reset {
+  grid-column: span 2; /* Tombol reset memanjang di bawahnya */
+  }
 }

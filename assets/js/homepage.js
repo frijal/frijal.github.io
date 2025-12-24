@@ -111,7 +111,7 @@
     <div class="meta-row">
     <span class="badge">${escapeHtml(a.category)}</span>
     <span class="date-sep">•</span>
-    <small class="meta-date">📅 ${fmtDate(a.datetime)}</small>
+    <small class="meta-date">${fmtDate(a.datetime)}</small>
     </div>
     <h3><a href="${a.url}">${escapeHtml(a.title)}</a></h3>
     <p>${escapeHtml(a.desc.substring(0, 110))}...</p>
