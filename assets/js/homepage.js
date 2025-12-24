@@ -1,6 +1,5 @@
 /**
  * assets/js/homepage.js
- * Versi Perbaikan untuk struktur artikel.json (Object > Array of Arrays)
  */
 (function (global) {
   'use strict';
@@ -9,23 +8,33 @@
     jsonPath: './artikel.json',
     pageSize: 8,
     thumbnailSidebarCount: 10,
-    placeholderImage: 'https://via.placeholder.com/400x240?text=No+Image'
+    placeholderImage: './thumbnail.webp'
   };
 
   let ALL_ARTICLES = [];
   let FILTERED = [];
   let CURRENT_PAGE = 1;
-  let CURRENT_SORT = { field: 'date', dir: 'desc' };
   let ARCHIVE = {};
 
   const qs = sel => document.querySelector(sel);
-  const qsa = sel => Array.from(document.querySelectorAll(sel));
   const escapeHtml = s => String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
   const safeDate = iso => { const d = new Date(iso); return isNaN(d) ? null : d; };
   const fmtDate = iso => {
     const d = safeDate(iso);
-    return d ? d.toLocaleDateString('id-ID', { day:'numeric', month:'long', year:'numeric' }) : (iso || '');
+    return d ? d.toLocaleDateString('id-ID', { day:'numeric', month:'short', year:'numeric' }) : (iso || '');
   };
+
+  /* --- Fitur Mode Gelap Otomatis --- */
+  function initTheme() {
+    const themeMedia = window.matchMedia('(prefers-color-scheme: dark)');
+    const updateTheme = (e) => {
+      document.documentElement.classList.toggle('dark-mode', e.matches);
+    };
+    // Cek saat pertama kali load
+    updateTheme(themeMedia);
+    // Pantau jika user ganti tema di tengah jalan
+    themeMedia.addEventListener('change', updateTheme);
+  }
 
   async function loadArticles() {
     try {
@@ -35,26 +44,21 @@
       normalizeAndInit(data);
     } catch (err) {
       console.error('Gagal memuat artikel:', err);
-      qs('#main-feed').innerHTML = `<div class="error">Gagal memuat data. Pastikan artikel.json tersedia.</div>`;
+      if (qs('#main-feed')) qs('#main-feed').innerHTML = `<div class="error">Gagal memuat data.</div>`;
     }
   }
 
   function normalizeAndInit(data) {
     ALL_ARTICLES = [];
-    const seenTitles = new Set(); // Tempat menyimpan judul unik
+    const seenTitles = new Set();
 
     for (const category in data) {
       if (Array.isArray(data[category])) {
         data[category].forEach(item => {
           const title = item[0] || 'Untitled';
-
-          // --- CEK DUPLIKAT ---
-          // Kita bersihkan whitespace dan ubah ke lowercase agar pengecekan lebih akurat
           const titleKey = title.trim().toLowerCase();
-
           if (!seenTitles.has(titleKey)) {
-            seenTitles.add(titleKey); // Tandai judul sudah ada
-
+            seenTitles.add(titleKey);
             ALL_ARTICLES.push({
               title: title,
               url: item[1] || '#',
@@ -69,7 +73,6 @@
       }
     }
 
-    // Urutkan terbaru
     ALL_ARTICLES.sort((a, b) => b.timestamp - a.timestamp);
     FILTERED = [...ALL_ARTICLES];
     buildArchiveData();
@@ -90,42 +93,48 @@
 
   function renderAll() {
     renderFiltersUI();
-    renderSidebarThumbnails();
     renderArticlesPage(1);
   }
 
   function renderArticlesPage(page = 1) {
     CURRENT_PAGE = page;
     const container = qs('#main-feed');
+    if (!container) return;
+
     const start = (page - 1) * CONFIG.pageSize;
-    const sorted = applySort(FILTERED);
-    const items = sorted.slice(start, start + CONFIG.pageSize);
+    const items = FILTERED.slice(start, start + CONFIG.pageSize);
 
     container.innerHTML = items.map(a => `
     <article class="news-card">
     <img src="${a.image}" alt="${escapeHtml(a.title)}" loading="lazy" onerror="this.src='${CONFIG.placeholderImage}'">
     <div class="news-info">
+    <div class="meta-row">
     <span class="badge">${escapeHtml(a.category)}</span>
+    <span class="date-sep">•</span>
+    <small class="meta-date">${fmtDate(a.datetime)}</small>
+    </div>
     <h3><a href="${a.url}">${escapeHtml(a.title)}</a></h3>
-    <p>${escapeHtml(a.desc.substring(0, 120))}...</p>
-    <small>📅 ${fmtDate(a.datetime)}</small>
+    <p>${escapeHtml(a.desc.substring(0, 110))}...</p>
     </div>
     </article>
-    `).join('') || `<div class="no-results">Tidak ada artikel ditemukan.</div>`;
+    `).join('') || `<div class="no-results">Tidak ada artikel.</div>`;
 
-    qs('#results-count').textContent = `Total: ${FILTERED.length} artikel`;
+    if (qs('#results-count')) qs('#results-count').textContent = `Total: ${FILTERED.length} artikel`;
+    renderSidebarThumbnails();
     renderPagination();
   }
 
   function renderSidebarThumbnails() {
     const el = qs('#sidebar-list');
-    const recent = ALL_ARTICLES.slice(0, CONFIG.thumbnailSidebarCount);
-    el.innerHTML = recent.map(a => `
+    if (!el) return;
+    const shuffled = [...ALL_ARTICLES].sort(() => 0.5 - Math.random()).slice(0, CONFIG.thumbnailSidebarCount);
+
+    el.innerHTML = shuffled.map(a => `
     <div class="side-item">
-    <img src="${a.image}" alt="" onerror="this.src='${CONFIG.placeholderImage}'">
+    <img src="${a.image}" alt="" onerror="this.src='${CONFIG.placeholderImage}'" loading="lazy">
     <div>
     <h4><a href="${a.url}">${escapeHtml(a.title)}</a></h4>
-    <small>${escapeHtml(a.category)}</small>
+    <small class="side-badge">${escapeHtml(a.category)}</small>
     </div>
     </div>
     `).join('');
@@ -135,12 +144,11 @@
     const yearSel = qs('#filter-year');
     const monthSel = qs('#filter-month');
     const catSel = qs('#filter-category');
+    if (!yearSel || !monthSel || !catSel) return;
 
-    // Category
     const cats = [...new Set(ALL_ARTICLES.map(a => a.category))].sort();
     catSel.innerHTML = '<option value="">Kategori</option>' + cats.map(c => `<option value="${c}">${c}</option>`).join('');
 
-    // Years
     const years = Object.keys(ARCHIVE).sort((a,b) => b - a);
     yearSel.innerHTML = '<option value="">Tahun</option>' + years.map(y => `<option value="${y}">${y}</option>`).join('');
 
@@ -155,16 +163,16 @@
       }
       applyFilters();
     };
-
-    [monthSel, catSel].forEach(el => el.onchange = applyFilters);
-    qs('#search-box').oninput = debounce(applyFilters, 300);
+    catSel.onchange = applyFilters;
+    monthSel.onchange = applyFilters;
+    if (qs('#search-box')) qs('#search-box').oninput = debounce(applyFilters, 300);
   }
 
   function applyFilters() {
-    const q = qs('#search-box').value.toLowerCase();
-    const y = qs('#filter-year').value;
-    const m = qs('#filter-month').value;
-    const c = qs('#filter-category').value;
+    const q = qs('#search-box')?.value.toLowerCase() || '';
+    const y = qs('#filter-year')?.value || '';
+    const m = qs('#filter-month')?.value || '';
+    const c = qs('#filter-category')?.value || '';
 
     FILTERED = ALL_ARTICLES.filter(a => {
       const d = safeDate(a.datetime);
@@ -174,22 +182,15 @@
       const matchesCat = !c || a.category === c;
       return matchesSearch && matchesYear && matchesMonth && matchesCat;
     });
-
     renderArticlesPage(1);
-  }
-
-  function applySort(list) {
-    return list.slice().sort((a,b) => b.timestamp - a.timestamp);
   }
 
   function renderPagination() {
     const totalPages = Math.ceil(FILTERED.length / CONFIG.pageSize);
     const el = qs('#pagination');
+    if (!el || totalPages <= 1) { if(el) el.innerHTML=''; return; }
     el.innerHTML = '';
 
-    if (totalPages <= 1) return;
-
-    // --- Tombol SEBELUMNYA ---
     const prevBtn = document.createElement('button');
     prevBtn.innerHTML = '&laquo;';
     prevBtn.disabled = CURRENT_PAGE === 1;
@@ -197,16 +198,12 @@
     prevBtn.onclick = () => goToPage(CURRENT_PAGE - 1);
     el.appendChild(prevBtn);
 
-    // --- Logika Angka Dinamis (Maks 4-5 angka) ---
     let startPage = Math.max(1, CURRENT_PAGE - 2);
     let endPage = Math.min(totalPages, startPage + 3);
-
-    // Koreksi jika di akhir halaman agar tetap tampil 4 angka
-    if (endPage - startPage < 3) {
-      startPage = Math.max(1, endPage - 3);
-    }
+    if (endPage - startPage < 3) startPage = Math.max(1, endPage - 3);
 
     for (let i = startPage; i <= endPage; i++) {
+      if (i < 1) continue;
       const numBtn = document.createElement('button');
       numBtn.innerText = i;
       numBtn.className = `page-num-btn ${i === CURRENT_PAGE ? 'active' : ''}`;
@@ -214,7 +211,6 @@
       el.appendChild(numBtn);
     }
 
-    // --- Tombol SESUDAHNYA ---
     const nextBtn = document.createElement('button');
     nextBtn.innerHTML = '&raquo;';
     nextBtn.disabled = CURRENT_PAGE === totalPages;
@@ -223,17 +219,12 @@
     el.appendChild(nextBtn);
   }
 
-  // Helper agar tidak duplikasi code scroll
-  function goToPage(p) {
-    renderArticlesPage(p);
-    renderPagination();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+  function goToPage(p) { renderArticlesPage(p); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  function debounce(f, ms) { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => f(...a), ms); }; }
 
-  function debounce(f, ms) {
-    let t; return (...a) => { clearTimeout(t); t = setTimeout(() => f(...a), ms); };
-  }
-
-  document.addEventListener('DOMContentLoaded', loadArticles);
+  document.addEventListener('DOMContentLoaded', () => {
+    initTheme(); // Jalankan mode gelap otomatis
+    loadArticles();
+  });
 
 })(window);
