@@ -1,5 +1,6 @@
 /**
  * assets/js/homepage.js
+ * Perbaikan: Cascading Filter (Double), Tombol Reset, & Metadata Layout
  */
 (function (global) {
   'use strict';
@@ -14,7 +15,7 @@
   let ALL_ARTICLES = [];
   let FILTERED = [];
   let CURRENT_PAGE = 1;
-  let ARCHIVE = {};
+  let ARCHIVE = {}; // Akan menyimpan { '2024': { months: Set, categories: Set } }
 
   const qs = sel => document.querySelector(sel);
   const escapeHtml = s => String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
@@ -24,15 +25,10 @@
     return d ? d.toLocaleDateString('id-ID', { day:'numeric', month:'short', year:'numeric' }) : (iso || '');
   };
 
-  /* --- Fitur Mode Gelap Otomatis --- */
   function initTheme() {
     const themeMedia = window.matchMedia('(prefers-color-scheme: dark)');
-    const updateTheme = (e) => {
-      document.documentElement.classList.toggle('dark-mode', e.matches);
-    };
-    // Cek saat pertama kali load
+    const updateTheme = (e) => document.documentElement.classList.toggle('dark-mode', e.matches);
     updateTheme(themeMedia);
-    // Pantau jika user ganti tema di tengah jalan
     themeMedia.addEventListener('change', updateTheme);
   }
 
@@ -86,8 +82,12 @@
       if(!d) return;
       const year = String(d.getFullYear());
       const month = String(d.getMonth() + 1).padStart(2, '0');
-      if (!ARCHIVE[year]) ARCHIVE[year] = new Set();
-      ARCHIVE[year].add(month);
+
+      if (!ARCHIVE[year]) {
+        ARCHIVE[year] = { months: new Set(), categories: new Set() };
+      }
+      ARCHIVE[year].months.add(month);
+      ARCHIVE[year].categories.add(a.category);
     });
   }
 
@@ -111,13 +111,13 @@
     <div class="meta-row">
     <span class="badge">${escapeHtml(a.category)}</span>
     <span class="date-sep">•</span>
-    <small class="meta-date">${fmtDate(a.datetime)}</small>
+    <small class="meta-date">📅 ${fmtDate(a.datetime)}</small>
     </div>
     <h3><a href="${a.url}">${escapeHtml(a.title)}</a></h3>
     <p>${escapeHtml(a.desc.substring(0, 110))}...</p>
     </div>
     </article>
-    `).join('') || `<div class="no-results">Tidak ada artikel.</div>`;
+    `).join('') || `<div class="no-results">Tidak ada artikel ditemukan.</div>`;
 
     if (qs('#results-count')) qs('#results-count').textContent = `Total: ${FILTERED.length} artikel`;
     renderSidebarThumbnails();
@@ -144,28 +144,65 @@
     const yearSel = qs('#filter-year');
     const monthSel = qs('#filter-month');
     const catSel = qs('#filter-category');
+    const searchBox = qs('#search-box');
+    const btnReset = qs('#btn-reset');
+
     if (!yearSel || !monthSel || !catSel) return;
 
-    const cats = [...new Set(ALL_ARTICLES.map(a => a.category))].sort();
-    catSel.innerHTML = '<option value="">Kategori</option>' + cats.map(c => `<option value="${c}">${c}</option>`).join('');
-
+    // Load Tahun Awal
     const years = Object.keys(ARCHIVE).sort((a,b) => b - a);
     yearSel.innerHTML = '<option value="">Tahun</option>' + years.map(y => `<option value="${y}">${y}</option>`).join('');
 
+    // Reset dropdown helper
+    const resetDropdown = (el, label, disabled = true) => {
+      el.innerHTML = `<option value="">${label}</option>`;
+      el.disabled = disabled;
+      el.style.opacity = disabled ? "0.5" : "1";
+    };
+
     yearSel.onchange = () => {
       const y = yearSel.value;
-      monthSel.innerHTML = '<option value="">Bulan</option>';
-      if(y && ARCHIVE[y]) {
-        [...ARCHIVE[y]].sort((a,b) => b - a).forEach(m => {
+      resetDropdown(monthSel, "Bulan", true);
+      resetDropdown(catSel, "Kategori", false);
+
+      if (y && ARCHIVE[y]) {
+        // Cascading Bulan
+        monthSel.disabled = false;
+        monthSel.style.opacity = "1";
+        [...ARCHIVE[y].months].sort((a,b) => b - a).forEach(m => {
           const mName = new Date(2000, parseInt(m)-1).toLocaleString('id-ID', {month:'long'});
           monthSel.innerHTML += `<option value="${m}">${mName}</option>`;
         });
+        // Cascading Kategori
+        catSel.innerHTML = '<option value="">Kategori</option>';
+        [...ARCHIVE[y].categories].sort().forEach(c => {
+          catSel.innerHTML += `<option value="${c}">${c}</option>`;
+        });
+      } else {
+        // Jika tahun kosong, tampilkan semua kategori
+        const cats = [...new Set(ALL_ARTICLES.map(a => a.category))].sort();
+        catSel.innerHTML = '<option value="">Kategori</option>' + cats.map(c => `<option value="${c}">${c}</option>`).join('');
       }
       applyFilters();
     };
+
+    // Tombol Reset
+    if (btnReset) {
+      btnReset.onclick = () => {
+        if (searchBox) searchBox.value = '';
+        yearSel.value = '';
+        yearSel.dispatchEvent(new Event('change'));
+        applyFilters();
+      };
+    }
+
     catSel.onchange = applyFilters;
     monthSel.onchange = applyFilters;
-    if (qs('#search-box')) qs('#search-box').oninput = debounce(applyFilters, 300);
+    if (searchBox) searchBox.oninput = debounce(applyFilters, 300);
+
+    // Default state
+    monthSel.disabled = true;
+    monthSel.style.opacity = "0.5";
   }
 
   function applyFilters() {
@@ -188,9 +225,10 @@
   function renderPagination() {
     const totalPages = Math.ceil(FILTERED.length / CONFIG.pageSize);
     const el = qs('#pagination');
-    if (!el || totalPages <= 1) { if(el) el.innerHTML=''; return; }
-    el.innerHTML = '';
+    if (!el) return;
+    if (totalPages <= 1) { el.innerHTML=''; return; }
 
+    el.innerHTML = '';
     const prevBtn = document.createElement('button');
     prevBtn.innerHTML = '&laquo;';
     prevBtn.disabled = CURRENT_PAGE === 1;
@@ -223,7 +261,7 @@
   function debounce(f, ms) { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => f(...a), ms); }; }
 
   document.addEventListener('DOMContentLoaded', () => {
-    initTheme(); // Jalankan mode gelap otomatis
+    initTheme();
     loadArticles();
   });
 
