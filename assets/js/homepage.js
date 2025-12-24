@@ -1,6 +1,6 @@
 /**
  * assets/js/homepage.js
- * Perbaikan Final: Mobile Toggle dengan Event Delegation
+ * FINAL: details/summary + filter counter (no JS toggle)
  */
 (function (global) {
   'use strict';
@@ -18,43 +18,47 @@
   let ARCHIVE_YEARS = [];
 
   const qs = sel => document.querySelector(sel);
-  const escapeHtml = s => String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
-  const safeDate = iso => { const d = new Date(iso); return isNaN(d) ? null : d; };
-  const fmtDate = iso => {
-    const d = safeDate(iso);
-    return d ? d.toLocaleDateString('id-ID', { day:'numeric', month:'short', year:'numeric' }) : (iso || '');
+  const qsa = sel => document.querySelectorAll(sel);
+
+  const escapeHtml = s =>
+  String(s || '')
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;')
+  .replace(/'/g, '&#39;');
+
+  const safeDate = iso => {
+    const d = new Date(iso);
+    return isNaN(d) ? null : d;
   };
 
+  const fmtDate = iso => {
+    const d = safeDate(iso);
+    return d
+    ? d.toLocaleDateString('id-ID', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric'
+    })
+    : (iso || '');
+  };
+
+  /* =====================================================
+   * THEME
+   * ===================================================== */
   function initTheme() {
     const themeMedia = window.matchMedia('(prefers-color-scheme: dark)');
-    const updateTheme = (e) => document.documentElement.classList.toggle('dark-mode', e.matches);
+    const updateTheme = e =>
+    document.documentElement.classList.toggle('dark-mode', e.matches);
+
     updateTheme(themeMedia);
     themeMedia.addEventListener('change', updateTheme);
   }
 
-  /**
-   * PERBAIKAN UTAMA: Event Delegation untuk Mobile Toggle
-   * Cara ini jauh lebih stabil untuk mobile browser
-   */
-  function initMobileToggle() {
-    document.addEventListener('click', function (e) {
-      // Cek apakah yang diklik adalah tombol toggle atau anak buahnya (span/chevron)
-      const toggleBtn = e.target.closest('#mobile-filter-toggle');
-      if (toggleBtn) {
-        const filterContent = document.getElementById('filter-content');
-        if (filterContent) {
-          const isVisible = filterContent.classList.toggle('show');
-
-          // Update Chevron
-          const chevron = toggleBtn.querySelector('.chevron');
-          if (chevron) {
-            chevron.textContent = isVisible ? '▲' : '▼';
-          }
-        }
-      }
-    });
-  }
-
+  /* =====================================================
+   * LOAD DATA
+   * ===================================================== */
   async function loadArticles() {
     try {
       const res = await fetch(CONFIG.jsonPath);
@@ -63,7 +67,8 @@
       normalizeAndInit(data);
     } catch (err) {
       console.error('Gagal memuat artikel:', err);
-      if (qs('#main-feed')) qs('#main-feed').innerHTML = `<div class="error">Gagal memuat data.</div>`;
+      const feed = qs('#main-feed');
+      if (feed) feed.innerHTML = `<div class="error">Gagal memuat data.</div>`;
     }
   }
 
@@ -73,27 +78,27 @@
     const yearSet = new Set();
 
     for (const category in data) {
-      if (Array.isArray(data[category])) {
-        data[category].forEach(item => {
-          const title = item[0] || 'Untitled';
-          const titleKey = title.trim().toLowerCase();
-          if (!seenTitles.has(titleKey)) {
-            seenTitles.add(titleKey);
-            const d = safeDate(item[3]);
-            if(d) yearSet.add(String(d.getFullYear()));
+      if (!Array.isArray(data[category])) continue;
 
-            ALL_ARTICLES.push({
-              title: title,
-              url: item[1] || '#',
-              image: item[2] || CONFIG.placeholderImage,
-              datetime: item[3] || '',
-              desc: item[4] || '',
-              category: category,
-              timestamp: d ? d.getTime() : 0
-            });
-          }
+      data[category].forEach(item => {
+        const title = item[0] || 'Untitled';
+        const key = title.trim().toLowerCase();
+        if (seenTitles.has(key)) return;
+
+        seenTitles.add(key);
+        const d = safeDate(item[3]);
+        if (d) yearSet.add(String(d.getFullYear()));
+
+        ALL_ARTICLES.push({
+          title,
+          url: item[1] || '#',
+          image: item[2] || CONFIG.placeholderImage,
+          datetime: item[3] || '',
+          desc: item[4] || '',
+          category,
+          timestamp: d ? d.getTime() : 0
         });
-      }
+      });
     }
 
     ALL_ARTICLES.sort((a, b) => b.timestamp - a.timestamp);
@@ -103,6 +108,9 @@
     applyFilters();
   }
 
+  /* =====================================================
+   * FILTER UI
+   * ===================================================== */
   function renderFiltersUI() {
     const yearSel = qs('#filter-year');
     const monthSel = qs('#filter-month');
@@ -112,51 +120,62 @@
 
     if (!yearSel || !monthSel || !catSel) return;
 
-    yearSel.innerHTML = '<option value="">Tahun</option>' +
+    yearSel.innerHTML =
+    '<option value="">Tahun</option>' +
     ARCHIVE_YEARS.map(y => `<option value="${y}">${y}</option>`).join('');
 
     const updateDropdowns = () => {
-      const selectedYear = yearSel.value;
-      const selectedMonth = monthSel.value;
-      const selectedCat = catSel.value;
+      const y = yearSel.value;
+      const m = monthSel.value;
+      const c = catSel.value;
 
-      const articlesInYear = ALL_ARTICLES.filter(a => {
+      const inYear = ALL_ARTICLES.filter(a => {
         const d = safeDate(a.datetime);
-        return !selectedYear || (d && String(d.getFullYear()) === selectedYear);
+        return !y || (d && String(d.getFullYear()) === y);
       });
 
-      const availableMonths = new Set();
-      articlesInYear.forEach(a => {
+      const months = new Set();
+      inYear.forEach(a => {
         const d = safeDate(a.datetime);
-        if (d) availableMonths.add(String(d.getMonth() + 1).padStart(2, '0'));
+        if (d) months.add(String(d.getMonth() + 1).padStart(2, '0'));
       });
 
         monthSel.innerHTML = '<option value="">Bulan</option>';
-        [...availableMonths].sort((a, b) => a - b).forEach(m => {
-          const mName = new Date(2000, parseInt(m) - 1).toLocaleString('id-ID', { month: 'long' });
-          monthSel.innerHTML += `<option value="${m}" ${m === selectedMonth ? 'selected' : ''}>${mName}</option>`;
+        [...months].sort().forEach(mm => {
+          const label = new Date(2000, mm - 1).toLocaleString('id-ID', { month: 'long' });
+          monthSel.innerHTML += `<option value="${mm}" ${mm === m ? 'selected' : ''}>${label}</option>`;
         });
-        monthSel.disabled = !selectedYear;
-        monthSel.style.opacity = selectedYear ? "1" : "0.5";
 
-        const articlesInMonth = articlesInYear.filter(a => {
+        monthSel.disabled = !y;
+        monthSel.style.opacity = y ? '1' : '0.5';
+
+        const inMonth = inYear.filter(a => {
           const d = safeDate(a.datetime);
-          return !selectedMonth || (d && String(d.getMonth() + 1).padStart(2, '0') === selectedMonth);
+          return !m || (d && String(d.getMonth() + 1).padStart(2, '0') === m);
         });
 
-        const catCounts = {};
-        articlesInMonth.forEach(a => {
-          catCounts[a.category] = (catCounts[a.category] || 0) + 1;
+        const catCount = {};
+        inMonth.forEach(a => {
+          catCount[a.category] = (catCount[a.category] || 0) + 1;
         });
 
         catSel.innerHTML = '<option value="">Kategori</option>';
-        Object.entries(catCounts).sort().forEach(([name, count]) => {
-          catSel.innerHTML += `<option value="${name}" ${name === selectedCat ? 'selected' : ''}>${name} (${count})</option>`;
+        Object.entries(catCount).sort().forEach(([name, count]) => {
+          catSel.innerHTML += `<option value="${name}" ${name === c ? 'selected' : ''}>${name} (${count})</option>`;
         });
     };
 
-    yearSel.onchange = () => { monthSel.value = ""; updateDropdowns(); applyFilters(); };
-    monthSel.onchange = () => { updateDropdowns(); applyFilters(); };
+    yearSel.onchange = () => {
+      monthSel.value = '';
+      updateDropdowns();
+      applyFilters();
+    };
+
+    monthSel.onchange = () => {
+      updateDropdowns();
+      applyFilters();
+    };
+
     catSel.onchange = applyFilters;
 
     if (btnReset) {
@@ -171,9 +190,13 @@
     }
 
     if (searchBox) searchBox.oninput = debounce(applyFilters, 300);
+
     updateDropdowns();
   }
 
+  /* =====================================================
+   * FILTER LOGIC
+   * ===================================================== */
   function applyFilters() {
     const q = (qs('#search-box')?.value || '').toLowerCase();
     const y = qs('#filter-year')?.value || '';
@@ -182,44 +205,66 @@
 
     FILTERED = ALL_ARTICLES.filter(a => {
       const d = safeDate(a.datetime);
-      const matchesSearch = !q || a.title.toLowerCase().includes(q) || a.desc.toLowerCase().includes(q);
-      const matchesYear = !y || (d && String(d.getFullYear()) === y);
-      const matchesMonth = !m || (d && String(d.getMonth() + 1).padStart(2, '0') === m);
-      const matchesCat = !c || a.category === c;
-      return matchesSearch && matchesYear && matchesMonth && matchesCat;
+      return (
+        (!q || a.title.toLowerCase().includes(q) || a.desc.toLowerCase().includes(q)) &&
+        (!y || (d && String(d.getFullYear()) === y)) &&
+        (!m || (d && String(d.getMonth() + 1).padStart(2, '0') === m)) &&
+        (!c || a.category === c)
+      );
     });
+
+    updateFilterCount();
     renderArticlesPage(1);
   }
 
-  filter.addEventListener("change", () => {
-    if (window.innerWidth <= 650) {
-      filter.classList.remove("show");
-      toggle.classList.remove("active");
-    }
-  });
+  /* =====================================================
+   * FILTER COUNT BADGE (details summary)
+   * ===================================================== */
+  function updateFilterCount() {
+    const details = qs('.mobile-filter');
+    if (!details) return;
 
+    const count = [
+      qs('#filter-year')?.value,
+ qs('#filter-month')?.value,
+ qs('#filter-category')?.value
+    ].filter(Boolean).length;
 
+    details.setAttribute('data-count', count);
+  }
+
+  /* =====================================================
+   * RENDER CONTENT
+   * ===================================================== */
   function renderArticlesPage(page = 1) {
     CURRENT_PAGE = page;
     const container = qs('#main-feed');
     if (!container) return;
+
     const start = (page - 1) * CONFIG.pageSize;
     const items = FILTERED.slice(start, start + CONFIG.pageSize);
-    container.innerHTML = items.map(a => `
-    <article class="news-card">
-    <img src="${a.image}" alt="${escapeHtml(a.title)}" loading="lazy" onerror="this.src='${CONFIG.placeholderImage}'">
-    <div class="news-info">
-    <div class="meta-row">
-    <span class="badge">${escapeHtml(a.category)}</span>
-    <span class="date-sep">•</span>
-    <small class="meta-date">${fmtDate(a.datetime)}</small>
-    </div>
-    <h3><a href="${a.url}">${escapeHtml(a.title)}</a></h3>
-    <p>${escapeHtml(a.desc.substring(0, 110))}...</p>
-    </div>
-    </article>
-    `).join('') || `<div class="no-results">Tidak ada artikel ditemukan.</div>`;
-    if (qs('#results-count')) qs('#results-count').textContent = `Total: ${FILTERED.length} artikel`;
+
+    container.innerHTML =
+    items
+    .map(
+      a => `
+      <article class="news-card">
+      <img src="${a.image}" alt="${escapeHtml(a.title)}"
+      loading="lazy"
+      onerror="this.src='${CONFIG.placeholderImage}'">
+      <div class="news-info">
+      <span class="badge">${escapeHtml(a.category)}</span>
+      <small class="meta-date">${fmtDate(a.datetime)}</small>
+      <h3><a href="${a.url}">${escapeHtml(a.title)}</a></h3>
+      <p>${escapeHtml(a.desc.slice(0, 110))}...</p>
+      </div>
+      </article>`
+    )
+    .join('') || `<div class="no-results">Tidak ada artikel ditemukan.</div>`;
+
+    const countEl = qs('#results-count');
+    if (countEl) countEl.textContent = `Total: ${FILTERED.length} artikel`;
+
     renderSidebarThumbnails();
     renderPagination();
   }
@@ -227,54 +272,74 @@
   function renderSidebarThumbnails() {
     const el = qs('#sidebar-list');
     if (!el) return;
-    const shuffled = [...ALL_ARTICLES].sort(() => 0.5 - Math.random()).slice(0, CONFIG.thumbnailSidebarCount);
-    el.innerHTML = shuffled.map(a => `
-    <div class="side-item">
-    <img src="${a.image}" alt="" onerror="this.src='${CONFIG.placeholderImage}'" loading="lazy">
-    <div>
-    <h4><a href="${a.url}">${escapeHtml(a.title)}</a></h4>
-    <small class="side-badge">${escapeHtml(a.category)}</small>
-    </div>
-    </div>
-    `).join('');
+
+    const shuffled = [...ALL_ARTICLES]
+    .sort(() => 0.5 - Math.random())
+    .slice(0, CONFIG.thumbnailSidebarCount);
+
+    el.innerHTML = shuffled
+    .map(
+      a => `
+      <div class="side-item">
+      <img src="${a.image}" loading="lazy"
+      onerror="this.src='${CONFIG.placeholderImage}'">
+      <h4><a href="${a.url}">${escapeHtml(a.title)}</a></h4>
+      </div>`
+    )
+    .join('');
   }
 
   function renderPagination() {
-    const totalPages = Math.ceil(FILTERED.length / CONFIG.pageSize);
     const el = qs('#pagination');
-    if (!el || totalPages <= 1) { if(el) el.innerHTML=''; return; }
-    el.innerHTML = '';
-    const prevBtn = document.createElement('button');
-    prevBtn.innerHTML = '&laquo;';
-    prevBtn.disabled = CURRENT_PAGE === 1;
-    prevBtn.className = 'page-nav-btn';
-    prevBtn.onclick = () => goToPage(CURRENT_PAGE - 1);
-    el.appendChild(prevBtn);
+    const total = Math.ceil(FILTERED.length / CONFIG.pageSize);
+    if (!el || total <= 1) {
+      if (el) el.innerHTML = '';
+      return;
+    }
 
-    for (let i = 1; i <= totalPages; i++) {
-      if (i === 1 || i === totalPages || (i >= CURRENT_PAGE - 1 && i <= CURRENT_PAGE + 1)) {
-        const numBtn = document.createElement('button');
-        numBtn.innerText = i;
-        numBtn.className = `page-num-btn ${i === CURRENT_PAGE ? 'active' : ''}`;
-        numBtn.onclick = () => goToPage(i);
-        el.appendChild(numBtn);
+    el.innerHTML = '';
+
+    const nav = (label, page, disabled = false) => {
+      const b = document.createElement('button');
+      b.innerHTML = label;
+      b.className = 'page-nav-btn';
+      b.disabled = disabled;
+      b.onclick = () => goToPage(page);
+      el.appendChild(b);
+    };
+
+    nav('&laquo;', CURRENT_PAGE - 1, CURRENT_PAGE === 1);
+
+    for (let i = 1; i <= total; i++) {
+      if (i === 1 || i === total || Math.abs(i - CURRENT_PAGE) <= 1) {
+        const b = document.createElement('button');
+        b.textContent = i;
+        b.className = `page-num-btn ${i === CURRENT_PAGE ? 'active' : ''}`;
+        b.onclick = () => goToPage(i);
+        el.appendChild(b);
       }
     }
 
-    const nextBtn = document.createElement('button');
-    nextBtn.innerHTML = '&raquo;';
-    nextBtn.disabled = CURRENT_PAGE === totalPages;
-    nextBtn.className = 'page-nav-btn';
-    nextBtn.onclick = () => goToPage(CURRENT_PAGE + 1);
-    el.appendChild(nextBtn);
+    nav('&raquo;', CURRENT_PAGE + 1, CURRENT_PAGE === total);
   }
 
-  function goToPage(p) { renderArticlesPage(p); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-  function debounce(f, ms) { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => f(...a), ms); }; }
+  function goToPage(p) {
+    renderArticlesPage(p);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
-  // Init pas load
+  function debounce(fn, ms) {
+    let t;
+    return (...args) => {
+      clearTimeout(t);
+      t = setTimeout(() => fn(...args), ms);
+    };
+  }
+
+  /* =====================================================
+   * INIT
+   * ===================================================== */
   initTheme();
-  initMobileToggle(); // Dipasang di luar loadArticles agar langsung aktif
   loadArticles();
 
 })(window);
