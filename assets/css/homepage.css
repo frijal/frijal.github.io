@@ -68,7 +68,7 @@ header {
 
 #search-box {
 flex: 1;
-min-width: 200px;
+min-width: auto;
 padding: 10px;
 border: 1px solid var(--border);
 border-radius: 6px;
@@ -91,12 +91,12 @@ display: none;
   flex-direction: row;
   align-items: center;
   gap: 8px;
-  width: 100%;
+  width: auto;
 }
 
-#filter-year { flex: 0 0 100px; }
-#filter-month { flex: 0 0 130px; }
-#filter-category { flex: 1; min-width: 150px; }
+#filter-year { flex: 0 0 auto; }
+#filter-month { flex: 0 0 auto; }
+#filter-category { flex: 1; min-width: auto; }
 #btn-reset { flex: 0 0 auto; white-space: nowrap; }
 
 select {
