@@ -1,6 +1,7 @@
 /* assets/css/homepage.css - Layar Kosong Portal */
 
 :root {
+  /* Mode Terang - Biru yang Nyaman */
   --bg: #f4f7f9;
   --header-bg: #ffffff;
   --card: #ffffff;
@@ -12,6 +13,7 @@
   --shadow: rgba(0, 0, 0, 0.05);
 }
 
+/* Mode Gelap Otomatis */
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #1a202c;
@@ -25,16 +27,19 @@
   }
 }
 
+/* Base Styles */
 body {
   font-family: 'Inter', sans-serif;
   background: var(--bg);
   color: var(--text);
   margin: 0;
   line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
+/* Header */
 header {
   background: var(--header-bg);
   padding: 20px 0;
@@ -46,6 +51,7 @@ header {
   box-shadow: 0 4px 10px var(--shadow);
 }
 
+/* --- Filter Bar Logic --- */
 .filter-bar {
   display: flex;
   flex-direction: column;
@@ -71,11 +77,15 @@ color: var(--text);
 outline: none;
 }
 
-/* --- Filter Desktop Style --- */
+#search-box:focus { border-color: var(--accent); }
+
+/* --- Select Group (Filter Dropdowns) --- */
+/* Sembunyikan tombol toggle di Desktop */
 #mobile-filter-toggle {
-display: none; /* Default sembunyi di desktop */
+display: none;
 }
 
+/* Desktop: Sejajar 1 Baris */
 .select-group {
   display: flex;
   flex-direction: row;
@@ -87,73 +97,77 @@ display: none; /* Default sembunyi di desktop */
 #filter-year { flex: 0 0 100px; }
 #filter-month { flex: 0 0 130px; }
 #filter-category { flex: 1; min-width: 150px; }
+#btn-reset { flex: 0 0 auto; white-space: nowrap; }
 
-select, #btn-reset {
+select {
   padding: 10px;
   border: 1px solid var(--border);
   border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+select:focus { border-color: var(--accent); }
+
+/* Tombol Reset Styling */
+#btn-reset {
+padding: 10px 15px;
+border: 1px solid var(--border);
+border-radius: 6px;
+background: var(--card);
+color: var(--text);
+cursor: pointer;
+font-size: 13px;
+font-weight: bold;
+transition: all 0.2s;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+#btn-reset:hover {
+background: var(--accent);
+color: white;
+border-color: var(--accent);
+}
+
+/* --- Pagination Styles --- */
+.pagination { display: flex; align-items: center; gap: 8px; }
+.header-pagination { margin: 0 !important; padding: 0; justify-content: flex-start; }
+
+.page-nav-btn, .page-num-btn {
+  height: 38px;
+  border: 1px solid var(--border);
   background: var(--card);
   color: var(--text);
-  font-family: inherit;
-}
-
-/* --- Responsive Mobile (650px kebawah) --- */
-@media (max-width: 650px) {
-  .search-nav-group {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  /* Perbaikan Tombol Toggle Mobile */
-  #mobile-filter-toggle {
-  display: flex !important; /* Paksa muncul di mobile */
-  width: 100%;
-  padding: 14px;
-  background: var(--accent);
-  color: white !important;
-  border: none;
   border-radius: 8px;
-  font-weight: bold;
-  justify-content: space-between;
-  align-items: center;
   cursor: pointer;
-  margin-top: 5px;
-  z-index: 10;
-  position: relative; /* Memastikan dia diatas elemen lain */
-  }
-
-  /* Sembunyikan isi filter di mobile secara default */
-  .select-group {
-    display: none; /* Menggantikan flex desktop */
-    flex-direction: column;
-    gap: 10px;
-    background: var(--card);
-    padding: 15px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    margin-top: 5px;
-  }
-
-  /* Class pemicu dari JS */
-  .select-group.show {
-    display: flex !important;
-    animation: slideDown 0.3s ease-out;
-  }
-
-  #filter-year, #filter-month, #filter-category, #btn-reset {
-  flex: none;
-  width: 100%;
-  }
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }
 
-/* Layout & News Cards */
-.layout { display: grid; grid-template-columns: 1fr 320px; gap: 30px; }
+.page-nav-btn { padding: 0 15px; }
+.page-num-btn { width: 38px; font-size: 0.9rem; }
 
-@media (max-width: 850px) {
-  .layout { grid-template-columns: 1fr; }
-  .news-card { flex-direction: column; }
-  .news-card img { width: 100%; height: 200px; }
+.page-num-btn.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
 }
+
+.page-num-btn:hover:not(.active), .page-nav-btn:hover:not(:disabled) {
+  background: var(--accent);
+  color: white;
+}
+
+/* --- Layout Content --- */
+.layout { display: grid; grid-template-columns: 1fr 320px; gap: 30px; align-items: start; }
 
 .news-card {
   display: flex;
@@ -162,11 +176,116 @@ select, #btn-reset {
   margin-bottom: 20px;
   overflow: hidden;
   border: 1px solid var(--border);
+  transition: transform 0.2s ease;
 }
 
+.news-card:hover { transform: translateY(-3px); }
+.news-card img { width: 220px; height: 160px; object-fit: cover; }
 .news-info { padding: 15px; flex: 1; }
 
+.badge {
+  background: var(--accent);
+  color: white;
+  padding: 3px 10px;
+  font-size: 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.meta-date { font-size: 0.85rem; color: var(--text-muted); }
+.news-info h3 { margin: 5px 0 10px 0; font-size: 1.25rem; }
+.news-info h3 a { text-decoration: none; color: inherit; }
+.news-info h3 a:hover { color: var(--accent); }
+
+/* Sidebar */
+.sidebar { position: sticky; top: 120px; }
+.sidebar h2 {
+  font-size: 1.1rem;
+  border-left: 4px solid var(--accent);
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+
+.side-item { display: flex; gap: 12px; margin-bottom: 18px; align-items: center; }
+.side-item img { width: 65px; height: 65px; border-radius: 8px; object-fit: cover; }
+.side-item h4 { font-size: 0.85rem; margin: 0; font-weight: 600; }
+.side-item a { text-decoration: none; color: inherit; }
+.side-item a:hover { color: var(--accent); }
+
+/* --- RESPONSIVE PERBAIKAN --- */
+@media (max-width: 850px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; margin-top: 40px; }
+  .news-card { flex-direction: column; }
+  .news-card img { width: 100%; height: 220px; }
+}
+
+@media (max-width: 650px) {
+  header { padding: 15px 0; }
+  header h1 { font-size: 1.4rem; text-align: center; }
+
+  .search-nav-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  #search-box { width: 100%; box-sizing: border-box; }
+
+  .header-pagination {
+    justify-content: center;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 5px;
+  }
+
+  /* Munculkan tombol hanya di mobile */
+  #mobile-filter-toggle {
+  display: flex;
+  width: 100%;
+  padding: 12px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  }
+
+  /* Sembunyikan isi filter secara default di mobile */
+  .select-group {
+    display: none;
+    flex-direction: column;
+    background: var(--card);
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    gap: 10px;
+  }
+
+  /* Reset flex desktop untuk Mobile agar tumpuk 4 */
+  #filter-year, #filter-month, #filter-category, #btn-reset {
+  flex: none;
+  width: 100%;
+  box-sizing: border-box;
+  }
+
+  #btn-reset { order: 4; height: 42px; }
+
+  /* Class yang dipicu oleh JavaScript */
+  .select-group.show {
+    display: flex;
+    animation: slideDown 0.3s ease-out;
+  }
+}
+
 @keyframes slideDown {
-  from { opacity: 0; transform: translateY(-5px); }
+  from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
