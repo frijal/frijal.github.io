@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layar Kosong News Portal</title>
+    <title>Portal Berita | Layar Kosong</title>
     <link rel="stylesheet" href="assets/css/homepage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -14,7 +15,7 @@
         <div class="filter-bar">
             <input type="text" id="search-input" placeholder="Cari berita...">
             <select id="filter-category">
-                <option value="">Semua Kategori</option>
+                <option value="">Kategori</option>
             </select>
             <select id="filter-year">
                 <option value="">Tahun</option>
@@ -29,18 +30,23 @@
 <div class="container">
     <div class="layout">
         <main>
+            <div id="result-info" style="margin-bottom: 15px; font-size: 0.9rem; color: var(--text-muted);"></div>
             <div id="main-feed">
                 </div>
             <div id="pagination" class="pagination"></div>
         </main>
 
         <aside class="sidebar">
-            <h2>Terbaru</h2>
+            <h2>Trending Terbaru</h2>
             <div id="sidebar-list">
                 </div>
         </aside>
     </div>
 </div>
+
+<footer style="text-align: center; padding: 40px; color: var(--text-muted); font-size: 0.8rem;">
+    &copy; 2025 Layar Kosong - Balikpapan
+</footer>
 
 <script src="assets/js/homepage.js"></script>
 </body>
