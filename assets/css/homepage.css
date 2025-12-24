@@ -2,13 +2,13 @@
 
 :root {
   /* Mode Terang - Biru yang Nyaman */
-  --bg: #f4f7f9;           /* Abu-abu kebiruan sangat muda agar mata tidak cepat lelah */
+  --bg: #f4f7f9;
   --header-bg: #ffffff;
   --card: #ffffff;
-  --text: #1a202c;         /* Hitam pekat kebiruan */
+  --text: #1a202c;
   --text-muted: #4a5568;
-  --accent: #2b6cb0;       /* Biru utama (Steel Blue) - Tegas tapi tenang */
-  --accent-hover: #2c5282; /* Biru yang lebih gelap untuk efek hover */
+  --accent: #2b6cb0;
+  --accent-hover: #2c5282;
   --border: #e2e8f0;
   --shadow: rgba(0, 0, 0, 0.05);
 }
@@ -16,26 +16,15 @@
 /* Mode Gelap Otomatis */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #1a202c;         /* Biru dongker gelap (Midnight Blue) */
+    --bg: #1a202c;
     --header-bg: #171923;
     --card: #2d3748;
-    --text: #edf2f7;       /* Putih tulang agar tidak terlalu kontras */
+    --text: #edf2f7;
     --text-muted: #a0aec0;
-    --accent: #63b3ed;     /* Biru langit cerah untuk aksen di mode gelap */
+    --accent: #63b3ed;
     --border: #4a5568;
     --shadow: rgba(0, 0, 0, 0.3);
   }
-}
-
-/* Class Manual Dark Mode (tetap sinkron) */
-.dark-mode {
-  --bg: #1a202c;
-  --header-bg: #171923;
-  --card: #2d3748;
-  --text: #edf2f7;
-  --text-muted: #a0aec0;
-  --border: #4a5568;
-  --accent: #63b3ed;
 }
 
 /* Base Styles */
@@ -62,7 +51,7 @@ header {
   box-shadow: 0 4px 10px var(--shadow);
 }
 
-/* --- Filter Bar & Alignment Logic --- */
+/* --- Filter Bar Logic --- */
 .filter-bar {
   display: flex;
   flex-direction: column;
@@ -70,7 +59,6 @@ header {
   margin-top: 15px;
 }
 
-/* Baris Atas: Cari + Pagination */
 .search-nav-group {
   display: flex;
   align-items: center;
@@ -91,22 +79,19 @@ outline: none;
 
 #search-box:focus { border-color: var(--accent); }
 
-/* Membuat semua filter dan tombol reset dalam 1 baris */
+/* Sejajar 1 Baris (Desktop) */
 .select-group {
-  display: flex; /* Menggunakan flexbox agar lebih fleksibel */
-  gap: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
   width: 100%;
 }
 
-/* Mengatur proporsi lebar masing-masing elemen */
-#filter-year { flex: 1; }     /* Tahun agak kecil */
-#filter-month { flex: 1.5; }  /* Bulan butuh ruang lebih untuk nama bulan yang panjang */
-#filter-category { flex: 2; } /* Kategori biasanya paling panjang teksnya */
-#btn-reset {
-flex: 0.8;
-white-space: nowrap; /* Mencegah teks reset turun ke bawah */
-min-width: fit-content;
-}
+#filter-year { flex: 0 0 100px; }
+#filter-month { flex: 0 0 130px; }
+#filter-category { flex: 1; min-width: 150px; }
+#btn-reset { flex: 0 0 auto; white-space: nowrap; }
 
 select {
   padding: 10px;
@@ -123,7 +108,7 @@ select:focus { border-color: var(--accent); }
 
 /* Tombol Reset Styling */
 #btn-reset {
-padding: 10px;
+padding: 10px 15px;
 border: 1px solid var(--border);
 border-radius: 6px;
 background: var(--card);
@@ -143,18 +128,9 @@ color: white;
 border-color: var(--accent);
 }
 
-/* --- Pagination Styles (Compact for Header) --- */
-.pagination {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.header-pagination {
-  margin: 0 !important;
-  padding: 0;
-  justify-content: flex-start;
-}
+/* --- Pagination Styles --- */
+.pagination { display: flex; align-items: center; gap: 8px; }
+.header-pagination { margin: 0 !important; padding: 0; justify-content: flex-start; }
 
 .page-nav-btn, .page-num-btn {
   height: 38px;
@@ -177,21 +153,11 @@ border-color: var(--accent);
   background: var(--accent);
   color: white;
   border-color: var(--accent);
-  box-shadow: 0 4px 8px rgba(211, 47, 47, 0.3);
 }
 
-.page-num-btn:hover:not(.active),
-.page-nav-btn:hover:not(:disabled) {
+.page-num-btn:hover:not(.active), .page-nav-btn:hover:not(:disabled) {
   background: var(--accent);
   color: white;
-  border-color: var(--accent);
-  transform: translateY(-1px);
-}
-
-.page-nav-btn:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-  filter: grayscale(1);
 }
 
 /* --- Layout Content --- */
@@ -211,7 +177,6 @@ border-color: var(--accent);
 .news-card img { width: 220px; height: 160px; object-fit: cover; }
 .news-info { padding: 15px; flex: 1; }
 
-.meta-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
 .badge {
   background: var(--accent);
   color: white;
@@ -221,16 +186,14 @@ border-color: var(--accent);
   text-transform: uppercase;
   font-weight: bold;
 }
-.date-sep { color: var(--text-muted); opacity: 0.5; }
-.meta-date { font-size: 0.85rem; color: var(--text-muted); }
 
-.news-info h3 { margin: 5px 0 10px 0; font-size: 1.25rem; line-height: 1.3; }
+.meta-date { font-size: 0.85rem; color: var(--text-muted); }
+.news-info h3 { margin: 5px 0 10px 0; font-size: 1.25rem; }
 .news-info h3 a { text-decoration: none; color: inherit; }
 .news-info h3 a:hover { color: var(--accent); }
-.news-info p { font-size: 0.95rem; color: var(--text-muted); margin: 0; }
 
 /* Sidebar */
-.sidebar { position: sticky; top: 180px; }
+.sidebar { position: sticky; top: 120px; }
 .sidebar h2 {
   font-size: 1.1rem;
   border-left: 4px solid var(--accent);
@@ -238,52 +201,32 @@ border-color: var(--accent);
   margin-bottom: 20px;
 }
 
-.side-item {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 18px;
-  align-items: center;
-  animation: fadeIn 0.4s ease-out forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
+.side-item { display: flex; gap: 12px; margin-bottom: 18px; align-items: center; }
 .side-item img { width: 65px; height: 65px; border-radius: 8px; object-fit: cover; }
-.side-item h4 { font-size: 0.85rem; margin: 0; line-height: 1.4; font-weight: 600; }
+.side-item h4 { font-size: 0.85rem; margin: 0; font-weight: 600; }
 .side-item a { text-decoration: none; color: inherit; }
 .side-item a:hover { color: var(--accent); }
-.side-badge {
-  display: inline-block;
-  font-size: 10px;
-  background: var(--bg);
-  padding: 2px 6px;
-  border-radius: 4px;
-  border: 1px solid var(--border);
-  margin-top: 5px;
-  color: var(--text-muted);
-}
 
-/* --- RESPONSIVE --- */
+/* --- RESPONSIVE PERBAIKAN --- */
 @media (max-width: 850px) {
   .layout { grid-template-columns: 1fr; }
   .sidebar { position: static; margin-top: 40px; }
   .news-card { flex-direction: column; }
-  .news-card img { width: 100%; height: 200px; }
+  .news-card img { width: 100%; height: 220px; }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
+  header h1 { font-size: 1.4rem; text-align: center; }
   .search-nav-group { flex-direction: column; align-items: stretch; }
   .header-pagination { justify-content: center; }
-  .select-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Di HP jadi 2 kolom agar tidak kekecilan */
+
+  /* Filter Group: Bertumpuk Rapi di Mobile */
+  .select-group { flex-direction: column; }
+
+  #filter-year, #filter-month, #filter-category, #btn-reset {
+  flex: none;
+  width: 100%;
   }
-  .page-num-btn { width: 36px; height: 36px; font-size: 0.8rem; }
-  header h1 { font-size: 1.5rem; }
-  #btn-reset {
-  grid-column: span 2; /* Tombol reset memanjang di bawahnya */
-  }
+
+  #btn-reset { order: 4; height: 42px; }
 }
