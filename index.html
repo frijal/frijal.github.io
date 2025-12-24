@@ -210,7 +210,7 @@
                     allData.push({
                         category: cat,
                         title: item[0],
-                        url: item[1],
+                        url: `/artikel/${rawLink.replace(/^\/+/, '')}`,
                         img: item[2],
                         date: new Date(item[3]),
                         summary: item[4]
