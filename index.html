@@ -3,71 +3,681 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layar Kosong | Portal Berita</title>
-    <link rel="stylesheet" href="assets/css/homepage.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <title>Layar Kosong - Portal Berita Modern</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS VARIABLES & THEME --- */
+        :root {
+            --primary: #3584e4;
+            --secondary: #ffbf00; /* Amber */
+            --bg-body: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-main: #2c3e50;
+            --text-muted: #6c757d;
+            --border-color: #e9ecef;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --radius: 12px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-body: #121212;
+                --bg-card: #1e1e1e;
+                --text-main: #e0e0e0;
+                --text-muted: #a0a0a0;
+                --border-color: #333333;
+                --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        /* --- RESET & TYPOGRAPHY --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+        a { text-decoration: none; color: inherit; transition: color 0.2s; }
+        ul { list-style: none; }
+
+        /* --- LAYOUT UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: #2a6bbd; transform: translateY(-2px); }
+        .btn-outline { border: 2px solid var(--primary); color: var(--primary); background: transparent; }
+        .btn-outline:hover { background: var(--primary); color: white; }
+
+        /* --- HEADER --- */
+        header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+        }
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+        .logo span { color: var(--secondary); }
+        .search-box {
+            position: relative;
+        }
+        .search-input {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-body);
+            color: var(--text-main);
+            width: 200px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            margin: 2rem 0;
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            height: 400px;
+            display: flex;
+            align-items: flex-end;
+            background-size: cover;
+            background-position: center;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        }
+        .hero-content {
+            position: relative;
+            padding: 2rem;
+            color: white;
+            z-index: 1;
+            max-width: 800px;
+        }
+        .hero-badge {
+            background: var(--secondary);
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* --- FILTERS & ARCHIVE --- */
+        .filters {
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .cat-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+        .pill {
+            padding: 6px 16px;
+            border-radius: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        .pill.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .archive-select {
+            padding: 8px;
+            border-radius: 8px;
+            background: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        /* --- MAIN GRID LAYOUT --- */
+        .main-content {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        /* --- NEWS CARD --- */
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+        .card-img-wrapper {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .card:hover .card-img { transform: scale(1.05); }
+        .card-body {
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .card-meta {
+            font-size: 0.75rem;
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+        .card-excerpt {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            flex-grow: 1;
+        }
+        .card-footer {
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* --- SIDEBAR --- */
+        .sidebar-section {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+        .sidebar-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--secondary);
+            padding-left: 10px;
+        }
+        .mini-card {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+        .mini-thumb {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        .mini-info h4 { font-size: 0.9rem; line-height: 1.3; }
+        .mini-info span { font-size: 0.75rem; color: var(--text-muted); }
+
+        /* --- SKELETON LOADER --- */
+        .skeleton {
+            background: #eee;
+            background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+            background-size: 200% 100%;
+            animation: 1.5s shine linear infinite;
+        }
+        @media (prefers-color-scheme: dark) {
+            .skeleton {
+                background: linear-gradient(110deg, #333 8%, #444 18%, #333 33%);
+            }
+        }
+        @keyframes shine {
+            to { background-position-x: -200%; }
+        }
+        .card.loading .card-img, .card.loading .card-title, .card.loading .card-excerpt {
+            color: transparent;
+            background-color: #ccc; /* Fallback */
+        }
+
+        /* --- CONTACT FORM --- */
+        .contact-section {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: var(--radius);
+            text-align: center;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border-color);
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 2rem auto 0;
+        }
+        .full-width { grid-column: 1 / -1; }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-body);
+            color: var(--text-main);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #111;
+            color: #fff;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #888;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .main-content { grid-template-columns: 1fr; }
+            .hero { height: 300px; }
+        }
+        @media (max-width: 600px) {
+            .nav-wrapper { flex-direction: column; gap: 1rem; }
+            .search-input { width: 100%; }
+            .news-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-    <div class="container">
-        <h1 style="margin:0">Layar Kosong 📰</h1>
-
-        <div class="filter-bar">
-            <div class="search-nav-group">
-                <input type="text" id="search-box" placeholder="Cari artikel...">
-                <div id="pagination" class="pagination header-pagination"></div>
-            </div>
-
-            <div class="filter-controls">
-              <button id="mobile-filter-toggle" aria-expanded="false">
-  🔍 Filter & Arsip
-  <span class="chevron">▾</span>
-</button>
-
-<div class="select-group" id="filter-content">
-  <select id="filter-year"><option value="">Tahun</option></select>
-  <select id="filter-month" disabled><option value="">Bulan</option></select>
-  <select id="filter-category"><option value="">Kategori</option></select>
-  <button id="btn-reset">🔄 Reset</button>
-</div>
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">Layar <span>Kosong</span></div>
+            <nav>
+                </nav>
+            <div class="search-box">
+                <input type="text" id="searchInput" class="search-input" placeholder="Cari artikel...">
             </div>
         </div>
+    </header>
+
+    <div class="container">
+        <div id="hero-section" class="hero skeleton">
+            </div>
+
+        <div class="filters">
+            <div class="cat-pills" id="categoryContainer">
+                <button class="pill active" onclick="filterArticles('all')">Semua</button>
+                </div>
+
+            <div class="archive-controls">
+                <select id="yearSelect" class="archive-select">
+                    <option value="">Tahun</option>
+                </select>
+                <select id="monthSelect" class="archive-select">
+                    <option value="">Bulan</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <main>
+                <div class="news-grid" id="newsGrid">
+                    </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button id="loadMoreBtn" class="btn btn-outline">Muat Lebih Banyak</button>
+                </div>
+            </main>
+
+            <aside>
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Trending & Terbaru</h3>
+                    <div id="sidebarList">
+                        </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Tags</h3>
+                    <div class="cat-pills">
+                        <span class="pill">Linux</span>
+                        <span class="pill">Sejarah</span>
+                        <span class="pill">Tutorial</span>
+                        <span class="pill">Opini</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <section class="contact-section">
+            <h2>Hubungi Kami</h2>
+            <p>Punya cerita atau pertanyaan? Kirimkan pesan kepada kami.</p>
+            <form class="form-grid" onsubmit="event.preventDefault(); alert('Pesan terkirim!');">
+                <input type="text" placeholder="Nama Lengkap" required>
+                <input type="email" placeholder="Email" required>
+                <input type="text" placeholder="Subjek" class="full-width">
+                <textarea rows="4" placeholder="Pesan Anda" class="full-width"></textarea>
+                <button type="submit" class="btn btn-primary full-width">Kirim Pesan</button>
+            </form>
+        </section>
     </div>
-</header>
 
-<div class="container">
-    <div class="layout">
-        <main>
-            <div id="results-count" style="margin-bottom:15px; font-weight:bold; opacity:0.7"></div>
-            <div id="main-feed">Memuat data artikel...</div>
-        </main>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Layar Kosong</h3>
+                    <p>Inspirasi, Teknologi, dan Sejarah dalam satu layar.</p>
+                </div>
+                <div>
+                    <h4>Kategori</h4>
+                    <ul>
+                        <li><a href="#">Teknologi</a></li>
+                        <li><a href="#">Sejarah</a></li>
+                        <li><a href="#">Tutorial</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Sosial</h4>
+                    <ul>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 Layar Kosong. Hak Cipta Dilindungi.
+            </div>
+        </div>
+    </footer>
 
-        <aside class="sidebar">
-            <h2>Rekomendasi</h2>
-            <div id="sidebar-list"></div>
-        </aside>
-    </div>
-</div>
+    <script>
+        // --- DATASET DARI FILE JSON ANDA ---
+        // (Saya mengambil sebagian besar data untuk demonstrasi)
+        const rawJsonData = {
+            "🔆 Lainnya": [
+                ["Pajak Link Facebook: Akhir dari Era Berbagi Gratis? | Layar Kosong", "pajak-link-facebook.html", "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjX7EOQRLEsOkJPzI_QF8QSO6h_CWjvUfbdS9Mp5pdStmkdGEzDgHMJjgdklMnS7sKfRhvZVgNHyt8xsHvvIhIa33U82DlUEDmWuG09npKqR22xT7k5j_xsA9aY7Xj-z3ZQZ1tht3MzlvyqRXJFKtudXFLCcHuUYRvlG9K6oFeNq4YWByLwsuIBkxjljLw/s1600/metalinkk.webp", "2025-12-20T15:44:15.404+00:00", "Opini mendalam mengenai uji coba langganan £9.99 Facebook."],
+                ["Cara Merapikan Google Drive dalam 1 Langkah Aja!", "merapikan-google-drive-2025.html", "https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2025/11/1-arranging-files-in-separate-folders-in-google-drive.png", "2025-12-03T15:17:13.703+00:00", "Google Drive kamu berantakan? File numpuk? Tenang, cukup 1 langkah aja."]
+            ],
+            "📚 Sejarah & Religi": [
+                ["Kisah Sang Panglima Gerilya, Jenderal Soedirman", "kisah-jenderal-soedirman.html", "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2VEfUH7A6Gw_zhBcBoxYnHYOM7zNh4Npp1CL2vfH7MMwOQ7GK8F4mVnngC1qDCV_J_Z2nYTorEs7n4BcMDGi-8gfYLh9MklarjtoMveKzofONgBghcZIN4cNAVa_x5BU-nc-4QT_40Rnzz6e6MFPipg-mmCkeNphoYi094uEGRqEWMbk1H0iiN1p7o3Y/s1600/jendsoedirman.jpg.webp", "2012-10-02T04:15:38.417+00:00", "Kisah lengkap Jenderal Soedirman. Dari guru Muhammadiyah hingga panglima besar."],
+                ["Sejarah Kerajaan Seljuk", "sejarah-kerajaan-seljuk.html", "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgloIv3ai1cT1lE4uU7AEYq2NKHNBJTXIECDtjw-_IQ_pio2yXeRAi99Wuj_fnv3xf4oDuet-I5Vx12UbNiZqMKtzVq36SlXhkDRtTw2j4uvdfAcp3vb5Qm4eqzDgjnPwTjuDEu01rSeEvDqufJcgExovHxv3_92iEsgqYj3fHjN0EgI3o1s-mKFq9NL7c/s1600/Seljuk.jpg", "2010-03-23T09:54:08.795+00:00", "Sejarah Dinasti Seljuk: asal-usul Turki Oghuz dan kejayaan Tughril Beg."]
+            ],
+            "🖥️ Teknologi Web, AI & Umum": [
+                ["React2Shell (CVE-2025-55182): Kerentanan Kritis", "react2shell-cve-2025-55182.html", "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCbntULf6N2CXOwUu3Vpe1WQmtjnzaSb9ljVVNFbdsf3_XeHHJ4W_MajcDGHRnnVvKgMbbKFvB3FGO8JCPvd31zY3nOUf8jil10BgR8Wz0GObmkDj9rvzO5Qn7Lwb1L7b8U55ZmNC1s5Z7smiCRMLNHpLNsbgBafJfrJ4R9UPNrcNsBLuoFjNYe16y-lY/s1600/npmauditfix.webp", "2025-12-18T12:42:07.230+00:00", "Penjelasan lengkap tentang React2Shell, kerentanan RCE kritis."],
+                ["Gemini – Jagoan Terbaik Buat Belajar", "gemini-ai-terbaik.html", "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjT6g_iOZl1Ooh4YIvHTbLTaBiUbW1uBRM8qrsO3kXJtczJ-RrUHsRtuaNVtg6ACEZtFeq3qAI-8Bnv1AiZI6Yqimd4y-0B2G9DNtGBGYYj0KC1bzjfpUAFML_zgmEEXEGXo_vaNRlbMVNjSJBaxFfcpObZDGWzXDq1S4NJVJOfUt_kGZsnHetCCknwbco/s1600/gemini-ai.png", "2025-06-04T18:15:06.393+00:00", "Review Gemini AI, model LLM dari Google yang unggul untuk belajar."]
+            ],
+            "🐧 Linux & Open Source": [
+                ["Alasan Pindah ke Linux 2025", "kenapa-pindah-ke-linux.html", "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8spPyAAmG8HTfLmr7gKHlZ9dmx8ebFPW_tdJ_FxQnRHpf9TnFezwgHqa6fWC3jNRHI6QXWMszId5l0u9O_udGG1JdzYNQ_KEe1uTNmR3fitzgqZfF94IdIbPmss544zfarIJH76Ce1AmMeY0C4nX2OFaE9UwyIw3CRmcOVRx9zQBtmSuWNMLNOzrbwlE/s1600/1.jpg", "2025-11-08T12:35:30.878+00:00", "Windows 10 berakhir 2025. Saatnya Linux."],
+                ["Panduan Flatpak Linux", "flatpak-linux.html", "https://dalam.web.id/thumbnail.webp", "2025-09-26T03:00:00.000+00:00", "Panduan lengkap cara instalasi dan menggunakan Flatpak."]
+            ]
+        };
 
-<script src="assets/js/homepage.js"></script>
+        // --- STATE MANAGEMENT ---
+        let allArticles = [];
+        let filteredArticles = [];
+        let currentPage = 1;
+        const itemsPerPage = 9;
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const toggleBtn = document.getElementById('mobile-filter-toggle');
-        const filterContent = document.getElementById('filter-content');
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            normalizeData();
+            setupFilters();
+            setupArchive();
+            renderHero();
+            renderGrid(true); // true = reset/initial
+            renderSidebar();
 
-        if (toggleBtn && filterContent) {
-            toggleBtn.addEventListener('click', () => {
-                const isShown = filterContent.classList.toggle('show');
-                const chevron = toggleBtn.querySelector('.chevron');
-                if (chevron) {
-                    chevron.textContent = isShown ? '▲' : '▼';
-                }
+            // Search Listener
+            document.getElementById('searchInput').addEventListener('input', (e) => {
+                const keyword = e.target.value.toLowerCase();
+                filteredArticles = allArticles.filter(art =>
+                    art.title.toLowerCase().includes(keyword) ||
+                    art.summary.toLowerCase().includes(keyword)
+                );
+                renderGrid(true);
+            });
+
+            // Load More Listener
+            document.getElementById('loadMoreBtn').addEventListener('click', () => {
+                currentPage++;
+                renderGrid(false);
+            });
+        });
+
+        // --- DATA PROCESSING ---
+        function normalizeData() {
+            for (const [category, articles] of Object.entries(rawJsonData)) {
+                articles.forEach(item => {
+                    allArticles.push({
+                        category: category,
+                        title: item[0],
+                        link: item[1],
+                        thumbnail: item[2],
+                        date: new Date(item[3]),
+                        dateStr: item[3],
+                        summary: item[4]
+                    });
+                });
+            }
+            // Sort by Date Descending
+            allArticles.sort((a, b) => b.date - a.date);
+            filteredArticles = [...allArticles];
+        }
+
+        // --- RENDER HERO SECTION (FEATURED) ---
+        function renderHero() {
+            const hero = document.getElementById('hero-section');
+            const featured = allArticles[0]; // Pick newest as featured
+
+            // Remove skeleton class
+            hero.classList.remove('skeleton');
+            hero.style.backgroundImage = `url('${featured.thumbnail}')`;
+
+            hero.innerHTML = `
+                <div class="hero-content">
+                    <span class="hero-badge">${featured.category}</span>
+                    <h1 style="font-size: 2.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">${featured.title}</h1>
+                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">${featured.summary.substring(0, 150)}...</p>
+                    <a href="${featured.link}" class="btn btn-primary">Baca Selengkapnya</a>
+                </div>
+            `;
+        }
+
+        // --- RENDER GRID ---
+        function renderGrid(reset = false) {
+            const grid = document.getElementById('newsGrid');
+            const btn = document.getElementById('loadMoreBtn');
+
+            if (reset) {
+                grid.innerHTML = '';
+                currentPage = 1;
+            }
+
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const pageData = filteredArticles.slice(start, end);
+
+            if (pageData.length === 0 && reset) {
+                grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">Tidak ada artikel ditemukan.</p>';
+                btn.style.display = 'none';
+                return;
+            }
+
+            pageData.forEach((art, index) => {
+                const card = document.createElement('div');
+                card.className = 'card skeleton'; // Start with skeleton state
+                card.innerHTML = `
+                    <div class="card-img-wrapper">
+                        <img src="${art.thumbnail}" alt="${art.title}" class="card-img" onload="this.closest('.card').classList.remove('skeleton')">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta">${art.category}</div>
+                        <h3 class="card-title"><a href="${art.link}">${art.title}</a></h3>
+                        <p class="card-excerpt">${art.summary}</p>
+                        <div class="card-footer">
+                            <span>${art.date.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                        </div>
+                    </div>
+                `;
+
+                // Staggered animation effect
+                setTimeout(() => {
+                    grid.appendChild(card);
+                }, index * 50);
+            });
+
+            // Manage Load More Button
+            if (end >= filteredArticles.length) {
+                btn.style.display = 'none';
+            } else {
+                btn.style.display = 'inline-block';
+            }
+        }
+
+        // --- SETUP CATEGORY FILTERS ---
+        function setupFilters() {
+            const container = document.getElementById('categoryContainer');
+            const categories = [...new Set(allArticles.map(a => a.category))];
+
+            categories.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = 'pill';
+                btn.textContent = cat;
+                btn.onclick = () => filterArticles(cat, btn);
+                container.appendChild(btn);
             });
         }
-    });
-</script>
 
+        function filterArticles(category, element) {
+            // Update active state
+            document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+            if(element) element.classList.add('active');
+            else document.querySelector('.pill').classList.add('active'); // "All" button
+
+            if (category === 'all') {
+                filteredArticles = [...allArticles];
+            } else {
+                filteredArticles = allArticles.filter(a => a.category === category);
+            }
+            renderGrid(true);
+        }
+
+        // --- SETUP ARCHIVE DROPDOWNS ---
+        function setupArchive() {
+            const yearSelect = document.getElementById('yearSelect');
+            const monthSelect = document.getElementById('monthSelect');
+
+            const years = [...new Set(allArticles.map(a => a.date.getFullYear()))].sort((a,b) => b-a);
+
+            years.forEach(y => {
+                const opt = document.createElement('option');
+                opt.value = y;
+                opt.textContent = y;
+                yearSelect.appendChild(opt);
+            });
+
+            // Populate months (Standard 1-12)
+            const monthNames = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+            monthNames.forEach((m, i) => {
+                const opt = document.createElement('option');
+                opt.value = i;
+                opt.textContent = m;
+                monthSelect.appendChild(opt);
+            });
+
+            const handleArchiveFilter = () => {
+                const y = yearSelect.value;
+                const m = monthSelect.value;
+
+                filteredArticles = allArticles.filter(a => {
+                    const matchYear = y ? a.date.getFullYear() == y : true;
+                    const matchMonth = m !== "" ? a.date.getMonth() == m : true;
+                    return matchYear && matchMonth;
+                });
+                renderGrid(true);
+            };
+
+            yearSelect.addEventListener('change', handleArchiveFilter);
+            monthSelect.addEventListener('change', handleArchiveFilter);
+        }
+
+        // --- RENDER SIDEBAR (LATEST) ---
+        function renderSidebar() {
+            const container = document.getElementById('sidebarList');
+            const latest5 = allArticles.slice(0, 5);
+
+            latest5.forEach(art => {
+                const div = document.createElement('div');
+                div.className = 'mini-card';
+                div.innerHTML = `
+                    <img src="${art.thumbnail}" class="mini-thumb" alt="thumb">
+                    <div class="mini-info">
+                        <h4><a href="${art.link}">${art.title.substring(0, 40)}...</a></h4>
+                        <span>${art.date.toLocaleDateString('id-ID', { month: 'short', day: 'numeric' })}</span>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+    </script>
 </body>
 </html>
