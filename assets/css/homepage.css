@@ -182,7 +182,7 @@ border-color: var(--accent);
 .news-card:hover { transform: translateY(-3px); }
 .news-info { padding: 15px; flex: 1; }
 .news-card img {
-  width: 220px; /* Ukuran Desktop */
+  width: 160px; /* Ukuran Desktop */
   aspect-ratio: 16 / 9;
   object-fit: cover;
   flex-shrink: 0;
