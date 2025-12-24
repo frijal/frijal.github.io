@@ -1,6 +1,6 @@
 /**
  * assets/js/homepage.js
- * Perbaikan: Cascading Filter Dinamis & Counter Kategori Akurat
+ * Perbaikan: Cascading Filter & Fix Toggle Mobile
  */
 (function (global) {
   'use strict';
@@ -30,6 +30,23 @@
     const updateTheme = (e) => document.documentElement.classList.toggle('dark-mode', e.matches);
     updateTheme(themeMedia);
     themeMedia.addEventListener('change', updateTheme);
+  }
+
+  // --- FUNGSI TOGGLE MOBILE ---
+  function initMobileToggle() {
+    const filterToggle = document.getElementById('mobile-filter-toggle');
+    const filterContent = document.getElementById('filter-content');
+
+    if (filterToggle && filterContent) {
+      // Kita pakai onclick langsung agar lebih bandel
+      filterToggle.onclick = () => {
+        const isVisible = filterContent.classList.toggle('show');
+        const chevron = filterToggle.querySelector('.chevron');
+        if (chevron) {
+          chevron.textContent = isVisible ? '▲' : '▼';
+        }
+      };
+    }
   }
 
   async function loadArticles() {
@@ -75,6 +92,8 @@
 
     ALL_ARTICLES.sort((a, b) => b.timestamp - a.timestamp);
     ARCHIVE_YEARS = [...yearSet].sort((a, b) => b - a);
+
+    // Urutan pemanggilan sangat penting
     renderFiltersUI();
     applyFilters();
   }
@@ -88,23 +107,19 @@
 
     if (!yearSel || !monthSel || !catSel) return;
 
-    // 1. Isi Dropdown Tahun
     yearSel.innerHTML = '<option value="">Tahun</option>' +
     ARCHIVE_YEARS.map(y => `<option value="${y}">${y}</option>`).join('');
 
-    // Fungsi untuk Update Dropdown Bulan & Kategori secara Dinamis
     const updateDropdowns = () => {
       const selectedYear = yearSel.value;
       const selectedMonth = monthSel.value;
-      const selectedCat = catSel.value; // Simpan pilihan kategori sementara
+      const selectedCat = catSel.value;
 
-      // Filter artikel yang tersedia berdasarkan Tahun (dan pencarian jika ada)
       const articlesInYear = ALL_ARTICLES.filter(a => {
         const d = safeDate(a.datetime);
         return !selectedYear || (d && String(d.getFullYear()) === selectedYear);
       });
 
-      // --- Update Dropdown Bulan ---
       const availableMonths = new Set();
       articlesInYear.forEach(a => {
         const d = safeDate(a.datetime);
@@ -119,8 +134,6 @@
         monthSel.disabled = !selectedYear;
         monthSel.style.opacity = selectedYear ? "1" : "0.5";
 
-        // --- Update Dropdown Kategori (INTI PERBAIKAN) ---
-        // Kita hitung kategori berdasarkan Tahun DAN Bulan yang terpilih
         const articlesInMonth = articlesInYear.filter(a => {
           const d = safeDate(a.datetime);
           return !selectedMonth || (d && String(d.getMonth() + 1).padStart(2, '0') === selectedMonth);
@@ -137,18 +150,8 @@
         });
     };
 
-    // Event Listeners
-    yearSel.onchange = () => {
-      monthSel.value = ""; // Reset bulan jika tahun ganti
-      updateDropdowns();
-      applyFilters();
-    };
-
-    monthSel.onchange = () => {
-      updateDropdowns(); // Update jumlah kategori sesuai bulan terpilih
-      applyFilters();
-    };
-
+    yearSel.onchange = () => { monthSel.value = ""; updateDropdowns(); applyFilters(); };
+    monthSel.onchange = () => { updateDropdowns(); applyFilters(); };
     catSel.onchange = applyFilters;
 
     if (btnReset) {
@@ -163,8 +166,6 @@
     }
 
     if (searchBox) searchBox.oninput = debounce(applyFilters, 300);
-
-    // Jalankan sekali saat start
     updateDropdowns();
   }
 
@@ -182,7 +183,6 @@
       const matchesCat = !c || a.category === c;
       return matchesSearch && matchesYear && matchesMonth && matchesCat;
     });
-
     renderArticlesPage(1);
   }
 
@@ -190,10 +190,8 @@
     CURRENT_PAGE = page;
     const container = qs('#main-feed');
     if (!container) return;
-
     const start = (page - 1) * CONFIG.pageSize;
     const items = FILTERED.slice(start, start + CONFIG.pageSize);
-
     container.innerHTML = items.map(a => `
     <article class="news-card">
     <img src="${a.image}" alt="${escapeHtml(a.title)}" loading="lazy" onerror="this.src='${CONFIG.placeholderImage}'">
@@ -201,14 +199,13 @@
     <div class="meta-row">
     <span class="badge">${escapeHtml(a.category)}</span>
     <span class="date-sep">•</span>
-    <small class="meta-date">${fmtDate(a.datetime)}</small>
+    <small class="meta-date">📅 ${fmtDate(a.datetime)}</small>
     </div>
     <h3><a href="${a.url}">${escapeHtml(a.title)}</a></h3>
     <p>${escapeHtml(a.desc.substring(0, 110))}...</p>
     </div>
     </article>
     `).join('') || `<div class="no-results">Tidak ada artikel ditemukan.</div>`;
-
     if (qs('#results-count')) qs('#results-count').textContent = `Total: ${FILTERED.length} artikel`;
     renderSidebarThumbnails();
     renderPagination();
@@ -232,9 +229,7 @@
   function renderPagination() {
     const totalPages = Math.ceil(FILTERED.length / CONFIG.pageSize);
     const el = qs('#pagination');
-    if (!el) return;
-    if (totalPages <= 1) { el.innerHTML=''; return; }
-
+    if (!el || totalPages <= 1) { if(el) el.innerHTML=''; return; }
     el.innerHTML = '';
     const prevBtn = document.createElement('button');
     prevBtn.innerHTML = '&laquo;';
@@ -242,19 +237,15 @@
     prevBtn.className = 'page-nav-btn';
     prevBtn.onclick = () => goToPage(CURRENT_PAGE - 1);
     el.appendChild(prevBtn);
-
-    let startPage = Math.max(1, CURRENT_PAGE - 2);
-    let endPage = Math.min(totalPages, startPage + 3);
-    if (endPage - startPage < 3) startPage = Math.max(1, endPage - 3);
-
-    for (let i = startPage; i <= endPage; i++) {
-      const numBtn = document.createElement('button');
-      numBtn.innerText = i;
-      numBtn.className = `page-num-btn ${i === CURRENT_PAGE ? 'active' : ''}`;
-      numBtn.onclick = () => goToPage(i);
-      el.appendChild(numBtn);
+    for (let i = 1; i <= totalPages; i++) {
+      if (i === 1 || i === totalPages || (i >= CURRENT_PAGE - 1 && i <= CURRENT_PAGE + 1)) {
+        const numBtn = document.createElement('button');
+        numBtn.innerText = i;
+        numBtn.className = `page-num-btn ${i === CURRENT_PAGE ? 'active' : ''}`;
+        numBtn.onclick = () => goToPage(i);
+        el.appendChild(numBtn);
+      }
     }
-
     const nextBtn = document.createElement('button');
     nextBtn.innerHTML = '&raquo;';
     nextBtn.disabled = CURRENT_PAGE === totalPages;
@@ -268,22 +259,8 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     initTheme();
+    initMobileToggle(); // Panggil fungsi toggle di sini
     loadArticles();
-    // Tambahkan di dalam document.addEventListener('DOMContentLoaded', ...
-    const filterToggle = document.getElementById('mobile-filter-toggle');
-    const filterContent = document.getElementById('filter-content');
-
-    if (filterToggle && filterContent) {
-      filterToggle.addEventListener('click', () => {
-        const isVisible = filterContent.classList.toggle('show');
-
-        // Opsional: Ubah arah panah chevron
-        const chevron = filterToggle.querySelector('.chevron');
-        if (chevron) {
-          chevron.textContent = isVisible ? '▲' : '▼';
-        }
-      });
-    }
   });
 
 })(window);
