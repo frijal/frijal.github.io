@@ -3,28 +3,28 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portal Berita - Halaman Utama</title>
+  <title>Portal Berita</title>
   <link rel="stylesheet" href="assets/css/homepage.css">
   <style>
-    /* Minimal inline styles for layout wrapper (keperluan cepat) */
     header{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
     .brand{ font-weight:800; font-size:1.25rem; color:var(--text); }
     .top-actions{ display:flex; gap:8px; align-items:center; }
     .toggle-theme{ cursor:pointer; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:var(--text); }
+    body, html { height:100%; margin:0; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <main class="main-card">
+  <div class="container" role="main" aria-label="Portal Berita">
+    <main class="main-card" id="main">
       <header>
         <div class="brand">Portal Berita</div>
         <div class="top-actions">
-          <div id="results-count">0 artikel</div>
-          <button id="theme-toggle" class="toggle-theme" aria-pressed="false">Toggle Theme</button>
+          <div id="results-count" aria-live="polite">0 artikel</div>
+          <button id="theme-toggle" class="toggle-theme" aria-pressed="false" aria-label="Toggle tema">Toggle Theme</button>
         </div>
       </header>
 
-      <section class="filters">
+      <section class="filters" aria-label="Filter artikel">
         <select id="filter-category" aria-label="Filter kategori"></select>
         <select id="filter-year" aria-label="Filter tahun"></select>
         <select id="filter-month" aria-label="Filter bulan">
@@ -36,51 +36,46 @@
           <option value="title-asc">Judul A→Z</option>
           <option value="title-desc">Judul Z→A</option>
         </select>
-        <input id="search-box" type="search" placeholder="Cari judul atau kategori..." />
+        <input id="search-box" type="search" placeholder="Cari judul atau kategori..." aria-label="Cari artikel" />
       </section>
 
-      <div id="articles-grid" aria-live="polite"></div>
+      <div id="articles-grid" aria-live="polite" class="articles-grid"></div>
 
-      <div id="pagination" class="pagination"></div>
+      <div id="pagination" class="pagination" role="navigation" aria-label="Pagination"></div>
     </main>
 
-    <aside class="sidebar">
-      <div class="panel">
-        <h4>Terbaru</h4>
-        <div id="sidebar-thumbs"></div>
+    <aside class="sidebar" aria-label="Sidebar">
+      <div class="panel" aria-labelledby="latest-heading">
+        <h4 id="latest-heading">Terbaru</h4>
+        <div id="sidebar-thumbs" aria-live="polite"></div>
       </div>
 
-      <div class="panel">
-        <h4>Arsip</h4>
+      <div class="panel" aria-labelledby="archive-heading">
+        <h4 id="archive-heading">Arsip</h4>
         <div id="archive"></div>
       </div>
 
-      <div class="panel">
-        <h4>Tentang</h4>
+      <div class="panel" aria-labelledby="about-heading">
+        <h4 id="about-heading">Tentang</h4>
         <p style="color:var(--muted);font-size:0.95rem">Gunakan filter di atas untuk menyaring berdasarkan kategori, tahun, atau bulan. Klik arsip untuk melihat posting pada periode tertentu.</p>
       </div>
     </aside>
   </div>
 
-  <!-- panggil script non-module -->
+  <!-- Script gabungan homepage + articles -->
   <script src="assets/js/homepage.js"></script>
 
   <script>
-    // Theme toggle dan inisialisasi setelah DOM siap
+    // Jika ingin override jsonPath (opsional). Karena artikel.json ada di folder yang sama,
+    // tidak perlu memanggil init. Jika ingin eksplisit, uncomment baris berikut:
+    // if (window.AppArticles && typeof window.AppArticles.init === 'function') {
+    //   window.AppArticles.init({ jsonPath: './artikel.json' });
+    // }
     document.addEventListener('DOMContentLoaded', function () {
-      const themeToggle = document.getElementById('theme-toggle');
-      const htmlEl = document.documentElement;
-      const saved = localStorage.getItem('theme-mode');
-      if (saved === 'light') htmlEl.classList.add('light-mode');
-
-      if (themeToggle) {
-        themeToggle.addEventListener('click', function () {
-          const isLight = htmlEl.classList.toggle('light-mode');
-          localStorage.setItem('theme-mode', isLight ? 'light' : 'dark');
-          themeToggle.setAttribute('aria-pressed', String(isLight));
-        });
+      if (!window.AppArticles) {
+        console.error('AppArticles tidak tersedia. Pastikan assets/js/homepage.js dimuat tanpa error.');
       }
-         });
+    });
   </script>
 </body>
 </html>
