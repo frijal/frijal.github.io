@@ -1,6 +1,6 @@
 /**
  * assets/js/homepage.js
- * Perbaikan: Cascading Filter & Fix Toggle Mobile
+ * Perbaikan Final: Mobile Toggle dengan Event Delegation
  */
 (function (global) {
   'use strict';
@@ -32,21 +32,27 @@
     themeMedia.addEventListener('change', updateTheme);
   }
 
-  // --- FUNGSI TOGGLE MOBILE ---
+  /**
+   * PERBAIKAN UTAMA: Event Delegation untuk Mobile Toggle
+   * Cara ini jauh lebih stabil untuk mobile browser
+   */
   function initMobileToggle() {
-    const filterToggle = document.getElementById('mobile-filter-toggle');
-    const filterContent = document.getElementById('filter-content');
+    document.addEventListener('click', function (e) {
+      // Cek apakah yang diklik adalah tombol toggle atau anak buahnya (span/chevron)
+      const toggleBtn = e.target.closest('#mobile-filter-toggle');
+      if (toggleBtn) {
+        const filterContent = document.getElementById('filter-content');
+        if (filterContent) {
+          const isVisible = filterContent.classList.toggle('show');
 
-    if (filterToggle && filterContent) {
-      // Kita pakai onclick langsung agar lebih bandel
-      filterToggle.onclick = () => {
-        const isVisible = filterContent.classList.toggle('show');
-        const chevron = filterToggle.querySelector('.chevron');
-        if (chevron) {
-          chevron.textContent = isVisible ? '▲' : '▼';
+          // Update Chevron
+          const chevron = toggleBtn.querySelector('.chevron');
+          if (chevron) {
+            chevron.textContent = isVisible ? '▲' : '▼';
+          }
         }
-      };
-    }
+      }
+    });
   }
 
   async function loadArticles() {
@@ -93,7 +99,6 @@
     ALL_ARTICLES.sort((a, b) => b.timestamp - a.timestamp);
     ARCHIVE_YEARS = [...yearSet].sort((a, b) => b - a);
 
-    // Urutan pemanggilan sangat penting
     renderFiltersUI();
     applyFilters();
   }
@@ -199,7 +204,7 @@
     <div class="meta-row">
     <span class="badge">${escapeHtml(a.category)}</span>
     <span class="date-sep">•</span>
-    <small class="meta-date">📅 ${fmtDate(a.datetime)}</small>
+    <small class="meta-date">${fmtDate(a.datetime)}</small>
     </div>
     <h3><a href="${a.url}">${escapeHtml(a.title)}</a></h3>
     <p>${escapeHtml(a.desc.substring(0, 110))}...</p>
@@ -237,6 +242,7 @@
     prevBtn.className = 'page-nav-btn';
     prevBtn.onclick = () => goToPage(CURRENT_PAGE - 1);
     el.appendChild(prevBtn);
+
     for (let i = 1; i <= totalPages; i++) {
       if (i === 1 || i === totalPages || (i >= CURRENT_PAGE - 1 && i <= CURRENT_PAGE + 1)) {
         const numBtn = document.createElement('button');
@@ -246,6 +252,7 @@
         el.appendChild(numBtn);
       }
     }
+
     const nextBtn = document.createElement('button');
     nextBtn.innerHTML = '&raquo;';
     nextBtn.disabled = CURRENT_PAGE === totalPages;
@@ -257,10 +264,9 @@
   function goToPage(p) { renderArticlesPage(p); window.scrollTo({ top: 0, behavior: 'smooth' }); }
   function debounce(f, ms) { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => f(...a), ms); }; }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    initTheme();
-    initMobileToggle(); // Panggil fungsi toggle di sini
-    loadArticles();
-  });
+  // Init pas load
+  initTheme();
+  initMobileToggle(); // Dipasang di luar loadArticles agar langsung aktif
+  loadArticles();
 
 })(window);
