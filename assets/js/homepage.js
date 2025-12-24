@@ -1,12 +1,18 @@
 /* ===============================
-   KONFIGURASI
-   =============================== */
+ *   KONFIGURASI
+ *   =============================== */
 const DATA_URL = "/artikel.json";
-const MAX_ARTICLES = 28;
+const PER_PAGE = 12;
 
 /* ===============================
-   UTILITAS
-   =============================== */
+ *   STATE GLOBAL
+ *   =============================== */
+let CURRENT_PAGE = 1;
+let ALL_ARTICLES = [];
+
+/* ===============================
+ *   UTILITAS
+ *   =============================== */
 function parseDate(iso) {
   const d = new Date(iso);
   return {
@@ -22,19 +28,58 @@ function parseDate(iso) {
 }
 
 /* ===============================
-   LOAD & NORMALISASI DATA
-   =============================== */
-function showSkeleton() {
+ *   SKELETON
+ *   =============================== */
+function showSkeleton(count = 8) {
   const grid = document.getElementById("articleGrid");
+  if (!grid) return;
+
   grid.innerHTML = "";
-  for (let i = 0; i < 8; i++) {
+  for (let i = 0; i < count; i++) {
     const s = document.createElement("div");
     s.className = "card skeleton";
     grid.appendChild(s);
   }
 }
 
+/* ===============================
+ *   INDEXED DB CACHE
+ *   =============================== */
+const DB_NAME = "artikel-cache";
+const STORE = "posts";
 
+function openDB() {
+  return new Promise(resolve => {
+    const req = indexedDB.open(DB_NAME, 1);
+    req.onupgradeneeded = e =>
+    e.target.result.createObjectStore(STORE);
+    req.onsuccess = e => resolve(e.target.result);
+    req.onerror = () => resolve(null);
+  });
+}
+
+async function saveCache(data) {
+  const db = await openDB();
+  if (!db) return;
+  const tx = db.transaction(STORE, "readwrite");
+  tx.objectStore(STORE).put(data, "all");
+}
+
+async function loadCache() {
+  const db = await openDB();
+  if (!db) return null;
+
+  const tx = db.transaction(STORE, "readonly");
+  return new Promise(resolve => {
+    const req = tx.objectStore(STORE).get("all");
+    req.onsuccess = () => resolve(req.result || null);
+    req.onerror = () => resolve(null);
+  });
+}
+
+/* ===============================
+ *   LOAD & NORMALISASI
+ *   =============================== */
 async function loadArticles() {
   const cached = await loadCache();
   if (cached) return cached;
@@ -44,8 +89,7 @@ async function loadArticles() {
 
   const articles = [];
   Object.entries(json).forEach(([category, items]) => {
-    items.forEach(item => {
-      const [title, slug, image, published, excerpt] = item;
+    items.forEach(([title, slug, image, published, excerpt]) => {
       articles.push({
         title,
         slug,
@@ -58,32 +102,69 @@ async function loadArticles() {
     });
   });
 
-  articles.sort((a,b)=>b.date.raw-a.date.raw);
+  articles.sort((a, b) => b.date.raw - a.date.raw);
   saveCache(articles);
   return articles;
 }
 
+/* ===============================
+ *   FILTER & ARCHIVE
+ *   =============================== */
+function filterByArchive(data) {
+  const hash = location.hash.replace("#/", "");
+  if (!hash) return data;
 
-let CURRENT_PAGE = 1;
-const PER_PAGE = 12;
+  const [y, m] = hash.split("/");
+  return data.filter(a =>
+  a.date.year == y && (!m || a.date.month == m)
+  );
+}
 
+function applyFilter() {
+  CURRENT_PAGE = 1;
+
+  const q = document.getElementById("search").value.toLowerCase();
+  const cat = document.getElementById("filterCategory").value;
+  const ym = document.getElementById("filterMonth").value;
+
+  let filtered = filterByArchive(ALL_ARTICLES);
+
+  filtered = filtered.filter(a => {
+    const matchText =
+    a.title.toLowerCase().includes(q) ||
+    a.category.toLowerCase().includes(q);
+
+    const matchCategory = !cat || a.category === cat;
+    const matchMonth = !ym || `${a.date.year}-${a.date.month}` === ym;
+
+    return matchText && matchCategory && matchMonth;
+  });
+
+  renderArticles(filtered);
+}
+
+/* ===============================
+ *   PAGINATION
+ *   =============================== */
 function paginate(data) {
   const start = (CURRENT_PAGE - 1) * PER_PAGE;
   return data.slice(start, start + PER_PAGE);
 }
 
-
 /* ===============================
-   RENDER ARTIKEL
-   =============================== */
+ *   RENDER
+ *   =============================== */
 function renderArticles(data) {
-  const container = document.getElementById("articleGrid");
-  container.innerHTML = "";
+  const grid = document.getElementById("articleGrid");
+  if (!grid) return;
+
+  grid.innerHTML = "";
 
   const pageData = paginate(data);
 
   if (!pageData.length) {
-    container.innerHTML = `<p class="empty">Tidak ada artikel.</p>`;
+    grid.innerHTML = `<p class="empty">Tidak ada artikel.</p>`;
+    renderPagination(0);
     return;
   }
 
@@ -100,7 +181,7 @@ function renderArticles(data) {
     <time>${article.date.readable}</time>
     </div>
     `;
-    container.appendChild(card);
+    grid.appendChild(card);
   });
 
   renderPagination(data.length);
@@ -108,6 +189,11 @@ function renderArticles(data) {
 
 function renderPagination(total) {
   const nav = document.getElementById("pagination");
+  if (!nav || total === 0) {
+    if (nav) nav.innerHTML = "";
+    return;
+  }
+
   const totalPages = Math.ceil(total / PER_PAGE);
 
   nav.innerHTML = `
@@ -116,115 +202,40 @@ function renderPagination(total) {
   <button ${CURRENT_PAGE === totalPages ? "disabled" : ""} id="next">→</button>
   `;
 
-  document.getElementById("prev")?.onclick = () => {
+  nav.querySelector("#prev")?.addEventListener("click", () => {
     CURRENT_PAGE--;
-    applyFilter(window.__ARTICLES__);
-  };
-
-  document.getElementById("next")?.onclick = () => {
-    CURRENT_PAGE++;
-    applyFilter(window.__ARTICLES__);
-  };
-}
-
-
-/* ===============================
-   FILTER & SEARCH
-   =============================== */
-function applyFilter(allArticles) {
-  let filtered = filterByArchive(allArticles);
-    const q = document.getElementById("search").value.toLowerCase();
-  const cat = document.getElementById("filterCategory").value;
-  const ym = document.getElementById("filterMonth").value;
-
-  const filtered = allArticles.filter(a => {
-    const matchText =
-      a.title.toLowerCase().includes(q) ||
-      a.category.toLowerCase().includes(q);
-
-    const matchCategory = !cat || a.category === cat;
-    const matchMonth = !ym || `${a.date.year}-${a.date.month}` === ym;
-
-    return matchText && matchCategory && matchMonth;
+    applyFilter();
   });
 
-  renderArticles(filtered);
+  nav.querySelector("#next")?.addEventListener("click", () => {
+    CURRENT_PAGE++;
+    applyFilter();
+  });
 }
 
 /* ===============================
-   INIT
-   =============================== */
+ *   INIT
+ *   =============================== */
 document.addEventListener("DOMContentLoaded", async () => {
-  const articles = await loadArticles();
-
-  window.__ARTICLES__ = articles;
-  CURRENT_PAGE = 1;
   showSkeleton();
 
+  ALL_ARTICLES = await loadArticles();
 
   // isi filter kategori
-  const categories = [...new Set(articles.map(a => a.category))];
   const catSelect = document.getElementById("filterCategory");
-  categories.forEach(c => {
-    catSelect.insertAdjacentHTML("beforeend", `<option>${c}</option>`);
-  });
+  [...new Set(ALL_ARTICLES.map(a => a.category))]
+  .forEach(c => catSelect.insertAdjacentHTML("beforeend", `<option>${c}</option>`));
 
   // isi filter bulan
-  const months = [...new Set(articles.map(a => `${a.date.year}-${a.date.month}`))];
   const monthSelect = document.getElementById("filterMonth");
-  months.forEach(m => {
-    monthSelect.insertAdjacentHTML("beforeend", `<option value="${m}">${m}</option>`);
-  });
+  [...new Set(ALL_ARTICLES.map(a => `${a.date.year}-${a.date.month}`))]
+  .forEach(m => monthSelect.insertAdjacentHTML("beforeend", `<option value="${m}">${m}</option>`));
 
-  renderArticles(articles);
+  renderArticles(ALL_ARTICLES);
 
-  ["search", "filterCategory", "filterMonth"].forEach(id => {
-    document.getElementById(id).addEventListener("input", () => {
-      applyFilter(articles);
-    });
-  });
-});
-
-const DB_NAME = "artikel-cache";
-const STORE = "posts";
-
-function openDB() {
-  return new Promise((resolve, reject) => {
-    const req = indexedDB.open(DB_NAME, 1);
-    req.onupgradeneeded = e => {
-      e.target.result.createObjectStore(STORE);
-    };
-    req.onsuccess = e => resolve(e.target.result);
-    req.onerror = reject;
-  });
-}
-
-async function saveCache(data) {
-  const db = await openDB();
-  const tx = db.transaction(STORE, "readwrite");
-  tx.objectStore(STORE).put(data, "all");
-}
-
-async function loadCache() {
-  const db = await openDB();
-  const tx = db.transaction(STORE, "readonly");
-  return new Promise(res => {
-    const req = tx.objectStore(STORE).get("all");
-    req.onsuccess = () => res(req.result || null);
-  });
-}
-
-function filterByArchive(all) {
-  const hash = location.hash.replace("#/", "");
-  if (!hash) return all;
-
-  const [y, m] = hash.split("/");
-  return all.filter(a =>
-  a.date.year == y && (!m || a.date.month == m)
+  ["search", "filterCategory", "filterMonth"].forEach(id =>
+  document.getElementById(id).addEventListener("input", applyFilter)
   );
-}
-
-window.addEventListener("hashchange", () => {
-  CURRENT_PAGE = 1;
-  applyFilter(window.__ARTICLES__);
 });
+
+window.addEventListener("hashchange", applyFilter);
