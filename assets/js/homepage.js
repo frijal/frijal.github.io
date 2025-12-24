@@ -1,184 +1,169 @@
-// app.js
+/**
+ * script.js - Portal Berita Engine
+ */
 
-document.addEventListener('DOMContentLoaded', async () => {
-  // Step 1: Fetch and parse artikel.json
-  const response = await fetch('artikel.json');
-  const data = await response.json();
+const CONFIG = {
+  jsonUrl: 'artikel.json',
+  itemsPerPage: 8,
+  sidebarItems: 10 // Jumlah thumbnail kecil di sidebar
+};
 
-  // Step 2: Process data - Gabung semua artikel menjadi satu array flat dengan tambah kategori
-  let allArticles = [];
-  Object.keys(data).forEach(category => {
-    data[category].forEach(article => {
-      allArticles.push({
-        title: article[0],
-        slug: article[1],
-        imageUrl: article[2],
-        date: article[3], // Format: "YYYY-MM-DDTHH:MM:SS.sss+00:00"
-        summary: article[4],
-        category: category
+let state = {
+  allArticles: [],
+  filteredArticles: [],
+  currentPage: 1,
+  categories: new Set(),
+  archives: {} // Struktur: { "2025": ["01", "02"], "2024": [...] }
+};
+
+// 1. Ambil & Olah Data
+async function initApp() {
+  try {
+    const response = await fetch(CONFIG.jsonUrl);
+    const jsonData = await response.json();
+
+    // Flatten data
+    state.allArticles = [];
+    for (const [cat, items] of Object.entries(jsonData)) {
+      state.categories.add(cat);
+      items.forEach(item => {
+        const d = new Date(item[3]);
+        const year = d.getFullYear().toString();
+        const month = String(d.getMonth() + 1).padStart(2, '0');
+
+        // Build cascading archive data
+        if (!state.archives[year]) state.archives[year] = new Set();
+        state.archives[year].add(month);
+
+        state.allArticles.push({
+          category: cat,
+          title: item[0],
+          url: item[1],
+          image: item[2],
+          date: item[3],
+          desc: item[4],
+          timestamp: d.getTime(),
+                               year: year,
+                               month: month
+        });
       });
-    });
-  });
-
-  // Sort allArticles descending by date
-  allArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-  // Extract unique years and months for archive
-  const years = [...new Set(allArticles.map(a => new Date(a.date).getFullYear()))].sort((a, b) => b - a);
-  const monthsByYear = {};
-  years.forEach(year => {
-    monthsByYear[year] = [...new Set(allArticles.filter(a => new Date(a.date).getFullYear() === year).map(a => new Date(a.date).getMonth() + 1))].sort((a, b) => b - a);
-  });
-
-  // Categories unique
-  const categories = Object.keys(data);
-
-  // Pagination setup
-  let currentPage = 1;
-  const articlesPerPage = 10;
-  let filteredArticles = [...allArticles]; // Default: all
-
-  // Render functions
-  const renderArticles = (articles, page = 1) => {
-    const start = (page - 1) * articlesPerPage;
-    const end = start + articlesPerPage;
-    const paginated = articles.slice(start, end);
-
-    const mainGrid = document.getElementById('main-grid');
-    mainGrid.innerHTML = '';
-    paginated.forEach(article => {
-      const card = document.createElement('div');
-      card.className = 'article-card';
-      card.innerHTML = `
-      <img src="${article.imageUrl}" alt="${article.title}" onerror="this.src='https://via.placeholder.com/300x200?text=No+Image';">
-      <h3>${article.title}</h3>
-      <p>${article.summary.substring(0, 100)}...</p>
-      <span>${new Date(article.date).toLocaleDateString('id-ID')}</span>
-      <span class="category">${article.category}</span>
-      `;
-      card.addEventListener('click', () => alert(`Buka artikel: ${article.slug}`)); // Simulasi detail
-      mainGrid.appendChild(card);
-    });
-
-    // Pagination controls
-    const totalPages = Math.ceil(articles.length / articlesPerPage);
-    const pagination = document.getElementById('pagination');
-    pagination.innerHTML = '';
-    for (let i = 1; i <= totalPages; i++) {
-      const btn = document.createElement('button');
-      btn.textContent = i;
-      btn.className = i === page ? 'active' : '';
-      btn.addEventListener('click', () => {
-        currentPage = i;
-        renderArticles(filteredArticles, currentPage);
-      });
-      pagination.appendChild(btn);
     }
-  };
 
-  const renderSidebar = (id, articles, max = 5) => {
-    const sidebar = document.getElementById(id);
-    sidebar.innerHTML = '';
-    articles.slice(0, max).forEach(article => {
-      const thumb = document.createElement('div');
-      thumb.className = 'thumbnail';
-      thumb.innerHTML = `
-      <img src="${article.imageUrl}" alt="${article.title}" onerror="this.src='https://via.placeholder.com/100x100?text=No+Image';">
-      <p>${article.title.substring(0, 50)}...</p>
-      `;
-      thumb.addEventListener('click', () => alert(`Buka: ${article.slug}`));
-      sidebar.appendChild(thumb);
-    });
-  };
+    // Urutkan terbaru
+    state.allArticles.sort((a, b) => b.timestamp - a.timestamp);
+    state.filteredArticles = [...state.allArticles];
 
-  const renderArchive = () => {
-    const archive = document.getElementById('archive');
-    archive.innerHTML = '';
-    years.forEach(year => {
-      const yearDiv = document.createElement('div');
-      yearDiv.innerHTML = `<h4>${year}</h4>`;
-      monthsByYear[year].forEach(month => {
-        const link = document.createElement('a');
-        link.textContent = `Bulan ${month}`;
-        link.href = '#';
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          filterArticles({ year, month });
-        });
-        yearDiv.appendChild(link);
+    setupFilters();
+    renderSidebar();
+    renderPage(1);
+  } catch (e) {
+    console.error("Gagal memuat data:", e);
+  }
+}
+
+// 2. Setup Filter Cascading
+function setupFilters() {
+  const yearSelect = document.getElementById('filter-year');
+  const monthSelect = document.getElementById('filter-month');
+  const catSelect = document.getElementById('filter-category');
+
+  // Populate Year
+  Object.keys(state.archives).sort().reverse().forEach(y => {
+    yearSelect.innerHTML += `<option value="${y}">${y}</option>`;
+  });
+
+  // Populate Category
+  Array.from(state.categories).sort().forEach(c => {
+    catSelect.innerHTML += `<option value="${c}">${c}</option>`;
+  });
+
+  // Event Year change -> Update Month
+  yearSelect.addEventListener('change', () => {
+    const selectedYear = yearSelect.value;
+    monthSelect.innerHTML = '<option value="">Semua Bulan</option>';
+    if (selectedYear && state.archives[selectedYear]) {
+      Array.from(state.archives[selectedYear]).sort().reverse().forEach(m => {
+        const monthName = new Date(2000, parseInt(m) - 1).toLocaleString('id-ID', {month: 'long'});
+        monthSelect.innerHTML += `<option value="${m}">${monthName}</option>`;
       });
-      archive.appendChild(yearDiv);
-    });
-  };
+    }
+    applyFilters();
+  });
 
-  const renderSortControls = () => {
-    const categorySelect = document.getElementById('sort-category');
-    categories.forEach(cat => {
-      const opt = document.createElement('option');
-      opt.value = cat;
-      opt.textContent = cat;
-      categorySelect.appendChild(opt);
-    });
+  [monthSelect, catSelect].forEach(el => el.addEventListener('change', applyFilters));
+  document.getElementById('search-input').addEventListener('input', debounce(applyFilters, 300));
+}
 
-    categorySelect.addEventListener('change', (e) => {
-      const selectedCat = e.target.value;
-      const yearSelect = document.getElementById('sort-year');
-      yearSelect.innerHTML = '<option value="">Pilih Tahun</option>';
-      if (selectedCat) {
-        const catArticles = allArticles.filter(a => a.category === selectedCat);
-        const catYears = [...new Set(catArticles.map(a => new Date(a.date).getFullYear()))].sort((a, b) => b - a);
-        catYears.forEach(y => {
-          const opt = document.createElement('option');
-          opt.value = y;
-          opt.textContent = y;
-          yearSelect.appendChild(opt);
-        });
-      }
-    });
+function applyFilters() {
+  const search = document.getElementById('search-input').value.toLowerCase();
+  const year = document.getElementById('filter-year').value;
+  const month = document.getElementById('filter-month').value;
+  const cat = document.getElementById('filter-category').value;
 
-    const yearSelect = document.getElementById('sort-year');
-    yearSelect.addEventListener('change', (e) => {
-      const selectedYear = e.target.value;
-      const monthSelect = document.getElementById('sort-month');
-      monthSelect.innerHTML = '<option value="">Pilih Bulan</option>';
-      if (selectedYear) {
-        const cat = document.getElementById('sort-category').value;
-        const yearArticles = allArticles.filter(a => (cat ? a.category === cat : true) && new Date(a.date).getFullYear() === parseInt(selectedYear));
-        const months = [...new Set(yearArticles.map(a => new Date(a.date).getMonth() + 1))].sort((a, b) => b - a);
-        months.forEach(m => {
-          const opt = document.createElement('option');
-          opt.value = m;
-          opt.textContent = m;
-          monthSelect.appendChild(opt);
-        });
-      }
-    });
+  state.filteredArticles = state.allArticles.filter(a => {
+    return (!search || a.title.toLowerCase().includes(search)) &&
+    (!year || a.year === year) &&
+    (!month || a.month === month) &&
+    (!cat || a.category === cat);
+  });
 
-    document.getElementById('sort-month').addEventListener('change', (e) => {
-      const selectedMonth = e.target.value;
-      if (selectedMonth) {
-        const cat = document.getElementById('sort-category').value;
-        const year = document.getElementById('sort-year').value;
-        filterArticles({ category: cat, year: parseInt(year), month: parseInt(selectedMonth) });
-      }
-    });
-  };
+  state.currentPage = 1;
+  renderPage(1);
+}
 
-  const filterArticles = ({ category = '', year = '', month = '' }) => {
-    filteredArticles = allArticles.filter(a => {
-      const aDate = new Date(a.date);
-      return (category ? a.category === category : true) &&
-      (year ? aDate.getFullYear() === year : true) &&
-      (month ? aDate.getMonth() + 1 === month : true);
-    });
-    currentPage = 1;
-    renderArticles(filteredArticles, currentPage);
-  };
+// 3. Rendering
+function renderPage(page) {
+  state.currentPage = page;
+  const start = (page - 1) * CONFIG.itemsPerPage;
+  const items = state.filteredArticles.slice(start, start + CONFIG.itemsPerPage);
 
-  // Initial render
-  renderArticles(allArticles);
-  renderSidebar('left-sidebar', allArticles.filter(a => a.category === '🔆 Lainnya'));
-  renderSidebar('right-sidebar', allArticles.filter(a => a.category !== '🔆 Lainnya'));
-  renderArchive();
-  renderSortControls();
-});
+  const container = document.getElementById('main-feed');
+  container.innerHTML = items.map(a => `
+  <article class="news-card">
+  <img src="${a.image}" alt="" loading="lazy">
+  <div class="news-info">
+  <span class="badge">${a.category}</span>
+  <h3><a href="${a.url}">${a.title}</a></h3>
+  <p>${a.desc.substring(0, 100)}...</p>
+  <small>📅 ${new Date(a.date).toLocaleDateString('id-ID')}</small>
+  </div>
+  </article>
+  `).join('');
+
+  renderPagination();
+}
+
+function renderSidebar() {
+  const sidebar = document.getElementById('sidebar-list');
+  const recent = state.allArticles.slice(0, CONFIG.sidebarItems);
+
+  sidebar.innerHTML = recent.map(a => `
+  <div class="side-item">
+  <img src="${a.image}" alt="">
+  <div>
+  <h4><a href="${a.url}">${a.title}</a></h4>
+  <small>${a.category}</small>
+  </div>
+  </div>
+  `).join('');
+}
+
+function renderPagination() {
+  const total = Math.ceil(state.filteredArticles.length / CONFIG.itemsPerPage);
+  const container = document.getElementById('pagination');
+  container.innerHTML = '';
+
+  for(let i=1; i<=total; i++) {
+    const btn = document.createElement('button');
+    btn.innerText = i;
+    if(i === state.currentPage) btn.className = 'active';
+    btn.onclick = () => { renderPage(i); window.scrollTo(0,0); };
+    container.appendChild(btn);
+  }
+}
+
+function debounce(f, ms) {
+  let t; return (...a) => { clearTimeout(t); t = setTimeout(() => f(...a), ms); };
+}
+
+document.addEventListener('DOMContentLoaded', initApp);

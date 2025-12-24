@@ -1,47 +1,47 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Layar Kosong - Situs Berita</title>
-  <link rel="stylesheet" href="assets/css/homepage.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layar Kosong News Portal</title>
+    <link rel="stylesheet" href="assets/css/homepage.css">
 </head>
 <body>
-  <header>
-    <h1>Layar Kosong: Berita dan Artikel Terbaru</h1>
-  </header>
-  <div id="sort-controls">
-    <select id="sort-category">
-      <option value="">Pilih Kategori</option>
-    </select>
-    <select id="sort-year">
-      <option value="">Pilih Tahun</option>
-    </select>
-    <select id="sort-month">
-      <option value="">Pilih Bulan</option>
-    </select>
-  </div>
-  <div class="container">
-    <aside id="left-sidebar">
-      <h3>🔆 Lainnya (Thumbnail)</h3>
-      <!-- JS will render thumbnails here -->
-    </aside>
-    <main id="main-grid">
-      <!-- JS will render article cards here -->
-    </main>
-    <aside id="right-sidebar">
-      <h3>Artikel Lain (Thumbnail)</h3>
-      <!-- JS will render thumbnails here -->
-    </aside>
-  </div>
-  <div id="archive" class="container">
-    <h3>Archive</h3>
-    <!-- JS will render archive links here -->
-  </div>
-  <div id="pagination">
-    <!-- JS will render pagination buttons here -->
-  </div>
-  <script src="assets/js/homepage.js"></script>
+
+<header>
+    <div class="container">
+        <h1>Layar Kosong 📰</h1>
+        <div class="filter-bar">
+            <input type="text" id="search-input" placeholder="Cari berita...">
+            <select id="filter-category">
+                <option value="">Semua Kategori</option>
+            </select>
+            <select id="filter-year">
+                <option value="">Tahun</option>
+            </select>
+            <select id="filter-month">
+                <option value="">Bulan</option>
+            </select>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="layout">
+        <main>
+            <div id="main-feed">
+                </div>
+            <div id="pagination" class="pagination"></div>
+        </main>
+
+        <aside class="sidebar">
+            <h2>Terbaru</h2>
+            <div id="sidebar-list">
+                </div>
+        </aside>
+    </div>
+</div>
+
+<script src="assets/js/homepage.js"></script>
 </body>
 </html>
