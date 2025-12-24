@@ -73,7 +73,7 @@ outline: none;
 
 /* --- Filter Desktop Style --- */
 #mobile-filter-toggle {
-display: none;
+display: none; /* Default sembunyi di desktop */
 }
 
 .select-group {
@@ -104,8 +104,9 @@ select, #btn-reset {
     align-items: stretch;
   }
 
+  /* Perbaikan Tombol Toggle Mobile */
   #mobile-filter-toggle {
-  display: flex !important;
+  display: flex !important; /* Paksa muncul di mobile */
   width: 100%;
   padding: 14px;
   background: var(--accent);
@@ -118,12 +119,12 @@ select, #btn-reset {
   cursor: pointer;
   margin-top: 5px;
   z-index: 10;
-  position: relative;
-  -webkit-tap-highlight-color: transparent;
+  position: relative; /* Memastikan dia diatas elemen lain */
   }
 
+  /* Sembunyikan isi filter di mobile secara default */
   .select-group {
-    display: none;
+    display: none; /* Menggantikan flex desktop */
     flex-direction: column;
     gap: 10px;
     background: var(--card);
@@ -133,6 +134,7 @@ select, #btn-reset {
     margin-top: 5px;
   }
 
+  /* Class pemicu dari JS */
   .select-group.show {
     display: flex !important;
     animation: slideDown 0.3s ease-out;
@@ -147,24 +149,10 @@ select, #btn-reset {
 /* Layout & News Cards */
 .layout { display: grid; grid-template-columns: 1fr 320px; gap: 30px; }
 
-/* Gambar Berita Utama (16:9) */
-.news-card img {
-  width: 280px;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  flex-shrink: 0;
-  border-radius: 8px 0 0 8px;
-}
-
 @media (max-width: 850px) {
   .layout { grid-template-columns: 1fr; }
   .news-card { flex-direction: column; }
-  .news-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px 8px 0 0;
-  }
-  .sidebar { margin-top: 40px; }
+  .news-card img { width: 100%; height: 200px; }
 }
 
 .news-card {
@@ -174,24 +162,9 @@ select, #btn-reset {
   margin-bottom: 20px;
   overflow: hidden;
   border: 1px solid var(--border);
-  transition: transform 0.2s;
 }
-
-.news-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow); }
 
 .news-info { padding: 15px; flex: 1; }
-
-/* Gambar Sidebar (1:1) */
-.side-item img {
-  width: 65px;
-  height: 65px;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 8px;
-  flex-shrink: 0;
-}
-
-.side-item { display: flex; gap: 12px; margin-bottom: 18px; align-items: center; }
 
 @keyframes slideDown {
   from { opacity: 0; transform: translateY(-5px); }
