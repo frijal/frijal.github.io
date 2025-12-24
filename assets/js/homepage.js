@@ -29,11 +29,13 @@
 
   /* ---------- Fetch + normalisasi ---------- */
   async function fetchJson(path) {
-    const res = await fetch(path, { cache: 'no-store' });
-    if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
-    const text = await res.text();
-    try { return JSON.parse(text); }
-    catch (err) { throw new Error(`Invalid JSON: ${err.message}. Preview: ${text.slice(0,300)}`); }
+    try {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`Gagal mengambil file: ${res.status}`);
+      return await res.json();
+    } catch (err) {
+      throw new Error(`Koneksi ke ${path} gagal atau JSON korup. Pastikan file ada.`);
+    }
   }
 
   async function loadArticles() {
@@ -52,19 +54,30 @@
   }
 
   function normalizeAndInit(data) {
-    ALL_ARTICLES = Array.isArray(data) ? data.slice() : [];
-    ALL_ARTICLES = ALL_ARTICLES.map(a => {
-      const datetime = a.datetime || a.published_at || a.tanggal || a.date || '';
-      return {
-        title: a.title || a.judul || '',
-        slug: a.slug || '',
-        url: a.url || a.link || '#',
-        image: a.image || a.gambar || a.thumbnail || CONFIG.placeholderImage,
-        datetime: datetime,
-        category: a.category || a.kategori || 'Uncategorized',
-        __raw: a
-      };
-    });
+    ALL_ARTICLES = [];
+
+    // Perbaikan: Iterasi Object (Kategori) -> Array (Artikel)
+    for (const category in data) {
+      if (Array.isArray(data[category])) {
+        data[category].forEach(item => {
+          // Struktur item di artikel.json: [Judul, Slug, Gambar, Tanggal, Deskripsi]
+          ALL_ARTICLES.push({
+            title: item[0] || 'Untitled',
+            slug: item[1] || '',
+            url: item[1] || '#', // Menggunakan slug sebagai URL
+            image: item[2] || CONFIG.placeholderImage,
+            datetime: item[3] || '',
+            category: category, // Nama key object menjadi kategori
+            desc: item[4] || '', // Menambahkan deskripsi jika dibutuhkan
+            timestamp: new Date(item[3]).getTime() || 0
+          });
+        });
+      }
+    }
+
+    // Urutkan berdasarkan tanggal terbaru secara default
+    ALL_ARTICLES.sort((a, b) => b.timestamp - a.timestamp);
+
     FILTERED = ALL_ARTICLES.slice();
     buildArchiveAndFilters();
     renderAll();
