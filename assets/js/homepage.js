@@ -1,6 +1,6 @@
 /**
  * assets/js/homepage.js
- * Perbaikan: Urutan Bulan, Counter Kategori, & Fix Cascading Filter
+ * Perbaikan: Cascading Filter Dinamis & Counter Kategori Akurat
  */
 (function (global) {
   'use strict';
@@ -15,7 +15,7 @@
   let ALL_ARTICLES = [];
   let FILTERED = [];
   let CURRENT_PAGE = 1;
-  let ARCHIVE = {};
+  let ARCHIVE_YEARS = [];
 
   const qs = sel => document.querySelector(sel);
   const escapeHtml = s => String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
@@ -47,6 +47,7 @@
   function normalizeAndInit(data) {
     ALL_ARTICLES = [];
     const seenTitles = new Set();
+    const yearSet = new Set();
 
     for (const category in data) {
       if (Array.isArray(data[category])) {
@@ -55,6 +56,9 @@
           const titleKey = title.trim().toLowerCase();
           if (!seenTitles.has(titleKey)) {
             seenTitles.add(titleKey);
+            const d = safeDate(item[3]);
+            if(d) yearSet.add(String(d.getFullYear()));
+
             ALL_ARTICLES.push({
               title: title,
               url: item[1] || '#',
@@ -62,7 +66,7 @@
               datetime: item[3] || '',
               desc: item[4] || '',
               category: category,
-              timestamp: new Date(item[3]).getTime() || 0
+              timestamp: d ? d.getTime() : 0
             });
           }
         });
@@ -70,31 +74,116 @@
     }
 
     ALL_ARTICLES.sort((a, b) => b.timestamp - a.timestamp);
-    FILTERED = [...ALL_ARTICLES];
-    buildArchiveData();
-    renderAll();
-  }
-
-  function buildArchiveData() {
-    ARCHIVE = {};
-    ALL_ARTICLES.forEach(a => {
-      const d = safeDate(a.datetime);
-      if(!d) return;
-      const year = String(d.getFullYear());
-      const month = String(d.getMonth() + 1).padStart(2, '0');
-
-      if (!ARCHIVE[year]) {
-        ARCHIVE[year] = { months: new Set(), categories: {} };
-      }
-      ARCHIVE[year].months.add(month);
-      // Hitung jumlah per kategori di tahun tersebut
-      ARCHIVE[year].categories[a.category] = (ARCHIVE[year].categories[a.category] || 0) + 1;
-    });
-  }
-
-  function renderAll() {
+    ARCHIVE_YEARS = [...yearSet].sort((a, b) => b - a);
     renderFiltersUI();
-    applyFilters(); // Pastikan filter dipanggil di awal
+    applyFilters();
+  }
+
+  function renderFiltersUI() {
+    const yearSel = qs('#filter-year');
+    const monthSel = qs('#filter-month');
+    const catSel = qs('#filter-category');
+    const searchBox = qs('#search-box');
+    const btnReset = qs('#btn-reset');
+
+    if (!yearSel || !monthSel || !catSel) return;
+
+    // 1. Isi Dropdown Tahun
+    yearSel.innerHTML = '<option value="">Tahun</option>' +
+    ARCHIVE_YEARS.map(y => `<option value="${y}">${y}</option>`).join('');
+
+    // Fungsi untuk Update Dropdown Bulan & Kategori secara Dinamis
+    const updateDropdowns = () => {
+      const selectedYear = yearSel.value;
+      const selectedMonth = monthSel.value;
+      const selectedCat = catSel.value; // Simpan pilihan kategori sementara
+
+      // Filter artikel yang tersedia berdasarkan Tahun (dan pencarian jika ada)
+      const articlesInYear = ALL_ARTICLES.filter(a => {
+        const d = safeDate(a.datetime);
+        return !selectedYear || (d && String(d.getFullYear()) === selectedYear);
+      });
+
+      // --- Update Dropdown Bulan ---
+      const availableMonths = new Set();
+      articlesInYear.forEach(a => {
+        const d = safeDate(a.datetime);
+        if (d) availableMonths.add(String(d.getMonth() + 1).padStart(2, '0'));
+      });
+
+        monthSel.innerHTML = '<option value="">Bulan</option>';
+        [...availableMonths].sort((a, b) => a - b).forEach(m => {
+          const mName = new Date(2000, parseInt(m) - 1).toLocaleString('id-ID', { month: 'long' });
+          monthSel.innerHTML += `<option value="${m}" ${m === selectedMonth ? 'selected' : ''}>${mName}</option>`;
+        });
+        monthSel.disabled = !selectedYear;
+        monthSel.style.opacity = selectedYear ? "1" : "0.5";
+
+        // --- Update Dropdown Kategori (INTI PERBAIKAN) ---
+        // Kita hitung kategori berdasarkan Tahun DAN Bulan yang terpilih
+        const articlesInMonth = articlesInYear.filter(a => {
+          const d = safeDate(a.datetime);
+          return !selectedMonth || (d && String(d.getMonth() + 1).padStart(2, '0') === selectedMonth);
+        });
+
+        const catCounts = {};
+        articlesInMonth.forEach(a => {
+          catCounts[a.category] = (catCounts[a.category] || 0) + 1;
+        });
+
+        catSel.innerHTML = '<option value="">Kategori</option>';
+        Object.entries(catCounts).sort().forEach(([name, count]) => {
+          catSel.innerHTML += `<option value="${name}" ${name === selectedCat ? 'selected' : ''}>${name} (${count})</option>`;
+        });
+    };
+
+    // Event Listeners
+    yearSel.onchange = () => {
+      monthSel.value = ""; // Reset bulan jika tahun ganti
+      updateDropdowns();
+      applyFilters();
+    };
+
+    monthSel.onchange = () => {
+      updateDropdowns(); // Update jumlah kategori sesuai bulan terpilih
+      applyFilters();
+    };
+
+    catSel.onchange = applyFilters;
+
+    if (btnReset) {
+      btnReset.onclick = () => {
+        if (searchBox) searchBox.value = '';
+        yearSel.value = '';
+        monthSel.value = '';
+        catSel.value = '';
+        updateDropdowns();
+        applyFilters();
+      };
+    }
+
+    if (searchBox) searchBox.oninput = debounce(applyFilters, 300);
+
+    // Jalankan sekali saat start
+    updateDropdowns();
+  }
+
+  function applyFilters() {
+    const q = (qs('#search-box')?.value || '').toLowerCase();
+    const y = qs('#filter-year')?.value || '';
+    const m = qs('#filter-month')?.value || '';
+    const c = qs('#filter-category')?.value || '';
+
+    FILTERED = ALL_ARTICLES.filter(a => {
+      const d = safeDate(a.datetime);
+      const matchesSearch = !q || a.title.toLowerCase().includes(q) || a.desc.toLowerCase().includes(q);
+      const matchesYear = !y || (d && String(d.getFullYear()) === y);
+      const matchesMonth = !m || (d && String(d.getMonth() + 1).padStart(2, '0') === m);
+      const matchesCat = !c || a.category === c;
+      return matchesSearch && matchesYear && matchesMonth && matchesCat;
+    });
+
+    renderArticlesPage(1);
   }
 
   function renderArticlesPage(page = 1) {
@@ -112,7 +201,7 @@
     <div class="meta-row">
     <span class="badge">${escapeHtml(a.category)}</span>
     <span class="date-sep">•</span>
-    <small class="meta-date">${fmtDate(a.datetime)}</small>
+    <small class="meta-date">📅 ${fmtDate(a.datetime)}</small>
     </div>
     <h3><a href="${a.url}">${escapeHtml(a.title)}</a></h3>
     <p>${escapeHtml(a.desc.substring(0, 110))}...</p>
@@ -138,86 +227,6 @@
     </div>
     </div>
     `).join('');
-  }
-
-  function renderFiltersUI() {
-    const yearSel = qs('#filter-year');
-    const monthSel = qs('#filter-month');
-    const catSel = qs('#filter-category');
-    const searchBox = qs('#search-box');
-    const btnReset = qs('#btn-reset');
-
-    if (!yearSel || !monthSel || !catSel) return;
-
-    // Load Tahun Awal (Urutan Terbaru ke Lama)
-    const years = Object.keys(ARCHIVE).sort((a,b) => b - a);
-    yearSel.innerHTML = '<option value="">Tahun</option>' + years.map(y => `<option value="${y}">${y}</option>`).join('');
-
-    const resetDropdown = (el, label, disabled = true) => {
-      el.innerHTML = `<option value="">${label}</option>`;
-      el.disabled = disabled;
-      el.style.opacity = disabled ? "0.5" : "1";
-    };
-
-    yearSel.onchange = () => {
-      const y = yearSel.value;
-      resetDropdown(monthSel, "Bulan", true);
-
-      if (y && ARCHIVE[y]) {
-        // 1. Cascading Bulan (Januari -> Desember)
-        monthSel.disabled = false;
-        monthSel.style.opacity = "1";
-        [...ARCHIVE[y].months].sort((a,b) => a - b).forEach(m => {
-          const mName = new Date(2000, parseInt(m)-1).toLocaleString('id-ID', {month:'long'});
-          monthSel.innerHTML += `<option value="${m}">${mName}</option>`;
-        });
-
-        // 2. Cascading Kategori dengan Jumlah
-        catSel.innerHTML = '<option value="">Kategori</option>';
-        Object.entries(ARCHIVE[y].categories).sort().forEach(([name, count]) => {
-          catSel.innerHTML += `<option value="${name}">${name} (${count})</option>`;
-        });
-      } else {
-        // Tampilkan semua kategori jika tahun kosong
-        const allCats = {};
-        ALL_ARTICLES.forEach(a => allCats[a.category] = (allCats[a.category] || 0) + 1);
-        catSel.innerHTML = '<option value="">Kategori</option>' +
-        Object.entries(allCats).sort().map(([n, c]) => `<option value="${n}">${n} (${c})</option>`).join('');
-      }
-      applyFilters();
-    };
-
-    if (btnReset) {
-      btnReset.onclick = () => {
-        if (searchBox) searchBox.value = '';
-        yearSel.value = '';
-        yearSel.dispatchEvent(new Event('change'));
-      };
-    }
-
-    catSel.onchange = applyFilters;
-    monthSel.onchange = applyFilters;
-    if (searchBox) searchBox.oninput = debounce(applyFilters, 300);
-
-    // Initial load kategori
-    yearSel.dispatchEvent(new Event('change'));
-  }
-
-  function applyFilters() {
-    const q = (qs('#search-box')?.value || '').toLowerCase();
-    const y = qs('#filter-year')?.value || '';
-    const m = qs('#filter-month')?.value || '';
-    const c = qs('#filter-category')?.value || '';
-
-    FILTERED = ALL_ARTICLES.filter(a => {
-      const d = safeDate(a.datetime);
-      const matchesSearch = !q || a.title.toLowerCase().includes(q) || a.desc.toLowerCase().includes(q);
-      const matchesYear = !y || (d && String(d.getFullYear()) === y);
-      const matchesMonth = !m || (d && String(d.getMonth() + 1).padStart(2,'0') === m);
-      const matchesCat = !c || a.category === c;
-      return matchesSearch && matchesYear && matchesMonth && matchesCat;
-    });
-    renderArticlesPage(1);
   }
 
   function renderPagination() {
