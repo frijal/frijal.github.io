@@ -24,16 +24,28 @@ function parseDate(iso) {
 /* ===============================
    LOAD & NORMALISASI DATA
    =============================== */
+function showSkeleton() {
+  const grid = document.getElementById("articleGrid");
+  grid.innerHTML = "";
+  for (let i = 0; i < 8; i++) {
+    const s = document.createElement("div");
+    s.className = "card skeleton";
+    grid.appendChild(s);
+  }
+}
+
+
 async function loadArticles() {
+  const cached = await loadCache();
+  if (cached) return cached;
+
   const res = await fetch(DATA_URL);
   const json = await res.json();
 
   const articles = [];
-
   Object.entries(json).forEach(([category, items]) => {
     items.forEach(item => {
       const [title, slug, image, published, excerpt] = item;
-
       articles.push({
         title,
         slug,
@@ -46,11 +58,20 @@ async function loadArticles() {
     });
   });
 
-  // urutkan terbaru
-  articles.sort((a, b) => b.date.raw - a.date.raw);
-
-  return articles.slice(0, MAX_ARTICLES);
+  articles.sort((a,b)=>b.date.raw-a.date.raw);
+  saveCache(articles);
+  return articles;
 }
+
+
+let CURRENT_PAGE = 1;
+const PER_PAGE = 12;
+
+function paginate(data) {
+  const start = (CURRENT_PAGE - 1) * PER_PAGE;
+  return data.slice(start, start + PER_PAGE);
+}
+
 
 /* ===============================
    RENDER ARTIKEL
@@ -59,39 +80,60 @@ function renderArticles(data) {
   const container = document.getElementById("articleGrid");
   container.innerHTML = "";
 
-  if (!data.length) {
-    container.innerHTML = `<p class="empty">Artikel tidak ditemukan.</p>`;
+  const pageData = paginate(data);
+
+  if (!pageData.length) {
+    container.innerHTML = `<p class="empty">Tidak ada artikel.</p>`;
     return;
   }
 
-  data.forEach(article => {
+  pageData.forEach(article => {
     const card = document.createElement("article");
     card.className = "card";
-
     card.innerHTML = `
-      <a href="${article.url}" class="thumb">
-        <img src="${article.image}" alt="${article.title}" loading="lazy">
-      </a>
-      <div class="card-body">
-        <span class="category">${article.category}</span>
-        <h2 class="title">
-          <a href="${article.url}">${article.title}</a>
-        </h2>
-        <time datetime="${article.date.raw.toISOString()}">
-          ${article.date.readable}
-        </time>
-      </div>
+    <a href="${article.url}" class="thumb">
+    <img src="${article.image}" alt="${article.title}" loading="lazy">
+    </a>
+    <div class="card-body">
+    <span class="category">${article.category}</span>
+    <h2 class="title"><a href="${article.url}">${article.title}</a></h2>
+    <time>${article.date.readable}</time>
+    </div>
     `;
-
     container.appendChild(card);
   });
+
+  renderPagination(data.length);
 }
+
+function renderPagination(total) {
+  const nav = document.getElementById("pagination");
+  const totalPages = Math.ceil(total / PER_PAGE);
+
+  nav.innerHTML = `
+  <button ${CURRENT_PAGE === 1 ? "disabled" : ""} id="prev">←</button>
+  <span>Hal ${CURRENT_PAGE} / ${totalPages}</span>
+  <button ${CURRENT_PAGE === totalPages ? "disabled" : ""} id="next">→</button>
+  `;
+
+  document.getElementById("prev")?.onclick = () => {
+    CURRENT_PAGE--;
+    applyFilter(window.__ARTICLES__);
+  };
+
+  document.getElementById("next")?.onclick = () => {
+    CURRENT_PAGE++;
+    applyFilter(window.__ARTICLES__);
+  };
+}
+
 
 /* ===============================
    FILTER & SEARCH
    =============================== */
 function applyFilter(allArticles) {
-  const q = document.getElementById("search").value.toLowerCase();
+  let filtered = filterByArchive(allArticles);
+    const q = document.getElementById("search").value.toLowerCase();
   const cat = document.getElementById("filterCategory").value;
   const ym = document.getElementById("filterMonth").value;
 
@@ -115,6 +157,11 @@ function applyFilter(allArticles) {
 document.addEventListener("DOMContentLoaded", async () => {
   const articles = await loadArticles();
 
+  window.__ARTICLES__ = articles;
+  CURRENT_PAGE = 1;
+  showSkeleton();
+
+
   // isi filter kategori
   const categories = [...new Set(articles.map(a => a.category))];
   const catSelect = document.getElementById("filterCategory");
@@ -136,4 +183,48 @@ document.addEventListener("DOMContentLoaded", async () => {
       applyFilter(articles);
     });
   });
+});
+
+const DB_NAME = "artikel-cache";
+const STORE = "posts";
+
+function openDB() {
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open(DB_NAME, 1);
+    req.onupgradeneeded = e => {
+      e.target.result.createObjectStore(STORE);
+    };
+    req.onsuccess = e => resolve(e.target.result);
+    req.onerror = reject;
+  });
+}
+
+async function saveCache(data) {
+  const db = await openDB();
+  const tx = db.transaction(STORE, "readwrite");
+  tx.objectStore(STORE).put(data, "all");
+}
+
+async function loadCache() {
+  const db = await openDB();
+  const tx = db.transaction(STORE, "readonly");
+  return new Promise(res => {
+    const req = tx.objectStore(STORE).get("all");
+    req.onsuccess = () => res(req.result || null);
+  });
+}
+
+function filterByArchive(all) {
+  const hash = location.hash.replace("#/", "");
+  if (!hash) return all;
+
+  const [y, m] = hash.split("/");
+  return all.filter(a =>
+  a.date.year == y && (!m || a.date.month == m)
+  );
+}
+
+window.addEventListener("hashchange", () => {
+  CURRENT_PAGE = 1;
+  applyFilter(window.__ARTICLES__);
 });

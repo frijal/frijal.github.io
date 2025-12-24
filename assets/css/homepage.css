@@ -93,6 +93,28 @@ time {
   color: #888;
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #0f1115;
+    color: #ddd;
+  }
+
+  .card {
+    background: #1a1c22;
+  }
+
+  .filters {
+    background: #14161b;
+  }
+
+  input, select {
+    background: #1a1c22;
+    color: #ddd;
+    border-color: #333;
+  }
+}
+
+
 /* ===============================
    EMPTY STATE
    =============================== */
@@ -101,3 +123,23 @@ time {
   grid-column: 1 / -1;
   color: #777;
 }
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #eee 25%,
+    #f5f5f5 37%,
+    #eee 63%
+  );
+  animation: pulse 1.4s infinite;
+}
+
+@keyframes pulse {
+  0% {background-position: -200px;}
+  100% {background-position: 200px;}
+}
+
+.card.skeleton {
+  height: 260px;
+}
+
