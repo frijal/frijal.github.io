@@ -212,21 +212,50 @@ border-color: var(--accent);
   .layout { grid-template-columns: 1fr; }
   .sidebar { position: static; margin-top: 40px; }
   .news-card { flex-direction: column; }
-  .news-card img { width: 100%; height: 220px; }
+  .news-card img { width: 100%; height: 220px; } /* Sedikit lebih tinggi agar proporsional */
 }
 
 @media (max-width: 650px) {
+  /* Header & Title */
+  header { padding: 15px 0; }
   header h1 { font-size: 1.4rem; text-align: center; }
-  .search-nav-group { flex-direction: column; align-items: stretch; }
-  .header-pagination { justify-content: center; }
 
-  /* Filter Group: Bertumpuk Rapi di Mobile */
-  .select-group { flex-direction: column; }
+  /* Baris Cari + Pagination */
+  .search-nav-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
 
+  #search-box { width: 100%; box-sizing: border-box; }
+
+  .header-pagination {
+    justify-content: center;
+    width: 100%;
+    overflow-x: auto; /* Antisipasi jika tombol page terlalu banyak */
+    padding-bottom: 5px;
+  }
+
+  /* Filter Group: Bertumpuk Rapi */
+  .select-group {
+    flex-direction: column; /* Ubah dari baris ke kolom */
+    display: flex;
+    gap: 8px;
+  }
+
+  /* Reset flex property agar lebar penuh */
   #filter-year, #filter-month, #filter-category, #btn-reset {
   flex: none;
   width: 100%;
+  box-sizing: border-box;
   }
 
-  #btn-reset { order: 4; height: 42px; }
+  #btn-reset {
+  order: 4; /* Pastikan tombol reset selalu di paling bawah */
+  height: 42px;
+  }
+
+  /* Pagination Button Mobile */
+  .page-num-btn { width: 34px; height: 34px; font-size: 0.8rem; }
+  .page-nav-btn { padding: 0 12px; height: 34px; }
 }
