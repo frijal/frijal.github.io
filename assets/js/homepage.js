@@ -1,146 +1,91 @@
 /**
- * script.js
- * Menangani logika aplikasi: Fetch, IndexedDB, Rendering, Search, Pagination
+ * script.js - Light Version
+ * Tanpa IndexedDB, fokus pada kecepatan render data JSON.
  */
 
-// Konfigurasi
 const CONFIG = {
   jsonUrl: 'artikel.json',
-  itemsPerPage: 9, // Jumlah artikel per halaman
-  dbName: 'LayarKosongDB',
-  storeName: 'articles',
-  version: 1
+  itemsPerPage: 9
 };
 
-// State Aplikasi
 let state = {
-  articles: [], // Semua artikel yang sudah diratakan (flattened)
-  filteredArticles: [], // Artikel setelah difilter pencarian/arsip
+  articles: [],
+  filteredArticles: [],
   currentPage: 1,
   categories: new Set(),
-  archives: new Set() // Format: "YYYY-MM"
+  archives: new Set()
 };
 
-// --- BAGIAN 1: INDEXED DB (Offline Cache) ---
-const dbPromise = new Promise((resolve, reject) => {
-  const request = indexedDB.open(CONFIG.dbName, CONFIG.version);
+// --- DATA PROCESSING ---
 
-  request.onupgradeneeded = (e) => {
-    const db = e.target.result;
-    if (!db.objectStoreNames.contains(CONFIG.storeName)) {
-      db.createObjectStore(CONFIG.storeName, { keyPath: 'url' }); // Gunakan slug/url sebagai key
-    }
-  };
-
-  request.onsuccess = (e) => resolve(e.target.result);
-  request.onerror = (e) => reject(e.target.error);
-});
-
-async function saveToCache(articles) {
-  const db = await dbPromise;
-  const tx = db.transaction(CONFIG.storeName, 'readwrite');
-  const store = tx.objectStore(CONFIG.storeName);
-  // Simpan data mentah JSON structure atau flattened, kita simpan flattened biar cepat
-  // Untuk demo ini, kita simpan wrapper data
-  store.put({ url: 'cached_data', data: articles, timestamp: Date.now() });
-  return tx.complete;
-}
-
-async function getFromCache() {
-  const db = await dbPromise;
-  return new Promise((resolve) => {
-    const tx = db.transaction(CONFIG.storeName, 'readonly');
-    const store = tx.objectStore(CONFIG.storeName);
-    const request = store.get('cached_data');
-    request.onsuccess = () => resolve(request.result ? request.result.data : null);
-    request.onerror = () => resolve(null);
-  });
-}
-
-// --- BAGIAN 2: DATA PROCESSING ---
-
-// Mengubah struktur JSON { "Kategori": [[Array]] } menjadi [{obj}, {obj}]
 function flattenData(jsonData) {
   let flatList = [];
+  state.categories = new Set();
+  state.archives = new Set();
 
   for (const [category, items] of Object.entries(jsonData)) {
     state.categories.add(category);
-
     items.forEach(item => {
-      // Struktur item: [Title, Slug, Image, Date, Desc]
+      if (!item[0]) return; // Skip jika data rusak
+
       const dateObj = new Date(item[3]);
-      const yearMonth = `${dateObj.getFullYear()}-${String(dateObj.getMonth() + 1).padStart(2, '0')}`;
-      state.archives.add(yearMonth);
+      const yearMonth = !isNaN(dateObj)
+      ? `${dateObj.getFullYear()}-${String(dateObj.getMonth() + 1).padStart(2, '0')}`
+      : 'Uncategorized';
+
+      if(yearMonth !== 'Uncategorized') state.archives.add(yearMonth);
 
       flatList.push({
         category: category,
         title: item[0],
         url: item[1],
-        image: item[2],
+        image: item[2] || 'https://via.placeholder.com/400x200?text=No+Image',
         date: item[3],
         desc: item[4],
-        timestamp: dateObj.getTime(),
+        timestamp: !isNaN(dateObj) ? dateObj.getTime() : 0,
                     yearMonth: yearMonth
       });
     });
   }
-
-  // Urutkan berdasarkan tanggal terbaru
   return flatList.sort((a, b) => b.timestamp - a.timestamp);
 }
 
 async function initApp() {
-  showLoading(true);
+  const loader = document.getElementById('loader');
+  const grid = document.getElementById('article-grid');
+
+  loader.classList.remove('hidden');
+  grid.style.opacity = '0.3';
 
   try {
-    // Coba fetch network dulu
     const response = await fetch(CONFIG.jsonUrl);
-    if (!response.ok) throw new Error('Network response was not ok');
+    if (!response.ok) throw new Error('Gagal mengambil file JSON');
+
     const jsonData = await response.json();
-
-    // Proses data
     state.articles = flattenData(jsonData);
+    state.filteredArticles = [...state.articles];
 
-    // Simpan ke cache
-    await saveToCache(state.articles);
-    console.log("Data loaded from Network & Cached");
+    populateFilters();
+    renderPage(1);
 
   } catch (error) {
-    console.warn("Network failed, trying cache...", error);
-    const cachedData = await getFromCache();
-    if (cachedData) {
-      state.articles = cachedData;
-      // Re-populate sets karena data dari IDB
-      state.articles.forEach(art => {
-        state.categories.add(art.category);
-        state.archives.add(art.yearMonth);
-      });
-      console.log("Data loaded from IndexedDB");
-    } else {
-      document.getElementById('article-grid').innerHTML = '<p class="error">Gagal memuat data. Periksa koneksi internet.</p>';
-      return;
-    }
+    console.error("Error:", error);
+    grid.innerHTML = `<p class="error">Gagal memuat artikel: ${error.message}</p>`;
+  } finally {
+    loader.classList.add('hidden');
+    grid.style.opacity = '1';
   }
-
-  state.filteredArticles = [...state.articles];
-  populateFilters();
-  renderPage(1);
-  showLoading(false);
 }
 
-// --- BAGIAN 3: UI & RENDERING ---
-
-function showLoading(isLoading) {
-  const loader = document.getElementById('loader');
-  if(isLoading) loader.classList.remove('hidden');
-  else loader.classList.add('hidden');
-}
+// --- UI RENDERING ---
 
 function populateFilters() {
   const archiveSelect = document.getElementById('filter-archive');
   const categorySelect = document.getElementById('filter-category');
 
-  // Populate Archive (Sort descending)
+  archiveSelect.innerHTML = '<option value="">Semua Waktu</option>';
+  categorySelect.innerHTML = '<option value="">Semua Kategori</option>';
+
   const sortedArchives = Array.from(state.archives).sort().reverse();
   sortedArchives.forEach(ym => {
     const [year, month] = ym.split('-');
@@ -151,8 +96,7 @@ function populateFilters() {
     archiveSelect.appendChild(option);
   });
 
-  // Populate Category
-  state.categories.forEach(cat => {
+  Array.from(state.categories).sort().forEach(cat => {
     const option = document.createElement('option');
     option.value = cat;
     option.textContent = cat;
@@ -168,55 +112,17 @@ function renderArticleCard(article) {
   return `
   <article class="card">
   <div class="card-image-wrapper">
-  <img src="${article.image}" alt="${article.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x200?text=No+Image'">
+  <img src="${article.image}" alt="${article.title}" loading="lazy">
   <span class="category-tag">${article.category}</span>
   </div>
   <div class="card-content">
-  <div class="card-meta">
-  <span class="date">📅 ${dateFormatted}</span>
-  </div>
-  <h2 class="card-title">
-  <a href="${article.url}">${article.title}</a>
-  </h2>
+  <div class="card-meta">📅 ${dateFormatted}</div>
+  <h2 class="card-title"><a href="${article.url}">${article.title}</a></h2>
   <p class="card-desc">${article.desc}</p>
   <a href="${article.url}" class="read-more">Baca Selengkapnya →</a>
   </div>
   </article>
   `;
-}
-
-function renderPagination() {
-  const totalPages = Math.ceil(state.filteredArticles.length / CONFIG.itemsPerPage);
-  const paginationContainer = document.getElementById('pagination');
-  paginationContainer.innerHTML = '';
-
-  if (totalPages <= 1) return;
-
-  // Tombol Previous
-  const prevBtn = document.createElement('button');
-  prevBtn.innerHTML = '&laquo;';
-  prevBtn.disabled = state.currentPage === 1;
-  prevBtn.onclick = () => renderPage(state.currentPage - 1);
-  paginationContainer.appendChild(prevBtn);
-
-  // Page Numbers (Sederhana: Tampilkan range sekitar current page)
-  let startPage = Math.max(1, state.currentPage - 2);
-  let endPage = Math.min(totalPages, state.currentPage + 2);
-
-  for (let i = startPage; i <= endPage; i++) {
-    const btn = document.createElement('button');
-    btn.textContent = i;
-    if (i === state.currentPage) btn.classList.add('active');
-    btn.onclick = () => renderPage(i);
-    paginationContainer.appendChild(btn);
-  }
-
-  // Tombol Next
-  const nextBtn = document.createElement('button');
-  nextBtn.innerHTML = '&raquo;';
-  nextBtn.disabled = state.currentPage === totalPages;
-  nextBtn.onclick = () => renderPage(state.currentPage + 1);
-  paginationContainer.appendChild(nextBtn);
 }
 
 function renderPage(pageNumber) {
@@ -229,50 +135,62 @@ function renderPage(pageNumber) {
   const paginatedItems = state.filteredArticles.slice(start, end);
 
   container.innerHTML = paginatedItems.map(renderArticleCard).join('');
-  resultCount.textContent = `Menampilkan ${state.filteredArticles.length} artikel`;
+  resultCount.innerHTML = `Menampilkan <b>${state.filteredArticles.length}</b> artikel`;
 
   renderPagination();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// --- BAGIAN 4: SEARCH & FILTER LOGIC ---
+function renderPagination() {
+  const totalPages = Math.ceil(state.filteredArticles.length / CONFIG.itemsPerPage);
+  const container = document.getElementById('pagination');
+  container.innerHTML = '';
 
-function handleSearchAndFilter() {
+  if (totalPages <= 1) return;
+
+  for (let i = 1; i <= totalPages; i++) {
+    // Hanya tampilkan beberapa tombol jika halaman terlalu banyak
+    if (i === 1 || i === totalPages || (i >= state.currentPage - 1 && i <= state.currentPage + 1)) {
+      const btn = document.createElement('button');
+      btn.textContent = i;
+      if (i === state.currentPage) btn.classList.add('active');
+      btn.onclick = () => {
+        renderPage(i);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+      container.appendChild(btn);
+    }
+  }
+}
+
+// --- SEARCH & FILTER ---
+
+const handleSearchAndFilter = () => {
   const searchVal = document.getElementById('search-input').value.toLowerCase();
   const archiveVal = document.getElementById('filter-archive').value;
   const categoryVal = document.getElementById('filter-category').value;
 
   state.filteredArticles = state.articles.filter(article => {
-    const matchesSearch = article.title.toLowerCase().includes(searchVal) ||
-    article.desc.toLowerCase().includes(searchVal);
-    const matchesArchive = archiveVal === '' || article.yearMonth === archiveVal;
-    const matchesCategory = categoryVal === '' || article.category === categoryVal;
-
+    const matchesSearch = !searchVal || article.title.toLowerCase().includes(searchVal) || article.desc.toLowerCase().includes(searchVal);
+    const matchesArchive = !archiveVal || article.yearMonth === archiveVal;
+    const matchesCategory = !categoryVal || article.category === categoryVal;
     return matchesSearch && matchesArchive && matchesCategory;
   });
 
-  state.currentPage = 1; // Reset ke halaman 1
+  state.currentPage = 1;
   renderPage(1);
+};
+
+function debounce(func, wait) {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
+  };
 }
 
-// Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
   initApp();
-
   document.getElementById('search-input').addEventListener('input', debounce(handleSearchAndFilter, 300));
   document.getElementById('filter-archive').addEventListener('change', handleSearchAndFilter);
   document.getElementById('filter-category').addEventListener('change', handleSearchAndFilter);
 });
-
-// Utility: Debounce untuk search agar tidak lag
-function debounce(func, wait) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-}
