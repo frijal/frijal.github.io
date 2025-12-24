@@ -1,345 +1,243 @@
-/**
- * assets/js/homepage.js
- * FINAL: details/summary + filter counter (no JS toggle)
- */
-(function (global) {
-  'use strict';
+  // --- STATE MANAGEMENT ---
+  let allArticles = [];
+  let filteredArticles = [];
+  let currentPage = 1;
+  const itemsPerPage = 9;
 
-  const CONFIG = {
-    jsonPath: './artikel.json',
-    pageSize: 8,
-    thumbnailSidebarCount: 10,
-    placeholderImage: './thumbnail.webp'
-  };
+  // --- INITIALIZATION ---
+  document.addEventListener('DOMContentLoaded', () => {
+    loadData(); // Panggil fungsi loadData, bukan langsung render
+  });
 
-  let ALL_ARTICLES = [];
-  let FILTERED = [];
-  let CURRENT_PAGE = 1;
-  let ARCHIVE_YEARS = [];
-
-  const qs = sel => document.querySelector(sel);
-  const qsa = sel => document.querySelectorAll(sel);
-
-  const escapeHtml = s =>
-  String(s || '')
-  .replace(/&/g, '&amp;')
-  .replace(/</g, '&lt;')
-  .replace(/>/g, '&gt;')
-  .replace(/"/g, '&quot;')
-  .replace(/'/g, '&#39;');
-
-  const safeDate = iso => {
-    const d = new Date(iso);
-    return isNaN(d) ? null : d;
-  };
-
-  const fmtDate = iso => {
-    const d = safeDate(iso);
-    return d
-    ? d.toLocaleDateString('id-ID', {
-      day: 'numeric',
-      month: 'short',
-      year: 'numeric'
-    })
-    : (iso || '');
-  };
-
-  /* =====================================================
-   * THEME
-   * ===================================================== */
-  function initTheme() {
-    const themeMedia = window.matchMedia('(prefers-color-scheme: dark)');
-    const updateTheme = e =>
-    document.documentElement.classList.toggle('dark-mode', e.matches);
-
-    updateTheme(themeMedia);
-    themeMedia.addEventListener('change', updateTheme);
-  }
-
-  /* =====================================================
-   * LOAD DATA
-   * ===================================================== */
-  async function loadArticles() {
+  // --- LOAD DATA FROM JSON FILE ---
+  async function loadData() {
     try {
-      const res = await fetch(CONFIG.jsonPath);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = await res.json();
-      normalizeAndInit(data);
-    } catch (err) {
-      console.error('Gagal memuat artikel:', err);
-      const feed = qs('#main-feed');
-      if (feed) feed.innerHTML = `<div class="error">Gagal memuat data.</div>`;
+      // Mengambil file artikel.json
+      const response = await fetch('artikel.json');
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      // Konversi teks file menjadi Objek JavaScript
+      const jsonData = await response.json();
+
+      // Setelah data didapat, jalankan proses normalisasi dan render
+      normalizeData(jsonData);
+      setupFilters();
+      setupArchive();
+      renderHero();
+      renderGrid(true);
+      renderSidebar();
+
+      // Setup Search Listener
+      document.getElementById('searchInput').addEventListener('input', (e) => {
+        const keyword = e.target.value.toLowerCase();
+        filteredArticles = allArticles.filter(art =>
+        art.title.toLowerCase().includes(keyword) ||
+        art.summary.toLowerCase().includes(keyword)
+        );
+        renderGrid(true);
+      });
+
+      // Setup Load More Listener
+      document.getElementById('loadMoreBtn').addEventListener('click', () => {
+        currentPage++;
+        renderGrid(false);
+      });
+
+    } catch (error) {
+      console.error("Gagal memuat artikel.json:", error);
+      document.getElementById('newsGrid').innerHTML =
+      `<p style="grid-column: 1/-1; text-align: center; color: red;">
+      Gagal memuat data artikel. Pastikan Anda menjalankan ini menggunakan Local Server (bukan double-click file).
+      <br>Error: ${error.message}
+      </p>`;
     }
   }
 
-  function normalizeAndInit(data) {
-    ALL_ARTICLES = [];
-    const seenTitles = new Set();
-    const yearSet = new Set();
-
-    for (const category in data) {
-      if (!Array.isArray(data[category])) continue;
-
-      data[category].forEach(item => {
-        const title = item[0] || 'Untitled';
-        const key = title.trim().toLowerCase();
-        if (seenTitles.has(key)) return;
-
-        seenTitles.add(key);
-        const d = safeDate(item[3]);
-        if (d) yearSet.add(String(d.getFullYear()));
-
-        ALL_ARTICLES.push({
-          title,
-          url: item[1] || '#',
-          image: item[2] || CONFIG.placeholderImage,
-          datetime: item[3] || '',
-          desc: item[4] || '',
-          category,
-          timestamp: d ? d.getTime() : 0
+  // --- DATA PROCESSING ---
+  // Perhatikan: fungsi ini sekarang menerima parameter 'data'
+  function normalizeData(data) {
+    for (const [category, articles] of Object.entries(data)) {
+      articles.forEach(item => {
+        allArticles.push({
+          category: category,
+          title: item[0],
+          link: item[1],
+          thumbnail: item[2],
+          date: new Date(item[3]),
+                         dateStr: item[3],
+                         summary: item[4]
         });
       });
     }
-
-    ALL_ARTICLES.sort((a, b) => b.timestamp - a.timestamp);
-    ARCHIVE_YEARS = [...yearSet].sort((a, b) => b - a);
-
-    renderFiltersUI();
-    applyFilters();
+    // Sort by Date Descending (Terbaru ke Terlama)
+    allArticles.sort((a, b) => b.date - a.date);
+    filteredArticles = [...allArticles];
   }
 
-  /* =====================================================
-   * FILTER UI
-   * ===================================================== */
-  function renderFiltersUI() {
-    const yearSel = qs('#filter-year');
-    const monthSel = qs('#filter-month');
-    const catSel = qs('#filter-category');
-    const searchBox = qs('#search-box');
-    const btnReset = qs('#btn-reset');
 
-    if (!yearSel || !monthSel || !catSel) return;
 
-    yearSel.innerHTML =
-    '<option value="">Tahun</option>' +
-    ARCHIVE_YEARS.map(y => `<option value="${y}">${y}</option>`).join('');
+  // --- RENDER HERO SECTION (FEATURED) ---
+  function renderHero() {
+    const hero = document.getElementById('hero-section');
+    const featured = allArticles[0]; // Pick newest as featured
 
-    const updateDropdowns = () => {
-      const y = yearSel.value;
-      const m = monthSel.value;
-      const c = catSel.value;
+    // Remove skeleton class
+    hero.classList.remove('skeleton');
+    hero.style.backgroundImage = `url('${featured.thumbnail}')`;
 
-      const inYear = ALL_ARTICLES.filter(a => {
-        const d = safeDate(a.datetime);
-        return !y || (d && String(d.getFullYear()) === y);
-      });
+    hero.innerHTML = `
+    <div class="hero-content">
+    <span class="hero-badge">${featured.category}</span>
+    <h1 style="font-size: 2.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">${featured.title}</h1>
+    <p style="font-size: 1.1rem; margin-bottom: 1.5rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">${featured.summary.substring(0, 150)}...</p>
+    <a href="${featured.link}" class="btn btn-primary">Baca Selengkapnya</a>
+    </div>
+    `;
+  }
 
-      const months = new Set();
-      inYear.forEach(a => {
-        const d = safeDate(a.datetime);
-        if (d) months.add(String(d.getMonth() + 1).padStart(2, '0'));
-      });
+  // --- RENDER GRID ---
+  function renderGrid(reset = false) {
+    const grid = document.getElementById('newsGrid');
+    const btn = document.getElementById('loadMoreBtn');
 
-        monthSel.innerHTML = '<option value="">Bulan</option>';
-        [...months].sort().forEach(mm => {
-          const label = new Date(2000, mm - 1).toLocaleString('id-ID', { month: 'long' });
-          monthSel.innerHTML += `<option value="${mm}" ${mm === m ? 'selected' : ''}>${label}</option>`;
-        });
-
-        monthSel.disabled = !y;
-        monthSel.style.opacity = y ? '1' : '0.5';
-
-        const inMonth = inYear.filter(a => {
-          const d = safeDate(a.datetime);
-          return !m || (d && String(d.getMonth() + 1).padStart(2, '0') === m);
-        });
-
-        const catCount = {};
-        inMonth.forEach(a => {
-          catCount[a.category] = (catCount[a.category] || 0) + 1;
-        });
-
-        catSel.innerHTML = '<option value="">Kategori</option>';
-        Object.entries(catCount).sort().forEach(([name, count]) => {
-          catSel.innerHTML += `<option value="${name}" ${name === c ? 'selected' : ''}>${name} (${count})</option>`;
-        });
-    };
-
-    yearSel.onchange = () => {
-      monthSel.value = '';
-      updateDropdowns();
-      applyFilters();
-    };
-
-    monthSel.onchange = () => {
-      updateDropdowns();
-      applyFilters();
-    };
-
-    catSel.onchange = applyFilters;
-
-    if (btnReset) {
-      btnReset.onclick = () => {
-        if (searchBox) searchBox.value = '';
-        yearSel.value = '';
-        monthSel.value = '';
-        catSel.value = '';
-        updateDropdowns();
-        applyFilters();
-      };
+    if (reset) {
+      grid.innerHTML = '';
+      currentPage = 1;
     }
 
-    if (searchBox) searchBox.oninput = debounce(applyFilters, 300);
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    const pageData = filteredArticles.slice(start, end);
 
-    updateDropdowns();
-  }
-
-  /* =====================================================
-   * FILTER LOGIC
-   * ===================================================== */
-  function applyFilters() {
-    const q = (qs('#search-box')?.value || '').toLowerCase();
-    const y = qs('#filter-year')?.value || '';
-    const m = qs('#filter-month')?.value || '';
-    const c = qs('#filter-category')?.value || '';
-
-    FILTERED = ALL_ARTICLES.filter(a => {
-      const d = safeDate(a.datetime);
-      return (
-        (!q || a.title.toLowerCase().includes(q) || a.desc.toLowerCase().includes(q)) &&
-        (!y || (d && String(d.getFullYear()) === y)) &&
-        (!m || (d && String(d.getMonth() + 1).padStart(2, '0') === m)) &&
-        (!c || a.category === c)
-      );
-    });
-
-    updateFilterCount();
-    renderArticlesPage(1);
-  }
-
-  /* =====================================================
-   * FILTER COUNT BADGE (details summary)
-   * ===================================================== */
-  function updateFilterCount() {
-    const details = qs('.mobile-filter');
-    if (!details) return;
-
-    const count = [
-      qs('#filter-year')?.value,
- qs('#filter-month')?.value,
- qs('#filter-category')?.value
-    ].filter(Boolean).length;
-
-    details.setAttribute('data-count', count);
-  }
-
-  /* =====================================================
-   * RENDER CONTENT
-   * ===================================================== */
-  function renderArticlesPage(page = 1) {
-    CURRENT_PAGE = page;
-    const container = qs('#main-feed');
-    if (!container) return;
-
-    const start = (page - 1) * CONFIG.pageSize;
-    const items = FILTERED.slice(start, start + CONFIG.pageSize);
-
-    container.innerHTML =
-    items
-    .map(
-      a => `
-      <article class="news-card">
-      <img src="${a.image}" alt="${escapeHtml(a.title)}"
-      loading="lazy"
-      onerror="this.src='${CONFIG.placeholderImage}'">
-      <div class="news-info">
-      <span class="badge">${escapeHtml(a.category)}</span>
-      <small class="meta-date">${fmtDate(a.datetime)}</small>
-      <h3><a href="${a.url}">${escapeHtml(a.title)}</a></h3>
-      <p>${escapeHtml(a.desc.slice(0, 110))}...</p>
-      </div>
-      </article>`
-    )
-    .join('') || `<div class="no-results">Tidak ada artikel ditemukan.</div>`;
-
-    const countEl = qs('#results-count');
-    if (countEl) countEl.textContent = `Total: ${FILTERED.length} artikel`;
-
-    renderSidebarThumbnails();
-    renderPagination();
-  }
-
-  function renderSidebarThumbnails() {
-    const el = qs('#sidebar-list');
-    if (!el) return;
-
-    const shuffled = [...ALL_ARTICLES]
-    .sort(() => 0.5 - Math.random())
-    .slice(0, CONFIG.thumbnailSidebarCount);
-
-    el.innerHTML = shuffled
-    .map(
-      a => `
-      <div class="side-item">
-      <img src="${a.image}" loading="lazy"
-      onerror="this.src='${CONFIG.placeholderImage}'">
-      <h4><a href="${a.url}">${escapeHtml(a.title)}</a></h4>
-      </div>`
-    )
-    .join('');
-  }
-
-  function renderPagination() {
-    const el = qs('#pagination');
-    const total = Math.ceil(FILTERED.length / CONFIG.pageSize);
-    if (!el || total <= 1) {
-      if (el) el.innerHTML = '';
+    if (pageData.length === 0 && reset) {
+      grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">Tidak ada artikel ditemukan.</p>';
+      btn.style.display = 'none';
       return;
     }
 
-    el.innerHTML = '';
+    pageData.forEach((art, index) => {
+      const card = document.createElement('div');
+      card.className = 'card skeleton'; // Start with skeleton state
+      card.innerHTML = `
+      <div class="card-img-wrapper">
+      <img src="${art.thumbnail}" alt="${art.title}" class="card-img" onload="this.closest('.card').classList.remove('skeleton')">
+      </div>
+      <div class="card-body">
+      <div class="card-meta">${art.category}</div>
+      <h3 class="card-title"><a href="${art.link}">${art.title}</a></h3>
+      <p class="card-excerpt">${art.summary}</p>
+      <div class="card-footer">
+      <span>${art.date.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+      </div>
+      </div>
+      `;
 
-    const nav = (label, page, disabled = false) => {
-      const b = document.createElement('button');
-      b.innerHTML = label;
-      b.className = 'page-nav-btn';
-      b.disabled = disabled;
-      b.onclick = () => goToPage(page);
-      el.appendChild(b);
-    };
+      // Staggered animation effect
+      setTimeout(() => {
+        grid.appendChild(card);
+      }, index * 50);
+    });
 
-    nav('&laquo;', CURRENT_PAGE - 1, CURRENT_PAGE === 1);
-
-    for (let i = 1; i <= total; i++) {
-      if (i === 1 || i === total || Math.abs(i - CURRENT_PAGE) <= 1) {
-        const b = document.createElement('button');
-        b.textContent = i;
-        b.className = `page-num-btn ${i === CURRENT_PAGE ? 'active' : ''}`;
-        b.onclick = () => goToPage(i);
-        el.appendChild(b);
-      }
+    // Manage Load More Button
+    if (end >= filteredArticles.length) {
+      btn.style.display = 'none';
+    } else {
+      btn.style.display = 'inline-block';
     }
-
-    nav('&raquo;', CURRENT_PAGE + 1, CURRENT_PAGE === total);
   }
 
-  function goToPage(p) {
-    renderArticlesPage(p);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  // --- SETUP CATEGORY FILTERS ---
+  function setupFilters() {
+    const container = document.getElementById('categoryContainer');
+    const categories = [...new Set(allArticles.map(a => a.category))];
+
+    categories.forEach(cat => {
+      const btn = document.createElement('button');
+      btn.className = 'pill';
+      btn.textContent = cat;
+      btn.onclick = () => filterArticles(cat, btn);
+      container.appendChild(btn);
+    });
   }
 
-  function debounce(fn, ms) {
-    let t;
-    return (...args) => {
-      clearTimeout(t);
-      t = setTimeout(() => fn(...args), ms);
+  function filterArticles(category, element) {
+    // Update active state
+    document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+    if(element) element.classList.add('active');
+    else document.querySelector('.pill').classList.add('active'); // "All" button
+
+    if (category === 'all') {
+      filteredArticles = [...allArticles];
+    } else {
+      filteredArticles = allArticles.filter(a => a.category === category);
+    }
+    renderGrid(true);
+  }
+
+  // --- SETUP ARCHIVE DROPDOWNS ---
+  function setupArchive() {
+    const yearSelect = document.getElementById('yearSelect');
+    const monthSelect = document.getElementById('monthSelect');
+
+    const years = [...new Set(allArticles.map(a => a.date.getFullYear()))].sort((a,b) => b-a);
+
+    years.forEach(y => {
+      const opt = document.createElement('option');
+      opt.value = y;
+      opt.textContent = y;
+      yearSelect.appendChild(opt);
+    });
+
+    // Populate months (Standard 1-12)
+    const monthNames = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+    monthNames.forEach((m, i) => {
+      const opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = m;
+      monthSelect.appendChild(opt);
+    });
+
+    const handleArchiveFilter = () => {
+      const y = yearSelect.value;
+      const m = monthSelect.value;
+
+      filteredArticles = allArticles.filter(a => {
+        const matchYear = y ? a.date.getFullYear() == y : true;
+        const matchMonth = m !== "" ? a.date.getMonth() == m : true;
+        return matchYear && matchMonth;
+      });
+      renderGrid(true);
     };
+
+    yearSelect.addEventListener('change', handleArchiveFilter);
+    monthSelect.addEventListener('change', handleArchiveFilter);
   }
 
-  /* =====================================================
-   * INIT
-   * ===================================================== */
-  initTheme();
-  loadArticles();
+  // --- RENDER SIDEBAR (RANDOM / TRENDING) ---
+  function renderSidebar() {
+    const container = document.getElementById('sidebarList');
+    container.innerHTML = ''; // Bersihkan konten lama jika ada
 
-})(window);
+    // 1. Buat salinan array (agar urutan asli di allArticles tidak berantakan)
+    // 2. Acak urutannya
+    // 3. Ambil 5 item pertama
+    const randomArticles = [...allArticles]
+    .sort(() => 0.10 - Math.random())
+    .slice(0, 10);
+
+    randomArticles.forEach(art => {
+      const div = document.createElement('div');
+      div.className = 'mini-card';
+      div.innerHTML = `
+      <img src="${art.thumbnail}" class="mini-thumb" alt="thumb" loading="lazy">
+      <div class="mini-info">
+      <h4><a href="${art.link}">${art.title.substring(0, 45)}...</a></h4>
+      <span>${art.date.toLocaleDateString('id-ID', { month: 'short', day: 'numeric' })}</span>
+      </div>
+      `;
+      container.appendChild(div);
+    });
+  }
