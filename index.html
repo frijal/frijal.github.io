@@ -134,6 +134,39 @@
             width: 100%; padding: 10px; margin: 5px 0; border-radius: 8px; border: none;
         }
 
+        /* --- TOAST NOTIFICATION STYLES --- */
+#toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.toast {
+    background: #2ecc71; /* Warna hijau sukses */
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    margin-top: 10px;
+    /* Animasi masuk */
+    animation: slideIn 0.5s ease forwards;
+    transition: opacity 0.5s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.toast-hide {
+    opacity: 0;
+}
+        
         /* --- NEW FOOTER STYLES --- */
 .page-footer {
     background: var(--bg-card);
@@ -245,14 +278,18 @@
                 <button onclick="renderSidebar()" style="background:none; border:none; color:var(--primary); cursor:pointer; font-size:0.8rem; width:100%; text-align:right;">↻ Acak Lagi</button>
             </div>
 
-            <div class="contact-card">
-                <h3>Hubungi Kami</h3>
-                <p style="font-size: 0.8rem; margin-bottom: 10px;">Kirim saran atau kerjasama</p>
-                <input type="text" placeholder="Nama">
-                <input type="email" placeholder="Email">
-                <textarea placeholder="Pesan"></textarea>
-                <button class="pill" style="width:100%; background: var(--secondary); color:black; font-weight:bold; margin-top:10px; border:none;">Kirim</button>
-            </div>
+           <div class="contact-card">
+    <h3>Hubungi Kami</h3>
+    <p style="font-size: 0.8rem; margin-bottom: 10px;">Kirim saran atau kerjasama</p>
+    
+    <input type="text" id="contact-name" placeholder="Nama" required>
+    <input type="email" id="contact-email" placeholder="Email" required>
+    <textarea id="contact-message" placeholder="Pesan" required></textarea>
+    
+    <button type="button" onclick="sendToWA()" class="pill" style="width:100%; background: var(--secondary); color:black; font-weight:bold; margin-top:10px; border:none; cursor:pointer;">
+        Kirim ke WhatsApp
+    </button>
+</div>
         </aside>
     </div>
 </div>
@@ -446,6 +483,60 @@ async function fetchData() {
     };
 
     fetchData();
+    
+    function showToast(message) {
+    // Buat container jika belum ada
+    let container = document.getElementById('toast-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'toast-container';
+        document.body.appendChild(container);
+    }
+
+    // Buat elemen toast
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>${message}</span>`;
+    
+    container.appendChild(toast);
+
+    // Hilangkan toast otomatis setelah 3 detik
+    setTimeout(() => {
+        toast.classList.add('toast-hide');
+        setTimeout(() => toast.remove(), 500);
+    }, 3000);
+}
+
+function sendToWA() {
+    const name = document.getElementById('contact-name').value;
+    const email = document.getElementById('contact-email').value;
+    const message = document.getElementById('contact-message').value;
+    
+    // Validasi sederhana: Nama dan Pesan wajib diisi
+    if(!name || !message) {
+        alert("Nama dan Pesan jangan dikosongkan ya, Bosku!");
+        return;
+    }
+
+    // Ganti dengan nomor WhatsApp kamu (format 62...)
+    const noWA = "6281578163858"; 
+    
+    // Menyusun format pesan WhatsApp
+    const text = `Halo Layar Kosong!%0A%0A*Nama:* ${name}%0A*Email:* ${email}%0A*Pesan:* ${message}`;
+    
+    // Panggil notifikasi Toast (fungsi showToast ada di chat sebelumnya)
+    showToast("Membuka WhatsApp... Pesan siap dikirim!");
+
+    // Jeda 1 detik agar user bisa lihat notifikasi suksesnya dulu
+    setTimeout(() => {
+        window.open(`https://wa.me/${noWA}?text=${text}`, '_blank');
+        
+        // Bersihkan input setelah berhasil
+        document.getElementById('contact-name').value = "";
+        document.getElementById('contact-email').value = "";
+        document.getElementById('contact-message').value = "";
+    }, 1200);
+}
 </script>
 
 </body>
