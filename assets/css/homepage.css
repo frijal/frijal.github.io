@@ -181,7 +181,8 @@ border-color: var(--accent);
 
 /* PERBAIKAN GAMBAR 16:9 DISINI */
 .news-card img {
-  width: 280px;
+  width: 220px;
+  height: auto;           /* Fix untuk desktop */
   aspect-ratio: 16 / 9;
   object-fit: cover;
   flex-shrink: 0;
