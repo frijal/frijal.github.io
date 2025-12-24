@@ -1,6 +1,6 @@
 /**
  * assets/js/homepage.js
- * Perbaikan: Urutan Bulan, Counter Kategori, & Fix Cascading Filter
+ * Perbaikan: Cascading Filter (Double), Tombol Reset, & Metadata Layout
  */
 (function (global) {
   'use strict';
@@ -15,7 +15,7 @@
   let ALL_ARTICLES = [];
   let FILTERED = [];
   let CURRENT_PAGE = 1;
-  let ARCHIVE = {};
+  let ARCHIVE = {}; // Akan menyimpan { '2024': { months: Set, categories: Set } }
 
   const qs = sel => document.querySelector(sel);
   const escapeHtml = s => String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
@@ -84,17 +84,16 @@
       const month = String(d.getMonth() + 1).padStart(2, '0');
 
       if (!ARCHIVE[year]) {
-        ARCHIVE[year] = { months: new Set(), categories: {} };
+        ARCHIVE[year] = { months: new Set(), categories: new Set() };
       }
       ARCHIVE[year].months.add(month);
-      // Hitung jumlah per kategori di tahun tersebut
-      ARCHIVE[year].categories[a.category] = (ARCHIVE[year].categories[a.category] || 0) + 1;
+      ARCHIVE[year].categories.add(a.category);
     });
   }
 
   function renderAll() {
     renderFiltersUI();
-    applyFilters(); // Pastikan filter dipanggil di awal
+    renderArticlesPage(1);
   }
 
   function renderArticlesPage(page = 1) {
@@ -129,6 +128,7 @@
     const el = qs('#sidebar-list');
     if (!el) return;
     const shuffled = [...ALL_ARTICLES].sort(() => 0.5 - Math.random()).slice(0, CONFIG.thumbnailSidebarCount);
+
     el.innerHTML = shuffled.map(a => `
     <div class="side-item">
     <img src="${a.image}" alt="" onerror="this.src='${CONFIG.placeholderImage}'" loading="lazy">
@@ -149,10 +149,11 @@
 
     if (!yearSel || !monthSel || !catSel) return;
 
-    // Load Tahun Awal (Urutan Terbaru ke Lama)
+    // Load Tahun Awal
     const years = Object.keys(ARCHIVE).sort((a,b) => b - a);
     yearSel.innerHTML = '<option value="">Tahun</option>' + years.map(y => `<option value="${y}">${y}</option>`).join('');
 
+    // Reset dropdown helper
     const resetDropdown = (el, label, disabled = true) => {
       el.innerHTML = `<option value="">${label}</option>`;
       el.disabled = disabled;
@@ -162,36 +163,36 @@
     yearSel.onchange = () => {
       const y = yearSel.value;
       resetDropdown(monthSel, "Bulan", true);
+      resetDropdown(catSel, "Kategori", false);
 
       if (y && ARCHIVE[y]) {
-        // 1. Cascading Bulan (Januari -> Desember)
+        // Cascading Bulan
         monthSel.disabled = false;
         monthSel.style.opacity = "1";
-        [...ARCHIVE[y].months].sort((a,b) => a - b).forEach(m => {
+        [...ARCHIVE[y].months].sort((a,b) => b - a).forEach(m => {
           const mName = new Date(2000, parseInt(m)-1).toLocaleString('id-ID', {month:'long'});
           monthSel.innerHTML += `<option value="${m}">${mName}</option>`;
         });
-
-        // 2. Cascading Kategori dengan Jumlah
+        // Cascading Kategori
         catSel.innerHTML = '<option value="">Kategori</option>';
-        Object.entries(ARCHIVE[y].categories).sort().forEach(([name, count]) => {
-          catSel.innerHTML += `<option value="${name}">${name} (${count})</option>`;
+        [...ARCHIVE[y].categories].sort().forEach(c => {
+          catSel.innerHTML += `<option value="${c}">${c}</option>`;
         });
       } else {
-        // Tampilkan semua kategori jika tahun kosong
-        const allCats = {};
-        ALL_ARTICLES.forEach(a => allCats[a.category] = (allCats[a.category] || 0) + 1);
-        catSel.innerHTML = '<option value="">Kategori</option>' +
-        Object.entries(allCats).sort().map(([n, c]) => `<option value="${n}">${n} (${c})</option>`).join('');
+        // Jika tahun kosong, tampilkan semua kategori
+        const cats = [...new Set(ALL_ARTICLES.map(a => a.category))].sort();
+        catSel.innerHTML = '<option value="">Kategori</option>' + cats.map(c => `<option value="${c}">${c}</option>`).join('');
       }
       applyFilters();
     };
 
+    // Tombol Reset
     if (btnReset) {
       btnReset.onclick = () => {
         if (searchBox) searchBox.value = '';
         yearSel.value = '';
         yearSel.dispatchEvent(new Event('change'));
+        applyFilters();
       };
     }
 
@@ -199,12 +200,13 @@
     monthSel.onchange = applyFilters;
     if (searchBox) searchBox.oninput = debounce(applyFilters, 300);
 
-    // Initial load kategori
-    yearSel.dispatchEvent(new Event('change'));
+    // Default state
+    monthSel.disabled = true;
+    monthSel.style.opacity = "0.5";
   }
 
   function applyFilters() {
-    const q = (qs('#search-box')?.value || '').toLowerCase();
+    const q = qs('#search-box')?.value.toLowerCase() || '';
     const y = qs('#filter-year')?.value || '';
     const m = qs('#filter-month')?.value || '';
     const c = qs('#filter-category')?.value || '';
@@ -239,6 +241,7 @@
     if (endPage - startPage < 3) startPage = Math.max(1, endPage - 3);
 
     for (let i = startPage; i <= endPage; i++) {
+      if (i < 1) continue;
       const numBtn = document.createElement('button');
       numBtn.innerText = i;
       numBtn.className = `page-num-btn ${i === CURRENT_PAGE ? 'active' : ''}`;
