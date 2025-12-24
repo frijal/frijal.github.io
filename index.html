@@ -199,18 +199,22 @@
     let displayedData = [];
     let limit = 6;
 
-    async function fetchData() {
+async function fetchData() {
         try {
             const res = await fetch('artikel.json');
             const data = await res.json();
             
+            // Kosongkan array sebelum mengisi (menghindari duplikasi saat refresh)
+            allData = [];
+
             // Flatten data dari kategori JSON
             for (const cat in data) {
                 data[cat].forEach(item => {
                     allData.push({
                         category: cat,
                         title: item[0],
-                        url: `/artikel/${rawLink.replace(/^\/+/, '')}`,
+                        // Menambahkan folder 'artikel/' sebelum slug file .html
+                        url: 'artikel/' + item[1], 
                         img: item[2],
                         date: new Date(item[3]),
                         summary: item[4]
@@ -218,13 +222,14 @@
                 });
             }
             
-            // Sort terbaru
+            // Sort terbaru (berdasarkan tanggal)
             allData.sort((a, b) => b.date - a.date);
             displayedData = [...allData];
 
             initSite();
         } catch (e) {
             console.error("Gagal ambil data", e);
+            document.getElementById('newsFeed').innerHTML = "<p>Gagal memuat konten. Pastikan file JSON tersedia.</p>";
         }
     }
 
