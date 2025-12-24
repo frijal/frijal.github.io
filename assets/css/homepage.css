@@ -186,6 +186,7 @@ border-color: var(--accent);
   aspect-ratio: 16 / 9;
   object-fit: cover;
   flex-shrink: 0;
+  display: block;         /* Menghindari gap aneh di bawah gambar */
 }
 
 .news-info { padding: 15px; flex: 1; }
