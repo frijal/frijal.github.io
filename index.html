@@ -1,29 +1,55 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beranda — Layar Kosong</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arsip Artikel | Layar Kosong</title>
+    <meta name="description" content="Kumpulan artikel santai seputar teknologi, sejarah, religi, dan gaya hidup.">
 
-  <link rel="stylesheet" href="/assets/css/homepage.css">
+    <link rel="stylesheet" href="assets/css/homepage.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- FILTER -->
-  <div class="filters">
-    <input id="search" type="search" placeholder="Cari judul / kategori…">
-    <select id="filterCategory">
-      <option value="">Semua Kategori</option>
-    </select>
-    <select id="filterMonth">
-      <option value="">Semua Bulan</option>
-    </select>
-  </div>
+    <header>
+        <div class="container header-content">
+            <div class="site-title">Layar Kosong 🚀</div>
 
-  <!-- GRID ARTIKEL -->
-  <main id="articleGrid" class="grid"></main>
-<nav id="pagination" class="pagination"></nav>
+            <div class="controls">
+                <input type="text" id="search-input" placeholder="Cari judul atau topik..." aria-label="Cari artikel">
 
-  <script src="/assets/js/homepage.js" defer></script>
+                <select id="filter-category" aria-label="Filter Kategori">
+                    <option value="">Semua Kategori</option>
+                    </select>
+
+                <select id="filter-archive" aria-label="Filter Arsip">
+                    <option value="">Semua Waktu</option>
+                    </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="result-count" class="meta-info">Memuat artikel...</div>
+
+        <div id="loader" class="loader">
+            <p>Sedang mengambil data terbaru...</p>
+        </div>
+
+        <div id="article-grid" class="grid-container">
+            </div>
+
+        <div id="pagination" class="pagination">
+            </div>
+    </main>
+
+    <footer class="container" style="text-align: center; margin-top: 3rem; margin-bottom: 2rem; color: var(--text-secondary); font-size: 0.9rem;">
+        <p>&copy; 2025 Layar Kosong - Balikpapan. Dibuat dengan ❤️ dan JSON.</p>
+    </footer>
+
+    <script src="assets/js/homepagejs"></script>
 </body>
 </html>
