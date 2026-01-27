@@ -25,7 +25,7 @@ jobs:
           # Penting: jangan pakai persist-credentials false kalau mau buat PR
           
       - name: Super-linter
-        uses: super-linter/super-linter@v8.3..2
+        uses: super-linter/super-linter@v8.3.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_ALL_CODEBASE: false
