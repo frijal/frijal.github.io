@@ -68,7 +68,7 @@ jobs:
       # Buat PR jika ada perubahan
       - name: Create Pull Request (if changes detected)
         if: steps.check_changes.outputs.changes_detected == 'true'
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v8
         with:
           branch: chore/auto-maintenance-${{ github.run_id }}
           title: 'chore: Upgrade (minor) & Cleanup Dependencies'
