@@ -2,23 +2,18 @@
   "name": "frijal.github.io",
   "version": "1.0.0",
   "type": "module",
-  "description": "[](https://frijal.github.io/index.html)",
-  "main": "index.js",
+  "description": "https://frijal.github.io/index.html",
   "scripts": {
-    "start": "node ext/rss.js",
-    "screenshot": "node ext/screenshot-puppeteer.js"
+    "start": "bun ext/rss.js",
+    "screenshot": "bun ext/screenshot-puppeteer.js",
+    "clean": "bun x depcheck"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/frijal/frijal.github.io.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Fakhrul Rijal",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/frijal/frijal.github.io/issues"
-  },
-  "homepage": "https://github.com/frijal/frijal.github.io#readme",
   "devDependencies": {
     "depcheck": "^1.4.7"
   }
