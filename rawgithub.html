@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LayarKosong Photo Browser</title>
+    <!-- Pakai Tailwind CSS v4 -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 p-6 md:p-12">
+
+    <div class="max-w-6xl mx-auto">
+        <header class="text-center mb-10">
+            <h1 class="text-3xl font-bold tracking-tight text-white mb-2">📷 LayarKosong Gallery Browser</h1>
+            <p class="text-gray-400 text-sm">Menampilkan foto langsung dari repo produksi LayarKosong</p>
+        </header>
+        
+        <!-- Grid Galeri -->
+        <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Loading State -->
+            <div id="loading" class="col-span-full text-center py-10 text-gray-400 animate-pulse">
+                Memuat foto-foto gokil... Tutuup pintu dulu...
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Konfigurasi target repo produksi kamu
+        const USERNAME = 'frijal'; // Username GitHub kamu
+        const REPO = 'LayarKosong'; // Nama repo produksi kamu
+        const FOLDER_PATH = 'path/ke/folder/foto/kamu'; // CONTOH: 'assets/images' (tanpa garis miring di awal/akhir)
+        const BRANCH = 'main'; // Target branch repo produksi
+
+        // Menggunakan GitHub API untuk fetch list file
+        const API_URL = `https://api.github.com/repos/${USERNAME}/${REPO}/contents/${FOLDER_PATH}?ref=${BRANCH}`;
+
+        async function fetchPhotos() {
+            try {
+                const response = await fetch(API_URL);
+                if (!response.ok) throw new Error('Gagal narik data dari API GitHub');
+                
+                const files = await response.json();
+                const gallery = document.getElementById('gallery');
+                document.getElementById('loading').remove(); // Hapus tulisan loading
+
+                // Filter ekstensi gambar yang valid
+                const imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'avif'];
+                let hasImages = false;
+                
+                files.forEach(file => {
+                    const ext = file.name.split('.').pop().toLowerCase();
+                    if (file.type === 'file' && imageExtensions.includes(ext)) {
+                        hasImages = true;
+
+                        // Pake trik Statically CDN biar preview-nya ringan, ga nembak raw github langsung
+                        const previewUrl = `https://img.statically.io/img/raw.githubusercontent.com/${USERNAME}/${REPO}/${BRANCH}/${FOLDER_PATH}/${file.name}?w=400&f=webp`;
+                        // URL asli buat download langsung file master-nya
+                        const downloadUrl = file.download_url;
+
+                        const card = document.createElement('div');
+                        card.className = "bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-700 flex flex-col justify-between hover:border-blue-500 transition duration-300";
+
+                        card.innerHTML = `
+                            <div class="relative group overflow-hidden bg-gray-950 h-48 flex items-center justify-center">
+                                <img src="${previewUrl}" alt="${file.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy">
+                            </div>
+                            <div class="p-4 flex flex-col justify-between flex-grow">
+                                <p class="text-xs text-gray-400 truncate mb-4 font-mono" title="${file.name}">${file.name}</p>
+                                <a href="${downloadUrl}" download="${file.name}" target="_blank" 
+                                   class="w-full block text-center bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold py-2 px-4 rounded-lg transition duration-200 shadow-sm">
+                                    ⬇️ Download Asli
+                                </a>
+                            </div>
+                        `;
+                        gallery.appendChild(card);
+                    }
+                });
+
+                if (!hasImages) {
+                    gallery.innerHTML = `<div class="col-span-full text-center py-10 text-gray-500">Zonk! Gak ada foto di folder itu, Jal.</div>`;
+                }
+
+            } catch (error) {
+                console.error(error);
+                document.getElementById('gallery').innerHTML = `
+                    <div class="col-span-full text-center py-10 text-red-400">
+                        Gagal memuat galeri. Pastikan repo publik dan PATH foldernya bener, Jal!
+                    </div>`;
+            }
+        }
+
+        fetchPhotos();
+    </script>
+</body>
+</html>
