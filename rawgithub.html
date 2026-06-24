@@ -3,93 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LayarKosong Photo Browser</title>
-    <!-- Pakai Tailwind CSS v4 -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Index of /</title>
+    <style>
+        body { font-family: monospace; background: #fff; color: #000; padding: 20px; }
+        h1 { font-size: 1.5em; margin-bottom: 5px; }
+        hr { border: 0; border-top: 1px solid #000; margin: 10px 0; }
+        table { width: 100%; max-width: 1000px; border-collapse: collapse; text-align: left; }
+        th, td { padding: 2px 10px; white-space: nowrap; }
+        th { border-bottom: 1px solid #000; }
+        a { color: #0000ee; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .size, .preview-th, .preview-td { text-align: right; }
+        .preview-box { max-width: 80px; max-height: 60px; object-fit: cover; border: 1px solid #ccc; display: block; margin-left: auto;}
+        .loading { font-style: italic; color: #555; }
+    </style>
 </head>
-<body class="bg-gray-900 text-gray-100 p-6 md:p-12">
+<body>
 
-    <div class="max-w-6xl mx-auto">
-        <header class="text-center mb-10">
-            <h1 class="text-3xl font-bold tracking-tight text-white mb-2">📷 LayarKosong Gallery Browser</h1>
-            <p class="text-gray-400 text-sm">Menampilkan foto langsung dari repo produksi LayarKosong</p>
-        </header>
-        
-        <!-- Grid Galeri -->
-        <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            <!-- Loading State -->
-            <div id="loading" class="col-span-full text-center py-10 text-gray-400 animate-pulse">
-                Memuat foto-foto gokil... Tutuup pintu dulu...
-            </div>
-        </div>
-    </div>
+    <h1 id="index-title">Index of /</h1>
+    <hr>
+
+    <div id="loading-text" class="loading">Loading directory contents...</div>
+
+    <table id="dir-table" style="display: none;">
+        <thead>
+            <tr>
+                <th width="5%">Icon</th>
+                <th width="45%">Name</th>
+                <th width="15%" class="size">Size</th>
+                <th width="35%" class="preview-th">Preview / Actions</th>
+            </tr>
+        </thead>
+        <tbody id="dir-list">
+            </tbody>
+    </table>
+
+    <hr>
+    <address>Apache/2.4.41 Server at GitHub API (Tailored for Frijal)</address>
 
     <script>
-        // Konfigurasi target repo produksi kamu
-        const USERNAME = 'frijal'; // Username GitHub kamu
-        const REPO = 'LayarKosong'; // Nama repo produksi kamu
-        const FOLDER_PATH = 'img'; // CONTOH: 'assets/images' (tanpa garis miring di awal/akhir)
-        const BRANCH = 'main'; // Target branch repo produksi
+        // --- KONFIGURASI AWAL ---
+        const USERNAME = 'frijal'; 
+        const REPO = 'LayarKosong'; 
+        const BRANCH = 'main';
+        // Folder awal (root dari galeri kamu di repo). Contoh: 'assets/photos'
+        // Jika ingin mulai dari root repo, biarkan kosong ''
+        const BASE_FOLDER = 'img'; 
 
-        // Menggunakan GitHub API untuk fetch list file
-        const API_URL = `https://api.github.com/repos/${USERNAME}/${REPO}/contents/${FOLDER_PATH}?ref=${BRANCH}`;
+        // State untuk menyimpan path aktif saat ini
+        let currentPath = BASE_FOLDER;
 
-        async function fetchPhotos() {
+        // Fungsi format ukuran file ala Apache (K, M)
+        function formatSize(bytes) {
+            if (bytes === undefined || bytes === null) return '-';
+            if (bytes === 0) return '0K';
+            const k = 1024;
+            const sizes = ['B', 'K', 'M', 'G'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            if (i === 0) return bytes + 'B';
+            return (bytes / Math.pow(k, i)).toFixed(1) + sizes[i];
+        }
+
+        async function loadDirectory(path) {
+            const loadingText = document.getElementById('loading-text');
+            const dirTable = document.getElementById('dir-table');
+            const dirList = document.getElementById('dir-list');
+            const indexTitle = document.getElementById('index-title');
+
+            loadingText.style.display = 'block';
+            dirTable.style.display = 'none';
+            dirList.innerHTML = '';
+            
+            // Update Judul Halaman
+            indexTitle.innerText = `Index of /${path}`;
+
+            const url = `https://api.github.com/repos/${USERNAME}/${REPO}/contents/${path}?ref=${BRANCH}`;
+
             try {
-                const response = await fetch(API_URL);
-                if (!response.ok) throw new Error('Gagal narik data dari API GitHub');
-                
-                const files = await response.json();
-                const gallery = document.getElementById('gallery');
-                document.getElementById('loading').remove(); // Hapus tulisan loading
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Directory tidak ditemukan');
+                const items = await response.json();
 
-                // Filter ekstensi gambar yang valid
-                const imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'avif'];
-                let hasImages = false;
-                
-                files.forEach(file => {
-                    const ext = file.name.split('.').pop().toLowerCase();
-                    if (file.type === 'file' && imageExtensions.includes(ext)) {
-                        hasImages = true;
+                loadingText.style.display = 'none';
+                dirTable.style.display = 'table';
 
-                        // Pake trik Statically CDN biar preview-nya ringan, ga nembak raw github langsung
-                        const previewUrl = `https://img.statically.io/img/raw.githubusercontent.com/${USERNAME}/${REPO}/${BRANCH}/${FOLDER_PATH}/${file.name}?w=400&f=webp`;
-                        // URL asli buat download langsung file master-nya
-                        const downloadUrl = file.download_url;
+                // 1. Tambahkan tombol "Parent Directory" (Back) jika tidak di BASE_FOLDER
+                if (path !== BASE_FOLDER && path !== '') {
+                    const pathParts = path.split('/');
+                    pathParts.pop();
+                    const parentPath = pathParts.join('/');
 
-                        const card = document.createElement('div');
-                        card.className = "bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-700 flex flex-col justify-between hover:border-blue-500 transition duration-300";
-
-                        card.innerHTML = `
-                            <div class="relative group overflow-hidden bg-gray-950 h-48 flex items-center justify-center">
-                                <img src="${previewUrl}" alt="${file.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy">
-                            </div>
-                            <div class="p-4 flex flex-col justify-between flex-grow">
-                                <p class="text-xs text-gray-400 truncate mb-4 font-mono" title="${file.name}">${file.name}</p>
-                                <a href="${downloadUrl}" download="${file.name}" target="_blank" 
-                                   class="w-full block text-center bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold py-2 px-4 rounded-lg transition duration-200 shadow-sm">
-                                    ⬇️ Download Asli
-                                </a>
-                            </div>
-                        `;
-                        gallery.appendChild(card);
-                    }
-                });
-
-                if (!hasImages) {
-                    gallery.innerHTML = `<div class="col-span-full text-center py-10 text-gray-500">Zonk! Gak ada foto di folder itu, Jal.</div>`;
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>📁</td>
+                        <td><a href="#" onclick="changeDir('${parentPath}'); return false;">Parent Directory</a></td>
+                        <td class="size">-</td>
+                        <td class="preview-td"></td>
+                    `;
+                    dirList.appendChild(row);
                 }
 
+                // Pisahkan folder dan file agar folder selalu muncul di atas (khas Apache)
+                const folders = items.filter(i => i.type === 'dir');
+                const files = items.filter(i => i.type === 'file');
+
+                // 2. Render Folders
+                folders.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>📁</td>
+                        <td><a href="#" onclick="changeDir('${item.path}'); return false;">${item.name}/</a></td>
+                        <td class="size">-</td>
+                        <td class="preview-td">Go inside</td>
+                    `;
+                    dirList.appendChild(row);
+                });
+
+                // 3. Render Files (Filter hanya file gambar untuk preview)
+                const imgExts = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'avif'];
+
+                files.forEach(item => {
+                    const ext = item.name.split('.').pop().toLowerCase();
+                    const isImage = imgExts.includes(ext);
+                    
+                    const row = document.createElement('tr');
+                    
+                    // Gunakan CDN Statically untuk thumbnail biar ga berat
+                    const thumbUrl = `https://img.statically.io/img/raw.githubusercontent.com/${USERNAME}/${REPO}/${BRANCH}/${item.path}?w=80&h=60&f=webp`;
+                    
+                    row.innerHTML = `
+                        <td>📄</td>
+                        <td><a href="${item.download_url}" target="_blank" download="${item.name}">${item.name}</a></td>
+                        <td class="size">${formatSize(item.size)}</td>
+                        <td class="preview-td">
+                            ${isImage ? `<a href="${item.download_url}" target="_blank"><img src="${thumbUrl}" class="preview-box" title="Klik untuk lihat ukuran penuh"></a>` : `<a href="${item.download_url}" download>Download</a>`}
+                        </td>
+                    `;
+                    dirList.appendChild(row);
+                });
+
             } catch (error) {
-                console.error(error);
-                document.getElementById('gallery').innerHTML = `
-                    <div class="col-span-full text-center py-10 text-red-400">
-                        Gagal memuat galeri. Pastikan repo publik dan PATH foldernya bener, Jal!
-                    </div>`;
+                loadingText.innerText = `Error: ${error.message}. Pastikan path dan repo benar, Jal!`;
             }
         }
 
-        fetchPhotos();
+        // Fungsi hander untuk berpindah folder secara dinamis tanpa reload halaman
+        function changeDir(newPath) {
+            currentPath = newPath;
+            loadDirectory(currentPath);
+        }
+
+        // Jalankan pertama kali
+        loadDirectory(currentPath);
     </script>
 </body>
 </html>
