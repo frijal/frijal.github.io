@@ -1,0 +1,107 @@
+name: "🛠️ Dapur Maintenance (Package Only)"
+
+on:
+  schedule:
+    - cron: 20 9 */6 * *
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Pilih Mode Operasi'
+        required: true
+        default: 'upgrade'
+        type: choice
+        options:
+          - upgrade     # Update paket dependensi
+          - paket       # Add/Remove paket manual
+      upgrade_type:
+        description: 'Tipe upgrade (khusus upgrade)'
+        required: false
+        default: 'minor'
+        type: choice
+        options: [minor, latest]
+      action:
+        description: 'Aksi (khusus paket)'
+        required: false
+        default: 'add'
+        type: choice
+        options: [add, remove]
+      packages:
+        description: 'Nama paket'
+        required: false
+        default: ''
+      is_dev:
+        description: 'DevDependency?'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  maintenance:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2
+
+      # --- STEP 1: EKSEKUSI PAKET ---
+      - name: 🚀 Upgrade/Manage Packages
+        if: github.event_name == 'schedule' || (github.event.inputs.mode == 'upgrade' || github.event.inputs.mode == 'paket')
+        run: |
+          MODE="${{ github.event.inputs.mode }}"
+          ACTION="${{ github.event.inputs.action }}"
+          PKGS="${{ github.event.inputs.packages }}"
+          IS_DEV="${{ github.event.inputs.is_dev }}"
+          UPGRADE_TYPE="${{ github.event.inputs.upgrade_type || 'minor' }}"
+
+          if [[ "$MODE" == "upgrade" || "${{ github.event_name }}" == "schedule" ]]; then
+            echo "Running Mega Upgrade..."
+            bun install
+            bunx npm-check-updates -u --target "$UPGRADE_TYPE"
+            bun install
+          elif [[ "$MODE" == "paket" && -n "$PKGS" ]]; then
+            if [[ "$ACTION" == "add" ]]; then
+              echo "Adding packages: $PKGS"
+              if [[ "$IS_DEV" == "true" ]]; then
+                bun add -d $PKGS
+              else
+                bun add $PKGS
+              fi
+            elif [[ "$ACTION" == "remove" ]]; then
+              echo "Removing packages: $PKGS"
+              bun remove $PKGS
+            fi
+            bun install --production
+          fi
+
+      # --- STEP 2: FILTER & CREATE PR ---
+      - name: 🛡️ Change Detection
+        id: filter
+        run: |
+          git add .
+          if [[ -n "$(git status --porcelain)" ]]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: 📨 Create Pull Request
+        if: steps.filter.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@d32e88dac789dcc7906e7d26f69f24116fa9c97d
+        with:
+          title: "chore: 📦 Package Maintenance [${{ github.event.inputs.mode || 'Auto' }}]"
+          commit-message: "chore: automated package updates"
+          branch: "maintenance-update"
+          delete-branch: true
+          body: |
+            🔧 **Maintenance Paket Selesai!**
+
+             **Detail:**
+             - **Mode:** `${{ github.event.inputs.mode || 'Scheduled' }}`
+             - Pembaruan dependensi (`package.json` & `bun.lockb`) telah berhasil dieksekusi.
